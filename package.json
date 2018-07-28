@@ -3,8 +3,11 @@
   "version": "1.0.0-0",
   "description": "",
   "main": "index.js",
+  "bin": {
+    "mdx-deck": "./cli.js"
+  },
   "scripts": {
-    "start": "./cli.js"
+    "start": "./cli.js docs/index.mdx"
   },
   "keywords": [],
   "author": "Brent Jackson",
@@ -12,14 +15,17 @@
   "dependencies": {
     "@mdx-js/tag": "^0.14.1",
     "chalk": "^2.4.1",
+    "clipboardy": "^1.2.3",
     "debounce": "^1.1.0",
     "get-port": "^4.0.0",
     "gray-matter": "^4.0.1",
     "koa": "^2.5.2",
     "koa-webpack": "^5.1.0",
     "lodash.throttle": "^4.1.1",
+    "meow": "^5.0.0",
     "mini-html-webpack-plugin": "^0.2.3",
     "ok-cli": "^2.0.9",
+    "pkg-conf": "^2.1.0",
     "progress-bar-webpack-plugin": "^1.11.0",
     "prop-types": "^15.6.2",
     "react-dev-utils": "^5.0.1",
