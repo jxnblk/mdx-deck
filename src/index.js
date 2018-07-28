@@ -7,6 +7,8 @@ import debounce from 'lodash.debounce'
 
 import defaultTheme from './theme'
 import defaultComponents from './components'
+export { default as theme } from './theme'
+export { default as components } from './components'
 
 export const inc = state => ({ index: (state.index + 1) % state.length })
 export const dec = state => state.index > 0

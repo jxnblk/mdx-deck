@@ -1,13 +1,14 @@
 {
   "name": "mdx-deck",
   "version": "1.0.0-0",
-  "description": "",
-  "main": "index.js",
+  "description": "MDX-based slide deck presentations",
+  "main": "dist/index.js",
   "bin": {
     "mdx-deck": "./cli.js"
   },
   "scripts": {
-    "start": "./cli.js docs/index.mdx"
+    "prepare": "babel src -d dist",
+    "start": "./cli.js docs/index.mdx -p 8989"
   },
   "keywords": [],
   "author": "Brent Jackson",
@@ -33,5 +34,8 @@
     "styled-components": "^3.3.3",
     "styled-system": "^3.0.2",
     "superbox": "^2.1.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0"
   }
 }
