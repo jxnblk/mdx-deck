@@ -8,10 +8,6 @@ npm i mdx-deck
 ```
 
 ````md
----
-imports:
-  - import Demo from './components/Demo'
----
 
 # This is the title of my deck
 
@@ -27,6 +23,7 @@ imports:
 
 ---
 
+import Demo from './components/Demo'
 
 <Demo />
 
@@ -39,5 +36,10 @@ imports:
 ```sh
 mdx-deck deck.mdx
 ```
+
+---
+
+- [ ] default styles
+- [ ] export build
 
 [MDX]: https://github.com/mdx-js/mdx
