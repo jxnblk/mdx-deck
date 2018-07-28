@@ -1,0 +1,29 @@
+{
+  "name": "mdx-deck",
+  "version": "1.0.0-0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "./cli.js"
+  },
+  "keywords": [],
+  "author": "Brent Jackson",
+  "license": "MIT",
+  "dependencies": {
+    "@mdx-js/tag": "^0.14.1",
+    "chalk": "^2.4.1",
+    "debounce": "^1.1.0",
+    "get-port": "^4.0.0",
+    "gray-matter": "^4.0.1",
+    "koa": "^2.5.2",
+    "koa-webpack": "^5.1.0",
+    "lodash.throttle": "^4.1.1",
+    "mini-html-webpack-plugin": "^0.2.3",
+    "ok-cli": "^2.0.9",
+    "progress-bar-webpack-plugin": "^1.11.0",
+    "prop-types": "^15.6.2",
+    "react-dev-utils": "^5.0.1",
+    "styled-components": "^3.3.3",
+    "superbox": "^2.1.0"
+  }
+}
