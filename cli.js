@@ -42,6 +42,9 @@ const getConfig = conf => {
       ]
     }
   ]
+  conf.module.rules[1].include.push(
+    path.join(__dirname, './src')
+  )
 
   return conf
 }
@@ -79,7 +82,7 @@ const doc = file || cmd
 if (!doc) cli.showHelp(0)
 
 const opts = Object.assign({
-  entry: path.join(__dirname, './lib/entry.js'),
+  entry: path.join(__dirname, './src/entry.js'),
   dirname: path.dirname(path.resolve(doc)),
   globals: {
     DOC_FILENAME: JSON.stringify(path.resolve(doc))

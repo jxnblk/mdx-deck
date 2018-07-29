@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import SlideDeck from '../src'
+import SlideDeck from './index'
 
 const mod = require(DOC_FILENAME)
 const slides = mod.default
