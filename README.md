@@ -106,6 +106,7 @@ TK
 ---
 
 - [ ] default styles
+- [ ] URL hash
 - [ ] Root provider
 - [ ] export build
 

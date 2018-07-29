@@ -73,7 +73,6 @@ const cli = meow(`
 })
 
 const [ cmd, file ] = cli.input
-
 const doc = file || cmd
 
 if (!doc) cli.showHelp(0)
