@@ -16,68 +16,27 @@ export const dec = state => state.index > 0
   : null
 
 const CarouselRoot = styled.div([], {
-  display: 'flex',
-  overflowX: 'auto',
+  overflowX: 'hidden',
   width: '100%',
   height: '100%',
-  scrollSnapType: 'mandatory',
-  '::-webkit-scrollbar': {
-    display: 'none'
-  }
 })
+const CarouselInner = styled.div([], {
+  display: 'flex',
+  width: '100%',
+  height: '100%',
+  transitionProperty: 'transform',
+  transitionTimingFunction: 'ease-out',
+  transitionDuration: '.3s'
+}, props => ({
+  transform: `translateX(${-100 * props.index}%)`
+}))
 
 export class Carousel extends React.Component {
-  root = React.createRef()
-  isScroll = false
-
-  handleScroll = debounce(e => {
-    if (this.isScroll) {
-      this.isScroll = false
-      return
-    }
-    const el = this.root.current
-    if (!el) return
-    const { scrollLeft } = el
-    const rect = el.getBoundingClientRect()
-    const n = Math.round(scrollLeft / rect.width)
-    this.props.onScroll(n)
-  }, 200)
-
-  handleResize = debounce(e => {
-    this.scrollTo(this.props.index)
-  }, 200)
-
-  scrollTo = (index) => {
-    if (!this.root.current) return
-    const el = this.root.current.querySelector('#slide-' + index)
-    if (!el) return
-    el.scrollIntoView({ behavior: 'smooth' })
-  }
-
-  componentDidMount () {
-    window.addEventListener('resize', this.handleResize)
-    this.root.current.addEventListener('scroll', this.handleScroll)
-  }
-
-  componentWillUnmount () {
-    window.removeEventListener('resize', this.handleResize)
-    this.root.current.removeEventListener('scroll', this.handleScroll)
-  }
-
-  componentDidUpdate (prev) {
-    if (prev.index === this.props.index) return
-    this.isScroll = true
-    this.scrollTo(this.props.index)
-  }
-
   render () {
-    const { onScroll, index, ...props } = this.props
-
     return (
-      <CarouselRoot
-        innerRef={this.root}
-        {...props}
-      />
+      <CarouselRoot>
+        <CarouselInner {...this.props} />
+      </CarouselRoot>
     )
   }
 }
@@ -210,17 +169,12 @@ export default class SlideDeck extends React.Component {
       height
     } = this.props
     const { index, length } = this.state
-    console.log('components', components)
 
     return (
       <ThemeProvider theme={theme}>
         <MDXProvider components={components}>
           <Root width={width} height={height}>
-            <Carousel
-              index={index}
-              onScroll={index => {
-                this.setState({ index })
-              }}>
+            <Carousel index={index}>
               {slides.map((Component, i) => (
                 <Slide key={i} id={'slide-' + i}>
                   <Component />
