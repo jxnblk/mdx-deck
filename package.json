@@ -28,11 +28,12 @@
     "react": "^16.4.1",
     "react-dev-utils": "^5.0.1",
     "stringify-object": "^3.2.2",
-    "styled-components": "^3.3.3",
     "styled-system": "^3.0.2",
     "superbox": "^2.1.0",
+    "styled-components": ">=3.0.0",
     "webpack-hot-client": "^4.1.1"
   },
+  "peerDependencies": {},
   "devDependencies": {
     "babel-cli": "^6.26.0"
   }
