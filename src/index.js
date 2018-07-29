@@ -55,9 +55,7 @@ export const Slide = styled.div([], {
 }, space, color)
 
 Slide.defaultProps = {
-  px: [ 4, 5, 6 ],
-  pt: [ 3, 4 ],
-  pb: [ 4, 5 ],
+  px: [ 4, 5, 6 ]
 }
 
 const Dot = styled.button([], {
