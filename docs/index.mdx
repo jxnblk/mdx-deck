@@ -1,31 +1,43 @@
 import Layout from './Layout'
+import { Image } from '../src'
 // export { default as theme } from './theme'
 
-# Hello
+# mdx-deck
+
+MDX-based presention decks
 ---
-# This is a presentation deck!
+# Presentation decks
 ---
 # Built with [MDX][]
 [MDX]: https://github.com/mdx-js/mdx
 ---
 import Box from 'superbox'
 
-<Box p={3} bg='magenta'>
-  You can import React components!
+<Box
+  fontSize={4}
+  p={4}
+  bg='magenta'>
+  Import React components
 </Box>
 ---
 export default Layout
 
-# Slide Layouts
-And set per-slide layouts
+# Layouts
+Add layouts per-slide
+
 ---
-- You can use lists as well
-- Which is great for bullet points
-- Or making your point
+
+- Make bulleted lists
+- To help make your point
+
 ---
-1. Install mdx-deck
+
+## Getting Started
+
+1. `npm i -D mdx-deck`
 2. Write some markdown and JSX
 3. Present
+
 ---
 ```
 <button>code example</button>
@@ -36,3 +48,5 @@ And set per-slide layouts
 – Anonymous
 ---
 ![](https://s3.amazonaws.com/jxnblk/ok-cli.gif)
+---
+<Image src='https://s3.amazonaws.com/jxnblk/ok-cli.gif' />

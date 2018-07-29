@@ -7,8 +7,10 @@ import debounce from 'lodash.debounce'
 
 import defaultTheme from './theme'
 import defaultComponents from './components'
+
 export { default as theme } from './theme'
 export { default as components } from './components'
+export { default as Image } from './Image'
 
 export const inc = state => ({ index: (state.index + 1) % state.length })
 export const dec = state => state.index > 0
@@ -20,6 +22,7 @@ const CarouselRoot = styled.div([], {
   width: '100%',
   height: '100%',
 })
+
 const CarouselInner = styled.div([], {
   display: 'flex',
   width: '100%',
@@ -53,7 +56,9 @@ export const Slide = styled.div([], {
 }, space, color)
 
 Slide.defaultProps = {
-  p: [ 4, 5, 6 ],
+  px: [ 4, 5, 6 ],
+  pt: [ 3, 4 ],
+  pb: [ 4, 5 ],
   color: 'text',
   bg: 'background'
 }
@@ -191,7 +196,7 @@ export default class SlideDeck extends React.Component {
               ))}
             </Carousel>
             <Dots
-              mt={-48}
+              mt={-32}
               mx='auto'
               index={index}
               length={length}

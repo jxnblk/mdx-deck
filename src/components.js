@@ -6,12 +6,15 @@ import {
   color
 } from 'styled-system'
 
+const css = key => props => props.theme[key]
+
 const Heading = styled.h1([], {
   lineHeight: 1.25
 },
   fontSize,
   space,
-  color
+  color,
+  css('heading')
 )
 Heading.defaultProps = {
   color: 'heading',
@@ -61,24 +64,29 @@ const h6 = props =>
     fontSize={[ 2, 3 ]}
   />
 
-const a = styled.a([], {}, color)
+const a = styled.a([], color, css('link'))
 a.defaultProps = {
   target: '_blank',
   color: 'link'
 }
 
-const p = styled.p([], {}, fontSize, space, color)
+const p = styled.p([],
+  fontSize,
+  space,
+  color,
+  css('paragraph')
+)
 
 const ul = styled.ul([], {
   textAlign: 'left'
-}, fontSize)
+}, fontSize, css('ul'))
 ul.defaultProps = {
   fontSize: [ 2, 3 ]
 }
 
 const ol = styled.ol([], {
   textAlign: 'left'
-}, fontSize)
+}, fontSize, css('ol'))
 ol.defaultProps = {
   fontSize: [ 2, 3 ]
 }
@@ -87,9 +95,14 @@ const li = styled.li([])
 const blockquote = styled.blockquote([], {
   textAlign: 'left',
   fontWeight: 'bold',
-}, fontSize, space, color)
+},
+  fontSize,
+  space,
+  color,
+  css('quote')
+)
 blockquote.defaultProps = {
-  fontSize: [ 3, 4 ],
+  fontSize: [ 2, 3, 4 ],
   px: 0,
   mx: 0,
   color: 'quote'
@@ -97,18 +110,23 @@ blockquote.defaultProps = {
 
 const pre = styled.pre([], props => ({
   fontFamily: props.theme.monospace
-}), fontSize, space, color)
+}),
+  fontSize,
+  space,
+  color,
+  css('pre')
+)
 pre.defaultProps = {
-  fontSize: 2,
+  fontSize: [ 1, 2 ],
   m: 0,
   p: 2,
-  color: 'code',
-  bg: 'codeBackground'
+  color: 'pre',
+  bg: 'preBackground'
 }
 
 const code = styled.code([], props => ({
   fontFamily: props.theme.monospace
-}), fontSize, space, color)
+}), fontSize, space, color, css('code'))
 code.defaultProps = {
   color: 'code',
   bg: 'codeBackground'
@@ -117,7 +135,7 @@ code.defaultProps = {
 const img = styled.img([], {
   maxWidth: '100%',
   height: 'auto'
-})
+}, css('image'))
 
 export default {
   h1,
@@ -132,7 +150,8 @@ export default {
   ul,
   ol,
   li,
-  pre,
-  code,
+  pre: props => props.children,
+  code: pre,
+  inlineCode: code,
   img
 }

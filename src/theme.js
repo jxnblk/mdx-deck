@@ -10,11 +10,13 @@ export default {
     link: '#07c',
     heading: '#000',
     quote: '#000',
+    pre: '#f0f',
+    preBackground: '#333',
     code: '#f0f',
-    codeBackground: '#333',
+    codeBackground: 'transparent',
   },
   css: {
     fontSize: '32px',
     // textAlign: 'center'
-  }
+  },
 }
