@@ -50,13 +50,15 @@ const getConfig = conf => {
 }
 
 const cli = meow(`
-  Usage
+  ${chalk.magenta('[mdx-deck]')}
 
-    $ mdx-deck deck.mdx
+  ${chalk.gray('Usage')}
 
-    $ mdx-deck build deck.mdx
+    $ ${chalk.magenta('mdx-deck deck.mdx')}
 
-  Options
+    $ ${chalk.magenta('mdx-deck build deck.mdx')}
+
+  ${chalk.gray('Options')}
 
     -p --port   Dev server port
 

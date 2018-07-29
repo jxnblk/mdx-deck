@@ -9,6 +9,7 @@
   "scripts": {
     "prepare": "babel src -d dist",
     "start": "./cli.js docs/index.mdx -p 8989",
+    "help": "./cli.js",
     "build": "./cli.js build docs/index.mdx -d site"
   },
   "keywords": [],
