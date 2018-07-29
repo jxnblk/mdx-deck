@@ -10,11 +10,12 @@ npm i -D mdx-deck
 ```
 
 [![Build Status][badge]][travis]
-[![Downloads][downloads-badge]][npm]
+[![Version][version-badge]][npm]
 
 [badge]: https://img.shields.io/travis/jxnblk/mdx-deck.svg?style=flat-square
 [travis]: https://travis-ci.org/jxnblk/mdx-deck
 
+[version-badge]: https://img.shields.io/npm/v/mdx-deck.svg?style=flat-square
 [downloads-badge]: https://img.shields.io/npm/dw/mdx-deck.svg?style=flat-square
 [npm]: https://npmjs.com/package/mdx-deck
 
