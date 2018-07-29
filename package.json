@@ -8,7 +8,8 @@
   },
   "scripts": {
     "prepare": "babel src -d dist",
-    "start": "./cli.js docs/index.mdx -p 8989"
+    "start": "./cli.js docs/index.mdx -p 8989",
+    "build": "./cli.js build docs/index.mdx -d site"
   },
   "keywords": [],
   "author": "Brent Jackson",
@@ -21,7 +22,7 @@
     "gray-matter": "^4.0.1",
     "lodash.throttle": "^4.1.1",
     "meow": "^5.0.0",
-    "ok-cli": "^3.0.0-6",
+    "ok-cli": "^3.0.0-8",
     "pkg-conf": "^2.1.0",
     "prop-types": "^15.6.2",
     "react-dev-utils": "^5.0.1",
