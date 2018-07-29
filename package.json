@@ -15,6 +15,7 @@
   "author": "Brent Jackson",
   "license": "MIT",
   "dependencies": {
+    "@compositor/webfont": "^1.0.37",
     "@mdx-js/tag": "^0.14.1",
     "chalk": "^2.4.1",
     "clipboardy": "^1.2.3",

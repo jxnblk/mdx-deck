@@ -1,16 +1,20 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { MDXProvider } from '@mdx-js/tag'
-import styled, { ThemeProvider } from 'styled-components'
+import styled, { ThemeProvider, withTheme } from 'styled-components'
 import { space, width, height, color } from 'styled-system'
 import debounce from 'lodash.debounce'
+import webfont from '@compositor/webfont'
 
-import defaultTheme from './theme'
+import defaultTheme from './themes'
 import defaultComponents from './components'
 
-export { default as theme } from './theme'
-export { default as components } from './components'
 export { default as Image } from './Image'
+export { default as components } from './components'
+
+// themes
+export { default as theme } from './themes'
+export * as themes from './themes'
 
 export const inc = state => ({ index: (state.index + 1) % state.length })
 export const dec = state => state.index > 0
@@ -54,18 +58,16 @@ Slide.defaultProps = {
   px: [ 4, 5, 6 ],
   pt: [ 3, 4 ],
   pb: [ 4, 5 ],
-  color: 'text',
-  bg: 'background'
 }
 
 const Dot = styled.button([], {
   appearance: 'none',
-  background: 'transparent',
   border: '4px solid transparent',
   backgroundClip: 'padding-box',
   borderRadius: '9999px',
   width: '8px',
   height: '8px',
+  color: 'inherit',
   '&:focus': {
     outline: 'none',
     boxShadow: '0 0 0 1px'
@@ -114,8 +116,32 @@ export const Root = styled.div([], {
   }) : null,
   props => props.theme.css,
   width,
-  height
+  height,
+  color
 )
+Root.defaultProps = {
+  color: 'text',
+  bg: 'background'
+}
+
+export const GoogleFonts = withTheme(({ theme }) => {
+  const links = [
+    webfont.getURL(theme.font),
+    webfont.getURL(theme.monospace)
+  ].filter(Boolean)
+  if (!links.length) return false
+  return (
+    <React.Fragment>
+      {links.map((href, i) => (
+        <link
+          key={i}
+          href={href}
+          rel='stylesheet'
+        />
+      ))}
+    </React.Fragment>
+  )
+})
 
 export class SlideDeck extends React.Component {
   static propTypes = {
@@ -183,6 +209,7 @@ export class SlideDeck extends React.Component {
       <ThemeProvider theme={theme}>
         <MDXProvider components={components}>
           <Root width={width} height={height}>
+            <GoogleFonts />
             <Carousel index={index}>
               {slides.map((Component, i) => (
                 <Slide key={i} id={'slide-' + i}>

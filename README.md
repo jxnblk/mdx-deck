@@ -57,7 +57,20 @@ mdx-deck uses [styled-components][] for styling.
 
 ### Built-in Themes
 
-TK
+mdx-deck includes several built-in themes to change the look and feel of the presentation.
+
+```mdx
+export { dark as theme } from 'ok-cli/themes'
+
+# Dark Theme
+```
+
+The following themes are available:
+
+- `theme`: default theme with white background
+- `dark`: black background dark theme
+- `future`: dark theme with Avenir Next
+- `condensed`: dark theme with Avenir Next
 
 ### Custom Themes
 
@@ -108,7 +121,7 @@ export default {
 
 ### Custom Components
 
-mdx-deck includes default components for MDX, but to provide custom components to the [MDXProvider][], export a `components` object from your MDX file.
+mdx-deck includes default components for MDX, but to provide custom components to the [MDXProvider][], export a `components` object.
 
 ```mdx
 export { default as components } from './components'
@@ -152,7 +165,7 @@ mdx-deck build deck.mdx
 
 ## React API
 
-mdx-deck components can be used in any React application, such as [create-react-app][] or [next.js][].
+mdx-deck components can also be used in any React application, such as [create-react-app][] or [next.js][].
 
 ### Webpack Loader
 
