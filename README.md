@@ -70,7 +70,7 @@ The following themes are available:
 - `theme`: default theme with white background
 - `dark`: black background dark theme
 - `future`: dark theme with Avenir Next
-- `condensed`: dark theme with Avenir Next
+- `condensed`: dark theme with Roboto Condensed
 
 ### Custom Themes
 
@@ -211,12 +211,6 @@ export default () =>
 View the source for other components available for use.
 
 ---
-
-- [ ] add default themes
-- [ ] theme docs
-- [ ] exporting docs
-- [ ] components docs
-- [ ] Provider docs
 
 [MIT License][LICENSE.md]
 
