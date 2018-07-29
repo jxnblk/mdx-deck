@@ -23,7 +23,7 @@
     "gray-matter": "^4.0.1",
     "lodash.debounce": "^4.0.8",
     "meow": "^5.0.0",
-    "ok-cli": "^3.0.2",
+    "ok-cli": "^3.0.4",
     "pkg-conf": "^2.1.0",
     "prop-types": "^15.6.2",
     "react": "^16.4.1",

@@ -13,6 +13,7 @@ export default {
     code: blue,
   },
   css: {
+    fontSize: '32px',
     textAlign: 'center'
   },
   heading: {

@@ -62,6 +62,8 @@ const cli = meow(`
 
     --no-open   Prevent from opening in default browser
 
+    --title     Title for the HTML document
+
 `, {
   flags: {
     port: {
@@ -72,6 +74,9 @@ const cli = meow(`
       type: 'boolean',
       alias: 'o',
       default: true
+    },
+    title: {
+      type: 'string'
     }
   }
 })
@@ -87,7 +92,8 @@ const opts = Object.assign({
   globals: {
     DOC_FILENAME: JSON.stringify(path.resolve(doc))
   },
-  config: getConfig
+  config: getConfig,
+  title: 'mdx-deck'
 }, config, cli.flags)
 
 switch (cmd) {
