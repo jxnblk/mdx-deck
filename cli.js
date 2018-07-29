@@ -42,6 +42,7 @@ const getConfig = conf => {
       ]
     }
   ]
+
   return conf
 }
 

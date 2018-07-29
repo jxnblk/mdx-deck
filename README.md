@@ -6,7 +6,7 @@
 **Beta**
 
 ```sh
-npm i mdx-deck
+npm i -D mdx-deck
 ```
 
 - :memo: Write presentations in markdown
@@ -34,10 +34,19 @@ import Demo from './components/Demo'
 # The end
 ````
 
-Run the CLI pointing to the `.mdx` file to start the dev server:
+Add a run script to your `package.json` with the mdx-deck CLI
+pointing to the `.mdx` file to start the dev server:
+
+```json
+"scripts": {
+  "start": "mdx-deck deck.mdx"
+}
+```
+
+Start the dev server:
 
 ```sh
-mdx-deck deck.mdx
+npm start
 ```
 
 ## Usage
