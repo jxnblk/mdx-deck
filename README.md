@@ -219,7 +219,7 @@ View the source for other components available for use.
 - [styled-system][]
 - [Spectacle][]
 
-[MIT License][LICENSE.md]
+[MIT License](LICENSE.md)
 
 [MDX]: https://github.com/mdx-js/mdx
 [MDXProvider]: https://github.com/mdx-js/mdx#mdxprovider
