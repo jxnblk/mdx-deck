@@ -53,7 +53,7 @@ export const Slide = styled.div([], {
 }, space, color)
 
 Slide.defaultProps = {
-  p: 3,
+  p: [ 4, 5, 6 ],
   color: 'text',
   bg: 'background'
 }
@@ -154,10 +154,19 @@ export default class SlideDeck extends React.Component {
 
   componentDidMount () {
     document.body.addEventListener('keydown', this.handleKeyDown)
+    const { hash } = window.location
+    const index = parseInt(hash.replace(/^#/, ''), 10)
+    if (isNaN(index)) return
+    this.setState({ index })
   }
 
   componentWillUnmount () {
     document.body.removeEventListener('keydown', this.handleKeyDown)
+  }
+
+  componentDidUpdate () {
+    const { index } = this.state
+    history.pushState(null, null, '/#' + index)
   }
 
   render () {
