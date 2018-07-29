@@ -14,6 +14,8 @@ npm i -D mdx-deck
 - :nail_care: Customizable themes and components
 - :zero: Zero-config CLI
 
+[View demo](https://jxnblk.com/mdx-deck)
+
 ## Getting Started
 
 Create an [MDX][] file and separate each slide with `---`.
