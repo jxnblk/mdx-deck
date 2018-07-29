@@ -229,6 +229,9 @@ View the source for other components available for use.
 ### Related
 
 - [MDX][]
+- [ok-mdx][]
+- [ok-cli][]
+- [Compositor x0][]
 - [styled-components][]
 - [styled-system][]
 - [Spectacle][]
@@ -237,6 +240,9 @@ View the source for other components available for use.
 
 [MDX]: https://github.com/mdx-js/mdx
 [MDXProvider]: https://github.com/mdx-js/mdx#mdxprovider
+[ok-mdx]: https://github.com/jxnblk/ok-mdx
+[ok-cli]: https://github.com/jxnblk/ok-mdx/tree/master/packages/ok-cli
+[Compositor x0]: https://github.com/c8r/x0
 [styled-system]: https://github.com/jxnblk/styled-system
 [styled-components]: https://github.com/styled-components/styled-components
 [create-react-app]: https://github.com/facebook/create-react-app
