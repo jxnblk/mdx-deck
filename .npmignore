@@ -1,4 +1,5 @@
 site
 docs
+coverage
 .babelrc
 .travis.yml
