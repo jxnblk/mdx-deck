@@ -60,11 +60,13 @@ const cli = meow(`
 
   ${chalk.gray('Options')}
 
-    -p --port   Dev server port
+    -p --port     Dev server port
 
-    --no-open   Prevent from opening in default browser
+    --no-open     Prevent from opening in default browser
 
-    --title     Title for the HTML document
+    -d --out-dir  Prevent from opening in default browser
+
+    --title       Title for the HTML document
 
 `, {
   flags: {
@@ -76,6 +78,10 @@ const cli = meow(`
       type: 'boolean',
       alias: 'o',
       default: true
+    },
+    outDir: {
+      type: 'string',
+      alias: 'd'
     },
     title: {
       type: 'string'
@@ -95,8 +101,11 @@ const opts = Object.assign({
     DOC_FILENAME: JSON.stringify(path.resolve(doc))
   },
   config: getConfig,
-  title: 'mdx-deck'
+  title: 'mdx-deck',
+  outDir: 'dist'
 }, config, cli.flags)
+
+opts.outDir = path.resolve(opts.outDir)
 
 switch (cmd) {
   case 'build':
