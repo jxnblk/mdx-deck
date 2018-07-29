@@ -1,7 +1,7 @@
 
 # mdx-deck
 
-Create presentation decks with [MDX][]
+[MDX][]-based presention decks
 
 **Beta**
 
@@ -107,12 +107,13 @@ TK
 
 ---
 
-- [ ] Root provider
 - [ ] add default themes
 - [ ] theme docs
 - [ ] exporting docs
 - [ ] components docs
-- [ ] Full Image component
+- [ ] Provider docs
+- [x] Full Image component
+- [x] Root provider
 - [x] default styles
 - [x] export build
 - [x] URL hash
