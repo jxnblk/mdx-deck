@@ -124,8 +124,8 @@ Root.defaultProps = {
 
 export const GoogleFonts = withTheme(({ theme }) => {
   const links = [
-    webfont.getURL(theme.font),
-    webfont.getURL(theme.monospace)
+    webfont.getURL(theme.font || ''),
+    webfont.getURL(theme.monospace || '')
   ].filter(Boolean)
   if (!links.length) return false
   return (
