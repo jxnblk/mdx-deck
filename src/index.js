@@ -176,19 +176,34 @@ export class SlideDeck extends React.Component {
     }
   }
 
-  componentDidMount () {
-    document.body.addEventListener('keydown', this.handleKeyDown)
+  handleHashChange = e => {
+    this.isHashChange = true
+    this.hashToState()
+  }
+
+  hashToState = () => {
     const { hash } = window.location
     const index = parseInt(hash.replace(/^#/, ''), 10)
     if (isNaN(index)) return
     this.setState({ index })
   }
 
+  componentDidMount () {
+    document.body.addEventListener('keydown', this.handleKeyDown)
+    window.addEventListener('hashchange', this.handleHashChange)
+    this.hashToState()
+  }
+
   componentWillUnmount () {
     document.body.removeEventListener('keydown', this.handleKeyDown)
+    window.removeEventListener('hashchange', this.handleHashChange)
   }
 
   componentDidUpdate () {
+    if (this.isHashChange) {
+      this.isHashChange = false
+      return
+    }
     const { index } = this.state
     history.pushState(null, null, '/#' + index)
   }
