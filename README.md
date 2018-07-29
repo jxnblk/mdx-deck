@@ -9,12 +9,22 @@
 npm i -D mdx-deck
 ```
 
+[![Build Status][badge]][travis]
+[![Downloads][downloads-badge]][npm]
+
+[badge]: https://img.shields.io/travis/jxnblk/mdx-deck.svg?style=flat-square
+[travis]: https://travis-ci.org/jxnblk/mdx-deck
+
+[downloads-badge]: https://img.shields.io/npm/dw/mdx-deck.svg?style=flat-square
+[npm]: https://npmjs.com/package/mdx-deck
+
 - :memo: Write presentations in markdown
 - :atom_symbol: Import and use React components
 - :nail_care: Customizable themes and components
 - :zero: Zero-config CLI
 
 [View demo](https://jxnblk.com/mdx-deck)
+
 
 ## Getting Started
 
