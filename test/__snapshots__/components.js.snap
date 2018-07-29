@@ -1,0 +1,323 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders a 1`] = `
+.c0 {
+  color: link;
+}
+
+<a
+  className="c0"
+  color="link"
+  target="_blank"
+/>
+`;
+
+exports[`renders blockquote 1`] = `
+.c0 {
+  text-align: left;
+  font-weight: bold;
+  font-size: 16px;
+  margin-left: 0px;
+  margin-right: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  color: quote;
+}
+
+@media screen and (min-width:40em) {
+  .c0 {
+    font-size: 20px;
+  }
+}
+
+@media screen and (min-width:52em) {
+  .c0 {
+    font-size: 24px;
+  }
+}
+
+<blockquote
+  className="c0"
+  color="quote"
+  fontSize={
+    Array [
+      2,
+      3,
+      4,
+    ]
+  }
+/>
+`;
+
+exports[`renders code 1`] = `
+.c0 {
+  font-size: 14px;
+  margin: 0px;
+  padding: 8px;
+  color: pre;
+  background-color: preBackground;
+}
+
+@media screen and (min-width:40em) {
+  .c0 {
+    font-size: 16px;
+  }
+}
+
+<pre
+  className="c0"
+  color="pre"
+  fontSize={
+    Array [
+      1,
+      2,
+    ]
+  }
+/>
+`;
+
+exports[`renders h1 1`] = `
+.c0 {
+  line-height: 1.25;
+  font-size: 20px;
+  margin-bottom: 16px;
+  margin-top: 16px;
+  color: heading;
+}
+
+@media screen and (min-width:40em) {
+  .c0 {
+    font-size: 24px;
+  }
+}
+
+@media screen and (min-width:52em) {
+  .c0 {
+    font-size: 32px;
+  }
+}
+
+<h1
+  className="c0"
+  color="heading"
+  fontSize={
+    Array [
+      3,
+      4,
+      5,
+    ]
+  }
+/>
+`;
+
+exports[`renders h2 1`] = `
+.c0 {
+  line-height: 1.25;
+  font-size: 16px;
+  margin-bottom: 16px;
+  margin-top: 16px;
+  color: heading;
+}
+
+@media screen and (min-width:40em) {
+  .c0 {
+    font-size: 20px;
+  }
+}
+
+@media screen and (min-width:52em) {
+  .c0 {
+    font-size: 24px;
+  }
+}
+
+<h2
+  className="c0"
+  color="heading"
+  fontSize={
+    Array [
+      2,
+      3,
+      4,
+    ]
+  }
+/>
+`;
+
+exports[`renders h3 1`] = `
+.c0 {
+  line-height: 1.25;
+  font-size: 16px;
+  margin-bottom: 16px;
+  margin-top: 16px;
+  color: heading;
+}
+
+@media screen and (min-width:40em) {
+  .c0 {
+    font-size: 20px;
+  }
+}
+
+<h3
+  className="c0"
+  color="heading"
+  fontSize={
+    Array [
+      2,
+      3,
+    ]
+  }
+/>
+`;
+
+exports[`renders h4 1`] = `
+.c0 {
+  line-height: 1.25;
+  font-size: 16px;
+  margin-bottom: 16px;
+  margin-top: 16px;
+  color: heading;
+}
+
+@media screen and (min-width:40em) {
+  .c0 {
+    font-size: 20px;
+  }
+}
+
+<h4
+  className="c0"
+  color="heading"
+  fontSize={
+    Array [
+      2,
+      3,
+    ]
+  }
+/>
+`;
+
+exports[`renders h5 1`] = `
+.c0 {
+  line-height: 1.25;
+  font-size: 16px;
+  margin-bottom: 16px;
+  margin-top: 16px;
+  color: heading;
+}
+
+@media screen and (min-width:40em) {
+  .c0 {
+    font-size: 20px;
+  }
+}
+
+<h5
+  className="c0"
+  color="heading"
+  fontSize={
+    Array [
+      2,
+      3,
+    ]
+  }
+/>
+`;
+
+exports[`renders h6 1`] = `
+.c0 {
+  line-height: 1.25;
+  font-size: 16px;
+  margin-bottom: 16px;
+  margin-top: 16px;
+  color: heading;
+}
+
+@media screen and (min-width:40em) {
+  .c0 {
+    font-size: 20px;
+  }
+}
+
+<h6
+  className="c0"
+  color="heading"
+  fontSize={
+    Array [
+      2,
+      3,
+    ]
+  }
+/>
+`;
+
+exports[`renders inlineCode 1`] = `
+.c0 {
+  color: code;
+  background-color: codeBackground;
+}
+
+<code
+  className="c0"
+  color="code"
+/>
+`;
+
+exports[`renders li 1`] = `
+<li
+  className=""
+/>
+`;
+
+exports[`renders ol 1`] = `
+.c0 {
+  text-align: left;
+  font-size: 16px;
+}
+
+@media screen and (min-width:40em) {
+  .c0 {
+    font-size: 20px;
+  }
+}
+
+<ol
+  className="c0"
+  fontSize={
+    Array [
+      2,
+      3,
+    ]
+  }
+/>
+`;
+
+exports[`renders p 1`] = `
+<p
+  className=""
+/>
+`;
+
+exports[`renders ul 1`] = `
+.c0 {
+  text-align: left;
+  font-size: 16px;
+}
+
+@media screen and (min-width:40em) {
+  .c0 {
+    font-size: 20px;
+  }
+}
+
+<ul
+  className="c0"
+  fontSize={
+    Array [
+      2,
+      3,
+    ]
+  }
+/>
+`;
