@@ -212,6 +212,13 @@ View the source for other components available for use.
 
 ---
 
+### Related
+
+- [MDX][]
+- [styled-components][]
+- [styled-system][]
+- [Spectacle][]
+
 [MIT License][LICENSE.md]
 
 [MDX]: https://github.com/mdx-js/mdx
@@ -220,3 +227,4 @@ View the source for other components available for use.
 [styled-components]: https://github.com/styled-components/styled-components
 [create-react-app]: https://github.com/facebook/create-react-app
 [next.js]: https://github.com/zeit/next.js/
+[Spectacle]: https://github.com/FormidableLabs/spectacle
