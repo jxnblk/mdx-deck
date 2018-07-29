@@ -3,9 +3,7 @@
 
 ![](https://s3.amazonaws.com/jxnblk/mdx-deck.gif)
 
-[MDX][]-based presention decks
-
-**Beta**
+[MDX][]-based presention decks (**Beta**)
 
 ```sh
 npm i -D mdx-deck
