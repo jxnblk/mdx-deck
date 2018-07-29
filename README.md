@@ -9,6 +9,11 @@
 npm i mdx-deck
 ```
 
+- :spiral_note_pad: Write presentations in markdown
+- :atom_symbol: Import and use React components
+- :nail_care: Customizable themes and components
+- :zero: Zero-config CLI
+
 ## Getting Started
 
 Create an [MDX][] file and separate each slide with `---`.
