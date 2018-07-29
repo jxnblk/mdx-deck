@@ -9,6 +9,8 @@
 npm i mdx-deck
 ```
 
+Create an [MDX][] file and separate each slide with `---`.
+
 ````mdx
 # This is the title of my deck
 ---
@@ -25,13 +27,14 @@ import Demo from './components/Demo'
 # The end
 ````
 
+Run the CLI pointing to the `.mdx` file to start the dev server:
+
 ```sh
 mdx-deck deck.mdx
 ```
 
 ## Usage
 
-Create an [MDX][] file and separate each slide with `---`.
 MDX can use Markdown syntax and render React components with JSX.
 
 ### Imports
