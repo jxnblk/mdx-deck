@@ -10,7 +10,8 @@
     "prepare": "babel src -d dist",
     "start": "./cli.js docs/index.mdx -p 8989",
     "help": "./cli.js",
-    "docs": "./cli.js build docs/index.mdx -d site"
+    "docs": "./cli.js build docs/index.mdx -d site",
+    "test": "echo \"todo\""
   },
   "keywords": [],
   "author": "Brent Jackson",
