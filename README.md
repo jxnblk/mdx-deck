@@ -5,10 +5,6 @@
 
 [MDX][]-based presention decks (**Beta**)
 
-```sh
-npm i -D mdx-deck
-```
-
 [![Build Status][badge]][travis]
 [![Version][version-badge]][npm]
 
@@ -18,6 +14,10 @@ npm i -D mdx-deck
 [version-badge]: https://img.shields.io/npm/v/mdx-deck.svg?style=flat-square
 [downloads-badge]: https://img.shields.io/npm/dw/mdx-deck.svg?style=flat-square
 [npm]: https://npmjs.com/package/mdx-deck
+
+```sh
+npm i -D mdx-deck
+```
 
 - :memo: Write presentations in markdown
 - :atom_symbol: Import and use React components
