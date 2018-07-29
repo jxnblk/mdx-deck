@@ -1,5 +1,6 @@
 import React from 'react'
 import { create as render } from 'react-test-renderer'
+import { renderIntoDocument, Simulate } from 'react-dom/test-utils'
 import 'jest-styled-components'
 import {
   inc,
@@ -413,6 +414,65 @@ describe('components', () => {
       ).root
       const hello = root.findByType(Hello)
       expect(hello)
+    })
+
+    test('initializes state from window.location.hash', () => {
+      window.history.pushState(null, null, '/#2')
+      const root = renderIntoDocument(
+        <SlideDeck />
+      )
+      expect(root.state.index).toBe(2)
+    })
+
+    test('handles keydown events', () => {
+      window.history.pushState(null, null, '/')
+      const root = renderIntoDocument(
+        <SlideDeck
+          slides={[
+            () => false,
+            () => false,
+          ]}
+        />
+      )
+      const e = new KeyboardEvent('keydown', {
+        key: 'ArrowRight'
+      })
+      expect(root.state.index).toBe(0)
+      document.body.dispatchEvent(e)
+      expect(root.state.index).toBe(1)
+    })
+
+    test('handles ArrowLeft keydown', () => {
+      window.history.pushState(null, null, '/#1')
+      const root = renderIntoDocument(
+        <SlideDeck
+          slides={[
+            () => false,
+            () => false,
+          ]}
+        />
+      )
+      const e = new KeyboardEvent('keydown', {
+        key: 'ArrowLeft'
+      })
+      expect(root.state.index).toBe(1)
+      document.body.dispatchEvent(e)
+      expect(root.state.index).toBe(0)
+    })
+
+    test.skip('handles hashchange events', () => {
+      window.history.pushState(null, null, '/')
+      const root = renderIntoDocument(
+        <SlideDeck
+          slides={[
+            () => false,
+            () => false,
+          ]}
+        />
+      )
+      expect(root.state.index).toBe(0)
+      window.location.hash = '#1'
+      expect(root.state.index).toBe(1)
     })
   })
 })
