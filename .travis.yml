@@ -2,7 +2,7 @@ language: node_js
 node_js:
   - 10
 before_deploy:
-  - npm run build
+  - npm run docs
 deploy:
   provider: pages
   skip_cleanup: true

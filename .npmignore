@@ -1,3 +1,4 @@
 site
 docs
 .babelrc
+.travis.yml
