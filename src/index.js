@@ -119,7 +119,7 @@ const Dot = styled.button([], {
   color
 )
 Dot.defaultProps = {
-  m: 1,
+  m: 0,
   p: 1,
   bg: 'currentcolor',
 }
@@ -210,6 +210,7 @@ export default class SlideDeck extends React.Component {
       height
     } = this.props
     const { index, length } = this.state
+    console.log('components', components)
 
     return (
       <ThemeProvider theme={theme}>

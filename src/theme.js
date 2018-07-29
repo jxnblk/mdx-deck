@@ -5,7 +5,7 @@ export default {
   ],
   colors: {
     text: '#000',
-    background: '#eee',
+    background: '#fff',
     link: '#07c'
   },
   css: {

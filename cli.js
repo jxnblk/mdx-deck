@@ -1,8 +1,9 @@
 #!/usr/bin/env node
+const path = require('path')
 const meow = require('meow')
 const open = require('react-dev-utils/openBrowser')
 const chalk = require('chalk')
-const dev = require('./lib/dev')
+const dev = require('ok-cli')
 
 const config = require('pkg-conf').sync('mdx-deck')
 
@@ -17,6 +18,31 @@ log.error = (...args) => {
     chalk.red('[err]'),
     ...args
   )
+}
+
+const getConfig = conf => {
+  conf.module.rules = [
+    ...conf.module.rules
+    .filter(rule => !rule.test.test('.mdx')),
+    {
+      test: /\.mdx?$/,
+      exclude: /node_modules/,
+      use: [
+        {
+          loader: require.resolve('babel-loader'),
+          options: {
+            presets: [
+              'babel-preset-env',
+              'babel-preset-stage-0',
+              'babel-preset-react',
+            ].map(require.resolve)
+          }
+        },
+        require.resolve('./lib/loader.js'),
+      ]
+    }
+  ]
+  return conf
 }
 
 const cli = meow(`
@@ -46,12 +72,17 @@ const cli = meow(`
   }
 })
 
-const [ entry ] = cli.input
+const [ doc ] = cli.input
 
-if (!entry) cli.showHelp(0)
+if (!doc) cli.showHelp(0)
 
 const opts = Object.assign({
-  entry,
+  entry: path.join(__dirname, './lib/entry.js'),
+  dirname: path.dirname(path.resolve(doc)),
+  globals: {
+    DOC_FILENAME: JSON.stringify(path.resolve(doc))
+  },
+  config: getConfig
 }, config, cli.flags)
 
 dev(opts)
