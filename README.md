@@ -190,6 +190,15 @@ Run the `build` command to export a presentation as HTML with a JS bundle.
 mdx-deck build deck.mdx
 ```
 
+## CLI Options
+
+```
+-p --port     Dev server port
+--no-open     Prevent from opening in default browser
+-d --out-dir  Output directory for exporting
+--title       Title for the HTML document
+```
+
 ## React API
 
 mdx-deck components can also be used in any React application, such as [create-react-app][] or [next.js][].

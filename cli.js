@@ -64,7 +64,7 @@ const cli = meow(`
 
     --no-open     Prevent from opening in default browser
 
-    -d --out-dir  Prevent from opening in default browser
+    -d --out-dir  Output directory for exporting
 
     --title       Title for the HTML document
 
