@@ -64,7 +64,7 @@ npm start
 
 ### Video Tutorial
 
-For a video introduction, see this [egghead tutorial][egghead] by @andrewdelprete.
+For a video introduction, see this [egghead tutorial][egghead] by [@andrewdelprete](https://github.com/andrewdelprete).
 
 [egghead]: https://egghead.io/lessons/react-build-a-slide-deck-with-mdx-deck-using-markdown-react
 
