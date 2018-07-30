@@ -378,11 +378,18 @@ describe('components', () => {
 
 .c0 {
   font-family: system-ui,sans-serif;
-  font-size: 32px;
+  font-size: 16px;
+  text-align: center;
   width: 100vw;
   height: 100vh;
   color: #000;
   background-color: transparent;
+}
+
+@media screen and (min-width:64em) {
+  .c0 {
+    font-size: 32px;
+  }
 }
 
 <div
@@ -407,32 +414,21 @@ describe('components', () => {
 
     test('renders with slides', () => {
       const Hello = () => <h1>Hello</h1>
-      const root = render(
-        <SlideDeck
-          slides={[ Hello ]}
-        />
-      ).root
+      const root = render(<SlideDeck slides={[Hello]} />).root
       const hello = root.findByType(Hello)
       expect(hello)
     })
 
     test('initializes state from window.location.hash', () => {
       window.history.pushState(null, null, '/#2')
-      const root = renderIntoDocument(
-        <SlideDeck />
-      )
+      const root = renderIntoDocument(<SlideDeck />)
       expect(root.state.index).toBe(2)
     })
 
     test('handles keydown events', () => {
       window.history.pushState(null, null, '/')
       const root = renderIntoDocument(
-        <SlideDeck
-          slides={[
-            () => false,
-            () => false,
-          ]}
-        />
+        <SlideDeck slides={[() => false, () => false]} />
       )
       const e = new KeyboardEvent('keydown', {
         key: 'ArrowRight'
@@ -445,12 +441,7 @@ describe('components', () => {
     test('handles ArrowLeft keydown', () => {
       window.history.pushState(null, null, '/#1')
       const root = renderIntoDocument(
-        <SlideDeck
-          slides={[
-            () => false,
-            () => false,
-          ]}
-        />
+        <SlideDeck slides={[() => false, () => false]} />
       )
       const e = new KeyboardEvent('keydown', {
         key: 'ArrowLeft'
@@ -463,12 +454,7 @@ describe('components', () => {
     test.skip('handles hashchange events', () => {
       window.history.pushState(null, null, '/')
       const root = renderIntoDocument(
-        <SlideDeck
-          slides={[
-            () => false,
-            () => false,
-          ]}
-        />
+        <SlideDeck slides={[() => false, () => false]} />
       )
       expect(root.state.index).toBe(0)
       window.location.hash = '#1'

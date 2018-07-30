@@ -24,28 +24,10 @@ exports[`renders blockquote 1`] = `
   color: quote;
 }
 
-@media screen and (min-width:40em) {
-  .c0 {
-    font-size: 20px;
-  }
-}
-
-@media screen and (min-width:52em) {
-  .c0 {
-    font-size: 24px;
-  }
-}
-
 <blockquote
   className="c0"
   color="quote"
-  fontSize={
-    Array [
-      2,
-      3,
-      4,
-    ]
-  }
+  fontSize={2}
 />
 `;
 
@@ -58,25 +40,30 @@ exports[`renders code 1`] = `
   background-color: preBackground;
 }
 
-@media screen and (min-width:40em) {
-  .c0 {
-    font-size: 16px;
-  }
-}
-
 <pre
   className="c0"
   color="pre"
-  fontSize={
-    Array [
-      1,
-      2,
-    ]
-  }
+  fontSize={1}
 />
 `;
 
 exports[`renders h1 1`] = `
+.c0 {
+  line-height: 1.25;
+  font-size: 24px;
+  margin-bottom: 16px;
+  margin-top: 16px;
+  color: heading;
+}
+
+<h1
+  className="c0"
+  color="heading"
+  fontSize={4}
+/>
+`;
+
+exports[`renders h2 1`] = `
 .c0 {
   line-height: 1.25;
   font-size: 20px;
@@ -85,62 +72,10 @@ exports[`renders h1 1`] = `
   color: heading;
 }
 
-@media screen and (min-width:40em) {
-  .c0 {
-    font-size: 24px;
-  }
-}
-
-@media screen and (min-width:52em) {
-  .c0 {
-    font-size: 32px;
-  }
-}
-
-<h1
-  className="c0"
-  color="heading"
-  fontSize={
-    Array [
-      3,
-      4,
-      5,
-    ]
-  }
-/>
-`;
-
-exports[`renders h2 1`] = `
-.c0 {
-  line-height: 1.25;
-  font-size: 16px;
-  margin-bottom: 16px;
-  margin-top: 16px;
-  color: heading;
-}
-
-@media screen and (min-width:40em) {
-  .c0 {
-    font-size: 20px;
-  }
-}
-
-@media screen and (min-width:52em) {
-  .c0 {
-    font-size: 24px;
-  }
-}
-
 <h2
   className="c0"
   color="heading"
-  fontSize={
-    Array [
-      2,
-      3,
-      4,
-    ]
-  }
+  fontSize={3}
 />
 `;
 
@@ -153,102 +88,31 @@ exports[`renders h3 1`] = `
   color: heading;
 }
 
-@media screen and (min-width:40em) {
-  .c0 {
-    font-size: 20px;
-  }
-}
-
 <h3
   className="c0"
   color="heading"
-  fontSize={
-    Array [
-      2,
-      3,
-    ]
-  }
+  fontSize={2}
 />
 `;
 
 exports[`renders h4 1`] = `
-.c0 {
-  line-height: 1.25;
-  font-size: 16px;
-  margin-bottom: 16px;
-  margin-top: 16px;
-  color: heading;
-}
-
-@media screen and (min-width:40em) {
-  .c0 {
-    font-size: 20px;
-  }
-}
-
 <h4
-  className="c0"
-  color="heading"
-  fontSize={
-    Array [
-      2,
-      3,
-    ]
-  }
+  className=""
+  fontSize={2}
 />
 `;
 
 exports[`renders h5 1`] = `
-.c0 {
-  line-height: 1.25;
-  font-size: 16px;
-  margin-bottom: 16px;
-  margin-top: 16px;
-  color: heading;
-}
-
-@media screen and (min-width:40em) {
-  .c0 {
-    font-size: 20px;
-  }
-}
-
 <h5
-  className="c0"
-  color="heading"
-  fontSize={
-    Array [
-      2,
-      3,
-    ]
-  }
+  className=""
+  fontSize={2}
 />
 `;
 
 exports[`renders h6 1`] = `
-.c0 {
-  line-height: 1.25;
-  font-size: 16px;
-  margin-bottom: 16px;
-  margin-top: 16px;
-  color: heading;
-}
-
-@media screen and (min-width:40em) {
-  .c0 {
-    font-size: 20px;
-  }
-}
-
 <h6
-  className="c0"
-  color="heading"
-  fontSize={
-    Array [
-      2,
-      3,
-    ]
-  }
+  className=""
+  fontSize={2}
 />
 `;
 
@@ -276,26 +140,20 @@ exports[`renders ol 1`] = `
   font-size: 16px;
 }
 
-@media screen and (min-width:40em) {
-  .c0 {
-    font-size: 20px;
-  }
-}
-
 <ol
   className="c0"
-  fontSize={
-    Array [
-      2,
-      3,
-    ]
-  }
+  fontSize={2}
 />
 `;
 
 exports[`renders p 1`] = `
+.c0 {
+  font-size: 16px;
+}
+
 <p
-  className=""
+  className="c0"
+  fontSize={2}
 />
 `;
 
@@ -305,19 +163,8 @@ exports[`renders ul 1`] = `
   font-size: 16px;
 }
 
-@media screen and (min-width:40em) {
-  .c0 {
-    font-size: 20px;
-  }
-}
-
 <ul
   className="c0"
-  fontSize={
-    Array [
-      2,
-      3,
-    ]
-  }
+  fontSize={2}
 />
 `;

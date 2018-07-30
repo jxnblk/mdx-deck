@@ -2,7 +2,7 @@ export default {
   font: 'system-ui, sans-serif',
   monospace: 'Menlo, monospace',
   fontSizes: [
-    16, 24, 32, 48, 64, 96, 128
+    '0.75em', '1em', '1.5em', '2em', '3em'
   ],
   colors: {
     text: '#000',
@@ -13,6 +13,16 @@ export default {
     code: '#f0f',
   },
   css: {
-    fontSize: '32px',
+    fontSize: '16px',
+    textAlign: 'center',
+    '@media screen and (min-width:64em)': {
+      fontSize: '32px',
+    }
+  },
+  ol: {
+    textAlign: 'left'
+  },
+  ul: {
+    textAlign: 'left'
   },
 }
