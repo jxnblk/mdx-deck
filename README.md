@@ -87,7 +87,7 @@ mdx-deck uses [styled-components][] for styling.
 mdx-deck includes several built-in themes to change the look and feel of the presentation.
 
 ```mdx
-export { dark as theme } from 'ok-cli/themes'
+export { dark as theme } from 'mdx-deck/themes'
 
 # Dark Theme
 ```
