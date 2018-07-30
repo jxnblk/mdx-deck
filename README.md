@@ -92,6 +92,7 @@ mdx-deck uses [styled-components][] for styling.
 ### Built-in Themes
 
 mdx-deck includes several built-in themes to change the look and feel of the presentation.
+Export `theme` from your MDX file to enable a theme.
 
 ```mdx
 export { dark as theme } from 'mdx-deck/themes'
@@ -99,7 +100,7 @@ export { dark as theme } from 'mdx-deck/themes'
 # Dark Theme
 ```
 
-The following themes are available:
+The following themes are available from `mdx-deck/themes`:
 
 - `theme`: default theme with white background
 - `dark`: black background dark theme
@@ -124,7 +125,7 @@ export default {
   font: 'Georgia',
   monospace: 'Menlo, monospace',
   fontSizes: [
-    16, 24, 32, 48, 64, 96, 128
+    '0.75em', '1em', '1.5em', '2em', '3em'
   ],
   colors: {
     text: '#000',
@@ -153,6 +154,33 @@ export default {
 }
 ```
 
+The following keys are available for theming:
+
+- `font`: base font family
+- `monospace`: font family for `<pre>` and `<code>`
+- `fontSizes`: array of font sizes from smallest to largest
+- `colors`: object of colors used for MDX components
+  - `text`: root foreground color
+  - `background`: root background color
+  - `link`
+  - `heading`
+  - `blockquote`
+  - `pre`
+  - `preBackground`
+  - `code`
+  - `codeBackground`
+- `css`: root CSS object
+- `heading`: CSS for all headings
+- `h1`: CSS for `<h1>`
+- `h2`: CSS for `<h2>`
+- `h3`: CSS for `<h3>`
+- `paragraph`: CSS for `<p>`
+- `link`: CSS for `<a>`
+- `ul`: CSS for `<ul>`
+- `ol`: CSS for `<ol>`
+- `li`: CSS for `<li>`
+- `img`: CSS for `<img>`
+
 ### Custom Components
 
 mdx-deck includes default components for MDX, but to provide custom components to the [MDXProvider][], export a `components` object.
@@ -166,6 +194,22 @@ export { default as components } from './components'
 ### Layouts
 
 Each slide can include a custom layout around its content.
+This can be used as a substitute for slide templates found in other presentation apps and libraries.
+
+```js
+// example Layout.js
+import React from 'react'
+
+export default ({ children }) =>
+  <div
+    style={{
+      width: '100vw',
+      height: '100vw',
+      backgroundColor: 'tomato'
+    }}>
+    {children}
+  </div>
+```
 
 ```mdx
 import Layout from './Layout'
@@ -178,10 +222,13 @@ export default Layout
 # Custom Layout
 ```
 
+The layout component will wrap the MDX elements within that slide,
+which means you can use a nested ThemeProvider or target elements with CSS-in-JS.
+
 ### Custom Provider
 
 A custom Provider component can be exported to wrap the entire application.
-This is useful for adding custom context providers, such as a ThemeProvider.
+This is useful for adding custom context providers in React.
 
 ```mdx
 export { default as Provider } from './Provider'
@@ -191,11 +238,14 @@ export { default as Provider } from './Provider'
 
 ## Exporting
 
-Run the `build` command to export a presentation as HTML with a JS bundle.
+Add a `build` script to your `package.json` to export a presentation as HTML with a JS bundle.
 
-```sh
-mdx-deck build deck.mdx
+```json
+"scripts": {
+  "build": "mdx-deck build deck.mdx"
+}
 ```
+
 
 ## CLI Options
 
