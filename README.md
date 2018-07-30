@@ -85,7 +85,7 @@ mdx-deck uses [styled-components][] for styling.
 ### Built-in Themes
 
 mdx-deck includes several built-in themes to change the look and feel of the presentation.
-Export a `theme` from your MDX file to enable a theme.
+Export `theme` from your MDX file to enable a theme.
 
 ```mdx
 export { dark as theme } from 'mdx-deck/themes'
@@ -93,7 +93,7 @@ export { dark as theme } from 'mdx-deck/themes'
 # Dark Theme
 ```
 
-The following themes are available:
+The following themes are available from `mdx-deck/themes`:
 
 - `theme`: default theme with white background
 - `dark`: black background dark theme
