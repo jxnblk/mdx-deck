@@ -451,6 +451,19 @@ describe('components', () => {
       expect(root.state.index).toBe(0)
     })
 
+    test('ignoreKeyEvents does not fire handle events when set to true', () => {
+      window.history.pushState(null, null, '/#1')
+      const root = renderIntoDocument(
+        <SlideDeck ignoreKeyEvents={true} slides={[() => false, () => false]} />
+      )
+      const e = new KeyboardEvent('keydown', {
+        key: 'ArrowLeft'
+      })
+      expect(root.state.index).toBe(1)
+      document.body.dispatchEvent(e)
+      expect(root.state.index).toBe(1)
+    })
+
     test.skip('handles hashchange events', () => {
       window.history.pushState(null, null, '/')
       const root = renderIntoDocument(
