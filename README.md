@@ -3,7 +3,7 @@
 
 ![](https://s3.amazonaws.com/jxnblk/mdx-deck.gif)
 
-[MDX][]-based presention decks (**Beta**)
+[MDX][]-based presentation decks (**Beta**)
 
 [![Build Status][badge]][travis]
 [![Version][version-badge]][npm]
