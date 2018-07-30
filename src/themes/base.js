@@ -3,7 +3,6 @@ export default {
   monospace: 'Menlo, monospace',
   fontSizes: [
     '0.75em', '1em', '1.5em', '2em', '3em'
-    // 16, 24, 32, 48, 64, 96, 128
   ],
   colors: {
     text: '#000',
