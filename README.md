@@ -62,6 +62,13 @@ Start the dev server:
 npm start
 ```
 
+### Video Tutorial
+
+For a video introduction, see this [egghead tutorial][egghead] by @andrewdelprete.
+
+[egghead]: https://egghead.io/lessons/react-build-a-slide-deck-with-mdx-deck-using-markdown-react
+
+
 ## Usage
 
 MDX can use Markdown syntax and render React components with JSX.
