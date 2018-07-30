@@ -7,6 +7,7 @@
 
 [![Build Status][badge]][travis]
 [![Version][version-badge]][npm]
+[![Downloads][downloads-badge]][npm]
 
 [badge]: https://img.shields.io/travis/jxnblk/mdx-deck.svg?style=flat-square
 [travis]: https://travis-ci.org/jxnblk/mdx-deck
