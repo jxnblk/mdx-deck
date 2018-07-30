@@ -1,5 +1,6 @@
 import React from 'react'
 import Box from 'superbox'
+import { ThemeProvider } from 'styled-components'
 
 export default ({ children }) =>
   <Box

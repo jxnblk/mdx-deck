@@ -13,7 +13,10 @@ export default {
     code: blue,
   },
   css: {
-    fontSize: '32px',
+    fontSize: '16px',
+    '@media screen and (min-width:64em)': {
+      fontSize: '32px',
+    },
     textAlign: 'center'
   },
   heading: {

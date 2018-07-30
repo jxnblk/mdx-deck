@@ -22,47 +22,23 @@ Heading.defaultProps = {
   mb: 3,
 }
 
-const H2 = Heading.withComponent('h2')
-const H3 = Heading.withComponent('h3')
-const H4 = Heading.withComponent('h4')
-const H5 = Heading.withComponent('h5')
-const H6 = Heading.withComponent('h6')
+const h1 = Heading.withComponent('h1')
+h1.defaultProps = {
+  fontSize: 4
+}
 
-const h1 = props =>
-  <Heading
-    {...props}
-    fontSize={[ 3, 4, 5 ]}
-  />
+const h2 = Heading.withComponent('h2')
+h2.defaultProps = {
+  fontSize: 3
+}
 
-const h2 = props =>
-  <H2
-    {...props}
-    fontSize={[ 2, 3, 4 ]}
-  />
-
-const h3 = props =>
-  <H3
-    {...props}
-    fontSize={[ 2, 3 ]}
-  />
-
-const h4 = props =>
-  <H4
-    {...props}
-    fontSize={[ 2, 3 ]}
-  />
-
-const h5 = props =>
-  <H5
-    {...props}
-    fontSize={[ 2, 3 ]}
-  />
-
-const h6 = props =>
-  <H6
-    {...props}
-    fontSize={[ 2, 3 ]}
-  />
+const h3 = Heading.withComponent('h3')
+h3.defaultProps = {
+  fontSize: 2
+}
+const h4 = h3.withComponent('h4')
+const h5 = h3.withComponent('h5')
+const h6 = h3.withComponent('h6')
 
 const a = styled.a([], color, css('link'))
 a.defaultProps = {
@@ -76,19 +52,22 @@ const p = styled.p([],
   color,
   css('paragraph')
 )
+p.defaultProps = {
+  fontSize: 2
+}
 
 const ul = styled.ul([], {
   textAlign: 'left'
 }, fontSize, css('ul'))
 ul.defaultProps = {
-  fontSize: [ 2, 3 ]
+  fontSize: 2
 }
 
 const ol = styled.ol([], {
   textAlign: 'left'
 }, fontSize, css('ol'))
 ol.defaultProps = {
-  fontSize: [ 2, 3 ]
+  fontSize: 2
 }
 const li = styled.li([])
 
@@ -102,7 +81,7 @@ const blockquote = styled.blockquote([], {
   css('quote')
 )
 blockquote.defaultProps = {
-  fontSize: [ 2, 3, 4 ],
+  fontSize: 2,
   px: 0,
   mx: 0,
   color: 'quote'
@@ -117,7 +96,7 @@ const pre = styled.pre([], props => ({
   css('pre')
 )
 pre.defaultProps = {
-  fontSize: [ 1, 2 ],
+  fontSize: 1,
   m: 0,
   p: 2,
   color: 'pre',
