@@ -22,25 +22,25 @@ Heading.defaultProps = {
   mb: 3,
 }
 
-const h1 = Heading.withComponent('h1')
+const h1 = styled(Heading.withComponent('h1'))([], css('h1'))
 h1.defaultProps = {
   fontSize: 4
 }
 
-const h2 = Heading.withComponent('h2')
+const h2 = styled(Heading.withComponent('h2'))([], css('h2'))
 h2.defaultProps = {
   fontSize: 3
 }
 
-const h3 = Heading.withComponent('h3')
+const h3 = styled(Heading.withComponent('h3'))([], css('h3'))
 h3.defaultProps = {
   fontSize: 2
 }
-const h4 = h3.withComponent('h4')
-const h5 = h3.withComponent('h5')
-const h6 = h3.withComponent('h6')
+const h4 = styled(h3.withComponent('h4'))([], css('h4'))
+const h5 = styled(h3.withComponent('h5'))([], css('h5'))
+const h6 = styled(h3.withComponent('h6'))([], css('h6'))
 
-const a = styled.a([], color, css('link'))
+const a = styled.a([], color, css('link'), css('a'))
 a.defaultProps = {
   target: '_blank',
   color: 'link'
@@ -50,7 +50,8 @@ const p = styled.p([],
   fontSize,
   space,
   color,
-  css('paragraph')
+  css('paragraph'),
+  css('p'),
 )
 p.defaultProps = {
   fontSize: 2
@@ -69,7 +70,7 @@ const ol = styled.ol([], {
 ol.defaultProps = {
   fontSize: 2
 }
-const li = styled.li([])
+const li = styled.li([], css('li'))
 
 const blockquote = styled.blockquote([], {
   textAlign: 'left',
@@ -78,6 +79,7 @@ const blockquote = styled.blockquote([], {
   fontSize,
   space,
   color,
+  css('blockquote'),
   css('quote')
 )
 blockquote.defaultProps = {
@@ -114,7 +116,7 @@ code.defaultProps = {
 const img = styled.img([], {
   maxWidth: '100%',
   height: 'auto'
-}, css('image'))
+}, css('img'), css('image'))
 
 export default {
   h1,
