@@ -14,13 +14,6 @@ export default {
     preBackground: '#000',
     code: blue,
   },
-  css: {
-    fontSize: '16px',
-    '@media screen and (min-width:64em)': {
-      fontSize: '32px',
-    },
-    textAlign: 'center'
-  },
   heading: {
     textTransform: 'uppercase',
     letterSpacing: '0.1em',
