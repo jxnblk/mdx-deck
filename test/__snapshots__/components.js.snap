@@ -51,10 +51,14 @@ exports[`renders h1 1`] = `
 .c0 {
   line-height: 1.25;
   font-size: 24px;
+  margin-bottom: 16px;
+  margin-top: 16px;
+  color: heading;
 }
 
 <h1
   className="c0"
+  color="heading"
   fontSize={4}
 />
 `;
@@ -63,10 +67,14 @@ exports[`renders h2 1`] = `
 .c0 {
   line-height: 1.25;
   font-size: 20px;
+  margin-bottom: 16px;
+  margin-top: 16px;
+  color: heading;
 }
 
 <h2
   className="c0"
+  color="heading"
   fontSize={3}
 />
 `;
@@ -75,46 +83,35 @@ exports[`renders h3 1`] = `
 .c0 {
   line-height: 1.25;
   font-size: 16px;
+  margin-bottom: 16px;
+  margin-top: 16px;
+  color: heading;
 }
 
 <h3
   className="c0"
+  color="heading"
   fontSize={2}
 />
 `;
 
 exports[`renders h4 1`] = `
-.c0 {
-  line-height: 1.25;
-  font-size: 16px;
-}
-
 <h4
-  className="c0"
+  className=""
   fontSize={2}
 />
 `;
 
 exports[`renders h5 1`] = `
-.c0 {
-  line-height: 1.25;
-  font-size: 16px;
-}
-
 <h5
-  className="c0"
+  className=""
   fontSize={2}
 />
 `;
 
 exports[`renders h6 1`] = `
-.c0 {
-  line-height: 1.25;
-  font-size: 16px;
-}
-
 <h6
-  className="c0"
+  className=""
   fontSize={2}
 />
 `;
