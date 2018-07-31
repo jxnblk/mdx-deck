@@ -45,6 +45,20 @@ describe('components', () => {
   transform: translateX(NaN%);
 }
 
+@media print {
+  .c0 {
+    height: auto;
+    overflow-x: visible;
+  }
+}
+
+@media print {
+  .c1 {
+    height: auto;
+    display: block;
+  }
+}
+
 <div
   className="c0"
 >
@@ -86,6 +100,16 @@ describe('components', () => {
   height: 100%;
   padding-left: 32px;
   padding-right: 32px;
+}
+
+@media print {
+  .c0 {
+    width: 100vw;
+    height: 100vh;
+    page-break-after: always;
+    page-break-inside: avoid;
+    -webkit-print-color-adjust: exact;
+  }
 }
 
 @media screen and (min-width:40em) {
@@ -145,6 +169,12 @@ describe('components', () => {
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
+}
+
+@media print {
+  .c0 {
+    display: none;
+  }
 }
 
 <div
@@ -215,6 +245,12 @@ describe('components', () => {
   justify-content: center;
 }
 
+@media print {
+  .c0 {
+    display: none;
+  }
+}
+
 <div
   className="c0"
 >
@@ -270,6 +306,13 @@ describe('components', () => {
 .c0 {
   color: text;
   background-color: background;
+}
+
+@media print {
+  .c0 {
+    font-size: 24px;
+    height: auto;
+  }
 }
 
 <div
@@ -384,6 +427,33 @@ describe('components', () => {
   height: 100vh;
   color: #000;
   background-color: transparent;
+}
+
+@media print {
+  .c1 {
+    height: auto;
+    overflow-x: visible;
+  }
+}
+
+@media print {
+  .c2 {
+    height: auto;
+    display: block;
+  }
+}
+
+@media print {
+  .c3 {
+    display: none;
+  }
+}
+
+@media print {
+  .c0 {
+    font-size: 24px;
+    height: auto;
+  }
 }
 
 @media screen and (min-width:64em) {
