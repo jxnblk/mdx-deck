@@ -25,6 +25,10 @@ const CarouselRoot = styled.div([], {
   overflowX: 'hidden',
   width: '100%',
   height: '100%',
+  '@media print': {
+    height: 'auto',
+    overflowX: 'visible'
+  }
 })
 
 const CarouselInner = styled.div([], {
@@ -33,7 +37,11 @@ const CarouselInner = styled.div([], {
   height: '100%',
   transitionProperty: 'transform',
   transitionTimingFunction: 'ease-out',
-  transitionDuration: '.3s'
+  transitionDuration: '.3s',
+  '@media print': {
+    height: 'auto',
+    display: 'block'
+  }
 }, props => ({
   transform: `translateX(${-100 * props.index}%)`
 }))
@@ -51,7 +59,14 @@ export const Slide = styled.div([], {
   flexDirection: 'column',
   overflow: 'hidden',
   width: '100%',
-  height: '100%'
+  height: '100%',
+  '@media print': {
+    width: '100vw',
+    height: '100vh',
+    pageBreakAfter: 'always',
+    pageBreakInside: 'avoid',
+    WebkitPrintColorAdjust: 'exact'
+  }
 }, space, color)
 
 Slide.defaultProps = {
@@ -86,6 +101,9 @@ Dot.defaultProps = {
 const Flex = styled.div([], {
   display: 'flex',
   justifyContent: 'center',
+  '@media print': {
+    display: 'none'
+  }
 }, space)
 
 export const Dots = ({
@@ -108,6 +126,10 @@ export const Dots = ({
   </Flex>
 
 export const Root = styled.div([], {
+  '@media print': {
+    fontSize: '24px',
+    height: 'auto'
+  }
 },
   props => props.theme.font ? ({
     fontFamily: props.theme.font

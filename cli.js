@@ -7,6 +7,7 @@ const ok = require('ok-cli')
 const remark = {
   emoji: require('remark-emoji')
 }
+const pkg = require('./package.json')
 
 const config = require('pkg-conf').sync('mdx-deck')
 
@@ -60,25 +61,35 @@ const getConfig = conf => {
 }
 
 const cli = meow(`
-  ${chalk.magenta('[mdx-deck]')}
-
   ${chalk.gray('Usage')}
 
     $ ${chalk.magenta('mdx-deck deck.mdx')}
 
     $ ${chalk.magenta('mdx-deck build deck.mdx')}
 
+    $ ${chalk.magenta('mdx-deck pdf deck.mdx')}
+
   ${chalk.gray('Options')}
-
-    -p --port     Dev server port
-
-    --no-open     Prevent from opening in default browser
-
-    -d --out-dir  Output directory for exporting
 
     --title       Title for the HTML document
 
+    ${chalk.gray('Dev server options')}
+
+      -p --port     Dev server port
+      --no-open     Prevent from opening in default browser
+
+    ${chalk.gray('Build options')}
+
+      -d --out-dir  Output directory for exporting
+
+    ${chalk.gray('PDF options')}
+
+      --out-file    Filename for PDF export
+      --width       Width in pixels
+      --heigh       Height in pixels
+
 `, {
+  description: chalk.magenta('[mdx-deck] ') + chalk.gray(pkg.description),
   flags: {
     port: {
       type: 'string',
@@ -95,6 +106,9 @@ const cli = meow(`
     },
     title: {
       type: 'string'
+    },
+    outFile: {
+      type: 'string',
     }
   }
 })
@@ -112,17 +126,41 @@ const opts = Object.assign({
   },
   config: getConfig,
   title: 'mdx-deck',
-  outDir: 'dist'
+  port: 8080,
+  outDir: 'dist',
+  outFile: 'presentation.pdf'
 }, config, cli.flags)
 
 opts.outDir = path.resolve(opts.outDir)
 
 switch (cmd) {
   case 'build':
-    log('exporting')
+    log('building')
     ok.build(opts)
       .then(res => {
         log('done')
+      })
+      .catch(err => {
+        log.error(err)
+        process.exit(1)
+      })
+    break
+  case 'pdf':
+    log('exporting to PDF')
+    const pdf = require('./lib/pdf')
+    ok(opts)
+      .then(({ server }) => {
+        log('rendering PDF')
+        pdf(opts)
+          .then(filename => {
+            server.close()
+            log('done', filename)
+            process.exit(0)
+          })
+          .catch(err => {
+            log.error(err)
+            process.exit(1)
+          })
       })
       .catch(err => {
         log.error(err)
