@@ -66,13 +66,11 @@ const Dot = styled.button([], {
   width: '8px',
   height: '8px',
   color: 'inherit',
-  '&:focus': {
-    outline: 'none',
-    boxShadow: '0 0 0 1px'
-  }
-},
+  outline: 'none'
+  },
   props => ({
-    opacity: props.active ? 0.5 : 0.125
+    opacity: props.active ? 0.5 : 0.125,
+    boxShadow: props.focus ? '0 0 0 1px' : '0 0 0 0px'
   }),
   space,
   color
@@ -99,6 +97,7 @@ export const Dots = ({
       <Dot
         key={i}
         active={i <= index}
+        focus={i == index}
         title={'go to: ' + i}
         onClick={e => {
           onClick(i)
@@ -163,6 +162,7 @@ export class SlideDeck extends React.Component {
 
   handleKeyDown = e => {
     if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return
+
     switch (e.key) {
       case 'ArrowRight':
         e.preventDefault()
