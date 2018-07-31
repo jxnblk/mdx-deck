@@ -1,5 +1,7 @@
 site
 docs
 coverage
+test
 .babelrc
 .travis.yml
+CHANGELOG.md
