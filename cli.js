@@ -125,7 +125,7 @@ switch (cmd) {
     ok(opts)
       .then(res => {
         const url = 'http://localhost:' + res.port
-        open(url)
+        if (opts.open) open(url)
         log('listening on', chalk.magenta(url))
       })
       .catch(err => {
