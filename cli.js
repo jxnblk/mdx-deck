@@ -4,6 +4,7 @@ const meow = require('meow')
 const open = require('react-dev-utils/openBrowser')
 const chalk = require('chalk')
 const ok = require('ok-cli')
+const pkg = require('./package.json')
 
 const config = require('pkg-conf').sync('mdx-deck')
 
@@ -50,29 +51,35 @@ const getConfig = conf => {
 }
 
 const cli = meow(`
-  ${chalk.magenta('[mdx-deck]')}
-
   ${chalk.gray('Usage')}
 
     $ ${chalk.magenta('mdx-deck deck.mdx')}
 
     $ ${chalk.magenta('mdx-deck build deck.mdx')}
 
-    $ ${chalk.magenta('mdx-deck export deck.mdx')}
+    $ ${chalk.magenta('mdx-deck pdf deck.mdx')}
 
   ${chalk.gray('Options')}
 
-    -p --port     Dev server port
-
-    --no-open     Prevent from opening in default browser
-
-    -d --out-dir  Output directory for exporting
-
     --title       Title for the HTML document
 
-    --out-file    Filename for PDF export
+    ${chalk.gray('Dev server options')}
+
+      -p --port     Dev server port
+      --no-open     Prevent from opening in default browser
+
+    ${chalk.gray('Build options')}
+
+      -d --out-dir  Output directory for exporting
+
+    ${chalk.gray('PDF options')}
+
+      --out-file    Filename for PDF export
+      --width       Width in pixels
+      --heigh       Height in pixels
 
 `, {
+  description: chalk.magenta('[mdx-deck] ') + chalk.gray(pkg.description),
   flags: {
     port: {
       type: 'string',
@@ -92,7 +99,6 @@ const cli = meow(`
     },
     outFile: {
       type: 'string',
-      default: 'presentation.pdf'
     }
   }
 })
@@ -110,7 +116,9 @@ const opts = Object.assign({
   },
   config: getConfig,
   title: 'mdx-deck',
-  outDir: 'dist'
+  port: 8080,
+  outDir: 'dist',
+  outFile: 'presentation.pdf'
 }, config, cli.flags)
 
 opts.outDir = path.resolve(opts.outDir)
@@ -127,8 +135,8 @@ switch (cmd) {
         process.exit(1)
       })
     break
-  case 'export':
-    log('building')
+  case 'pdf':
+    log('exporting to PDF')
     const pdf = require('./lib/pdf')
     ok(opts)
       .then(({ server }) => {
@@ -136,7 +144,7 @@ switch (cmd) {
         pdf(opts)
           .then(filename => {
             server.close()
-            log('PDF exported', filename)
+            log('done', filename)
             process.exit(0)
           })
           .catch(err => {

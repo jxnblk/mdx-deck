@@ -247,6 +247,15 @@ Add a `build` script to your `package.json` to export a presentation as HTML wit
 }
 ```
 
+### PDF Export
+
+Presentations can be exported as PDF using the CLI.
+
+```json
+"script": {
+  "pdf": "mdx-deck pdf deck.mdx"
+}
+```
 
 ## CLI Options
 

@@ -9,9 +9,9 @@
   "scripts": {
     "prepare": "babel src -d dist",
     "start": "./cli.js docs/index.mdx -p 8989",
-    "export": "./cli.js export docs/index.mdx -p 8989",
+    "build": "./cli.js build docs/index.mdx -d site",
+    "pdf": "./cli.js pdf docs/index.mdx -d site",
     "help": "./cli.js",
-    "docs": "./cli.js build docs/index.mdx -d site",
     "test": "jest"
   },
   "keywords": [],
