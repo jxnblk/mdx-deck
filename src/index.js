@@ -165,10 +165,9 @@ export class SlideDeck extends React.Component {
     if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return
     switch (e.key) {
       case 'ArrowRight':
-      case ' ':
         e.preventDefault()
         this.update(inc)
-        break
+        break     
       case 'ArrowLeft':
         e.preventDefault()
         this.update(dec)
