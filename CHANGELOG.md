@@ -1,6 +1,10 @@
 
 # Changelog
 
+## v1.2.0 2018-07-31
+
+- Add PDF export to CLI
+
 ## v1.1.3 2018-07-31
 
 - Add emoji support
