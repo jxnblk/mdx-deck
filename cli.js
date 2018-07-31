@@ -4,6 +4,9 @@ const meow = require('meow')
 const open = require('react-dev-utils/openBrowser')
 const chalk = require('chalk')
 const ok = require('ok-cli')
+const remark = {
+  emoji: require('remark-emoji')
+}
 const pkg = require('./package.json')
 
 const config = require('pkg-conf').sync('mdx-deck')
@@ -39,7 +42,14 @@ const getConfig = conf => {
             ].map(require.resolve)
           }
         },
-        require.resolve('./lib/loader.js'),
+        {
+          loader: require.resolve('./lib/loader.js'),
+          options: {
+            mdPlugins: [
+              remark.emoji
+            ]
+          }
+        }
       ]
     }
   ]
@@ -163,7 +173,7 @@ switch (cmd) {
     ok(opts)
       .then(res => {
         const url = 'http://localhost:' + res.port
-        open(url)
+        if (opts.open) open(url)
         log('listening on', chalk.magenta(url))
       })
       .catch(err => {

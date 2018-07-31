@@ -1,6 +1,17 @@
 
 # Changelog
 
+## v1.1.3 2018-07-31
+
+- Add emoji support
+- Update `.npmignore`
+
+## v1.1.2 2018-07-31
+
+- Fix `--no-open` option
+- Add ability to ignore key events
+- Normalize newlines for cross-platform compatibility
+
 ## v1.1.1 2018-07-31
 
 - Fix for supporting markdown tables

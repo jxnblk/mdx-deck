@@ -174,6 +174,7 @@ export class SlideDeck extends React.Component {
     components: defaultComponents,
     width: '100vw',
     height: '100vh',
+    ignoreKeyEvents: false
   }
 
   state = {
@@ -184,6 +185,10 @@ export class SlideDeck extends React.Component {
   update = fn => this.setState(fn)
 
   handleKeyDown = e => {
+    if (this.props.ignoreKeyEvents) {
+      return
+    }
+
     if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return
     switch (e.key) {
       case 'ArrowRight':
