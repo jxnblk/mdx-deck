@@ -192,6 +192,20 @@ export { default as components } from './components'
 # Custom Components
 ```
 
+### Components
+
+mdx-deck includes some built-in components to help with creating presentations.
+
+#### Image
+
+Use the `<Image />` component to render a fullscreen image (using the CSS `background-image` property).
+
+```mdx
+import { Image } from 'mdx-deck'
+
+<Image src='kitten.png' />
+```
+
 ### Layouts
 
 Each slide can include a custom layout around its content.
