@@ -1,6 +1,10 @@
 
 # Changelog
 
+## v1.1.1 2018-07-31
+
+- Fix for supporting markdown tables
+
 ## v1.1.0 2018-07-30
 
 - Updated styles and theming
