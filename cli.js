@@ -4,6 +4,9 @@ const meow = require('meow')
 const open = require('react-dev-utils/openBrowser')
 const chalk = require('chalk')
 const ok = require('ok-cli')
+const remark = {
+  emoji: require('remark-emoji')
+}
 
 const config = require('pkg-conf').sync('mdx-deck')
 
@@ -38,7 +41,14 @@ const getConfig = conf => {
             ].map(require.resolve)
           }
         },
-        require.resolve('./lib/loader.js'),
+        {
+          loader: require.resolve('./lib/loader.js'),
+          options: {
+            mdPlugins: [
+              remark.emoji
+            ]
+          }
+        }
       ]
     }
   ]
