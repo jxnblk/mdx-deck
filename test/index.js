@@ -189,7 +189,7 @@ describe('components', () => {
   color: inherit;
   outline: none;
   opacity: 0.5;
-  box-shadow: 0px;
+  box-shadow: none;
   margin: 0px;
   padding: 4px;
   background-color: currentcolor;
@@ -207,7 +207,7 @@ describe('components', () => {
   color: inherit;
   outline: none;
   opacity: 0.125;
-  box-shadow: 0px;
+  box-shadow: none;
   margin: 0px;
   padding: 4px;
   background-color: currentcolor;

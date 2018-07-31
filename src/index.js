@@ -70,7 +70,7 @@ const Dot = styled.button([], {
   },
   props => ({
     opacity: props.active ? 0.5 : 0.125,
-    boxShadow: props.focus ? '0 0 0 1px' : '0 0 0 0px'
+    boxShadow: props.focus ? '0 0 0 1px' : 'none'
   }),
   space,
   color
