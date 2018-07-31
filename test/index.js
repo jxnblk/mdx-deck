@@ -125,15 +125,12 @@ describe('components', () => {
   width: 8px;
   height: 8px;
   color: inherit;
+  outline: none;
   opacity: 0.5;
+  box-shadow: 0 0 0 1px;
   margin: 0px;
   padding: 4px;
   background-color: currentcolor;
-}
-
-.c1:focus {
-  outline: none;
-  box-shadow: 0 0 0 1px;
 }
 
 .c0 {
@@ -162,27 +159,6 @@ describe('components', () => {
     test('renders with index', () => {
       const json = renderJSON(<Dots index={3} length={8} />)
       expect(json).toMatchInlineSnapshot(`
-.c1 {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  border: 4px solid transparent;
-  background-clip: padding-box;
-  border-radius: 9999px;
-  width: 8px;
-  height: 8px;
-  color: inherit;
-  opacity: 0.5;
-  margin: 0px;
-  padding: 4px;
-  background-color: currentcolor;
-}
-
-.c1:focus {
-  outline: none;
-  box-shadow: 0 0 0 1px;
-}
-
 .c2 {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -193,15 +169,48 @@ describe('components', () => {
   width: 8px;
   height: 8px;
   color: inherit;
-  opacity: 0.125;
+  outline: none;
+  opacity: 0.5;
+  box-shadow: 0 0 0 1px;
   margin: 0px;
   padding: 4px;
   background-color: currentcolor;
 }
 
-.c2:focus {
+.c1 {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 4px solid transparent;
+  background-clip: padding-box;
+  border-radius: 9999px;
+  width: 8px;
+  height: 8px;
+  color: inherit;
   outline: none;
-  box-shadow: 0 0 0 1px;
+  opacity: 0.5;
+  box-shadow: none;
+  margin: 0px;
+  padding: 4px;
+  background-color: currentcolor;
+}
+
+.c3 {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 4px solid transparent;
+  background-clip: padding-box;
+  border-radius: 9999px;
+  width: 8px;
+  height: 8px;
+  color: inherit;
+  outline: none;
+  opacity: 0.125;
+  box-shadow: none;
+  margin: 0px;
+  padding: 4px;
+  background-color: currentcolor;
 }
 
 .c0 {
@@ -234,27 +243,27 @@ describe('components', () => {
     title="go to: 2"
   />
   <button
-    className="c1"
+    className="c2"
     onClick={[Function]}
     title="go to: 3"
   />
   <button
-    className="c2"
+    className="c3"
     onClick={[Function]}
     title="go to: 4"
   />
   <button
-    className="c2"
+    className="c3"
     onClick={[Function]}
     title="go to: 5"
   />
   <button
-    className="c2"
+    className="c3"
     onClick={[Function]}
     title="go to: 6"
   />
   <button
-    className="c2"
+    className="c3"
     onClick={[Function]}
     title="go to: 7"
   />
