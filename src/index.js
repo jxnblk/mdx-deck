@@ -126,6 +126,10 @@ export const Dots = ({
   </Flex>
 
 export const Root = styled.div([], {
+  '@media print': {
+    fontSize: '24px',
+    height: 'auto'
+  }
 },
   props => props.theme.font ? ({
     fontFamily: props.theme.font
@@ -133,10 +137,7 @@ export const Root = styled.div([], {
   props => props.theme.css,
   width,
   height,
-  color,
-  '@media print': {
-    height: 'auto'
-  }
+  color
 )
 Root.defaultProps = {
   color: 'text',
