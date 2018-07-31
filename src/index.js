@@ -171,7 +171,7 @@ export class SlideDeck extends React.Component {
   static defaultProps = {
     slides: [],
     theme: defaultTheme,
-    components: defaultComponents,
+    components: {} ,
     width: '100vw',
     height: '100vh',
     ignoreKeyEvents: false
@@ -247,7 +247,11 @@ export class SlideDeck extends React.Component {
 
     return (
       <ThemeProvider theme={theme}>
-        <MDXProvider components={components}>
+        <MDXProvider
+          components={{
+            ...defaultComponents,
+            ...components
+          }}>
           <Root width={width} height={height}>
             <GoogleFonts />
             <Carousel index={index}>
