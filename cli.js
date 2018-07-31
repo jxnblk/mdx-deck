@@ -58,6 +58,8 @@ const cli = meow(`
 
     $ ${chalk.magenta('mdx-deck build deck.mdx')}
 
+    $ ${chalk.magenta('mdx-deck export deck.mdx')}
+
   ${chalk.gray('Options')}
 
     -p --port     Dev server port
@@ -67,6 +69,8 @@ const cli = meow(`
     -d --out-dir  Output directory for exporting
 
     --title       Title for the HTML document
+
+    --out-file    Filename for PDF export
 
 `, {
   flags: {
@@ -85,6 +89,10 @@ const cli = meow(`
     },
     title: {
       type: 'string'
+    },
+    outFile: {
+      type: 'string',
+      default: 'presentation.pdf'
     }
   }
 })
@@ -109,10 +117,32 @@ opts.outDir = path.resolve(opts.outDir)
 
 switch (cmd) {
   case 'build':
-    log('exporting')
+    log('building')
     ok.build(opts)
       .then(res => {
         log('done')
+      })
+      .catch(err => {
+        log.error(err)
+        process.exit(1)
+      })
+    break
+  case 'export':
+    log('building')
+    const pdf = require('./lib/pdf')
+    ok(opts)
+      .then(({ server }) => {
+        log('rendering PDF')
+        pdf(opts)
+          .then(filename => {
+            server.close()
+            log('PDF exported', filename)
+            process.exit(0)
+          })
+          .catch(err => {
+            log.error(err)
+            process.exit(1)
+          })
       })
       .catch(err => {
         log.error(err)
