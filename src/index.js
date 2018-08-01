@@ -98,7 +98,9 @@ Dot.defaultProps = {
   bg: 'currentcolor',
 }
 
-const Box = styled.div([],
+const Box = styled.div([], {
+  flex: 'none'
+},
   space,
   color
 )
@@ -135,19 +137,30 @@ export const RootStyles = styled.div([], {
   '@media print': {
     fontSize: '24px',
     height: 'auto'
-  }
+  },
 },
   props => props.theme.font ? ({
     fontFamily: props.theme.font
   }) : null,
   props => props.theme.css,
-  props => ({ zoom: props.zoom }),
+  props => props.css,
+  props => ({
+    zoom: props.zoom,
+    /*
+    width: props.zoom * 100 + 'vw',
+    height: props.zoom * 100 + 'vh',
+    transform: `scale(${props.zoom})`
+    */
+  }),
   width,
   height,
   color
 )
+RootStyles.defaultProps = {
+  zoom: 1
+}
 
-const Presenter = ({
+export const Presenter = ({
   index,
   length,
   slides = [],
@@ -168,20 +181,24 @@ const Presenter = ({
         <RootStyles
           {...props}
           zoom={3/4}
-        />
-        <Box mx='auto' p={3} />
+          css={{
+            outline: '1px solid #999'
+          }}>
+          {props.children}
+        </RootStyles>
+        <Box mx='0' p={1} />
         <RootStyles
           {...props}
-          width='25vw'
-          height='25vh'
           zoom={1/4}
-        >
-          {Next && (
-            <Slide>
-              <Next />
-            </Slide>
-          )}
-        </RootStyles>
+          css={{
+            outline: '1px solid #666'
+          }}>
+              {Next && (
+                <Slide>
+                  <Next />
+                </Slide>
+              )}
+          </RootStyles>
       </Flex>
     </Box>
   )
@@ -283,9 +300,6 @@ export class SlideDeck extends React.Component {
 
   getMode = () => {
     const { search } = window.location
-    const params = new URLSearchParams(search)
-    console.log(params.keys())
-    // const presenter = params.get('presenter')
     const presenter = search.includes('presenter')
     if (presenter) {
       this.setState({
@@ -294,9 +308,15 @@ export class SlideDeck extends React.Component {
     }
   }
 
+  handleStorageChange = e => {
+    const index = parseInt(e.newValue, 10)
+    this.setState({ index })
+  }
+
   componentDidMount () {
     document.body.addEventListener('keydown', this.handleKeyDown)
     window.addEventListener('hashchange', this.handleHashChange)
+    window.addEventListener('storage', this.handleStorageChange)
     this.hashToState()
     this.getMode()
   }
@@ -304,6 +324,7 @@ export class SlideDeck extends React.Component {
   componentWillUnmount () {
     document.body.removeEventListener('keydown', this.handleKeyDown)
     window.removeEventListener('hashchange', this.handleHashChange)
+    window.removeEventListener('storage', this.handleStorageChange)
   }
 
   componentDidUpdate () {
@@ -313,17 +334,7 @@ export class SlideDeck extends React.Component {
     }
     const { index } = this.state
     history.pushState(null, null, '#' + index)
-  }
-
-  getDimensions = () => {
-    if (this.state.mode === modes.presenter) {
-      return {
-        width: '75vw',
-        height: '75vh',
-      }
-    }
-    const { width, height } = this.props
-    return { width, height }
+    localStorage.setItem('mdx-slide', index)
   }
 
   render () {
@@ -331,9 +342,10 @@ export class SlideDeck extends React.Component {
       slides,
       theme,
       components,
+      width,
+      height
     } = this.props
     const { index, length } = this.state
-    const { width, height } = this.getDimensions()
 
     return (
       <ThemeProvider theme={theme}>
