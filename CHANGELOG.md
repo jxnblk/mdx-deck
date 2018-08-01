@@ -1,6 +1,10 @@
 
 # Changelog
 
+## v1.2.3 2018-08-01
+
+- Fix `history.pushState` hash
+
 ## v1.2.2 2018-07-31
 
 - Update dev server for static file server

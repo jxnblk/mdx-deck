@@ -298,7 +298,7 @@ export class SlideDeck extends React.Component {
       return
     }
     const { index } = this.state
-    history.pushState(null, null, '/#' + index)
+    history.pushState(null, null, '#' + index)
   }
 
   render () {
