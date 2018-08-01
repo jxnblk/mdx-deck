@@ -165,14 +165,14 @@ export const GoogleFonts = withTheme(({ theme }) => {
 
 export class FragmentBlock extends React.Component {
   static propTypes = {
-    children: PropTypes.string.isRequired
+    children: PropTypes.array.isRequired
   }
 
   constructor(props) {
     super(props)
     this.state = {
-      fragments: props.children.split(/-/),
-      fragmentStep: 0
+      fragments: props.children,
+      fragmentStep: -1
     }
   }
 
@@ -202,7 +202,7 @@ export class FragmentBlock extends React.Component {
         e.preventDefault()
         this.setState(state => {
           return {
-            fragmentStep: state.fragmentStep > 0 ? state.fragmentStep - 1 : 0
+            fragmentStep: state.fragmentStep >= 0 ? state.fragmentStep - 1 : -1
           }
         })
         break
