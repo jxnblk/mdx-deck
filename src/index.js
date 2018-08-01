@@ -163,6 +163,72 @@ export const GoogleFonts = withTheme(({ theme }) => {
   )
 })
 
+export class FragmentBlock extends React.Component {
+  static propTypes = {
+    children: PropTypes.string.isRequired
+  }
+
+  constructor(props) {
+    super(props)
+    this.state = {
+      fragments: props.children.split(/-/),
+      fragmentStep: 0
+    }
+  }
+
+  componentDidMount() {
+    document.body.addEventListener('keydown', this.handleKeyDown)
+  }
+
+  componentWillUnmount() {
+    document.body.removeEventListener('keydown', this.handleKeyDown)
+  }
+
+  handleKeyDown = e => {
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return
+    switch (e.key) {
+      case 'ArrowDown':
+        e.preventDefault()
+        this.setState(state => {
+          return {
+            fragmentStep:
+              state.fragmentStep < state.fragments.length - 1
+                ? state.fragmentStep + 1
+                : state.fragmentStep
+          }
+        })
+        break
+      case 'ArrowUp':
+        e.preventDefault()
+        this.setState(state => {
+          return {
+            fragmentStep: state.fragmentStep > 0 ? state.fragmentStep - 1 : 0
+          }
+        })
+        break
+    }
+  }
+
+  render() {
+    console.log(this.state);
+    const {fragments, fragmentStep} = this.state;
+    return (
+      <div>
+        <h3>Box</h3>
+        {fragments.map((fragment, index) => (
+          <div
+            style={{
+              visibility: index <= fragmentStep ? 'visible' : 'hidden'
+            }}
+            key={index}>
+            {fragment}
+          </div>
+        ))}
+      </div>
+    )
+  }
+}
+
 export class SlideDeck extends React.Component {
   static propTypes = {
     slides: PropTypes.array.isRequired,
