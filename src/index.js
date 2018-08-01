@@ -210,11 +210,9 @@ export class FragmentBlock extends React.Component {
   }
 
   render() {
-    console.log(this.state);
     const {fragments, fragmentStep} = this.state;
     return (
       <div>
-        <h3>Box</h3>
         {fragments.map((fragment, index) => (
           <div
             style={{
