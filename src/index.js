@@ -98,13 +98,19 @@ Dot.defaultProps = {
   bg: 'currentcolor',
 }
 
+const Box = styled.div([],
+  space,
+  color
+)
+
 const Flex = styled.div([], {
   display: 'flex',
+  alignItems: 'center',
   justifyContent: 'center',
   '@media print': {
     display: 'none'
   }
-}, space)
+}, props => props.css, space, color)
 
 export const Dots = ({
   index,
@@ -125,7 +131,7 @@ export const Dots = ({
     ))}
   </Flex>
 
-export const Root = styled.div([], {
+export const RootStyles = styled.div([], {
   '@media print': {
     fontSize: '24px',
     height: 'auto'
@@ -135,10 +141,64 @@ export const Root = styled.div([], {
     fontFamily: props.theme.font
   }) : null,
   props => props.theme.css,
+  props => ({ zoom: props.zoom }),
   width,
   height,
   color
 )
+
+const Presenter = ({
+  index,
+  length,
+  slides = [],
+  ...props
+}) => {
+  const Next = slides[index + 1]
+
+  return (
+    <Box color='white' bg='black'>
+      <Flex>
+        <pre>Slide {index} of {length}</pre>
+        <Box mx='auto' />
+      </Flex>
+      <Flex
+        css={{
+          height: '100vh'
+        }}>
+        <RootStyles
+          {...props}
+          zoom={3/4}
+        />
+        <Box mx='auto' p={3} />
+        <RootStyles
+          {...props}
+          width='25vw'
+          height='25vh'
+          zoom={1/4}
+        >
+          {Next && (
+            <Slide>
+              <Next />
+            </Slide>
+          )}
+        </RootStyles>
+      </Flex>
+    </Box>
+  )
+}
+
+const Root = ({
+  mode,
+  ...props
+}) => {
+  switch (mode) {
+    case modes.presenter:
+      return <Presenter {...props} />
+    default:
+      return <RootStyles {...props} />
+  }
+}
+
 Root.defaultProps = {
   color: 'text',
   bg: 'background'
@@ -163,6 +223,11 @@ export const GoogleFonts = withTheme(({ theme }) => {
   )
 })
 
+const modes = {
+  normal: 'NORMAL',
+  presenter: 'PRESENTER',
+}
+
 export class SlideDeck extends React.Component {
   static propTypes = {
     slides: PropTypes.array.isRequired,
@@ -179,7 +244,8 @@ export class SlideDeck extends React.Component {
 
   state = {
     length: this.props.slides.length,
-    index: 0
+    index: 0,
+    mode: modes.normal
   }
 
   update = fn => this.setState(fn)
@@ -215,10 +281,24 @@ export class SlideDeck extends React.Component {
     this.setState({ index })
   }
 
+  getMode = () => {
+    const { search } = window.location
+    const params = new URLSearchParams(search)
+    console.log(params.keys())
+    // const presenter = params.get('presenter')
+    const presenter = search.includes('presenter')
+    if (presenter) {
+      this.setState({
+        mode: modes.presenter
+      })
+    }
+  }
+
   componentDidMount () {
     document.body.addEventListener('keydown', this.handleKeyDown)
     window.addEventListener('hashchange', this.handleHashChange)
     this.hashToState()
+    this.getMode()
   }
 
   componentWillUnmount () {
@@ -235,15 +315,25 @@ export class SlideDeck extends React.Component {
     history.pushState(null, null, '#' + index)
   }
 
+  getDimensions = () => {
+    if (this.state.mode === modes.presenter) {
+      return {
+        width: '75vw',
+        height: '75vh',
+      }
+    }
+    const { width, height } = this.props
+    return { width, height }
+  }
+
   render () {
     const {
       slides,
       theme,
       components,
-      width,
-      height
     } = this.props
     const { index, length } = this.state
+    const { width, height } = this.getDimensions()
 
     return (
       <ThemeProvider theme={theme}>
@@ -252,7 +342,11 @@ export class SlideDeck extends React.Component {
             ...defaultComponents,
             ...components
           }}>
-          <Root width={width} height={height}>
+          <Root
+            {...this.state}
+            slides={slides}
+            width={width}
+            height={height}>
             <GoogleFonts />
             <Carousel index={index}>
               {slides.map((Component, i) => (
