@@ -1,6 +1,10 @@
 
 # Changelog
 
+## v1.2.2 2018-07-31
+
+- Update dev server for static file server
+
 ## v1.2.1 2018-07-31
 
 - Merge custom components with defaults
