@@ -24,6 +24,7 @@
     "chalk": "^2.4.1",
     "clipboardy": "^1.2.3",
     "gray-matter": "^4.0.1",
+    "hhmmss": "^1.0.0",
     "loader-utils": "^1.1.0",
     "lodash.debounce": "^4.0.8",
     "meow": "^5.0.0",

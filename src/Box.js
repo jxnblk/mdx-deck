@@ -1,10 +1,11 @@
 import styled from 'styled-components'
-import { space, color } from 'styled-system'
+import { width, space, color } from 'styled-system'
 
 const Box = styled.div([], {
   flex: 'none'
 },
   props => props.css,
+  width,
   space,
   color
 )

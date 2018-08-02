@@ -4,6 +4,8 @@ import Flex from './Flex'
 import Zoom from './Zoom'
 import Slide from './Slide'
 import Root from './Root'
+import Timer from './Timer'
+import Mono from './Mono'
 
 export const Presenter = ({
   index,
@@ -15,15 +17,16 @@ export const Presenter = ({
   const Next = slides[index + 1]
 
   return (
-    <Box
+    <Flex
       color='white' bg='black'
-      css={{ height: '100vh' }}
+      css={{
+        flexDirection: 'column',
+        height: '100vh'
+      }}
     >
-      <Flex>
-        <pre>Slide {index} of {length}</pre>
-        <Box mx='auto' />
-      </Flex>
-      <Flex css={{ alignItems: 'center' }}>
+      <Flex
+        my='auto'
+        css={{ alignItems: 'flex-start' }}>
         <Box
           mx='auto'
           css={{
@@ -51,7 +54,12 @@ export const Presenter = ({
           </Zoom>
         </Box>
       </Flex>
-    </Box>
+      <Flex mt='auto' px={3} py={3}>
+        <Mono>Slide {index} of {length}</Mono>
+        <Box mx='auto' />
+        <Timer />
+      </Flex>
+    </Flex>
   )
 }
 
