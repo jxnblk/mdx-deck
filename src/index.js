@@ -108,7 +108,6 @@ const Box = styled.div([], {
 
 const Flex = styled.div([], {
   display: 'flex',
-  alignItems: 'center',
   justifyContent: 'center',
   '@media print': {
     display: 'none'
@@ -174,7 +173,6 @@ const Zoom = ({ zoom, ...props }) =>
 Zoom.defaultProps = {
   zoom: 1
 }
-
 
 export const Presenter = ({
   index,
@@ -363,7 +361,6 @@ export class SlideDeck extends React.Component {
             ...components
           }}>
           <Wrapper
-            {...this.state}
             slides={slides}
             width={width}
             height={height}>
