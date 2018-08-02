@@ -101,6 +101,7 @@ Dot.defaultProps = {
 const Box = styled.div([], {
   flex: 'none'
 },
+  props => props.css,
   space,
   color
 )
@@ -133,7 +134,7 @@ export const Dots = ({
     ))}
   </Flex>
 
-export const RootStyles = styled.div([], {
+export const Root = styled.div([], {
   '@media print': {
     fontSize: '24px',
     height: 'auto'
@@ -143,22 +144,37 @@ export const RootStyles = styled.div([], {
     fontFamily: props.theme.font
   }) : null,
   props => props.theme.css,
-  props => props.css,
-  props => ({
-    zoom: props.zoom,
-    /*
-    width: props.zoom * 100 + 'vw',
-    height: props.zoom * 100 + 'vh',
-    transform: `scale(${props.zoom})`
-    */
-  }),
   width,
   height,
   color
 )
-RootStyles.defaultProps = {
+Root.defaultProps = {
+  color: 'text',
+  bg: 'background'
+}
+
+const ZoomRoot = styled.div([], {
+  backgroundColor: 'white',
+},
+  props => ({
+    width: (100 * props.zoom) + 'vw',
+    height: (100 * props.zoom) + 'vh',
+  })
+)
+const ZoomInner = styled.div([],
+  props => ({
+    transformOrigin: '0 0',
+    transform: `scale(${props.zoom})`
+  })
+)
+const Zoom = ({ zoom, ...props }) =>
+  <ZoomRoot zoom={zoom}>
+    <ZoomInner zoom={zoom} {...props} />
+  </ZoomRoot>
+Zoom.defaultProps = {
   zoom: 1
 }
+
 
 export const Presenter = ({
   index,
@@ -169,56 +185,44 @@ export const Presenter = ({
   const Next = slides[index + 1]
 
   return (
-    <Box color='white' bg='black'>
+    <Box
+      color='white' bg='black'
+      css={{ height: '100vh' }}
+    >
       <Flex>
         <pre>Slide {index} of {length}</pre>
         <Box mx='auto' />
       </Flex>
-      <Flex
-        css={{
-          height: '100vh'
-        }}>
-        <RootStyles
-          {...props}
-          zoom={3/4}
+      <Flex>
+        <Box
+          mx='auto'
           css={{
-            outline: '1px solid #999'
+            border: '1px solid rgba(128, 128, 128, 0.25)'
           }}>
-          {props.children}
-        </RootStyles>
-        <Box mx='0' p={1} />
-        <RootStyles
-          {...props}
-          zoom={1/4}
+          <Zoom zoom={5/8}>
+            <Root {...props}>
+              {props.children}
+            </Root>
+          </Zoom>
+        </Box>
+        <Box
+          mx='auto'
           css={{
-            outline: '1px solid #666'
+            border: '1px solid rgba(128, 128, 128, 0.25)'
           }}>
+          <Zoom zoom={1/4}>
+            <Root {...props}>
               {Next && (
                 <Slide>
                   <Next />
                 </Slide>
               )}
-          </RootStyles>
+            </Root>
+          </Zoom>
+        </Box>
       </Flex>
     </Box>
   )
-}
-
-const Root = ({
-  mode,
-  ...props
-}) => {
-  switch (mode) {
-    case modes.presenter:
-      return <Presenter {...props} />
-    default:
-      return <RootStyles {...props} />
-  }
-}
-
-Root.defaultProps = {
-  color: 'text',
-  bg: 'background'
 }
 
 export const GoogleFonts = withTheme(({ theme }) => {
@@ -345,7 +349,11 @@ export class SlideDeck extends React.Component {
       width,
       height
     } = this.props
-    const { index, length } = this.state
+    const { index, length, mode } = this.state
+
+    const Wrapper = mode === modes.presenter
+      ? Presenter
+      : Root
 
     return (
       <ThemeProvider theme={theme}>
@@ -354,7 +362,7 @@ export class SlideDeck extends React.Component {
             ...defaultComponents,
             ...components
           }}>
-          <Root
+          <Wrapper
             {...this.state}
             slides={slides}
             width={width}
@@ -376,7 +384,7 @@ export class SlideDeck extends React.Component {
                 this.setState({ index })
               }}
             />
-          </Root>
+          </Wrapper>
         </MDXProvider>
       </ThemeProvider>
     )
