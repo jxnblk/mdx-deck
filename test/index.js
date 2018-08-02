@@ -466,6 +466,7 @@ describe('components', () => {
   className="c0"
   color="text"
   height="100vh"
+  mode="NORMAL"
   width="100vw"
 >
   <div

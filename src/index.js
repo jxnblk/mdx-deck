@@ -178,6 +178,7 @@ export const Presenter = ({
   index,
   length,
   slides = [],
+  mode,
   ...props
 }) => {
   const Next = slides[index + 1]
@@ -191,7 +192,7 @@ export const Presenter = ({
         <pre>Slide {index} of {length}</pre>
         <Box mx='auto' />
       </Flex>
-      <Flex>
+      <Flex css={{ alignItems: 'center' }}>
         <Box
           mx='auto'
           css={{
@@ -361,6 +362,7 @@ export class SlideDeck extends React.Component {
             ...components
           }}>
           <Wrapper
+            {...this.state}
             slides={slides}
             width={width}
             height={height}>
