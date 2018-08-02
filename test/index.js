@@ -2,16 +2,12 @@ import React from 'react'
 import { create as render } from 'react-test-renderer'
 import { renderIntoDocument, Simulate } from 'react-dom/test-utils'
 import 'jest-styled-components'
-import {
-  inc,
-  dec,
-  SlideDeck,
-  Carousel,
-  Slide,
-  Dots,
-  Root,
-  GoogleFonts
-} from '../src'
+import { inc, dec, SlideDeck } from '../src'
+import Carousel from '../src/Carousel'
+import Slide from '../src/Slide'
+import Dots from '../src/Dots'
+import Root from '../src/Root'
+import GoogleFonts from '../src/GoogleFonts'
 
 const renderJSON = el => render(el).toJSON()
 
@@ -139,6 +135,17 @@ describe('components', () => {
     test('renders', () => {
       const json = renderJSON(<Dots index={0} length={1} />)
       expect(json).toMatchInlineSnapshot(`
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
 .c1 {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -158,17 +165,6 @@ describe('components', () => {
 .c1:focus {
   outline: none;
   box-shadow: 0 0 0 1px;
-}
-
-.c0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
 }
 
 @media print {
@@ -192,6 +188,17 @@ describe('components', () => {
     test('renders with index', () => {
       const json = renderJSON(<Dots index={3} length={8} />)
       expect(json).toMatchInlineSnapshot(`
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
 .c1 {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -232,17 +239,6 @@ describe('components', () => {
 .c2:focus {
   outline: none;
   box-shadow: 0 0 0 1px;
-}
-
-.c0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
 }
 
 @media print {
