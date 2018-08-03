@@ -1,10 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { MDXProvider } from '@mdx-js/tag'
-import styled, { ThemeProvider, withTheme } from 'styled-components'
-import { space, width, height, color } from 'styled-system'
+import { ThemeProvider } from 'styled-components'
 import debounce from 'lodash.debounce'
-import webfont from '@compositor/webfont'
+
+import Carousel from './Carousel'
+import Slide from './Slide'
+import Dots from './Dots'
+import Root from './Root'
+import Presenter from './Presenter'
+import GoogleFonts from './GoogleFonts'
 
 import defaultTheme from './themes'
 import defaultComponents from './components'
@@ -21,147 +26,11 @@ export const dec = state => state.index > 0
   ? ({ index: (state.index - 1) % state.length })
   : null
 
-const CarouselRoot = styled.div([], {
-  overflowX: 'hidden',
-  width: '100%',
-  height: '100%',
-  '@media print': {
-    height: 'auto',
-    overflowX: 'visible'
-  }
-})
 
-const CarouselInner = styled.div([], {
-  display: 'flex',
-  width: '100%',
-  height: '100%',
-  transitionProperty: 'transform',
-  transitionTimingFunction: 'ease-out',
-  transitionDuration: '.3s',
-  '@media print': {
-    height: 'auto',
-    display: 'block'
-  }
-}, props => ({
-  transform: `translateX(${-100 * props.index}%)`
-}))
-
-export const Carousel = props =>
-  <CarouselRoot>
-    <CarouselInner {...props} />
-  </CarouselRoot>
-
-export const Slide = styled.div([], {
-  flex: 'none',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  flexDirection: 'column',
-  overflow: 'hidden',
-  width: '100%',
-  height: '100%',
-  '@media print': {
-    width: '100vw',
-    height: '100vh',
-    pageBreakAfter: 'always',
-    pageBreakInside: 'avoid',
-    WebkitPrintColorAdjust: 'exact'
-  }
-}, space, color)
-
-Slide.defaultProps = {
-  px: [ 4, 5, 6 ]
+const modes = {
+  normal: 'NORMAL',
+  presenter: 'PRESENTER',
 }
-
-const Dot = styled.button([], {
-  appearance: 'none',
-  border: '4px solid transparent',
-  backgroundClip: 'padding-box',
-  borderRadius: '9999px',
-  width: '8px',
-  height: '8px',
-  color: 'inherit',
-  '&:focus': {
-    outline: 'none',
-    boxShadow: '0 0 0 1px'
-  }
-},
-  props => ({
-    opacity: props.active ? 0.5 : 0.125
-  }),
-  space,
-  color
-)
-Dot.defaultProps = {
-  m: 0,
-  p: 1,
-  bg: 'currentcolor',
-}
-
-const Flex = styled.div([], {
-  display: 'flex',
-  justifyContent: 'center',
-  '@media print': {
-    display: 'none'
-  }
-}, space)
-
-export const Dots = ({
-  index,
-  length,
-  onClick,
-  ...props
-}) =>
-  <Flex {...props}>
-    {Array.from({ length }).map((n, i) => (
-      <Dot
-        key={i}
-        active={i <= index}
-        title={'go to: ' + i}
-        onClick={e => {
-          onClick(i)
-        }}
-      />
-    ))}
-  </Flex>
-
-export const Root = styled.div([], {
-  '@media print': {
-    fontSize: '24px',
-    height: 'auto'
-  }
-},
-  props => props.theme.font ? ({
-    fontFamily: props.theme.font
-  }) : null,
-  props => props.theme.css,
-  width,
-  height,
-  color
-)
-Root.defaultProps = {
-  color: 'text',
-  bg: 'background'
-}
-
-export const GoogleFonts = withTheme(({ theme }) => {
-  const links = [
-    webfont.getURL(theme.font || ''),
-    webfont.getURL(theme.monospace || '')
-  ].filter(Boolean)
-  if (!links.length) return false
-  return (
-    <React.Fragment>
-      {links.map((href, i) => (
-        <link
-          key={i}
-          href={href}
-          rel='stylesheet'
-        />
-      ))}
-    </React.Fragment>
-  )
-})
 
 export class SlideDeck extends React.Component {
   static propTypes = {
@@ -179,7 +48,8 @@ export class SlideDeck extends React.Component {
 
   state = {
     length: this.props.slides.length,
-    index: 0
+    index: 0,
+    mode: modes.normal
   }
 
   update = fn => this.setState(fn)
@@ -200,6 +70,10 @@ export class SlideDeck extends React.Component {
         e.preventDefault()
         this.update(dec)
         break
+      case 'p':
+        this.update(state => ({
+          mode: state.mode === modes.presenter ? modes.normal : modes.presenter
+        }))
     }
   }
 
@@ -215,15 +89,33 @@ export class SlideDeck extends React.Component {
     this.setState({ index })
   }
 
+  getMode = () => {
+    const { search } = window.location
+    const presenter = search.includes('presenter')
+    if (presenter) {
+      this.setState({
+        mode: modes.presenter
+      })
+    }
+  }
+
+  handleStorageChange = e => {
+    const index = parseInt(e.newValue, 10)
+    this.setState({ index })
+  }
+
   componentDidMount () {
     document.body.addEventListener('keydown', this.handleKeyDown)
     window.addEventListener('hashchange', this.handleHashChange)
+    window.addEventListener('storage', this.handleStorageChange)
     this.hashToState()
+    this.getMode()
   }
 
   componentWillUnmount () {
     document.body.removeEventListener('keydown', this.handleKeyDown)
     window.removeEventListener('hashchange', this.handleHashChange)
+    window.removeEventListener('storage', this.handleStorageChange)
   }
 
   componentDidUpdate () {
@@ -233,6 +125,7 @@ export class SlideDeck extends React.Component {
     }
     const { index } = this.state
     history.pushState(null, null, '#' + index)
+    localStorage.setItem('mdx-slide', index)
   }
 
   render () {
@@ -243,7 +136,11 @@ export class SlideDeck extends React.Component {
       width,
       height
     } = this.props
-    const { index, length } = this.state
+    const { index, length, mode } = this.state
+
+    const Wrapper = mode === modes.presenter
+      ? Presenter
+      : Root
 
     return (
       <ThemeProvider theme={theme}>
@@ -252,7 +149,11 @@ export class SlideDeck extends React.Component {
             ...defaultComponents,
             ...components
           }}>
-          <Root width={width} height={height}>
+          <Wrapper
+            {...this.state}
+            slides={slides}
+            width={width}
+            height={height}>
             <GoogleFonts />
             <Carousel index={index}>
               {slides.map((Component, i) => (
@@ -270,7 +171,7 @@ export class SlideDeck extends React.Component {
                 this.setState({ index })
               }}
             />
-          </Root>
+          </Wrapper>
         </MDXProvider>
       </ThemeProvider>
     )
