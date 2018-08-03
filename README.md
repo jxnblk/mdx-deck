@@ -22,7 +22,7 @@ npm i -D mdx-deck
 
 - :memo: Write presentations in markdown
 - :atom_symbol: Import and use React components
-- :nail_care: Customizable themes and components
+- :nail_care: Customizable [themes](#theming) and [components](#custom-components)
 - :zero: Zero-config CLI
 - :tipping_hand_woman: [Presenter mode](#presenter-mode)
 - :notebook: [Speaker notes](#speaker-notes)
@@ -208,6 +208,23 @@ import { Image } from 'mdx-deck'
 <Image src='kitten.png' />
 ```
 
+#### Appear
+
+Use the `<Appear />` component to make its children appear one at a time within a single slide.
+Use the up and down arrow keys to step through each element.
+
+```mdx
+import { Appear } from 'mdx-deck'
+
+<ul>
+  <Appear>
+    <li>One</li>
+    <li>Two</li>
+    <li>Three</li>
+  </Appear>
+</ul>
+```
+
 ### Layouts
 
 Each slide can include a custom layout around its content.
@@ -253,9 +270,21 @@ export { default as Provider } from './Provider'
 # Hello
 ```
 
+A custom Provider component will receive the application's state as props,
+which can be used to show custom page numbers or add other elements to the UI.
+
+#### Props
+
+- `index`: (number) the current slide index
+- `length`: (number) the length of the slides array
+- `mode`: (string) the current mode (one of `'NORMAL'` or `'PRESENTER'`)
+- `notes`: (object) custom [speaker notes](#speaker-notes) for all slides
+
 ## Presenter Mode
 
 mdx-deck includes a built-in presenter mode, with a preview of the next slide and a timer.
+
+![presenter mode screenshot](docs/presenter-mode.png)
 
 To use presenter mode:
 
