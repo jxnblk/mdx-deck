@@ -15,6 +15,11 @@ const Button = styled.button([], {
   border: 'none'
 }, space, color)
 
+Button.propTypes = {
+  ...space.propTypes,
+  ...color.propTypes
+}
+
 Button.defaultProps = {
   m: 0,
   px: 2,

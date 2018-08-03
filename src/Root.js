@@ -19,6 +19,13 @@ export const Root = styled.div([], {
   height,
   color
 )
+
+Root.propTypes = {
+  ...width.propTypes,
+  ...height.propTypes,
+  ...color.propTypess
+}
+
 Root.defaultProps = {
   color: 'text',
   bg: 'background'

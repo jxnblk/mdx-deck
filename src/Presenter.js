@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import Box from './Box'
 import Flex from './Flex'
 import Zoom from './Zoom'
@@ -76,6 +77,14 @@ export const Presenter = ({
       </Flex>
     </Flex>
   )
+}
+
+Presenter.propTypes = {
+  index: PropTypes.number.isRequired,
+  length: PropTypes.number.isRequired,
+  slides: PropTypes.array,
+  mode: PropTypes.string,
+  notes: PropTypes.object
 }
 
 export default Presenter
