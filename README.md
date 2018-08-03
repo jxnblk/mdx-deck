@@ -284,6 +284,8 @@ which can be used to show custom page numbers or add other elements to the UI.
 
 mdx-deck includes a built-in presenter mode, with a preview of the next slide and a timer.
 
+![presenter mode screenshot](docs/presenter-mode.png)
+
 To use presenter mode:
 
 - Open two windows in the same browser, with the same URL on two different screens. (this should work in both development and exported presentations)
