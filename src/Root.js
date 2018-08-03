@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import {
   width,
   height,
@@ -22,8 +21,6 @@ export const Root = styled.div([], {
 )
 
 Root.propTypes = {
-  color: PropTypes.string,
-  bg: PropTypes.string,
   ...width.propTypes,
   ...height.propTypes,
   ...color.propTypess

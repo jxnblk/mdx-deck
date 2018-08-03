@@ -20,9 +20,9 @@ const Heading = styled.h1([], {
   css('heading')
 )
 Heading.propTypes = {
-  color: PropTypes.string,
-  mt: PropTypes.number,
-  mb: PropTypes.number,
+  ...fontSize.propTypes,
+  ...space.propTypes,
+  ...color.propTypes
 }
 Heading.defaultProps = {
   color: 'heading',
@@ -73,7 +73,9 @@ const p = styled.p([],
   css('p'),
 )
 p.propTypes = {
-  fontSize: PropTypes.number
+  ...fontSize.propTypes,
+  ...space.propTypes,
+  ...color.propTypes
 }
 p.defaultProps = {
   fontSize: 2
@@ -111,10 +113,9 @@ const blockquote = styled.blockquote([], {
   css('quote')
 )
 blockquote.propTypes = {
-  fontSize: PropTypes.number,
-  px: PropTypes.number,
-  mx: PropTypes.number,
-  color: PropTypes.string
+  ...fontSize.propTypes,
+  ...space.propTypes,
+  ...color.propTypes
 }
 blockquote.defaultProps = {
   fontSize: 2,
@@ -133,11 +134,9 @@ const Pre = styled.pre([], props => ({
   css('pre')
 )
 Pre.propTypes = {
-  fontSize: PropTypes.number,
-  m: PropTypes.number,
-  p: PropTypes.number,
-  color: PropTypes.string,
-  bg: PropTypes.string
+  ...fontSize.propTypes,
+  ...space.propTypes,
+  ...color.propTypes
 }
 Pre.defaultProps = {
   fontSize: 1,
@@ -164,8 +163,9 @@ const inlineCode = styled.code([], props => ({
   fontFamily: props.theme.monospace
 }), fontSize, space, color, css('code'))
 inlineCode.propTypes = {
-  color: PropTypes.string,
-  bg: PropTypes.string
+  ...fontSize.propTypes,
+  ...space.propTypes,
+  ...color.propTypes
 }
 inlineCode.defaultProps = {
   color: 'code',
