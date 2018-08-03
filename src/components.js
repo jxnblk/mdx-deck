@@ -44,7 +44,6 @@ const h6 = styled(h3.withComponent('h6'))([], css('h6'))
 
 const a = styled.a([], color, css('link'), css('a'))
 a.defaultProps = {
-  target: '_blank',
   color: 'link'
 }
 
