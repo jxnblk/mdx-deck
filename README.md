@@ -208,6 +208,23 @@ import { Image } from 'mdx-deck'
 <Image src='kitten.png' />
 ```
 
+#### Appear
+
+Use the `<Appear />` component to make its children appear one at a time within a single slide.
+Use the up and down arrow keys to step through each element.
+
+```mdx
+import { Appear } from 'mdx-deck'
+
+<ul>
+  <Appear>
+    <li>One</li>
+    <li>Two</li>
+    <li>Three</li>
+  </Appear>
+</ul>
+```
+
 ### Layouts
 
 Each slide can include a custom layout around its content.
