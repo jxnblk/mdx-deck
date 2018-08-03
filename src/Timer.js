@@ -21,7 +21,9 @@ Button.propTypes = {
   px: PropTypes.number,
   py: PropTypes.number,
   color: PropTypes.string,
-  bg: PropTypes.string
+  bg: PropTypes.string,
+  ...space.propTypes,
+  ...color.propTypes
 }
 
 Button.defaultProps = {
