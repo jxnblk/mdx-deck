@@ -1,6 +1,10 @@
 
 # Changelog
 
+## v1.4.2 2018-08-03
+
+- Update ok-cli for better HTML output
+
 ## v1.4.1 2018-08-03
 
 - Update docs
