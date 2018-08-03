@@ -70,6 +70,10 @@ export class SlideDeck extends React.Component {
         e.preventDefault()
         this.update(dec)
         break
+      case 'p':
+        this.update(state => ({
+          mode: state.mode === modes.presenter ? modes.normal : modes.presenter
+        }))
     }
   }
 
