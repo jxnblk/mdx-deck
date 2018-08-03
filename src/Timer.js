@@ -1,8 +1,27 @@
 import React from 'react'
 import hhmmss from 'hhmmss'
+import styled from 'styled-components'
+import { space, color } from 'styled-system'
 import Flex from './Flex'
 import Box from './Box'
 import Mono from './Mono'
+
+const Button = styled.button([], {
+  appearance: 'none',
+  fontFamily: 'inherit',
+  fontSize: '12px',
+  fontWeight: 'bold',
+  borderRadius: '4px',
+  border: 'none'
+}, space, color)
+
+Button.defaultProps = {
+  m: 0,
+  px: 2,
+  py: 1,
+  color: 'white',
+  bg: '#333'
+}
 
 class Timer extends React.Component {
   state = {
@@ -17,10 +36,6 @@ class Timer extends React.Component {
 
   reset = () => {
     this.setState({ seconds: 0 })
-  }
-
-  getElapsed = () => {
-    return hhmmss(this.state.seconds)
   }
 
   tick = () => {
@@ -43,17 +58,21 @@ class Timer extends React.Component {
   }
 
   render () {
-    const { time, on } = this.state
-    const elapsed = this.getElapsed()
+    const { time, seconds, on } = this.state
+    const elapsed = hhmmss(seconds)
 
     return (
-      <Flex>
-        <button onClick={this.toggle}>
+      <Flex css={{ alignItems: 'center' }}>
+        {!on && seconds > 0 && (
+          <Button mr={1} onClick={this.reset}>
+            reset
+          </Button>
+        )}
+        <Button
+          bg={on ? '#600' : '#060'}
+          onClick={this.toggle}>
           {on ? 'stop' : 'start'}
-        </button>
-        <button onClick={this.reset}>
-          reset
-        </button>
+        </Button>
         <Mono px={2}>
           {elapsed} |
         </Mono>
