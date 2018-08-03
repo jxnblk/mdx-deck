@@ -17,6 +17,7 @@ import defaultComponents from './components'
 
 export { default as Image } from './Image'
 export { default as Notes } from './Notes'
+export { default as FragmentBlock } from './FragmentBlock'
 export { default as components } from './components'
 
 // themes
