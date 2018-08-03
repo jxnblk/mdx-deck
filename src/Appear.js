@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-export default class FragmentBlock extends React.Component {
+export default class Appear extends React.Component {
   static propTypes = {
     children: PropTypes.array.isRequired
   }
@@ -50,17 +50,25 @@ export default class FragmentBlock extends React.Component {
   render() {
     const {fragments, fragmentStep} = this.state;
     return (
-      <div>
-        {fragments.map((fragment, index) => (
-          <div
-            style={{
-              visibility: index <= fragmentStep ? 'visible' : 'hidden'
-            }}
-            key={index}>
-            {fragment}
-          </div>
+      <React.Fragment>
+        {fragments.map((fragment, index) =>
+          typeof fragment === 'string' ? (
+            <div
+              key={index}
+              style={{
+                visibility: index <= fragmentStep ? 'visible' : 'hidden'
+              }}>
+              {fragment}
+            </div>
+          ) : (
+            React.cloneElement(fragment, {
+              key: index,
+              style: {
+                visibility: index <= fragmentStep ? 'visible' : 'hidden'
+              }
+            })
         ))}
-      </div>
+      </React.Fragment>
     )
   }
 }

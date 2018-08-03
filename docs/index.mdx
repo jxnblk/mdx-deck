@@ -1,5 +1,5 @@
 export { future as theme } from '../src/themes'
-import { Image, Notes, FragmentBlock } from '../src'
+import { Image, Notes, Appear } from '../src'
 import Layout from './Layout'
 
 # mdx-deck
@@ -25,14 +25,16 @@ import Box from 'superbox'
 - To help make your point
 
 ---
-  # 4 reasons to use Reason
+  ### Appear
 
-  <FragmentBlock>
-    <div>Based on OCaml</div>
-    <div>Types</div>
-    <span>Community</span>
-    <div className="some-effects">Interop</div>
-  </FragmentBlock>
+  <ul>
+    <Appear>
+      <li>One</li>
+      <li>Two</li>
+      <li>Three</li>
+      <li>Four</li>
+    </Appear>
+  </ul>
 ---
 
 ## Getting Started
