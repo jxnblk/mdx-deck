@@ -124,7 +124,7 @@ const code = props => {
 const inlineCode = styled.code([], props => ({
   fontFamily: props.theme.monospace
 }), fontSize, space, color, css('code'))
-code.defaultProps = {
+inlineCode.defaultProps = {
   color: 'code',
   bg: 'codeBackground'
 }
