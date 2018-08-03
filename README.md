@@ -24,6 +24,8 @@ npm i -D mdx-deck
 - :atom_symbol: Import and use React components
 - :nail_care: Customizable themes and components
 - :zero: Zero-config CLI
+- :tipping_hand_woman: [Presenter mode](#presenter-mode)
+- :notebook: [Speaker notes](#speaker-notes)
 
 [View demo](https://jxnblk.com/mdx-deck)
 
