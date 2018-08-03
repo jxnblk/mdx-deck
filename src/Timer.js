@@ -67,11 +67,7 @@ class Timer extends React.Component {
   }
 
   reset = () => {
-    this.setState(state => ({
-      seconds: state.directionMode === direction.normal
-      ? 0
-      : state.countdownTime
-    }))
+    this.setState(state => ({ seconds: 0}))
   }
 
   tick = () => {
