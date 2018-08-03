@@ -1,6 +1,10 @@
 
 # Changelog
 
+## v1.3.1 2018-08-02
+
+- Add speaker notes markdown syntax and component
+
 ## v1.3.0 2018-08-02
 
 - Add presenter mode with preview of next slide and timer
