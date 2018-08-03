@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { space, color } from 'styled-system'
+import { space, width, color } from 'styled-system'
 
 const Flex = styled.div([], {
   display: 'flex',
@@ -7,6 +7,10 @@ const Flex = styled.div([], {
   '@media print': {
     display: 'none'
   }
-}, props => props.css, space, color)
+}, props => props.css,
+  space,
+  width,
+  color
+)
 
 export default Flex

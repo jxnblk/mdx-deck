@@ -1,5 +1,5 @@
 export { future as theme } from '../src/themes'
-import { Image } from '../src'
+import { Image, Notes } from '../src'
 import Layout from './Layout'
 
 # mdx-deck
@@ -33,13 +33,27 @@ import Box from 'superbox'
 3. Present
 
 ---
+
 ```
 <button>code example</button>
 ```
+
+```notes
+- These are speaker notes
+- And they won't rendered in your slide
+```
+
 ---
 > “Blockquotes are essential to any good presentation”
 
 – Anonymous
+
+<Notes>
+  <ul>
+    <li>Speaker notes can also be</li>
+    <li>Written in JSX</li>
+  </ul>
+</Notes>
 
 ---
 

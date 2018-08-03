@@ -4,6 +4,7 @@ import { MDXProvider } from '@mdx-js/tag'
 import { ThemeProvider } from 'styled-components'
 import debounce from 'lodash.debounce'
 
+import { Provider } from './context'
 import Carousel from './Carousel'
 import Slide from './Slide'
 import Dots from './Dots'
@@ -15,6 +16,7 @@ import defaultTheme from './themes'
 import defaultComponents from './components'
 
 export { default as Image } from './Image'
+export { default as Notes } from './Notes'
 export { default as components } from './components'
 
 // themes
@@ -49,7 +51,8 @@ export class SlideDeck extends React.Component {
   state = {
     length: this.props.slides.length,
     index: 0,
-    mode: modes.normal
+    mode: modes.normal,
+    notes: {}
   }
 
   update = fn => this.setState(fn)
@@ -104,6 +107,15 @@ export class SlideDeck extends React.Component {
     this.setState({ index })
   }
 
+  addNotes = ({ index, children }) => {
+    this.setState(state => ({
+      notes: {
+        ...state.notes,
+        [index]: children
+      }
+    }))
+  }
+
   componentDidMount () {
     document.body.addEventListener('keydown', this.handleKeyDown)
     window.addEventListener('hashchange', this.handleHashChange)
@@ -123,8 +135,10 @@ export class SlideDeck extends React.Component {
       this.isHashChange = false
       return
     }
-    const { index } = this.state
-    history.pushState(null, null, '#' + index)
+    const { index, mode } = this.state
+    let query = '?'
+    if (mode === modes.presenter) query += 'presenter'
+    history.pushState(null, null, query + '#' + index)
     localStorage.setItem('mdx-slide', index)
   }
 
@@ -142,38 +156,49 @@ export class SlideDeck extends React.Component {
       ? Presenter
       : Root
 
+    const context = {
+      ...this.state,
+      slides,
+      addNotes: this.addNotes
+    }
+
     return (
-      <ThemeProvider theme={theme}>
-        <MDXProvider
-          components={{
-            ...defaultComponents,
-            ...components
-          }}>
-          <Wrapper
-            {...this.state}
-            slides={slides}
-            width={width}
-            height={height}>
-            <GoogleFonts />
-            <Carousel index={index}>
-              {slides.map((Component, i) => (
-                <Slide key={i} id={'slide-' + i}>
-                  <Component />
-                </Slide>
-              ))}
-            </Carousel>
-            <Dots
-              mt={-32}
-              mx='auto'
-              index={index}
-              length={length}
-              onClick={index => {
-                this.setState({ index })
-              }}
-            />
-          </Wrapper>
-        </MDXProvider>
-      </ThemeProvider>
+      <Provider value={context}>
+        <ThemeProvider theme={theme}>
+          <MDXProvider
+            components={{
+              ...defaultComponents,
+              ...components
+            }}>
+            <Wrapper
+              {...this.state}
+              slides={slides}
+              width={width}
+              height={height}>
+              <GoogleFonts />
+              <Carousel index={index}>
+                {slides.map((Component, i) => (
+                  <Slide
+                    key={i}
+                    id={'slide-' + i}
+                    index={i}>
+                    <Component />
+                  </Slide>
+                ))}
+              </Carousel>
+              <Dots
+                mt={-32}
+                mx='auto'
+                index={index}
+                length={length}
+                onClick={index => {
+                  this.setState({ index })
+                }}
+              />
+            </Wrapper>
+          </MDXProvider>
+        </ThemeProvider>
+      </Provider>
     )
   }
 }
