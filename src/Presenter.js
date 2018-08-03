@@ -12,6 +12,7 @@ export const Presenter = ({
   length,
   slides = [],
   mode,
+  notes = {},
   ...props
 }) => {
   const Next = slides[index + 1]
@@ -24,11 +25,10 @@ export const Presenter = ({
         height: '100vh'
       }}
     >
-      <Flex
-        my='auto'
-        css={{ alignItems: 'flex-start' }}>
+      <Flex my='auto'>
         <Box
           mx='auto'
+          width={5/8}
           css={{
             border: '1px solid rgba(128, 128, 128, 0.25)'
           }}>
@@ -38,21 +38,36 @@ export const Presenter = ({
             </Root>
           </Zoom>
         </Box>
-        <Box
+        <Flex
+          width={1/4}
           mx='auto'
           css={{
-            border: '1px solid rgba(128, 128, 128, 0.25)'
+            flex: 'none',
+            flexDirection: 'column'
           }}>
-          <Zoom zoom={1/4}>
-            <Root {...props}>
-              {Next && (
-                <Slide>
-                  <Next />
-                </Slide>
-              )}
-            </Root>
-          </Zoom>
-        </Box>
+          <Box
+            mx='auto'
+            css={{
+              border: '1px solid rgba(128, 128, 128, 0.25)'
+            }}>
+            <Zoom zoom={1/4}>
+              <Root {...props}>
+                {Next && (
+                  <Slide>
+                    <Next />
+                  </Slide>
+                )}
+              </Root>
+            </Zoom>
+          </Box>
+          <Box
+            py={3}
+            css={{
+              flex: 'auto'
+            }}>
+            {notes[index]}
+          </Box>
+        </Flex>
       </Flex>
       <Flex mt='auto' px={3} py={3}>
         <Mono>Slide {index} of {length}</Mono>

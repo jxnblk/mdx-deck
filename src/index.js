@@ -51,7 +51,8 @@ export class SlideDeck extends React.Component {
   state = {
     length: this.props.slides.length,
     index: 0,
-    mode: modes.normal
+    mode: modes.normal,
+    notes: {}
   }
 
   update = fn => this.setState(fn)
@@ -106,6 +107,15 @@ export class SlideDeck extends React.Component {
     this.setState({ index })
   }
 
+  addNotes = ({ index, children }) => {
+    this.setState(state => ({
+      notes: {
+        ...state.notes,
+        [index]: children
+      }
+    }))
+  }
+
   componentDidMount () {
     document.body.addEventListener('keydown', this.handleKeyDown)
     window.addEventListener('hashchange', this.handleHashChange)
@@ -147,6 +157,7 @@ export class SlideDeck extends React.Component {
     const context = {
       ...this.state,
       slides,
+      addNotes: this.addNotes
     }
 
     return (

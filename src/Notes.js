@@ -3,13 +3,28 @@ import { withDeck } from './context'
 import { withSlide } from './Slide'
 
 export default withDeck(withSlide(class extends React.Component {
-  componentDidUpdate () {
-    console.log(
-      this.props.children,
-      this.props.slide,
-      this.props.deck
-    )
+  setNotes = (props) => {
+    const { slide, deck, children } = props
+    if (!slide.index) return
+    deck.addNotes({
+      index: slide.index,
+      children
+    })
   }
+
+  componentWillMount () {
+    this.setNotes(this.props)
+  }
+
+  /* todo
+  componentWillUpdate (next) {
+    this.setNotes(next)
+  }
+
+  shouldComponentUpdate (next) {
+    return next.children !== this.props.children
+  }
+  */
 
   render () {
     return false
