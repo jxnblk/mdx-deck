@@ -4,7 +4,7 @@ import { withTheme } from 'styled-components'
 
 export const GoogleFonts = withTheme(({ theme }) => {
   const links = [
-    webfont.getURL(theme.font || ''),
+    webfont.getURL(theme.font || '', theme.weights),
     webfont.getURL(theme.monospace || '')
   ].filter(Boolean)
   if (!links.length) return false
