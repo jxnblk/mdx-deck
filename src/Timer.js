@@ -23,19 +23,55 @@ Button.defaultProps = {
   bg: '#333'
 }
 
+const direction = {
+  normal: 0,
+  countdown: 1
+}
+
+const DEFAULT_COUNTDOWN = 1800
+
 class Timer extends React.Component {
   state = {
     on: false,
     time: new Date().toLocaleTimeString(),
-    seconds: 0
+    seconds: 0,
+    directionMode: direction.normal,
+    countdownTime: DEFAULT_COUNTDOWN
   }
 
   toggle = () => {
     this.setState(state => ({ on: !state.on }))
   }
 
+  toggleDirection = () => {
+    this.setState(state => {
+      if (state.directionMode == direction.normal) {
+        return {
+          directionMode: direction.countdown,
+          countdownTime: DEFAULT_COUNTDOWN,
+          seconds: 0
+        }
+      }
+
+      return {
+        directionMode: direction.normal,
+        seconds: 0
+      }
+    })
+  }
+
+  updateCountdownTime = (e) => {
+    const value = e.target.value
+    const countdownTime = parseInt(value, 10) * 60 || 0
+    this.setState(state => ({ countdownTime, seconds: 0 }))
+  }
+
   reset = () => {
-    this.setState({ seconds: 0 })
+    this.setState(state => ({
+      seconds: state.directionMode === direction.normal
+      ? 0
+      : state.countdownTime
+    }))
   }
 
   tick = () => {
@@ -58,15 +94,42 @@ class Timer extends React.Component {
   }
 
   render () {
-    const { time, seconds, on } = this.state
-    const elapsed = hhmmss(seconds)
+    const { time, seconds, on, directionMode, countdownTime } = this.state
+    const elapsed = directionMode === direction.normal
+      ? hhmmss(seconds)
+      : countdownTime - seconds >= 0
+        ? hhmmss(countdownTime - seconds)
+        : (
+          <span style={{color: "#600"}}>
+            - {hhmmss(seconds - countdownTime)}
+          </span>
+        )
 
     return (
       <Flex css={{ alignItems: 'center' }}>
+        {!on && (
+          <Button
+            bg={directionMode === direction.normal ? '#666' : '#060'}
+            onClick={this.toggleDirection}> switch to {' '}
+            {directionMode === direction.normal
+              ? 'countdown mode'
+              : 'normal mode'
+            }
+          </Button>
+        )}
         {!on && seconds > 0 && (
           <Button mr={1} onClick={this.reset}>
             reset
           </Button>
+        )}
+
+        {directionMode === direction.countdown && (
+          !on
+            ? <input
+                value={countdownTime/60}
+                onChange={this.updateCountdownTime}
+              />
+            : <Mono px={2}>Presentation Time: {countdownTime/60} minutes</Mono>
         )}
         <Button
           bg={on ? '#600' : '#060'}
