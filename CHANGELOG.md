@@ -1,6 +1,11 @@
 
 # Changelog
 
+## v1.3.2 2018-08-02
+
+- Remove default `target="_blank"` from links
+- Move custom Provider component into app
+
 ## v1.3.1 2018-08-02
 
 - Add speaker notes markdown syntax and component
