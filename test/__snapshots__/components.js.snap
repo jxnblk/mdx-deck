@@ -8,7 +8,6 @@ exports[`renders a 1`] = `
 <a
   className="c0"
   color="link"
-  target="_blank"
 />
 `;
 
@@ -33,6 +32,7 @@ exports[`renders blockquote 1`] = `
 
 exports[`renders code 1`] = `
 .c0 {
+  white-space: pre-wrap;
   font-size: 14px;
   margin: 0px;
   padding: 8px;
