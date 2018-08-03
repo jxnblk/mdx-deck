@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 import { space, width, color } from 'styled-system'
 
 const Flex = styled.div([], {
@@ -12,5 +13,9 @@ const Flex = styled.div([], {
   width,
   color
 )
+
+Flex.propTypes = {
+  css: PropTypes.object
+}
 
 export default Flex

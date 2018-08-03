@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 import {
   width,
   height,
@@ -19,6 +20,12 @@ export const Root = styled.div([], {
   height,
   color
 )
+
+Root.propTypes = {
+  color: PropTypes.string,
+  bg: PropTypes.string
+}
+
 Root.defaultProps = {
   color: 'text',
   bg: 'background'

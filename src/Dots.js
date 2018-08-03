@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { space, color } from 'styled-system'
 import Flex from './Flex'
@@ -22,6 +23,11 @@ const Dot = styled.button([], {
   space,
   color
 )
+Dot.propTypes = {
+  m: PropTypes.number,
+  p: PropTypes.number,
+  bg: PropTypes.string
+}
 Dot.defaultProps = {
   m: 0,
   p: 1,
@@ -46,5 +52,11 @@ export const Dots = ({
       />
     ))}
   </Flex>
+
+Dots.propTypes = {
+  index: PropTypes.number.isRequired,
+  length: PropTypes.number.isRequired,
+  onClick: PropTypes.func
+}
 
 export default Dots

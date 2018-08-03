@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 const ZoomRoot = styled.div([], {
@@ -10,6 +11,10 @@ const ZoomRoot = styled.div([], {
   })
 )
 
+ZoomRoot.propTypes = {
+  zoom: PropTypes.number.isRequired
+}
+
 const ZoomInner = styled.div([],
   props => ({
     transformOrigin: '0 0',
@@ -17,10 +22,18 @@ const ZoomInner = styled.div([],
   })
 )
 
+ZoomInner.propTypes = {
+  zoom: PropTypes.number.isRequired
+}
+
 const Zoom = ({ zoom, ...props }) =>
   <ZoomRoot zoom={zoom}>
     <ZoomInner zoom={zoom} {...props} />
   </ZoomRoot>
+
+Zoom.propTypes = {
+  zoom: PropTypes.number
+}
 
 Zoom.defaultProps = {
   zoom: 1

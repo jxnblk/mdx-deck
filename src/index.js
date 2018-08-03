@@ -37,6 +37,12 @@ const modes = {
 export class SlideDeck extends React.Component {
   static propTypes = {
     slides: PropTypes.array.isRequired,
+    components: PropTypes.object,
+    theme: PropTypes.object,
+    Provider: PropTypes.func,
+    width: PropTypes.string,
+    height: PropTypes.string,
+    ignoreKeyEvents: PropTypes.bool
   }
 
   static defaultProps = {

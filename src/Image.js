@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { width, height } from 'styled-system'
 
@@ -13,6 +14,11 @@ const Image = styled.div([], {
   height,
   props => props.css
 )
+
+Image.propTypes = {
+  width: PropTypes.string,
+  height: PropTypes.string
+}
 
 Image.defaultProps = {
   width: '100vw',

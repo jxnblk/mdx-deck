@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import hhmmss from 'hhmmss'
 import styled from 'styled-components'
 import { space, color } from 'styled-system'
@@ -14,6 +15,14 @@ const Button = styled.button([], {
   borderRadius: '4px',
   border: 'none'
 }, space, color)
+
+Button.propTypes = {
+  m: PropTypes.number,
+  px: PropTypes.number,
+  py: PropTypes.number,
+  color: PropTypes.string,
+  bg: PropTypes.string
+}
 
 Button.defaultProps = {
   m: 0,

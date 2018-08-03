@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import {
   fontSize,
@@ -18,23 +19,37 @@ const Heading = styled.h1([], {
   color,
   css('heading')
 )
+Heading.propTypes = {
+  color: PropTypes.string,
+  mt: PropTypes.number,
+  mb: PropTypes.number,
+}
 Heading.defaultProps = {
   color: 'heading',
   mt: 3,
-  mb: 3,
+  mb: 3
 }
 
 const h1 = styled(Heading.withComponent('h1'))([], css('h1'))
+h1.propTypes = {
+  fontSize: PropTypes.number
+}
 h1.defaultProps = {
   fontSize: 4
 }
 
 const h2 = styled(Heading.withComponent('h2'))([], css('h2'))
+h2.propTypes = {
+  fontSize: PropTypes.number
+}
 h2.defaultProps = {
   fontSize: 3
 }
 
 const h3 = styled(Heading.withComponent('h3'))([], css('h3'))
+h3.propTypes = {
+  fontSize: PropTypes.number
+}
 h3.defaultProps = {
   fontSize: 2
 }
@@ -43,6 +58,9 @@ const h5 = styled(h3.withComponent('h5'))([], css('h5'))
 const h6 = styled(h3.withComponent('h6'))([], css('h6'))
 
 const a = styled.a([], color, css('link'), css('a'))
+a.propTypes = {
+  color: PropTypes.string
+}
 a.defaultProps = {
   color: 'link'
 }
@@ -54,6 +72,9 @@ const p = styled.p([],
   css('paragraph'),
   css('p'),
 )
+p.propTypes = {
+  fontSize: PropTypes.number
+}
 p.defaultProps = {
   fontSize: 2
 }
@@ -61,6 +82,9 @@ p.defaultProps = {
 const ul = styled.ul([], {
   textAlign: 'left'
 }, fontSize, css('ul'))
+ul.propTypes = {
+  fontSize: PropTypes.number
+}
 ul.defaultProps = {
   fontSize: 2
 }
@@ -68,6 +92,9 @@ ul.defaultProps = {
 const ol = styled.ol([], {
   textAlign: 'left'
 }, fontSize, css('ol'))
+ol.propTypes = {
+  fontSize: PropTypes.number
+}
 ol.defaultProps = {
   fontSize: 2
 }
@@ -83,6 +110,12 @@ const blockquote = styled.blockquote([], {
   css('blockquote'),
   css('quote')
 )
+blockquote.propTypes = {
+  fontSize: PropTypes.number,
+  px: PropTypes.number,
+  mx: PropTypes.number,
+  color: PropTypes.string
+}
 blockquote.defaultProps = {
   fontSize: 2,
   px: 0,
@@ -99,6 +132,13 @@ const Pre = styled.pre([], props => ({
   color,
   css('pre')
 )
+Pre.propTypes = {
+  fontSize: PropTypes.number,
+  m: PropTypes.number,
+  p: PropTypes.number,
+  color: PropTypes.string,
+  bg: PropTypes.string
+}
 Pre.defaultProps = {
   fontSize: 1,
   m: 0,
@@ -123,6 +163,10 @@ const code = props => {
 const inlineCode = styled.code([], props => ({
   fontFamily: props.theme.monospace
 }), fontSize, space, color, css('code'))
+inlineCode.propTypes = {
+  color: PropTypes.string,
+  bg: PropTypes.string
+}
 inlineCode.defaultProps = {
   color: 'code',
   bg: 'codeBackground'

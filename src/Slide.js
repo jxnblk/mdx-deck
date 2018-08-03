@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { space, color } from 'styled-system'
 
@@ -44,6 +45,10 @@ class Slide extends React.Component {
       </Context.Provider>
     )
   }
+}
+
+Slide.propTypes = {
+  px: PropTypes.array
 }
 
 Slide.defaultProps = {
