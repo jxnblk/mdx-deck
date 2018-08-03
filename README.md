@@ -109,6 +109,7 @@ The following themes are available from `mdx-deck/themes`:
 - `dark`: black background dark theme
 - `future`: dark theme with Avenir Next
 - `condensed`: dark theme with Roboto Condensed
+- `yellow`: bright yellow theme with Roboto Condensed
 
 ### Custom Themes
 
