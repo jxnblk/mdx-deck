@@ -1,6 +1,11 @@
 
 # Changelog
 
+## v1.4.1 2018-08-03
+
+- Update docs
+- Add `yellow` theme
+
 ## v1.4.0 2018-08-03
 
 - Adds Appear component
