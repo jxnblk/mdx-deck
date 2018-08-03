@@ -1,6 +1,12 @@
 
 # Changelog
 
+## v1.4.0 2018-08-03
+
+- Adds Appear component
+- Adds propTypes to components
+- Update README
+
 ## v1.3.2 2018-08-02
 
 - Remove default `target="_blank"` from links
