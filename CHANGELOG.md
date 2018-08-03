@@ -1,6 +1,10 @@
 
 # Changelog
 
+## v1.3.0 2018-08-02
+
+- Add presenter mode with preview of next slide and timer
+
 ## v1.2.3 2018-08-01
 
 - Fix `history.pushState` hash
