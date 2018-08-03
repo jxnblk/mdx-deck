@@ -5,6 +5,7 @@ export default props =>
   <Box
     {...props}
     css={{
-      fontFamily: 'Menlo, monospace'
+      fontFamily: 'Menlo, monospace',
+      whiteSpace: 'pre-wrap'
     }}
   />

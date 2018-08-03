@@ -262,6 +262,33 @@ To use presenter mode:
 - Display the other window on the screen for the audience to see.
 - Control the presentation from your window by using the left and right arrow keys; the other window should stay in sync
 
+### Speaker Notes
+
+Notes that only show in presenter mode can be added to any slide.
+Speaker notes can be added in one of the following two ways:
+
+**Markdown:** Use the `notes` language attribute in a fenced code block to add speaker notes.
+
+````mdx
+# Slide Content
+
+```notes
+These are only visible in presenter mode
+```
+````
+
+**Notes Component:** Use the `Notes` component to create more complex speaker notes.
+
+````mdx
+import { Notes } from 'mdx-deck'
+
+# Slide Content
+
+<Notes>
+  Only visible in presenter mode
+</Notes>
+````
+
 ## Exporting
 
 Add a `build` script to your `package.json` to export a presentation as HTML with a JS bundle.

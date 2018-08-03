@@ -5,6 +5,8 @@ import {
   space,
   color
 } from 'styled-system'
+import Notes from './Notes'
+import Mono from './Mono'
 
 const css = key => props => props.theme[key]
 
@@ -89,15 +91,16 @@ blockquote.defaultProps = {
   color: 'quote'
 }
 
-const pre = styled.pre([], props => ({
-  fontFamily: props.theme.monospace
+const Pre = styled.pre([], props => ({
+  fontFamily: props.theme.monospace,
+  whiteSpace: 'pre-wrap'
 }),
   fontSize,
   space,
   color,
   css('pre')
 )
-pre.defaultProps = {
+Pre.defaultProps = {
   fontSize: 1,
   m: 0,
   p: 2,
@@ -105,7 +108,20 @@ pre.defaultProps = {
   bg: 'preBackground'
 }
 
-const code = styled.code([], props => ({
+const code = props => {
+  switch (props.className) {
+    case 'language-notes':
+      return (
+        <Notes>
+          <Mono {...props} color='white' />
+        </Notes>
+      )
+    default:
+      return <Pre {...props} />
+  }
+}
+
+const inlineCode = styled.code([], props => ({
   fontFamily: props.theme.monospace
 }), fontSize, space, color, css('code'))
 code.defaultProps = {
@@ -132,7 +148,7 @@ export default {
   ol,
   li,
   pre: props => props.children,
-  code: pre,
-  inlineCode: code,
+  code,
+  inlineCode,
   img
 }
