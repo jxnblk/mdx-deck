@@ -4,6 +4,7 @@ import { MDXProvider } from '@mdx-js/tag'
 import { ThemeProvider } from 'styled-components'
 import debounce from 'lodash.debounce'
 
+import { Provider } from './context'
 import Carousel from './Carousel'
 import Slide from './Slide'
 import Dots from './Dots'
@@ -15,6 +16,7 @@ import defaultTheme from './themes'
 import defaultComponents from './components'
 
 export { default as Image } from './Image'
+export { default as Notes } from './Notes'
 export { default as components } from './components'
 
 // themes
@@ -142,38 +144,48 @@ export class SlideDeck extends React.Component {
       ? Presenter
       : Root
 
+    const context = {
+      ...this.state,
+      slides,
+    }
+
     return (
-      <ThemeProvider theme={theme}>
-        <MDXProvider
-          components={{
-            ...defaultComponents,
-            ...components
-          }}>
-          <Wrapper
-            {...this.state}
-            slides={slides}
-            width={width}
-            height={height}>
-            <GoogleFonts />
-            <Carousel index={index}>
-              {slides.map((Component, i) => (
-                <Slide key={i} id={'slide-' + i}>
-                  <Component />
-                </Slide>
-              ))}
-            </Carousel>
-            <Dots
-              mt={-32}
-              mx='auto'
-              index={index}
-              length={length}
-              onClick={index => {
-                this.setState({ index })
-              }}
-            />
-          </Wrapper>
-        </MDXProvider>
-      </ThemeProvider>
+      <Provider value={context}>
+        <ThemeProvider theme={theme}>
+          <MDXProvider
+            components={{
+              ...defaultComponents,
+              ...components
+            }}>
+            <Wrapper
+              {...this.state}
+              slides={slides}
+              width={width}
+              height={height}>
+              <GoogleFonts />
+              <Carousel index={index}>
+                {slides.map((Component, i) => (
+                  <Slide
+                    key={i}
+                    id={'slide-' + i}
+                    index={i}>
+                    <Component />
+                  </Slide>
+                ))}
+              </Carousel>
+              <Dots
+                mt={-32}
+                mx='auto'
+                index={index}
+                length={length}
+                onClick={index => {
+                  this.setState({ index })
+                }}
+              />
+            </Wrapper>
+          </MDXProvider>
+        </ThemeProvider>
+      </Provider>
     )
   }
 }
