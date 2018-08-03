@@ -277,7 +277,7 @@ which can be used to show custom page numbers or add other elements to the UI.
 
 - `index`: (number) the current slide index
 - `length`: (number) the length of the slides array
-- `mode`: (string) the current mode (one of `'normal'` or `'presenter'`)
+- `mode`: (string) the current mode (one of `'NORMAL'` or `'PRESENTER'`)
 - `notes`: (object) custom [speaker notes](#speaker-notes) for all slides
 
 ## Presenter Mode
