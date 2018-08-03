@@ -16,16 +16,6 @@ export default withDeck(withSlide(class extends React.Component {
     this.setNotes(this.props)
   }
 
-  /* todo
-  componentWillUpdate (next) {
-    this.setNotes(next)
-  }
-
-  shouldComponentUpdate (next) {
-    return next.children !== this.props.children
-  }
-  */
-
   render () {
     return false
   }

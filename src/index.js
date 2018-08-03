@@ -135,8 +135,11 @@ export class SlideDeck extends React.Component {
       this.isHashChange = false
       return
     }
-    const { index } = this.state
-    history.pushState(null, null, '#' + index)
+    const { index, mode } = this.state
+    let query = ''
+    if (mode === modes.presenter) query += 'presenter'
+    query = query ? '?' + query : ''
+    history.pushState(null, null, query + '#' + index)
     localStorage.setItem('mdx-slide', index)
   }
 
