@@ -270,6 +270,16 @@ export { default as Provider } from './Provider'
 # Hello
 ```
 
+A custom Provider component will receive the application's state as props,
+which can be used to show custom page numbers or add other elements to the UI.
+
+#### Props
+
+- `index`: (number) the current slide index
+- `length`: (number) the length of the slides array
+- `mode`: (string) the current mode (one of `'normal'` or `'presenter'`)
+- `notes`: (object) custom [speaker notes](#speaker-notes) for all slides
+
 ## Presenter Mode
 
 mdx-deck includes a built-in presenter mode, with a preview of the next slide and a timer.
