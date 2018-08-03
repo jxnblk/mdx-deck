@@ -4,7 +4,7 @@ import { MDXProvider } from '@mdx-js/tag'
 import { ThemeProvider } from 'styled-components'
 import debounce from 'lodash.debounce'
 
-import { Provider } from './context'
+import { Provider as ContextProvider } from './context'
 import Carousel from './Carousel'
 import Slide from './Slide'
 import Dots from './Dots'
@@ -43,6 +43,7 @@ export class SlideDeck extends React.Component {
     slides: [],
     theme: defaultTheme,
     components: {} ,
+    Provider: props => <React.Fragment children={props.children} />,
     width: '100vw',
     height: '100vh',
     ignoreKeyEvents: false
@@ -147,6 +148,7 @@ export class SlideDeck extends React.Component {
       slides,
       theme,
       components,
+      Provider,
       width,
       height
     } = this.props
@@ -163,42 +165,44 @@ export class SlideDeck extends React.Component {
     }
 
     return (
-      <Provider value={context}>
+      <ContextProvider value={context}>
         <ThemeProvider theme={theme}>
           <MDXProvider
             components={{
               ...defaultComponents,
               ...components
             }}>
-            <Wrapper
-              {...this.state}
-              slides={slides}
-              width={width}
-              height={height}>
-              <GoogleFonts />
-              <Carousel index={index}>
-                {slides.map((Component, i) => (
-                  <Slide
-                    key={i}
-                    id={'slide-' + i}
-                    index={i}>
-                    <Component />
-                  </Slide>
-                ))}
-              </Carousel>
-              <Dots
-                mt={-32}
-                mx='auto'
-                index={index}
-                length={length}
-                onClick={index => {
-                  this.setState({ index })
-                }}
-              />
-            </Wrapper>
+            <Provider {...this.state}>
+              <Wrapper
+                {...this.state}
+                slides={slides}
+                width={width}
+                height={height}>
+                <GoogleFonts />
+                <Carousel index={index}>
+                  {slides.map((Component, i) => (
+                    <Slide
+                      key={i}
+                      id={'slide-' + i}
+                      index={i}>
+                      <Component />
+                    </Slide>
+                  ))}
+                </Carousel>
+                <Dots
+                  mt={-32}
+                  mx='auto'
+                  index={index}
+                  length={length}
+                  onClick={index => {
+                    this.setState({ index })
+                  }}
+                />
+              </Wrapper>
+            </Provider>
           </MDXProvider>
         </ThemeProvider>
-      </Provider>
+      </ContextProvider>
     )
   }
 }
