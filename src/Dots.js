@@ -26,7 +26,9 @@ const Dot = styled.button([], {
 Dot.propTypes = {
   m: PropTypes.number,
   p: PropTypes.number,
-  bg: PropTypes.string
+  bg: PropTypes.string,
+  ...space.propTypes,
+  ...color.propTypes
 }
 Dot.defaultProps = {
   m: 0,

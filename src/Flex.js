@@ -15,7 +15,13 @@ const Flex = styled.div([], {
 )
 
 Flex.propTypes = {
-  css: PropTypes.object
+  css: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.string
+  ]),
+  ...space.propTypes,
+  ...width.propTypes,
+  ...color.propTypes
 }
 
 export default Flex

@@ -16,8 +16,8 @@ const Image = styled.div([], {
 )
 
 Image.propTypes = {
-  width: PropTypes.string,
-  height: PropTypes.string
+  ...width.propTypes,
+  ...height.propTypes
 }
 
 Image.defaultProps = {
