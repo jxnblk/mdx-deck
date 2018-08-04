@@ -1,6 +1,7 @@
 export { default as theme } from './theme'
-import { Image, Notes, Appear, Code } from '../dist'
+import { Image, Notes, Appear } from '../dist'
 import Layout from './Layout'
+import { Invert, Split, SplitRight } from '../layouts'
 
 # mdx-deck
 
@@ -26,35 +27,6 @@ import Box from 'superbox'
 
 ---
 
-## Code Examples
-
-```jsx
-/* JavaScript example */
-const foo = a => a * a;
-
-function bar(a) {
-  return a * a;
-}
-```
-
-```jsx
-<div>Some JSX</div>
-```
-
----
-
-  ### Appear
-
-  <ul>
-    <Appear>
-      <li>One</li>
-      <li>Two</li>
-      <li>Three</li>
-      <li>Four</li>
-    </Appear>
-  </ul>
----
-
 ## Getting Started
 
 1. `npm i -D mdx-deck`
@@ -63,7 +35,7 @@ function bar(a) {
 
 ---
 
-```
+```jsx
 <button>code example</button>
 ```
 
@@ -71,7 +43,6 @@ function bar(a) {
 - These are speaker notes
 - And they won't rendered in your slide
 ```
-
 ---
 > “Blockquotes are essential to any good presentation”
 
@@ -85,8 +56,31 @@ function bar(a) {
 </Notes>
 
 ---
+### Appear
+
+<ul>
+  <Appear>
+    <li>One</li>
+    <li>Two</li>
+    <li>Three</li>
+    <li>Four</li>
+  </Appear>
+</ul>
+---
 
 <Image src='https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=2048&q=20' />
+
+---
+export default Split
+
+![](https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=2048&q=20)
+
+## Split Layout
+
+---
+export default Invert
+
+# Invert Layout
 
 ---
 
