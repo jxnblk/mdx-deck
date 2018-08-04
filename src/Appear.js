@@ -1,17 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { withDeck } from './context'
+import { withSlide } from './Slide'
+import { incStep, decStep } from './index'
 
-export default class Appear extends React.Component {
+export default withDeck(withSlide(class Appear extends React.Component {
   static propTypes = {
-    children: PropTypes.array.isRequired
-  }
-
-  constructor(props) {
-    super(props)
-    this.state = {
-      fragments: props.children,
-      fragmentStep: -1
-    }
+    children: PropTypes.array.isRequired,
+    slide: PropTypes.object.isRequired,
+    deck: PropTypes.object.isRequired
   }
 
   componentDidMount() {
@@ -24,39 +21,32 @@ export default class Appear extends React.Component {
 
   handleKeyDown = e => {
     if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return
+    if (this.props.deck.index !== this.props.slide.index) return
+    const { children } = this.props
+    const { update } = this.props.deck
     switch (e.key) {
       case 'ArrowDown':
         e.preventDefault()
-        this.setState(state => {
-          return {
-            fragmentStep:
-              state.fragmentStep < state.fragments.length - 1
-                ? state.fragmentStep + 1
-                : state.fragmentStep
-          }
-        })
+        update(incStep(children))
         break
       case 'ArrowUp':
         e.preventDefault()
-        this.setState(state => {
-          return {
-            fragmentStep: state.fragmentStep >= 0 ? state.fragmentStep - 1 : -1
-          }
-        })
+        update(decStep())
         break
     }
   }
 
   render() {
-    const {fragments, fragmentStep} = this.state;
+    const { children } = this.props
+    const { step } = this.props.deck
     return (
       <React.Fragment>
-        {fragments.map((fragment, index) =>
+        {children.map((fragment, index) =>
           typeof fragment === 'string' ? (
             <div
               key={index}
               style={{
-                visibility: index <= fragmentStep ? 'visible' : 'hidden'
+                visibility: index <= step ? 'visible' : 'hidden'
               }}>
               {fragment}
             </div>
@@ -64,11 +54,11 @@ export default class Appear extends React.Component {
             React.cloneElement(fragment, {
               key: index,
               style: {
-                visibility: index <= fragmentStep ? 'visible' : 'hidden'
+                visibility: index <= step ? 'visible' : 'hidden'
               }
             })
         ))}
       </React.Fragment>
     )
   }
-}
+}))

@@ -14,6 +14,8 @@ export const Presenter = ({
   slides = [],
   mode,
   notes = {},
+  update,
+  step,
   ...props
 }) => {
   const Next = slides[index + 1]
@@ -54,7 +56,7 @@ export const Presenter = ({
             <Zoom zoom={1/4}>
               <Root {...props}>
                 {Next && (
-                  <Slide>
+                  <Slide index={index + 1}>
                     <Next />
                   </Slide>
                 )}
@@ -82,6 +84,8 @@ export const Presenter = ({
 Presenter.propTypes = {
   index: PropTypes.number.isRequired,
   length: PropTypes.number.isRequired,
+  update: PropTypes.func.isRequired,
+  step: PropTypes.number.isRequired,
   slides: PropTypes.array,
   mode: PropTypes.string,
   notes: PropTypes.object
