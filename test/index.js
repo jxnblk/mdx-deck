@@ -14,7 +14,7 @@ const renderJSON = el => render(el).toJSON()
 describe('components', () => {
   describe('Carousel', () => {
     test('renders', () => {
-      const json = renderJSON(<Carousel>Hi</Carousel>)
+      const json = renderJSON(<Carousel index={1}>Hi</Carousel>)
       expect(json).toMatchInlineSnapshot(`
 .c0 {
   overflow-x: hidden;
@@ -36,9 +36,9 @@ describe('components', () => {
   transition-timing-function: ease-out;
   -webkit-transition-duration: .3s;
   transition-duration: .3s;
-  -webkit-transform: translateX(NaN%);
-  -ms-transform: translateX(NaN%);
-  transform: translateX(NaN%);
+  -webkit-transform: translateX(-100%);
+  -ms-transform: translateX(-100%);
+  transform: translateX(-100%);
 }
 
 @media print {
@@ -70,7 +70,7 @@ describe('components', () => {
 
   describe('Slide', () => {
     test('renders', () => {
-      const json = renderJSON(<Slide>Hi</Slide>)
+      const json = renderJSON(<Slide index={1}>Hi</Slide>)
       expect(json).toMatchInlineSnapshot(`
 .c0 {
   -webkit-flex: none;

@@ -48,7 +48,7 @@ export default class Appear extends React.Component {
   }
 
   render() {
-    const {fragments, fragmentStep} = this.state;
+    const {fragments, fragmentStep} = this.state
     return (
       <React.Fragment>
         {fragments.map((fragment, index) =>

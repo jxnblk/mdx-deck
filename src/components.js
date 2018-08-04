@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import styled, { withTheme } from 'styled-components'
 import {
   fontSize,
   space,
@@ -147,7 +147,8 @@ Pre.defaultProps = {
   bg: 'preBackground'
 }
 
-const code = props => {
+const code = withTheme(props => {
+  const { theme } = props
   switch (props.className) {
     case 'language-notes':
       return (
@@ -156,9 +157,12 @@ const code = props => {
         </Notes>
       )
     default:
-      return <Code {...props} />
+      if (theme.prism && theme.prism.style) {
+        return <Code {...props} />
+      }
+      return <Pre {...props} />
   }
-}
+})
 
 const inlineCode = styled.code([], props => ({
   fontFamily: props.theme.monospace
