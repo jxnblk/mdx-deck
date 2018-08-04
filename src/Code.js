@@ -4,10 +4,8 @@ import { withTheme } from 'styled-components'
 import SyntaxHighlighter, { registerLanguage } from "react-syntax-highlighter/prism-light"
 import defaultTheme from 'react-syntax-highlighter/styles/prism/atom-dark'
 import javascript from 'react-syntax-highlighter/languages/prism/javascript'
-import elixir from 'react-syntax-highlighter/languages/prism/elixir'
 
 registerLanguage('javascript', javascript);
-registerLanguage('elixir', elixir);
 
 export default withTheme(class Code extends React.Component {
   static propTypes = {
