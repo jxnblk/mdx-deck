@@ -17,26 +17,58 @@ import defaultComponents from './components'
 
 export { default as Image } from './Image'
 export { default as Notes } from './Notes'
+export { default as Appear } from './Appear'
 export { default as components } from './components'
 
 // themes
 export { default as theme } from './themes'
 export * as themes from './themes'
 
-export const inc = state => ({ index: (state.index + 1) % state.length })
+const MDX_SLIDE_INDEX = 'mdx-slide-index'
+const MDX_SLIDE_STEP = 'mdx-slide-step'
+
+export const inc = state => ({
+  index: (state.index + 1) % state.length, step: -1
+})
 export const dec = state => state.index > 0
-  ? ({ index: (state.index - 1) % state.length })
+  ? ({ index: (state.index - 1) % state.length, step: -1 })
   : null
 
+export const incStep = steps => state => ({
+  step: state.step < steps.length - 1 ? state.step + 1 : state.step
+})
+
+export const decStep = () => state => ({
+  step: state.step >= 0 ? state.step - 1 : -1
+})
 
 const modes = {
   normal: 'NORMAL',
   presenter: 'PRESENTER',
+  overview: 'OVERVIEW',
+}
+
+export const toggleMode = key => state => ({
+  mode: state.mode === modes[key] ? modes.normal : modes[key]
+})
+
+const keys = {
+  'right': 39,
+  'left': 37,
+  'space': 32,
+  'p': 80,
+  'o': 79,
 }
 
 export class SlideDeck extends React.Component {
   static propTypes = {
     slides: PropTypes.array.isRequired,
+    components: PropTypes.object,
+    theme: PropTypes.object,
+    Provider: PropTypes.func,
+    width: PropTypes.string,
+    height: PropTypes.string,
+    ignoreKeyEvents: PropTypes.bool
   }
 
   static defaultProps = {
@@ -53,31 +85,41 @@ export class SlideDeck extends React.Component {
     length: this.props.slides.length,
     index: 0,
     mode: modes.normal,
-    notes: {}
+    notes: {},
+    step: -1
   }
 
   update = fn => this.setState(fn)
 
   handleKeyDown = e => {
-    if (this.props.ignoreKeyEvents) {
+    if (document.activeElement.tagName !== 'BODY'
+      || this.props.ignoreKeyEvents) {
       return
     }
 
-    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return
-    switch (e.key) {
-      case 'ArrowRight':
-      case ' ':
+    if (e.metaKey || e.ctrlKey || e.shiftKey) return
+    const alt = e.altKey
+
+    switch (e.keyCode) {
+      case keys.right:
+      case keys.space:
         e.preventDefault()
         this.update(inc)
         break
-      case 'ArrowLeft':
+      case keys.left:
         e.preventDefault()
         this.update(dec)
         break
-      case 'p':
-        this.update(state => ({
-          mode: state.mode === modes.presenter ? modes.normal : modes.presenter
-        }))
+      case keys.p:
+        if (alt) {
+          this.update(toggleMode('presenter'))
+        }
+        break
+      case keys.o:
+        if (alt) {
+          this.update(toggleMode('overview'))
+        }
+        break
     }
   }
 
@@ -88,9 +130,11 @@ export class SlideDeck extends React.Component {
 
   hashToState = () => {
     const { hash } = window.location
-    const index = parseInt(hash.replace(/^#/, ''), 10)
+    const [index_, step_] = hash.replace(/^#/, '').split('.')
+    const index = parseInt(index_, 10)
+    const step = parseInt(step_, 10)
     if (isNaN(index)) return
-    this.setState({ index })
+    this.setState({ index, step: isNaN(step) ? -1 : step - 1 })
   }
 
   getMode = () => {
@@ -104,8 +148,13 @@ export class SlideDeck extends React.Component {
   }
 
   handleStorageChange = e => {
-    const index = parseInt(e.newValue, 10)
-    this.setState({ index })
+    if (e.key === MDX_SLIDE_INDEX) {
+      const index = parseInt(e.newValue, 10)
+      this.setState({ index })
+    } else if (e.key === MDX_SLIDE_STEP, 10) {
+      const step = parseInt(e.newValue, 10)
+      this.setState({ step })
+    }
   }
 
   addNotes = ({ index, children }) => {
@@ -136,11 +185,13 @@ export class SlideDeck extends React.Component {
       this.isHashChange = false
       return
     }
-    const { index, mode } = this.state
+    const { index, mode, step } = this.state
     let query = '?'
     if (mode === modes.presenter) query += 'presenter'
-    history.pushState(null, null, query + '#' + index)
-    localStorage.setItem('mdx-slide', index)
+    const step_ = step !== -1 ? ('.' + (step + 1)) : ''
+    history.pushState(null, null, query + '#' + index + step_)
+    localStorage.setItem(MDX_SLIDE_INDEX, index)
+    localStorage.setItem(MDX_SLIDE_STEP, step)
   }
 
   render () {
@@ -152,7 +203,7 @@ export class SlideDeck extends React.Component {
       width,
       height
     } = this.props
-    const { index, length, mode } = this.state
+    const { index, length, mode, step} = this.state
 
     const Wrapper = mode === modes.presenter
       ? Presenter
@@ -161,7 +212,8 @@ export class SlideDeck extends React.Component {
     const context = {
       ...this.state,
       slides,
-      addNotes: this.addNotes
+      addNotes: this.addNotes,
+      update: this.update
     }
 
     return (
@@ -177,14 +229,16 @@ export class SlideDeck extends React.Component {
                 {...this.state}
                 slides={slides}
                 width={width}
-                height={height}>
+                height={height}
+                update={this.update}>
                 <GoogleFonts />
                 <Carousel index={index}>
                   {slides.map((Component, i) => (
                     <Slide
                       key={i}
                       id={'slide-' + i}
-                      index={i}>
+                      index={i}
+                    >
                       <Component />
                     </Slide>
                   ))}

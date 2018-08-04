@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 const CarouselRoot = styled.div([], {
@@ -25,6 +26,10 @@ const CarouselInner = styled.div([], {
 }, props => ({
   transform: `translateX(${-100 * props.index}%)`
 }))
+
+CarouselInner.propTypes = {
+  index: PropTypes.number.isRequired
+}
 
 export const Carousel = props =>
   <CarouselRoot>

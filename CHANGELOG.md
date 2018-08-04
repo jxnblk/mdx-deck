@@ -1,6 +1,30 @@
 
 # Changelog
 
+## v1.4.4 2018-08-04
+
+- Fix for how Appear children display on slide change
+
+## v1.4.3 2018-08-04
+
+- Update build setup for smaller package
+- Adjust keyboard shortcuts
+
+## v1.4.2 2018-08-03
+
+- Update ok-cli for better HTML output
+
+## v1.4.1 2018-08-03
+
+- Update docs
+- Add `yellow` theme
+
+## v1.4.0 2018-08-03
+
+- Adds Appear component
+- Adds propTypes to components
+- Update README
+
 ## v1.3.2 2018-08-02
 
 - Remove default `target="_blank"` from links
