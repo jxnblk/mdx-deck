@@ -4,14 +4,14 @@ import SlideDeck from './index'
 
 const mod = require(DOC_FILENAME)
 const slides = mod.default
-const { theme, components, Provider } = mod
+const { theme, highlight, components, Provider } = mod
 
 export default class App extends React.Component {
   render () {
     return (
       <SlideDeck
         slides={slides}
-        theme={theme}
+        theme={{...theme, highlight}}
         components={components}
         Provider={Provider}
       />

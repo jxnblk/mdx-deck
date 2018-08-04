@@ -35,6 +35,7 @@
     "puppeteer": "^1.6.1",
     "react": "^16.4.1",
     "react-dev-utils": "^5.0.1",
+    "react-syntax-highlighter": "^8.0.1",
     "remark-emoji": "^2.0.1",
     "stringify-object": "^3.2.2",
     "styled-components": ">=3.0.0",

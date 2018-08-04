@@ -1,6 +1,7 @@
 export { future as theme } from '../src/themes'
-import { Image, Notes, Appear } from '../src'
+import { Image, Notes, Appear, Code } from '../src'
 import Layout from './Layout'
+export highlight from 'react-syntax-highlighter/styles/prism/solarizedlight'
 
 # mdx-deck
 
@@ -25,6 +26,26 @@ import Box from 'superbox'
 - To help make your point
 
 ---
+
+## Code Examples
+
+```elixir
+# Elixir example
+x = 2; y = 3
+x + y
+```
+
+```javascript
+/* JavaScript example */
+const foo = a => a * a;
+
+function bar(a) {
+  return a * a;
+}
+```
+
+---
+
   ### Appear
 
   <ul>

@@ -8,6 +8,7 @@ import {
 } from 'styled-system'
 import Notes from './Notes'
 import Mono from './Mono'
+import Code from './Code'
 
 const css = key => props => props.theme[key]
 
@@ -155,7 +156,7 @@ const code = props => {
         </Notes>
       )
     default:
-      return <Pre {...props} />
+      return <Code {...props} />
   }
 }
 
