@@ -238,10 +238,19 @@ To see available syntax styles and languages, see:
 
 ### Custom Components
 
-mdx-deck includes default components for MDX, but to provide custom components to the [MDXProvider][], export a `components` object.
+mdx-deck includes default components for MDX, but to provide custom components to the [MDXProvider][], add `components` to the theme settings.
 
-```mdx
-export { default as components } from './components'
+```js
+import { theme } from 'mdx-deck/themes'
+import Heading from './Heading'
+
+const theme = {
+  ...theme,
+  font: 'Georgia, serif',
+  components: {
+    h1: Heading
+  }
+}
 
 # Custom Components
 ```
@@ -361,13 +370,18 @@ export default SplitRight
 
 ### Custom Provider
 
-A custom Provider component can be exported to wrap the entire application.
+A custom Provider component can be added to theme settings to wrap the entire application.
 This is useful for adding custom context providers in React.
 
-```mdx
-export { default as Provider } from './Provider'
+```js
+import { theme } from 'mdx-deck/themes'
+import Provider from './Provider'
 
-# Hello
+const theme = {
+  ...theme,
+  font: 'Georgia, serif',
+  Provider
+}
 ```
 
 A custom Provider component will receive the application's state as props,
