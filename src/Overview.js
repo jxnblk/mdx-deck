@@ -4,6 +4,7 @@ import Box from './Box'
 import Slide from './Slide'
 import Zoom from './Zoom'
 import Root from './Root'
+import { modes } from './index'
 
 export default ({
   slides = [],
@@ -16,13 +17,13 @@ export default ({
         flexWrap: 'wrap'
       }}>
       {slides.map((Component, i) => (
-        <Box key={i}>
+        <Box key={i} css={{ cursor: 'pointer' }}>
           <div role='link'
             href={'#' + i}
             onClick={e => {
               update({
                 index: i,
-                mode: 'NORMAL'
+                mode: modes.normal
               })
             }}>
             <Zoom zoom={1/4}>

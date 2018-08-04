@@ -38,8 +38,8 @@ export default withDeck(withSlide(class Appear extends React.Component {
 
   render() {
     const { children } = this.props
-    const { step } = this.props.deck
-    const isOverview = this.props.deck.mode === modes.overview
+    const { step, mode } = this.props.deck
+    const isOverview = mode === modes.overview
     return (
       <React.Fragment>
         {children.map((fragment, index) =>
