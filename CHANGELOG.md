@@ -1,6 +1,10 @@
 
 # Changelog
 
+## v1.5.1 2018-08-04
+
+- Use remark-unwrap-images plugin
+
 ## v1.5.0 2018-08-04
 
 - Add syntax highlighting option for fenced code blocks
