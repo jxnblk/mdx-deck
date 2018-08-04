@@ -66,7 +66,8 @@ export class SlideDeck extends React.Component {
   update = fn => this.setState(fn)
 
   handleKeyDown = e => {
-    if (this.props.ignoreKeyEvents) {
+    if (document.activeElement.tagName !== 'BODY'
+      || this.props.ignoreKeyEvents) {
       return
     }
 
