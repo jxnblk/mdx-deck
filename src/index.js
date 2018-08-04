@@ -34,8 +34,8 @@ export const dec = state => state.index > 0
   ? ({ index: (state.index - 1) % state.length, step: -1 })
   : null
 
-export const incStep = children => state => ({
-  step: state.step < children.length - 1 ? state.step + 1 : state.step
+export const incStep = steps => state => ({
+  step: state.step < steps.length - 1 ? state.step + 1 : state.step
 })
 
 export const decStep = () => state => ({
@@ -190,7 +190,8 @@ export class SlideDeck extends React.Component {
     const context = {
       ...this.state,
       slides,
-      addNotes: this.addNotes
+      addNotes: this.addNotes,
+      update: this.update
     }
 
     return (
@@ -215,9 +216,7 @@ export class SlideDeck extends React.Component {
                       key={i}
                       id={'slide-' + i}
                       index={i}
-                      active={i === index}
-                      update={this.update}
-                      step={step}>
+                    >
                       <Component />
                     </Slide>
                   ))}

@@ -37,13 +37,10 @@ class Slide extends React.Component {
   render () {
     const {
       index,
-      active,
-      update,
-      step,
       ...props
     } = this.props
     return (
-      <Context.Provider value={{ index, active, update, step }}>
+      <Context.Provider value={{ index }}>
         <Root {...props} />
       </Context.Provider>
     )
@@ -52,9 +49,6 @@ class Slide extends React.Component {
 
 Slide.propTypes = {
   index: PropTypes.number.isRequired,
-  active: PropTypes.bool.isRequired,
-  update: PropTypes.func.isRequired,
-  step: PropTypes.number.isRequired,
   ...space.propTypes,
   ...color.propTypes
 }

@@ -56,12 +56,7 @@ export const Presenter = ({
             <Zoom zoom={1/4}>
               <Root {...props}>
                 {Next && (
-                  <Slide
-                    index={index + 1}
-                    active={true}
-                    update={update}
-                    step={step}
-                  >
+                  <Slide index={index + 1}>
                     <Next />
                   </Slide>
                 )}
