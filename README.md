@@ -110,6 +110,9 @@ The following themes are available from `mdx-deck/themes`:
 - `future`: dark theme with Avenir Next
 - `condensed`: dark theme with Roboto Condensed
 - `yellow`: bright yellow theme with Roboto Condensed
+- `script`: light script font with Yellowtail typeface
+- `comic`: light handwriting-like theme
+- `notes`: light handwriting-like theme
 
 ### Custom Themes
 
