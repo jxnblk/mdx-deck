@@ -260,6 +260,54 @@ export default Layout
 The layout component will wrap the MDX elements within that slide,
 which means you can use a nested ThemeProvider or target elements with CSS-in-JS.
 
+#### Built-in Layouts
+
+mdx-deck includes a few built-in layouts for common slide variations.
+
+##### Invert
+
+Inverts the foreground and background colors from the theme.
+
+```mdx
+import { Invert } from 'mdx-deck/layouts'
+
+# Normal
+
+---
+
+export default Invert
+
+# Inverted
+```
+
+##### Split
+
+Creates a horizontal layout with the first child on the left and all other children on the right.
+
+```mdx
+import { Split } from 'mdx-deck/layouts'
+
+export default Split
+
+![](kitten.png)
+
+## Meow
+```
+
+##### SplitRight
+
+Same as the Split component, but renders the first child on the right.
+
+```mdx
+import { SplitRight } from 'mdx-deck/layouts'
+
+export default SplitRight
+
+![](kitten.png)
+
+## Meow
+```
+
 ### Custom Provider
 
 A custom Provider component can be exported to wrap the entire application.
