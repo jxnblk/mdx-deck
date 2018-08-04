@@ -157,6 +157,36 @@ exports[`renders p 1`] = `
 />
 `;
 
+exports[`renders table 1`] = `
+.c0 {
+  overflow-x: auto;
+}
+
+.c1 {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.c1 td,
+.c1 th {
+  text-align: left;
+  padding-right: .5em;
+  padding-top: .25em;
+  padding-bottom: .25em;
+  border-bottom: 1px solid;
+  vertical-align: top;
+}
+
+<div
+  className="c0"
+>
+  <table
+    className="c1"
+  />
+</div>
+`;
+
 exports[`renders ul 1`] = `
 .c0 {
   text-align: left;
