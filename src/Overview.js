@@ -1,16 +1,9 @@
 import React from 'react'
-import styled from 'styled-components'
 import Flex from './Flex'
 import Box from './Box'
 import Slide from './Slide'
 import Zoom from './Zoom'
 import Root from './Root'
-
-const Link = styled.a([], {
-  display: 'block',
-  color: 'inherit',
-  textDecoration: 'none'
-})
 
 export default ({
   slides = [],
@@ -29,7 +22,8 @@ export default ({
         css={{
           border: '1px solid rgba(128, 128, 128, 0.25)'
         }}>
-        <Link href={'#' + i}
+        <div role='link'
+          href={'#' + i}
           onClick={e => {
             update({
               index: i,
@@ -43,7 +37,7 @@ export default ({
               </Slide>
             </Root>
           </Zoom>
-        </Link>
+        </div>
       </Box>
     ))}
   </Flex>
