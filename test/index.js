@@ -70,11 +70,7 @@ describe('components', () => {
 
   describe('Slide', () => {
     test('renders', () => {
-      const json = renderJSON(
-        <Slide index={1}>
-          Hi
-        </Slide>
-      )
+      const json = renderJSON(<Slide index={1}>Hi</Slide>)
       expect(json).toMatchInlineSnapshot(`
 .c0 {
   -webkit-flex: none;
@@ -426,7 +422,7 @@ describe('components', () => {
   width: 100vw;
   height: 100vh;
   color: #000;
-  background-color: transparent;
+  background-color: white;
 }
 
 @media print {
