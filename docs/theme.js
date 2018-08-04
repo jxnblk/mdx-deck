@@ -1,13 +1,9 @@
-import { future as theme } from '../dist/themes'
-import prismStyle from 'react-syntax-highlighter/styles/prism/okaidia'
-import prismJsx from 'react-syntax-highlighter/languages/prism/jsx'
+import { future } from '../dist/themes'
+import okaidia from 'react-syntax-highlighter/styles/prism/okaidia'
 
 export default {
-  ...theme,
+  ...future,
   prism: {
-    style: prismStyle,
-    languages: {
-      jsx: prismJsx
-    }
+    style: okaidia,
   }
 }
