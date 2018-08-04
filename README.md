@@ -186,6 +186,56 @@ The following keys are available for theming:
 - `img`: CSS for `<img>`
 - `table`: CSS for `<table>`
 
+### Syntax Highlighting
+
+By default fenced code blocks do not include any syntax highlighting.
+Syntax highlighting in fenced code blocks can be enabled by providing a `prism` style object in a theme.
+The syntax highlighting is built with [react-syntax-highlighter][] and [PrismJS][].
+
+```js
+// example theme
+import { future } from 'mdx-deck/themes'
+import okaidia from 'react-syntax-highlighter/styles/prism/okaidia'
+
+export default {
+  ...future,
+  prism: {
+    style: okaidia,
+    languages: {
+      html: prismHTML
+    }
+  }
+}
+```
+
+By default, only JavaScript and JSX are enabled for syntax highlighting to keep bundle sizes to a minimum.
+To enable other languages, add a `languages` object to the `prism` object in the theme.
+
+```js
+// example theme
+import { future } from 'mdx-deck/themes'
+import okaidia from 'react-syntax-highlighter/styles/prism/okaidia'
+import prismHTML from 'react-syntax-highlighter/languages/prism/html'
+
+export default {
+  ...future,
+  prism: {
+    style: okaidia,
+    languages: {
+      html: prismHTML
+    }
+  }
+}
+```
+
+To see available syntax styles and languages, see:
+
+- [Prism languages](https://github.com/conorhastings/react-syntax-highlighter/blob/master/AVAILABLE_LANGUAGES_PRISM.MD)
+- [Prism styles](https://github.com/conorhastings/react-syntax-highlighter/blob/master/AVAILABLE_STYLES_PRISM.MD)
+
+[PrismJS]: https://github.com/PrismJS/prism
+[react-syntax-highlighter]: https://github.com/conorhastings/react-syntax-highlighter
+
 ### Custom Components
 
 mdx-deck includes default components for MDX, but to provide custom components to the [MDXProvider][], export a `components` object.
