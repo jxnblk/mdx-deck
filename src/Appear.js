@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { withSlide } from './Slide'
+import { incStep, decStep } from './index'
 
 export default withSlide(class Appear extends React.Component {
   static propTypes = {
@@ -24,13 +25,11 @@ export default withSlide(class Appear extends React.Component {
     switch (e.key) {
       case 'ArrowDown':
         e.preventDefault()
-        update(state => ({
-          step: state.step < children.length - 1 ? state.step + 1 : state.step
-        }))
+        update(incStep(children))
         break
       case 'ArrowUp':
         e.preventDefault()
-        update(state => ({ step: state.step >= 0 ? state.step - 1 : -1 }))
+        update(decStep())
         break
     }
   }

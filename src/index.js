@@ -34,6 +34,14 @@ export const dec = state => state.index > 0
   ? ({ index: (state.index - 1) % state.length, step: -1 })
   : null
 
+export const incStep = children => state => ({
+  step: state.step < children.length - 1 ? state.step + 1 : state.step
+})
+
+export const decStep = () => state => ({
+  step: state.step >= 0 ? state.step - 1 : -1
+})
+
 const modes = {
   normal: 'NORMAL',
   presenter: 'PRESENTER',
