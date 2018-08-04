@@ -1,6 +1,10 @@
 
 # Changelog
 
+## v1.5.2 2018-08-04
+
+- Add default styles for tables
+
 ## v1.5.1 2018-08-04
 
 - Use remark-unwrap-images plugin
