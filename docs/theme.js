@@ -1,5 +1,5 @@
 import { future as theme } from '../dist/themes'
-import prismStyle from 'react-syntax-highlighter/styles/prism/solarizedlight'
+import prismStyle from 'react-syntax-highlighter/styles/prism/okaidia'
 import prismJsx from 'react-syntax-highlighter/languages/prism/jsx'
 
 export default {
