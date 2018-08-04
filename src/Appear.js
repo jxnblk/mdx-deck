@@ -1,9 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { withSlide } from './Slide'
 
-export default class Appear extends React.Component {
+export default withSlide(class Appear extends React.Component {
   static propTypes = {
-    children: PropTypes.array.isRequired
+    children: PropTypes.array.isRequired,
+    slide: PropTypes.object.isRequired
   }
 
   constructor(props) {
@@ -16,6 +18,12 @@ export default class Appear extends React.Component {
 
   componentDidMount() {
     document.body.addEventListener('keydown', this.handleKeyDown)
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.slide.active !== prevProps.slide.active) {
+      this.setState(state => ({ fragmentStep: -1}))
+    }
   }
 
   componentWillUnmount() {
@@ -71,4 +79,4 @@ export default class Appear extends React.Component {
       </React.Fragment>
     )
   }
-}
+})
