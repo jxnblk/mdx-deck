@@ -71,7 +71,7 @@ describe('components', () => {
   describe('Slide', () => {
     test('renders', () => {
       const json = renderJSON(
-        <Slide index={1} active={false} update={() => {}} step={-1}>
+        <Slide index={1}>
           Hi
         </Slide>
       )
