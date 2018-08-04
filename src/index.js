@@ -45,6 +45,19 @@ export const decStep = () => state => ({
 const modes = {
   normal: 'NORMAL',
   presenter: 'PRESENTER',
+  overview: 'OVERVIEW',
+}
+
+export const toggleMode = key => state => ({
+  mode: state.mode === modes[key] ? modes.normal : modes[key]
+})
+
+const keys = {
+  'right': 39,
+  'left': 37,
+  'space': 32,
+  'p': 80,
+  'o': 79,
 }
 
 export class SlideDeck extends React.Component {
@@ -79,25 +92,34 @@ export class SlideDeck extends React.Component {
   update = fn => this.setState(fn)
 
   handleKeyDown = e => {
-    if (this.props.ignoreKeyEvents) {
+    if (document.activeElement.tagName !== 'BODY'
+      || this.props.ignoreKeyEvents) {
       return
     }
 
-    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return
-    switch (e.key) {
-      case 'ArrowRight':
-      case ' ':
+    if (e.metaKey || e.ctrlKey || e.shiftKey) return
+    const alt = e.altKey
+
+    switch (e.keyCode) {
+      case keys.right:
+      case keys.space:
         e.preventDefault()
         this.update(inc)
         break
-      case 'ArrowLeft':
+      case keys.left:
         e.preventDefault()
         this.update(dec)
         break
-      case 'p':
-        this.update(state => ({
-          mode: state.mode === modes.presenter ? modes.normal : modes.presenter
-        }))
+      case keys.p:
+        if (alt) {
+          this.update(toggleMode('presenter'))
+        }
+        break
+      case keys.o:
+        if (alt) {
+          this.update(toggleMode('overview'))
+        }
+        break
     }
   }
 

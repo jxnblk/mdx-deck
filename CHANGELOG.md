@@ -1,6 +1,11 @@
 
 # Changelog
 
+## v1.4.3 2018-08-03
+
+- Update build setup for smaller package
+- Adjust keyboard shortcuts
+
 ## v1.4.2 2018-08-03
 
 - Update ok-cli for better HTML output

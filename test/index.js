@@ -503,20 +503,20 @@ describe('components', () => {
         <SlideDeck slides={[() => false, () => false]} />
       )
       const e = new KeyboardEvent('keydown', {
-        key: 'ArrowRight'
+        keyCode: 39
       })
       expect(root.state.index).toBe(0)
       document.body.dispatchEvent(e)
       expect(root.state.index).toBe(1)
     })
 
-    test('handles ArrowLeft keydown', () => {
+    test('handles left arrow keydown', () => {
       window.history.pushState(null, null, '/#1')
       const root = renderIntoDocument(
         <SlideDeck slides={[() => false, () => false]} />
       )
       const e = new KeyboardEvent('keydown', {
-        key: 'ArrowLeft'
+        keyCode: 37
       })
       expect(root.state.index).toBe(1)
       document.body.dispatchEvent(e)
@@ -529,7 +529,7 @@ describe('components', () => {
         <SlideDeck ignoreKeyEvents={true} slides={[() => false, () => false]} />
       )
       const e = new KeyboardEvent('keydown', {
-        key: 'ArrowLeft'
+        keyCode: 37
       })
       expect(root.state.index).toBe(1)
       document.body.dispatchEvent(e)
