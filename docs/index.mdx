@@ -1,5 +1,5 @@
-export { future as theme } from '../dist/themes'
-import { Image, Notes, Appear } from '../dist'
+export { default as theme } from './theme'
+import { Image, Notes, Appear, Code } from '../dist'
 import Layout from './Layout'
 
 # mdx-deck
@@ -25,6 +25,24 @@ import Box from 'superbox'
 - To help make your point
 
 ---
+
+## Code Examples
+
+```jsx
+/* JavaScript example */
+const foo = a => a * a;
+
+function bar(a) {
+  return a * a;
+}
+```
+
+```jsx
+<div>Some JSX</div>
+```
+
+---
+
   ### Appear
 
   <ul>
