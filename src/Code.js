@@ -11,8 +11,9 @@ registerLanguage('elixir', elixir);
 
 export default withTheme(class Code extends React.Component {
   static propTypes = {
-    children: PropTypes.string.isRequired,
-    className: PropTypes.string
+    children: PropTypes.string,
+    className: PropTypes.string,
+    theme: PropTypes.object
   }
 
   getLangauge = (lang) => {
@@ -22,7 +23,7 @@ export default withTheme(class Code extends React.Component {
   render() {
     const { className, children, theme } = this.props
     const language = this.getLangauge(className)
-    const style = theme.highlight ? theme.highlight : defaultTheme
+    const style = (theme && theme.highlight) ? theme.highlight : defaultTheme
 
     return (
       <SyntaxHighlighter language={language} style={style}>

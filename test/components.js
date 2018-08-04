@@ -5,7 +5,8 @@ import components from '../src/components'
 
 const blacklist = {
   pre: true,
-  img: true
+  img: true,
+  code: true
 }
 
 test.each(
