@@ -1,5 +1,5 @@
-export { future as theme } from '../dist/themes'
-import { Image, Notes, Appear } from '../dist'
+export { default as theme } from './theme'
+import { Image, Notes, Appear, Code } from '../dist'
 import Layout from './Layout'
 
 # mdx-deck
@@ -25,6 +25,24 @@ import Box from 'superbox'
 - To help make your point
 
 ---
+
+## Code Examples
+
+```jsx
+/* JavaScript example */
+const foo = a => a * a;
+
+function bar(a) {
+  return a * a;
+}
+```
+
+```jsx
+<div>Some JSX</div>
+```
+
+---
+
   ### Appear
 
   <ul>
@@ -69,6 +87,12 @@ import Box from 'superbox'
 ---
 
 <Image src='https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=2048&q=20' />
+
+---
+
+![](https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=2048&h=1024&q=20&fit=crop)
+
+Inline image
 
 ---
 
