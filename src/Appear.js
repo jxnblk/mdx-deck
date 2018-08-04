@@ -8,22 +8,8 @@ export default withSlide(class Appear extends React.Component {
     slide: PropTypes.object.isRequired
   }
 
-  constructor(props) {
-    super(props)
-    this.state = {
-      fragments: props.children,
-      fragmentStep: -1
-    }
-  }
-
   componentDidMount() {
     document.body.addEventListener('keydown', this.handleKeyDown)
-  }
-
-  componentDidUpdate(prevProps) {
-    if (this.props.slide.active !== prevProps.slide.active) {
-      this.setState(state => ({ fragmentStep: -1}))
-    }
   }
 
   componentWillUnmount() {
@@ -32,39 +18,34 @@ export default withSlide(class Appear extends React.Component {
 
   handleKeyDown = e => {
     if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return
+    if (!this.props.slide.active) return
+    const { children } = this.props
+    const { update } = this.props.slide
     switch (e.key) {
       case 'ArrowDown':
         e.preventDefault()
-        this.setState(state => {
-          return {
-            fragmentStep:
-              state.fragmentStep < state.fragments.length - 1
-                ? state.fragmentStep + 1
-                : state.fragmentStep
-          }
-        })
+        update(state => ({
+          step: state.step < children.length - 1 ? state.step + 1 : state.step
+        }))
         break
       case 'ArrowUp':
         e.preventDefault()
-        this.setState(state => {
-          return {
-            fragmentStep: state.fragmentStep >= 0 ? state.fragmentStep - 1 : -1
-          }
-        })
+        update(state => ({ step: state.step >= 0 ? state.step - 1 : -1 }))
         break
     }
   }
 
   render() {
-    const {fragments, fragmentStep} = this.state;
+    const { children } = this.props
+    const { step } = this.props.slide
     return (
       <React.Fragment>
-        {fragments.map((fragment, index) =>
+        {children.map((fragment, index) =>
           typeof fragment === 'string' ? (
             <div
               key={index}
               style={{
-                visibility: index <= fragmentStep ? 'visible' : 'hidden'
+                visibility: index <= step ? 'visible' : 'hidden'
               }}>
               {fragment}
             </div>
@@ -72,7 +53,7 @@ export default withSlide(class Appear extends React.Component {
             React.cloneElement(fragment, {
               key: index,
               style: {
-                visibility: index <= fragmentStep ? 'visible' : 'hidden'
+                visibility: index <= step ? 'visible' : 'hidden'
               }
             })
         ))}
