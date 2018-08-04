@@ -1,6 +1,11 @@
 
 # Changelog
 
+## v1.5.3 2018-08-04
+
+- Add overview mode to see multiple slides at once
+- Add default layouts for inverting colors and creating a split layout slide
+
 ## v1.5.2 2018-08-04
 
 - Add default styles for tables
