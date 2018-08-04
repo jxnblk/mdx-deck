@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Dots from './Dots'
-import { dec, inc } from './index'
+import { modes, dec, inc } from './index'
 
 const Bottom = styled.div([], {
   position: 'fixed',
@@ -32,10 +32,19 @@ export default class Provider extends React.Component {
   render () {
     const {
       children,
+      mode,
       index,
       length,
       update,
     } = this.props
+
+    if (mode !== modes.normal) {
+      return (
+        <React.Fragment>
+          {children}
+        </React.Fragment>
+      )
+    }
 
     return (
       <React.Fragment>
