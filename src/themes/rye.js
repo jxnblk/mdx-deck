@@ -4,7 +4,7 @@ const white = '#ffeec1'
 
 export default {
   ...base,
-  font: '"Rye", cursive',
+  font: '"Rye", serif',
   monospace: '"Roboto Mono", monospace',
   colors: {
     text: white,

@@ -6,7 +6,7 @@ const blue = '#2d5dd7'
 
 export default {
   ...base,
-  font: '"Crimson Text", cursive',
+  font: '"Crimson Text", serif',
   colors: {
     text: black,
     background: white,
