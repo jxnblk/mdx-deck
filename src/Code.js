@@ -4,6 +4,7 @@ import { withTheme } from 'styled-components'
 import SyntaxHighlighter, { registerLanguage } from "react-syntax-highlighter/prism-light"
 import defaultTheme from 'react-syntax-highlighter/styles/prism/atom-dark'
 import javascript from 'react-syntax-highlighter/languages/prism/javascript'
+import jsx from 'react-syntax-highlighter/languages/prism/jsx'
 
 export default withTheme(class Code extends React.Component {
   static propTypes = {
@@ -15,6 +16,7 @@ export default withTheme(class Code extends React.Component {
   constructor(props) {
     super(props)
     registerLanguage('javascript', javascript)
+    registerLanguage('jsx', jsx)
     if (props.theme && props.theme.prism && props.theme.prism.languages) {
       const languages = props.theme.prism.languages
       Object.keys(languages).forEach(key => {
