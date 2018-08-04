@@ -10,6 +10,7 @@ import Slide from './Slide'
 import Dots from './Dots'
 import Root from './Root'
 import Presenter from './Presenter'
+import Overview from './Overview'
 import GoogleFonts from './GoogleFonts'
 
 import defaultTheme from './themes'
@@ -43,7 +44,7 @@ export const decStep = () => state => ({
   step: state.step >= 0 ? state.step - 1 : -1
 })
 
-const modes = {
+export const modes = {
   normal: 'NORMAL',
   presenter: 'PRESENTER',
   overview: 'OVERVIEW',
@@ -226,34 +227,41 @@ export class SlideDeck extends React.Component {
               ...components
             }}>
             <Provider {...this.state}>
-              <Wrapper
-                {...this.state}
-                slides={slides}
-                width={width}
-                height={height}
-                update={this.update}>
-                <GoogleFonts />
-                <Carousel index={index}>
-                  {slides.map((Component, i) => (
-                    <Slide
-                      key={i}
-                      id={'slide-' + i}
-                      index={i}
-                    >
-                      <Component />
-                    </Slide>
-                  ))}
-                </Carousel>
-                <Dots
-                  mt={-32}
-                  mx='auto'
-                  index={index}
-                  length={length}
-                  onClick={index => {
-                    this.setState({ index })
-                  }}
+              {mode === modes.overview ? (
+                <Overview
+                  slides={slides}
+                  update={this.update}
                 />
-              </Wrapper>
+              ) : (
+                <Wrapper
+                  {...this.state}
+                  slides={slides}
+                  width={width}
+                  height={height}
+                  update={this.update}>
+                  <GoogleFonts />
+                  <Carousel index={index}>
+                    {slides.map((Component, i) => (
+                      <Slide
+                        key={i}
+                        id={'slide-' + i}
+                        index={i}
+                      >
+                        <Component />
+                      </Slide>
+                    ))}
+                  </Carousel>
+                  <Dots
+                    mt={-32}
+                    mx='auto'
+                    index={index}
+                    length={length}
+                    onClick={index => {
+                      this.setState({ index })
+                    }}
+                  />
+                </Wrapper>
+              )}
             </Provider>
           </MDXProvider>
         </ThemeProvider>
