@@ -246,6 +246,7 @@ export class SlideDeck extends React.Component {
                         key={i}
                         id={'slide-' + i}
                         index={i}
+                        className='Slide'
                       >
                         <Component />
                       </Slide>
