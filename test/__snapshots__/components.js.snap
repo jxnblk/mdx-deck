@@ -30,6 +30,23 @@ exports[`renders blockquote 1`] = `
 />
 `;
 
+exports[`renders code 1`] = `
+.c0 {
+  white-space: pre-wrap;
+  font-size: 14px;
+  margin: 0px;
+  padding: 8px;
+  color: pre;
+  background-color: preBackground;
+}
+
+<pre
+  className="c0"
+  color="pre"
+  fontSize={1}
+/>
+`;
+
 exports[`renders h1 1`] = `
 .c0 {
   line-height: 1.25;
