@@ -62,12 +62,12 @@ const keys = {
   'o': 79,
 }
 
+const DefaultProvider =  props => <React.Fragment children={props.children} />
+
 export class SlideDeck extends React.Component {
   static propTypes = {
     slides: PropTypes.array.isRequired,
-    components: PropTypes.object,
     theme: PropTypes.object,
-    Provider: PropTypes.func,
     width: PropTypes.string,
     height: PropTypes.string,
     ignoreKeyEvents: PropTypes.bool
@@ -76,8 +76,6 @@ export class SlideDeck extends React.Component {
   static defaultProps = {
     slides: [],
     theme: defaultTheme,
-    components: {} ,
-    Provider: props => <React.Fragment children={props.children} />,
     width: '100vw',
     height: '100vh',
     ignoreKeyEvents: false
@@ -200,12 +198,15 @@ export class SlideDeck extends React.Component {
     const {
       slides,
       theme,
-      components,
-      Provider,
       width,
       height
     } = this.props
     const { index, length, mode, step} = this.state
+
+    const {
+      components = {},
+      Provider = DefaultProvider
+    } = theme
 
     const Wrapper = mode === modes.presenter
       ? Presenter
