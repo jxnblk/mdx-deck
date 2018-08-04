@@ -43,7 +43,7 @@ export const decStep = () => state => ({
   step: state.step >= 0 ? state.step - 1 : -1
 })
 
-const modes = {
+export const modes = {
   normal: 'NORMAL',
   presenter: 'PRESENTER',
   overview: 'OVERVIEW',
