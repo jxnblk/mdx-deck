@@ -1,6 +1,10 @@
 
 # Changelog
 
+## v1.5.4 2018-08-04
+
+- Add docs for syntax highlighting
+
 ## v1.5.3 2018-08-04
 
 - Add overview mode to see multiple slides at once
