@@ -123,14 +123,18 @@ class Timer extends React.Component {
             reset
           </Button>
         )}
-
         {directionMode === direction.countdown && (
-          !on
-            ? <input
-                value={countdownTime/60}
-                onChange={this.updateCountdownTime}
-              />
-            : <Mono px={2}>Presentation Time: {countdownTime/60} minutes</Mono>
+          <Mono px={2}>Presentation Time:
+            <input
+              value={countdownTime/60}
+              onChange={this.updateCountdownTime}
+              type="number"
+              disabled={on}
+              min="0"
+              step="1"
+            />
+            minutes
+          </Mono>
         )}
         <Button
           bg={on ? '#600' : '#060'}
