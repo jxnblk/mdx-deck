@@ -70,7 +70,11 @@ describe('components', () => {
 
   describe('Slide', () => {
     test('renders', () => {
-      const json = renderJSON(<Slide index={1}>Hi</Slide>)
+      const json = renderJSON(
+        <Slide index={1}>
+          Hi
+        </Slide>
+      )
       expect(json).toMatchInlineSnapshot(`
 .c0 {
   -webkit-flex: none;
@@ -463,6 +467,7 @@ describe('components', () => {
   color="text"
   height="100vh"
   mode="NORMAL"
+  step={-1}
   width="100vw"
 >
   <div
@@ -498,20 +503,20 @@ describe('components', () => {
         <SlideDeck slides={[() => false, () => false]} />
       )
       const e = new KeyboardEvent('keydown', {
-        key: 'ArrowRight'
+        keyCode: 39
       })
       expect(root.state.index).toBe(0)
       document.body.dispatchEvent(e)
       expect(root.state.index).toBe(1)
     })
 
-    test('handles ArrowLeft keydown', () => {
+    test('handles left arrow keydown', () => {
       window.history.pushState(null, null, '/#1')
       const root = renderIntoDocument(
         <SlideDeck slides={[() => false, () => false]} />
       )
       const e = new KeyboardEvent('keydown', {
-        key: 'ArrowLeft'
+        keyCode: 37
       })
       expect(root.state.index).toBe(1)
       document.body.dispatchEvent(e)
@@ -524,7 +529,7 @@ describe('components', () => {
         <SlideDeck ignoreKeyEvents={true} slides={[() => false, () => false]} />
       )
       const e = new KeyboardEvent('keydown', {
-        key: 'ArrowLeft'
+        keyCode: 37
       })
       expect(root.state.index).toBe(1)
       document.body.dispatchEvent(e)
