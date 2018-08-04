@@ -184,6 +184,7 @@ The following keys are available for theming:
 - `ol`: CSS for `<ol>`
 - `li`: CSS for `<li>`
 - `img`: CSS for `<img>`
+- `table`: CSS for `<table>`
 
 ### Custom Components
 

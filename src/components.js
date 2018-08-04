@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import styled, { withTheme } from 'styled-components'
 import {
   fontSize,
   space,
@@ -8,6 +8,7 @@ import {
 } from 'styled-system'
 import Notes from './Notes'
 import Mono from './Mono'
+import Code from './Code'
 
 const css = key => props => props.theme[key]
 
@@ -31,25 +32,16 @@ Heading.defaultProps = {
 }
 
 const h1 = styled(Heading.withComponent('h1'))([], css('h1'))
-h1.propTypes = {
-  fontSize: PropTypes.number
-}
 h1.defaultProps = {
   fontSize: 4
 }
 
 const h2 = styled(Heading.withComponent('h2'))([], css('h2'))
-h2.propTypes = {
-  fontSize: PropTypes.number
-}
 h2.defaultProps = {
   fontSize: 3
 }
 
 const h3 = styled(Heading.withComponent('h3'))([], css('h3'))
-h3.propTypes = {
-  fontSize: PropTypes.number
-}
 h3.defaultProps = {
   fontSize: 2
 }
@@ -59,7 +51,7 @@ const h6 = styled(h3.withComponent('h6'))([], css('h6'))
 
 const a = styled.a([], color, css('link'), css('a'))
 a.propTypes = {
-  color: PropTypes.string
+  ...color.propTypes,
 }
 a.defaultProps = {
   color: 'link'
@@ -85,7 +77,7 @@ const ul = styled.ul([], {
   textAlign: 'left'
 }, fontSize, css('ul'))
 ul.propTypes = {
-  fontSize: PropTypes.number
+  ...fontSize.propTypes
 }
 ul.defaultProps = {
   fontSize: 2
@@ -95,7 +87,7 @@ const ol = styled.ol([], {
   textAlign: 'left'
 }, fontSize, css('ol'))
 ol.propTypes = {
-  fontSize: PropTypes.number
+  ...fontSize.propTypes
 }
 ol.defaultProps = {
   fontSize: 2
@@ -146,7 +138,8 @@ Pre.defaultProps = {
   bg: 'preBackground'
 }
 
-const code = props => {
+const code = withTheme(props => {
+  const { theme } = props
   switch (props.className) {
     case 'language-notes':
       return (
@@ -155,9 +148,12 @@ const code = props => {
         </Notes>
       )
     default:
+      if (theme.prism && theme.prism.style) {
+        return <Code {...props} />
+      }
       return <Pre {...props} />
   }
-}
+})
 
 const inlineCode = styled.code([], props => ({
   fontFamily: props.theme.monospace
@@ -174,8 +170,31 @@ inlineCode.defaultProps = {
 
 const img = styled.img([], {
   maxWidth: '100%',
-  height: 'auto'
+  height: 'auto',
+  objectFit: 'cover',
 }, css('img'), css('image'))
+
+const TableRoot = styled.div([], {
+  overflowX: 'auto'
+})
+const Table = styled.table([], {
+  width: '100%',
+  borderCollapse: 'separate',
+  borderSpacing: 0,
+  '& td, & th': {
+    textAlign: 'left',
+    paddingRight: '.5em',
+    paddingTop: '.25em',
+    paddingBottom: '.25em',
+    borderBottom: '1px solid',
+    verticalAlign: 'top'
+  }
+}, css('table'))
+
+const table = props =>
+  <TableRoot>
+    <Table {...props} />
+  </TableRoot>
 
 export default {
   h1,
@@ -193,5 +212,6 @@ export default {
   pre: props => props.children,
   code,
   inlineCode,
-  img
+  img,
+  table
 }

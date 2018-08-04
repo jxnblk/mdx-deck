@@ -18,6 +18,7 @@ import defaultComponents from './components'
 export { default as Image } from './Image'
 export { default as Notes } from './Notes'
 export { default as Appear } from './Appear'
+export { default as Code } from './Code'
 export { default as components } from './components'
 
 // themes
