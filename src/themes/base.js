@@ -6,7 +6,7 @@ export default {
   ],
   colors: {
     text: '#000',
-    background: 'transparent',
+    background: 'white',
     link: '#07c',
     pre: '#f0f',
     preBackground: '#333',
