@@ -174,7 +174,8 @@ inlineCode.defaultProps = {
 
 const img = styled.img([], {
   maxWidth: '100%',
-  height: 'auto'
+  height: 'auto',
+  objectFit: 'cover',
 }, css('img'), css('image'))
 
 export default {
