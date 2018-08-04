@@ -1,13 +1,15 @@
 {
   "name": "mdx-deck",
-  "version": "1.4.2",
+  "version": "1.4.3-0",
   "description": "MDX-based slide deck presentations",
   "main": "dist/index.js",
   "bin": {
     "mdx-deck": "./cli.js"
   },
   "scripts": {
-    "prepare": "babel src -d dist",
+    "prepare": "npm run babel",
+    "babel": "babel src -d dist",
+    "watch": "babel src -d dist --watch",
     "start": "./cli.js docs/index.mdx -p 8989",
     "build": "./cli.js build docs/index.mdx -d site",
     "pdf": "./cli.js pdf docs/index.mdx -d site",
