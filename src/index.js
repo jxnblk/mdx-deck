@@ -68,6 +68,8 @@ export class SlideDeck extends React.Component {
   static propTypes = {
     slides: PropTypes.array.isRequired,
     theme: PropTypes.object,
+    components: PropTypes.object,
+    Provider: PropTypes.func,
     width: PropTypes.string,
     height: PropTypes.string,
     ignoreKeyEvents: PropTypes.bool
@@ -76,6 +78,8 @@ export class SlideDeck extends React.Component {
   static defaultProps = {
     slides: [],
     theme: defaultTheme,
+    components: {} ,
+    Provider: DefaultProvider,
     width: '100vw',
     height: '100vh',
     ignoreKeyEvents: false
@@ -198,8 +202,8 @@ export class SlideDeck extends React.Component {
     const {
       slides,
       theme,
-      components: propsComponents = {},
-      Provider: PropsProvider = DefaultProvider,
+      components: propsComponents,
+      Provider: PropsProvider,
       width,
       height
     } = this.props
