@@ -1,38 +1,50 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { withDeck } from './context'
+import { withEvent } from './event'
 import { withSlide } from './Slide'
 import { modes, incStep, decStep } from './index'
 
-export default withDeck(withSlide(class Appear extends React.Component {
+export default withDeck(withSlide(withEvent(class Appear extends React.Component {
   static propTypes = {
     children: PropTypes.array.isRequired,
     slide: PropTypes.object.isRequired,
-    deck: PropTypes.object.isRequired
+    deck: PropTypes.object.isRequired,
+    event: PropTypes.object.isRequired
   }
 
   componentDidMount() {
-    document.body.addEventListener('keydown', this.handleKeyDown)
+    this.unsubscribe = this.props.event.subscribe(
+      this.props.slide.index,
+      this.handleKeyDown
+    )
   }
 
   componentWillUnmount() {
-    document.body.removeEventListener('keydown', this.handleKeyDown)
+    if (this.unsubscribe) {
+      this.unsubscribe()
+    }
   }
 
-  handleKeyDown = e => {
-    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return
-    if (this.props.deck.index !== this.props.slide.index) return
-    const { children } = this.props
+  handleKeyDown = (e, next) => {
+    const { children, deck } = this.props
     const { update } = this.props.deck
     switch (e.key) {
-      case 'ArrowDown':
+      case 'ArrowRight':
+        if (deck.step >= children.length - 1) {
+          next()
+          return
+        }
         e.preventDefault()
         update(incStep(children))
         break
-      case 'ArrowUp':
+      case 'ArrowLeft':
+        if (deck.step === - 1) {
+          next()
+          return
+        }
         e.preventDefault()
         update(decStep())
-        break
     }
   }
 
@@ -62,4 +74,4 @@ export default withDeck(withSlide(class Appear extends React.Component {
       </React.Fragment>
     )
   }
-}))
+})))

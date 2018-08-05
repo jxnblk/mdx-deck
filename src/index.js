@@ -5,6 +5,7 @@ import { ThemeProvider } from 'styled-components'
 import debounce from 'lodash.debounce'
 
 import { Provider as ContextProvider } from './context'
+import { Provider as EventProvider } from './event'
 import Carousel from './Carousel'
 import Slide from './Slide'
 import Dots from './Dots'
@@ -100,6 +101,15 @@ export class SlideDeck extends React.Component {
     }
 
     if (e.metaKey || e.ctrlKey || e.shiftKey) return
+
+    if (this.subscriptions[this.state.index]) {
+      this.subscriptions[this.state.index](e, () => this.handleEvent(e))
+    } else {
+      this.handleEvent(e)
+    }
+  }
+
+  handleEvent = e => {
     const alt = e.altKey
 
     switch (e.keyCode) {
@@ -123,6 +133,16 @@ export class SlideDeck extends React.Component {
         }
         break
     }
+  }
+
+  subscriptions = {}
+
+  subscribe = (index, callback) => {
+    this.subscriptions[index] = callback
+    const unsubscribe = () => {
+      this.subscriptions[index] = undefined
+    }
+    return unsubscribe
   }
 
   handleHashChange = e => {
@@ -218,53 +238,59 @@ export class SlideDeck extends React.Component {
       update: this.update
     }
 
+    const event = {
+      subscribe: this.subscribe
+    }
+
     return (
       <ContextProvider value={context}>
-        <ThemeProvider theme={theme}>
-          <MDXProvider
-            components={{
-              ...defaultComponents,
-              ...components
-            }}>
-            <Provider {...this.state}>
-              {mode === modes.overview ? (
-                <Overview
-                  slides={slides}
-                  update={this.update}
-                />
-              ) : (
-                <Wrapper
-                  {...this.state}
-                  slides={slides}
-                  width={width}
-                  height={height}
-                  update={this.update}>
-                  <GoogleFonts />
-                  <Carousel index={index}>
-                    {slides.map((Component, i) => (
-                      <Slide
-                        key={i}
-                        id={'slide-' + i}
-                        index={i}
-                      >
-                        <Component />
-                      </Slide>
-                    ))}
-                  </Carousel>
-                  <Dots
-                    mt={-32}
-                    mx='auto'
-                    index={index}
-                    length={length}
-                    onClick={index => {
-                      this.setState({ index })
-                    }}
+        <EventProvider value={event}>
+          <ThemeProvider theme={theme}>
+            <MDXProvider
+              components={{
+                ...defaultComponents,
+                ...components
+              }}>
+              <Provider {...this.state}>
+                {mode === modes.overview ? (
+                  <Overview
+                    slides={slides}
+                    update={this.update}
                   />
-                </Wrapper>
-              )}
-            </Provider>
-          </MDXProvider>
-        </ThemeProvider>
+                ) : (
+                  <Wrapper
+                    {...this.state}
+                    slides={slides}
+                    width={width}
+                    height={height}
+                    update={this.update}>
+                    <GoogleFonts />
+                    <Carousel index={index}>
+                      {slides.map((Component, i) => (
+                        <Slide
+                          key={i}
+                          id={'slide-' + i}
+                          index={i}
+                        >
+                          <Component />
+                        </Slide>
+                      ))}
+                    </Carousel>
+                    <Dots
+                      mt={-32}
+                      mx='auto'
+                      index={index}
+                      length={length}
+                      onClick={index => {
+                        this.setState({ index })
+                      }}
+                    />
+                  </Wrapper>
+                )}
+              </Provider>
+            </MDXProvider>
+          </ThemeProvider>
+        </EventProvider>
       </ContextProvider>
     )
   }

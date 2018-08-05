@@ -424,12 +424,10 @@ import { Notes } from 'mdx-deck'
 
 Key | Description
 ---|---
-Left Arrow | Go to previous slide
-Right Arrow | Go to next slide
+Left Arrow | Go to previous slide (Hide current step in [Appear](#appear) component)
+Right Arrow | Go to next slide (Show next step in [Appear](#appear) component)
 Space | Go to next slide
 Option + P | Toggle [Presenter Mode](#presenter-mode)
-Up Arrow | Hide current step in [Appear](#appear) component
-Down Arrow | Show next step in [Appear](#appear) component
 
 ## Exporting
 
