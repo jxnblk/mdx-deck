@@ -14,7 +14,7 @@ export { dark as theme } from 'mdx-deck/themes'
 # Dark Theme
 ```
 
-For a list of available themes see the [Themes Docs](themes.md).
+View the [List of Themes](themes.md).
 
 ## Custom Themes
 
@@ -96,7 +96,7 @@ export default {
 }
 ```
 
-To see available syntax styles and languages, see:
+For lists of available syntax styles and languages, see:
 
 - [Prism languages](https://github.com/conorhastings/react-syntax-highlighter/blob/master/AVAILABLE_LANGUAGES_PRISM.MD)
 - [Prism styles](https://github.com/conorhastings/react-syntax-highlighter/blob/master/AVAILABLE_STYLES_PRISM.MD)
@@ -162,10 +162,11 @@ which can be used to show custom page numbers or add other elements to the UI.
 
 - `index`: (number) the current slide index
 - `length`: (number) the length of the slides array
-- `mode`: (string) the current mode (one of `'NORMAL'` or `'PRESENTER'`)
+- `mode`: (string) the current mode (one of `'NORMAL'`, `'PRESENTER'`, or `'OVERVIEW'`)
 - `notes`: (object) custom [speaker notes](#speaker-notes) for all slides
+- `step`: (number) the current visible step in an Appear component
 
-### Reference
+## Reference
 
 The following keys are available for theming:
 
