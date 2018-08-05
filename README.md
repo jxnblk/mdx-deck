@@ -189,7 +189,7 @@ which means you can use a nested ThemeProvider or target elements with CSS-in-JS
 
 mdx-deck includes a built-in presenter mode, with a preview of the next slide and a timer.
 
-![presenter mode screenshot](docs/presenter-mode.png)
+![presenter mode screenshot](docs/images/presenter-mode.png)
 
 To use presenter mode:
 
