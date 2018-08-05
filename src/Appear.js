@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { withDeck } from './context'
 import { withSlide } from './Slide'
-import { incStep, decStep } from './index'
+import { modes, incStep, decStep } from './index'
 
 export default withDeck(withSlide(class Appear extends React.Component {
   static propTypes = {
@@ -38,7 +38,8 @@ export default withDeck(withSlide(class Appear extends React.Component {
 
   render() {
     const { children } = this.props
-    const { step } = this.props.deck
+    const { step, mode } = this.props.deck
+    const isOverview = mode === modes.overview
     return (
       <React.Fragment>
         {children.map((fragment, index) =>
@@ -46,7 +47,7 @@ export default withDeck(withSlide(class Appear extends React.Component {
             <div
               key={index}
               style={{
-                visibility: index <= step ? 'visible' : 'hidden'
+                visibility: (isOverview || index <= step) ? 'visible' : 'hidden'
               }}>
               {fragment}
             </div>
@@ -54,7 +55,7 @@ export default withDeck(withSlide(class Appear extends React.Component {
             React.cloneElement(fragment, {
               key: index,
               style: {
-                visibility: index <= step ? 'visible' : 'hidden'
+                visibility: (isOverview || index <= step) ? 'visible' : 'hidden'
               }
             })
         ))}

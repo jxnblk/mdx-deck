@@ -184,6 +184,57 @@ The following keys are available for theming:
 - `ol`: CSS for `<ol>`
 - `li`: CSS for `<li>`
 - `img`: CSS for `<img>`
+- `table`: CSS for `<table>`
+
+### Syntax Highlighting
+
+By default fenced code blocks do not include any syntax highlighting.
+Syntax highlighting in fenced code blocks can be enabled by providing a `prism` style object in a theme.
+The syntax highlighting is built with [react-syntax-highlighter][] and [PrismJS][].
+
+```js
+// example theme
+import { future } from 'mdx-deck/themes'
+import okaidia from 'react-syntax-highlighter/styles/prism/okaidia'
+
+export default {
+  ...future,
+  prism: {
+    style: okaidia,
+    languages: {
+      html: prismHTML
+    }
+  }
+}
+```
+
+By default, only JavaScript and JSX are enabled for syntax highlighting to keep bundle sizes to a minimum.
+To enable other languages, add a `languages` object to the `prism` object in the theme.
+
+```js
+// example theme
+import { future } from 'mdx-deck/themes'
+import okaidia from 'react-syntax-highlighter/styles/prism/okaidia'
+import prismHTML from 'react-syntax-highlighter/languages/prism/html'
+
+export default {
+  ...future,
+  prism: {
+    style: okaidia,
+    languages: {
+      html: prismHTML
+    }
+  }
+}
+```
+
+To see available syntax styles and languages, see:
+
+- [Prism languages](https://github.com/conorhastings/react-syntax-highlighter/blob/master/AVAILABLE_LANGUAGES_PRISM.MD)
+- [Prism styles](https://github.com/conorhastings/react-syntax-highlighter/blob/master/AVAILABLE_STYLES_PRISM.MD)
+
+[PrismJS]: https://github.com/PrismJS/prism
+[react-syntax-highlighter]: https://github.com/conorhastings/react-syntax-highlighter
 
 ### Custom Components
 
@@ -259,6 +310,54 @@ export default Layout
 
 The layout component will wrap the MDX elements within that slide,
 which means you can use a nested ThemeProvider or target elements with CSS-in-JS.
+
+#### Built-in Layouts
+
+mdx-deck includes a few built-in layouts for common slide variations.
+
+##### Invert
+
+Inverts the foreground and background colors from the theme.
+
+```mdx
+import { Invert } from 'mdx-deck/layouts'
+
+# Normal
+
+---
+
+export default Invert
+
+# Inverted
+```
+
+##### Split
+
+Creates a horizontal layout with the first child on the left and all other children on the right.
+
+```mdx
+import { Split } from 'mdx-deck/layouts'
+
+export default Split
+
+![](kitten.png)
+
+## Meow
+```
+
+##### SplitRight
+
+Same as the Split component, but renders the first child on the right.
+
+```mdx
+import { SplitRight } from 'mdx-deck/layouts'
+
+export default SplitRight
+
+![](kitten.png)
+
+## Meow
+```
 
 ### Custom Provider
 

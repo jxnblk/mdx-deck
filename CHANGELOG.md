@@ -1,6 +1,27 @@
 
 # Changelog
 
+## v1.5.4 2018-08-04
+
+- Add docs for syntax highlighting
+
+## v1.5.3 2018-08-04
+
+- Add overview mode to see multiple slides at once
+- Add default layouts for inverting colors and creating a split layout slide
+
+## v1.5.2 2018-08-04
+
+- Add default styles for tables
+
+## v1.5.1 2018-08-04
+
+- Use remark-unwrap-images plugin
+
+## v1.5.0 2018-08-04
+
+- Add syntax highlighting option for fenced code blocks
+
 ## v1.4.4 2018-08-04
 
 - Fix for how Appear children display on slide change
