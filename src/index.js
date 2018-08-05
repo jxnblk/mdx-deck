@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { MDXProvider } from '@mdx-js/tag'
 import { ThemeProvider } from 'styled-components'
 import debounce from 'lodash.debounce'
+import querystring from 'querystring'
 
 import { Provider as ContextProvider } from './context'
 import DefaultProvider from './Provider'
@@ -12,6 +13,7 @@ import Dots from './Dots'
 import Root from './Root'
 import Presenter from './Presenter'
 import Overview from './Overview'
+import Grid from './Grid'
 import GoogleFonts from './GoogleFonts'
 
 import defaultTheme from './themes'
@@ -49,6 +51,7 @@ export const modes = {
   normal: 'NORMAL',
   presenter: 'PRESENTER',
   overview: 'OVERVIEW',
+  grid: 'GRID',
 }
 
 export const toggleMode = key => state => ({
@@ -61,6 +64,7 @@ const keys = {
   'space': 32,
   'p': 80,
   'o': 79,
+  'g': 71,
 }
 
 export class SlideDeck extends React.Component {
@@ -123,6 +127,11 @@ export class SlideDeck extends React.Component {
           this.update(toggleMode('overview'))
         }
         break
+      case keys.g:
+        if (alt) {
+          this.update(toggleMode('grid'))
+        }
+        break
     }
   }
 
@@ -141,13 +150,10 @@ export class SlideDeck extends React.Component {
   }
 
   getMode = () => {
-    const { search } = window.location
-    const presenter = search.includes('presenter')
-    if (presenter) {
-      this.setState({
-        mode: modes.presenter
-      })
-    }
+    const { mode } = querystring.parse(window.location.search.replace(/^\?/, ''))
+    this.setState({
+      mode: modes[mode]
+    })
   }
 
   handleStorageChange = e => {
@@ -190,7 +196,11 @@ export class SlideDeck extends React.Component {
     }
     const { index, mode, step } = this.state
     let query = '?'
-    if (mode === modes.presenter) query += 'presenter'
+    if (mode !== modes.normal) {
+      query += querystring.stringify({
+        mode: (mode || '').toLowerCase()
+      })
+    }
     const step_ = step !== -1 ? ('.' + (step + 1)) : ''
     history.pushState(null, null, query + '#' + index + step_)
     localStorage.setItem(MDX_SLIDE_INDEX, index)
@@ -213,9 +223,12 @@ export class SlideDeck extends React.Component {
       Provider = PropsProvider
     } = theme
 
-    const Wrapper = mode === modes.presenter
-      ? Presenter
-      : Root
+    let Wrapper = Root
+    if (mode === modes.presenter) {
+      Wrapper = Presenter
+    } else if (mode === modes.overview) {
+      Wrapper = Overview
+    }
 
     const context = {
       ...this.state,
@@ -233,8 +246,8 @@ export class SlideDeck extends React.Component {
               ...components
             }}>
             <Provider {...this.state} update={this.update}>
-              {mode === modes.overview ? (
-                <Overview
+              {mode === modes.grid ? (
+                <Grid
                   slides={slides}
                   update={this.update}
                 />

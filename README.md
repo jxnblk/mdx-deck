@@ -72,7 +72,7 @@ For a video introduction, see this [egghead tutorial][egghead] by [@andrewdelpre
 [egghead]: https://egghead.io/lessons/react-build-a-slide-deck-with-mdx-deck-using-markdown-react
 
 
-## Usage
+## Using MDX
 
 MDX can use Markdown syntax and render React components with JSX.
 
@@ -88,7 +88,9 @@ import { Box } from 'grid-styled'
 </Box>
 ```
 
-### Theming
+Read more about MDX syntax in the [MDX Docs][MDX].
+
+## Theming
 
 mdx-deck uses [styled-components][] for styling, making practically any part of the presentation themeable.
 
@@ -230,16 +232,25 @@ import { Notes } from 'mdx-deck'
 </Notes>
 ````
 
-### Keyboard Shortcuts
+## Overview Mode
+
+![Overview Mode](docs/images/overview-mode.png)
+
+When editing a slide deck, toggle overview mode with `Option + O`.
+This shows a list of all slides on the left and a preview of the current slide on the right.
+
+## Keyboard Shortcuts
 
 Key | Description
 ---|---
 Left Arrow | Go to previous slide
 Right Arrow | Go to next slide
 Space | Go to next slide
-Option + P | Toggle [Presenter Mode](#presenter-mode)
 Up Arrow | Hide current step in [Appear](#appear) component
 Down Arrow | Show next step in [Appear](#appear) component
+Option + P | Toggle [Presenter Mode](#presenter-mode)
+Option + O | Toggle [Overview Mode](#overview-mode)
+Option + G | Toggle grid view mode
 
 ## Exporting
 
