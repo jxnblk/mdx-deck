@@ -1,7 +1,7 @@
 
 # React API
 
-mdx-deck components can also be used in any React application, such as [create-react-app][] or [next.js][].
+The core mdx-deck components can also be used in any React application, such as [create-react-app][] or [next.js][].
 
 ### Webpack Loader
 
@@ -32,13 +32,11 @@ import React from 'react'
 import { SlideDeck } from 'mdx-deck'
 import slides from './deck.mdx'
 import theme from './theme'
-import components from './components'
 
 export default () =>
   <SlideDeck
     slides={slides}
     theme={theme}
-    components={components}
     width='100vw'
     height='100vh'
   />

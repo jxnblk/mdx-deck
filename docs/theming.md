@@ -127,44 +127,6 @@ export default {
 
 See the [reference](#reference) below for a full list of element keys.
 
-### Custom MDX Components
-
-mdx-deck includes default components for MDX, but to provide custom components to the [MDXProvider][], add a `components` object to the `theme.
-
-```js
-// example theme
-import { theme } from 'mdx-deck/themes'
-import components from './components'
-
-export default {
-  ...theme,
-  components
-}
-```
-
-See the [MDX][] docs for more or take a look
-
-### Provider component
-
-A custom Provider component can be exported to wrap the entire application.
-This is useful for adding custom context providers in React.
-
-```mdx
-export { default as Provider } from './Provider'
-
-# Hello
-```
-
-A custom Provider component will receive the application's state as props,
-which can be used to show custom page numbers or add other elements to the UI.
-
-#### Props
-
-- `index`: (number) the current slide index
-- `length`: (number) the length of the slides array
-- `mode`: (string) the current mode (one of `'NORMAL'`, `'PRESENTER'`, or `'OVERVIEW'`)
-- `notes`: (object) custom [speaker notes](#speaker-notes) for all slides
-- `step`: (number) the current visible step in an Appear component
 
 ## Reference
 
@@ -199,6 +161,9 @@ The following keys are available for theming:
 - `components`: object of MDX components to render markdown
 - `Provider`: component for wrapping the entire app
 
+## Advanced Usage
+
+For more advanced customizations see the [Advanced Usage](advanced.md) docs.
 
 [styled-components]: https://github.com/styled-components/styled-components
 [MDX]: https://github.com/mdx-js/mdx
