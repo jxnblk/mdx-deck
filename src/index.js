@@ -63,8 +63,6 @@ const keys = {
   'o': 79,
 }
 
-const DefaultProvider =  props => <React.Fragment children={props.children} />
-
 export class SlideDeck extends React.Component {
   static propTypes = {
     slides: PropTypes.array.isRequired,
