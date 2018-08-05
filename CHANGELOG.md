@@ -1,6 +1,10 @@
 
 # Changelog
 
+## v1.5.5 2018-08-04
+
+- Update docs
+
 ## v1.5.4 2018-08-04
 
 - Add docs for syntax highlighting
