@@ -293,6 +293,14 @@ To use presenter mode:
 - In your window press the `Option + P` (`Alt + P`) key to enter presenter mode.
 - Display the other window on the screen for the audience to see.
 - Control the presentation from your window by using the left and right arrow keys; the other window should stay in sync
+- There are two timer modes available: `elapsed` and `countdown`. The countdown time can be set inside the presentation mode as well as via the `MDX` file by exporting a `timer` constant.
+
+```js
+// define a presentation time in index.mdx
+export const timer = 20
+
+// ...
+```
 
 ### Speaker Notes
 

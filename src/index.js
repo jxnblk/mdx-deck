@@ -60,6 +60,8 @@ const keys = {
   'o': 79,
 }
 
+const DEFAULT_COUNTDOWN = 30
+
 export class SlideDeck extends React.Component {
   static propTypes = {
     slides: PropTypes.array.isRequired,
@@ -68,7 +70,8 @@ export class SlideDeck extends React.Component {
     Provider: PropTypes.func,
     width: PropTypes.string,
     height: PropTypes.string,
-    ignoreKeyEvents: PropTypes.bool
+    ignoreKeyEvents: PropTypes.bool,
+    timer: PropTypes.number
   }
 
   static defaultProps = {
@@ -78,7 +81,8 @@ export class SlideDeck extends React.Component {
     Provider: props => <React.Fragment children={props.children} />,
     width: '100vw',
     height: '100vh',
-    ignoreKeyEvents: false
+    ignoreKeyEvents: false,
+    timer: DEFAULT_COUNTDOWN
   }
 
   state = {
@@ -201,7 +205,8 @@ export class SlideDeck extends React.Component {
       components,
       Provider,
       width,
-      height
+      height,
+      timer
     } = this.props
     const { index, length, mode, step} = this.state
 
@@ -230,7 +235,8 @@ export class SlideDeck extends React.Component {
                 slides={slides}
                 width={width}
                 height={height}
-                update={this.update}>
+                update={this.update}
+                timer={timer}>
                 <GoogleFonts />
                 <Carousel index={index}>
                   {slides.map((Component, i) => (

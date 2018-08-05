@@ -16,6 +16,7 @@ export const Presenter = ({
   notes = {},
   update,
   step,
+  timer,
   ...props
 }) => {
   const Next = slides[index + 1]
@@ -75,7 +76,7 @@ export const Presenter = ({
       <Flex mt='auto' px={3} py={3}>
         <Mono>Slide {index} of {length}</Mono>
         <Box mx='auto' />
-        <Timer />
+        <Timer timer={timer} />
       </Flex>
     </Flex>
   )
@@ -88,7 +89,8 @@ Presenter.propTypes = {
   step: PropTypes.number.isRequired,
   slides: PropTypes.array,
   mode: PropTypes.string,
-  notes: PropTypes.object
+  notes: PropTypes.object,
+  timer: PropTypes.number
 }
 
 export default Presenter

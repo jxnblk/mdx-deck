@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import hhmmss from 'hhmmss'
 import styled from 'styled-components'
 import { space, color } from 'styled-system'
@@ -33,15 +34,23 @@ const direction = {
   countdown: 1
 }
 
-const DEFAULT_COUNTDOWN = 1800
+const MINUTES = 60
 
 class Timer extends React.Component {
-  state = {
-    on: false,
-    time: new Date().toLocaleTimeString(),
-    seconds: 0,
-    directionMode: direction.normal,
-    countdownTime: DEFAULT_COUNTDOWN
+
+  static propTypes = {
+    timer: PropTypes.number.isRequired
+  }
+
+  constructor(props) {
+    super(props)
+    this.state = {
+      on: false,
+      time: new Date().toLocaleTimeString(),
+      seconds: 0,
+      directionMode: direction.normal,
+      countdownTime: props.timer * MINUTES
+    }
   }
 
   toggle = () => {
@@ -53,7 +62,6 @@ class Timer extends React.Component {
       if (state.directionMode == direction.normal) {
         return {
           directionMode: direction.countdown,
-          countdownTime: DEFAULT_COUNTDOWN,
           seconds: 0
         }
       }
@@ -67,7 +75,7 @@ class Timer extends React.Component {
 
   updateCountdownTime = (e) => {
     const value = e.target.value
-    const countdownTime = parseInt(value, 10) * 60 || 0
+    const countdownTime = parseInt(value, 10) * MINUTES || 0
     this.setState(state => ({ countdownTime, seconds: 0 }))
   }
 
@@ -126,7 +134,7 @@ class Timer extends React.Component {
         {directionMode === direction.countdown && (
           <Mono px={2}>Presentation Time:
             <input
-              value={countdownTime/60}
+              value={countdownTime/MINUTES}
               onChange={this.updateCountdownTime}
               type="number"
               disabled={on}
