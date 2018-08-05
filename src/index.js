@@ -5,7 +5,6 @@ import { ThemeProvider } from 'styled-components'
 import debounce from 'lodash.debounce'
 
 import { Provider as ContextProvider } from './context'
-import { Provider as EventProvider } from './event'
 import Carousel from './Carousel'
 import Slide from './Slide'
 import Dots from './Dots'
@@ -89,6 +88,7 @@ export class SlideDeck extends React.Component {
     index: 0,
     mode: modes.normal,
     notes: {},
+    fragments: {},
     step: -1
   }
 
@@ -102,25 +102,29 @@ export class SlideDeck extends React.Component {
 
     if (e.metaKey || e.ctrlKey || e.shiftKey) return
 
-    if (this.subscriptions[this.state.index]) {
-      this.subscriptions[this.state.index](e, () => this.handleEvent(e))
-    } else {
-      this.handleEvent(e)
-    }
-  }
-
-  handleEvent = e => {
     const alt = e.altKey
+
+    const { fragments, index, step } = this.state
+
+    const steps = fragments[index]
 
     switch (e.keyCode) {
       case keys.right:
       case keys.space:
         e.preventDefault()
-        this.update(inc)
+        if (steps && step < steps.length -1) {
+          this.update(incStep(steps))
+        } else {
+          this.update(inc)
+        }
         break
       case keys.left:
         e.preventDefault()
-        this.update(dec)
+        if (steps && step !== - 1) {
+          this.update(decStep())
+        } else {
+          this.update(dec)
+        }
         break
       case keys.p:
         if (alt) {
@@ -133,16 +137,6 @@ export class SlideDeck extends React.Component {
         }
         break
     }
-  }
-
-  subscriptions = {}
-
-  subscribe = (index, callback) => {
-    this.subscriptions[index] = callback
-    const unsubscribe = () => {
-      this.subscriptions[index] = undefined
-    }
-    return unsubscribe
   }
 
   handleHashChange = e => {
@@ -183,6 +177,15 @@ export class SlideDeck extends React.Component {
     this.setState(state => ({
       notes: {
         ...state.notes,
+        [index]: children
+      }
+    }))
+  }
+
+  addFragments = ({ index, children }) => {
+    this.setState(state => ({
+      fragments: {
+        ...state.fragments,
         [index]: children
       }
     }))
@@ -235,62 +238,56 @@ export class SlideDeck extends React.Component {
       ...this.state,
       slides,
       addNotes: this.addNotes,
-      update: this.update
-    }
-
-    const event = {
-      subscribe: this.subscribe
+      addFragments: this.addFragments
     }
 
     return (
       <ContextProvider value={context}>
-        <EventProvider value={event}>
-          <ThemeProvider theme={theme}>
-            <MDXProvider
-              components={{
-                ...defaultComponents,
-                ...components
-              }}>
-              <Provider {...this.state}>
-                {mode === modes.overview ? (
-                  <Overview
-                    slides={slides}
-                    update={this.update}
+        <ThemeProvider theme={theme}>
+          <MDXProvider
+            components={{
+              ...defaultComponents,
+              ...components
+            }}>
+            <Provider {...this.state}>
+              {mode === modes.overview ? (
+                <Overview
+                  slides={slides}
+                  update={this.update}
+                />
+              ) : (
+                <Wrapper
+                  {...this.state}
+                  slides={slides}
+                  width={width}
+                  height={height}
+                  update={this.update}>
+                  <GoogleFonts />
+                  <Carousel index={index}>
+                    {slides.map((Component, i) => (
+                      <Slide
+                        key={i}
+                        id={'slide-' + i}
+                        index={i}
+                      >
+                        <Component />
+                      </Slide>
+                    ))}
+                  </Carousel>
+                  <Dots
+                    mt={-32}
+                    mx='auto'
+                    index={index}
+                    length={length}
+                    onClick={index => {
+                      this.setState({ index })
+                    }}
                   />
-                ) : (
-                  <Wrapper
-                    {...this.state}
-                    slides={slides}
-                    width={width}
-                    height={height}
-                    update={this.update}>
-                    <GoogleFonts />
-                    <Carousel index={index}>
-                      {slides.map((Component, i) => (
-                        <Slide
-                          key={i}
-                          id={'slide-' + i}
-                          index={i}
-                        >
-                          <Component />
-                        </Slide>
-                      ))}
-                    </Carousel>
-                    <Dots
-                      mt={-32}
-                      mx='auto'
-                      index={index}
-                      length={length}
-                      onClick={index => {
-                        this.setState({ index })
-                      }}
-                    />
-                  </Wrapper>
-                )}
-              </Provider>
-            </MDXProvider>
-          </ThemeProvider>
-        </EventProvider>
+                </Wrapper>
+              )}
+            </Provider>
+          </MDXProvider>
+        </ThemeProvider>
       </ContextProvider>
     )
   }
