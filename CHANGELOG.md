@@ -1,11 +1,15 @@
 
 # Changelog
 
-## v1.5.6 2018-08-04
+## v1.5.7 2018-08-04
+
+- Add more built-in themes
+
+## v1.5.6 2018-08-05
 
 - Add invisible buttons to left and right for use on mobile devices
 
-## v1.5.5 2018-08-04
+## v1.5.5 2018-08-05
 
 - Update docs
 
