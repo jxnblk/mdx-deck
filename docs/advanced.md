@@ -94,5 +94,6 @@ such as [create-react-app][] or [next.js][].
 
 See the [React API](react.md) docs for more.
 
+[MDXProvider]: https://github.com/mdx-js/mdx#mdxprovider
 [create-react-app]: https://github.com/facebook/create-react-app
 [next.js]: https://github.com/zeit/next.js/

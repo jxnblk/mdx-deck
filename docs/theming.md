@@ -167,4 +167,3 @@ For more advanced customizations see the [Advanced Usage](advanced.md) docs.
 
 [styled-components]: https://github.com/styled-components/styled-components
 [MDX]: https://github.com/mdx-js/mdx
-[MDXProvider]: https://github.com/mdx-js/mdx#mdxprovider
