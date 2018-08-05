@@ -94,9 +94,11 @@ mdx-deck uses [styled-components][] for styling, making practically any part of 
 
 ### Built-in Themes
 
-<img src='docs/images/future.png' width='256' />
-<img src='docs/images/comic.png' width='256' />
-<img src='docs/images/yellow.png' width='256' />
+<div>
+  <img src='docs/images/future.png' width='256' />
+  <img src='docs/images/comic.png' width='256' />
+  <img src='docs/images/yellow.png' width='256' />
+</div>
 
 mdx-deck includes several built-in themes to change the look and feel of the presentation.
 Export `theme` from your MDX file to enable a theme.
