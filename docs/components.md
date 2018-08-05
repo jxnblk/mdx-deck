@@ -55,6 +55,7 @@ import { Notes } from 'mdx-deck'
 ## Layouts
 
 mdx-deck includes a few built-in layouts for common slide variations.
+Export a layout as the `default` within a slide to wrap the contents.
 
 ### Invert
 
