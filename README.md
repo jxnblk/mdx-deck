@@ -230,16 +230,22 @@ import { Notes } from 'mdx-deck'
 </Notes>
 ````
 
-### Keyboard Shortcuts
+## Overview Mode
+
+When editing a slide deck, toggle overview mode with `Option + O`.
+This shows a list of all slides on the left and a preview of the current slide on the right.
+
+## Keyboard Shortcuts
 
 Key | Description
 ---|---
 Left Arrow | Go to previous slide
 Right Arrow | Go to next slide
 Space | Go to next slide
-Option + P | Toggle [Presenter Mode](#presenter-mode)
 Up Arrow | Hide current step in [Appear](#appear) component
 Down Arrow | Show next step in [Appear](#appear) component
+Option + P | Toggle [Presenter Mode](#presenter-mode)
+Option + O | Toggle [Overview Mode](#overview-mode)
 
 ## Exporting
 

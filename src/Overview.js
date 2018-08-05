@@ -23,15 +23,14 @@ export const Overview = ({
       color='white'
       bg='black'
       css={{
+        alignItems: 'flex-start',
         height: '100vh'
-      }}
-    >
-      <Flex
-        width={1/4}
+      }}>
+      <Box
         mr='auto'
+        px={2}
         css={{
           flex: 'none',
-          flexDirection: 'column',
           height: '100vh',
           overflowY: 'auto'
         }}>
@@ -39,11 +38,17 @@ export const Overview = ({
           <Box
             key={i}
             role='link'
-            p={2}
+            p={1}
+            style={{
+              outline: i === index ? '1px solid #07c' : null
+            }}
+            css={{
+              cursor: 'pointer'
+            }}
             onClick={e => {
               update({ index: i })
             }}>
-            <Zoom zoom={1/4}>
+            <Zoom zoom={1/6}>
               <Root {...props}>
                 <Slide index={index + 1}>
                   <Component />
@@ -52,18 +57,21 @@ export const Overview = ({
             </Zoom>
           </Box>
         ))}
-      </Flex>
-      <Box
-        m='auto'
-        width={5/8}
-        css={{
-          border: '1px solid rgba(128, 128, 128, 0.25)'
-        }}>
-        <Zoom zoom={5/8}>
+      </Box>
+      <Box mx='auto' py={4} width={2/3}>
+        <Zoom zoom={2/3}>
           <Root {...props}>
             {props.children}
           </Root>
         </Zoom>
+        <Flex>
+          <Box ml='auto' py={2}>
+            {index}/{length}
+          </Box>
+        </Flex>
+        <Box mt={3}>
+          {notes[index]}
+        </Box>
       </Box>
     </Flex>
   )
