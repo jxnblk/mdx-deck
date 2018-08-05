@@ -198,7 +198,7 @@ export class SlideDeck extends React.Component {
     let query = '?'
     if (mode !== modes.normal) {
       query += querystring.stringify({
-        mode: mode.toLowerCase()
+        mode: (mode || '').toLowerCase()
       })
     }
     const step_ = step !== -1 ? ('.' + (step + 1)) : ''
