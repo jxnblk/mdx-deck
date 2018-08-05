@@ -191,7 +191,7 @@ The following keys are available for theming:
 By default fenced code blocks do not include any syntax highlighting.
 Syntax highlighting in fenced code blocks can be enabled by providing a `prism` style object in a theme.
 The syntax highlighting is built with [react-syntax-highlighter][] and [PrismJS][].
-Create a theme.js file and export it via the `index.mdx` file.
+Create a `theme.js` file and export it via the `MDX` file.
 
 ```js
 export { default as theme } from './theme'
