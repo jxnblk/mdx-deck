@@ -19,8 +19,8 @@ export { default as lobster } from './lobster'
 export { default as hack } from './hack'
 export { default as rye } from './rye'
 export { default as big } from './big'
+
 // super
-// horror // https://fonts.google.com/specimen/Creepster
-// big // https://fonts.google.com/specimen/Bowlby+One+SC
+// https://fonts.google.com/specimen/Creepster
 // https://fonts.google.com/specimen/Pirata+One
 // https://fonts.google.com/specimen/Merriweather
