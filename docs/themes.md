@@ -8,12 +8,16 @@ Default
 export { default as theme } from 'mdx-deck/themes'
 ```
 
+---
+
 ![](images/big.png)
 Big
 
 ```mdx
 export { big as theme } from 'mdx-deck/themes'
 ```
+
+---
 
 ![](images/book.png)
 Book
@@ -22,12 +26,16 @@ Book
 export { book as theme } from 'mdx-deck/themes'
 ```
 
+---
+
 ![](images/code.png)
 Code
 
 ```mdx
 export { code as theme } from 'mdx-deck/themes'
 ```
+
+---
 
 ![](images/comic.png)
 Comic
@@ -36,12 +44,16 @@ Comic
 export { comic as theme } from 'mdx-deck/themes'
 ```
 
+---
+
 ![](images/condensed.png)
 Condensed
 
 ```mdx
 export { condensed as theme } from 'mdx-deck/themes'
 ```
+
+---
 
 ![](images/dark.png)
 Dark
@@ -50,6 +62,8 @@ Dark
 export { dark as theme } from 'mdx-deck/themes'
 ```
 
+---
+
 ![](images/future.png)
 Future
 
@@ -57,12 +71,16 @@ Future
 export { future as theme } from 'mdx-deck/themes'
 ```
 
+---
+
 ![](images/hack.png)
 Hack
 
 ```mdx
 export { hack as theme } from 'mdx-deck/themes'
 ```
+
+---
 
 <!--
 ![](images/lobster.png)
@@ -76,6 +94,8 @@ Notes
 export { notes as theme } from 'mdx-deck/themes'
 ```
 
+---
+
 <!--
 ![](images/rye.png)
 Rye
@@ -88,12 +108,16 @@ Script
 export { script as theme } from 'mdx-deck/themes'
 ```
 
+---
+
 ![](images/swiss.png)
 Swiss
 
 ```mdx
 export { swiss as theme } from 'mdx-deck/themes'
 ```
+
+---
 
 ![](images/yellow.png)
 Yellow
