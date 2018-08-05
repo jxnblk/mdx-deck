@@ -198,14 +198,16 @@ export class SlideDeck extends React.Component {
     const {
       slides,
       theme,
+      components: propsComponents = {},
+      Provider: PropsProvider = DefaultProvider,
       width,
       height
     } = this.props
     const { index, length, mode, step} = this.state
 
     const {
-      components = {},
-      Provider = DefaultProvider
+      components = propsComponents,
+      Provider = PropsProvider
     } = theme
 
     const Wrapper = mode === modes.presenter
