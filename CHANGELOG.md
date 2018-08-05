@@ -1,6 +1,12 @@
 
 # Changelog
 
+## v1.5.10 2018-08-05
+
+- Update overview mode styles
+- Add grid view mode
+- Update docs
+
 ## v1.5.9 2018-08-05
 
 - Update docs
