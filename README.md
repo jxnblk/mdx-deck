@@ -115,164 +115,33 @@ export { default as theme } from './theme'
 # Hello
 ```
 
-The theme should be an object based on [styled-system][]'s theme schema.
+The theme should be an object with fields for fonts, colors, and CSS for individual components.
+It's recommended that all custom themes extend the default theme as a base.
 
 ```js
-// example theme.js
+import { theme } from 'mdx-deck/themes'
+
 export default {
-  font: 'Georgia',
-  monospace: 'Menlo, monospace',
-  fontSizes: [
-    '0.75em', '1em', '1.5em', '2em', '3em'
-  ],
+  // extends the default theme
+  ...theme,
+  // add a custom font
+  font: 'Roboto, sans-serif',
+  // custom colors
   colors: {
-    text: '#000',
-    background: 'transparent',
-    link: '#07c',
-    heading: '#000',
-    quote: '#000',
-    pre: '#f0f',
-    preBackground: '#333',
-    code: '#f0f',
-    codeBackground: 'transparent',
-  },
-  css: {
-    // apply any styles to the root element
-  },
-  // custom CSS can be provided to any of the default components:
-  heading: {
-    fontWeight: 400
-  },
-  link: {
-    textDecoration: 'none',
-    '&:hover': {
-      textDecoration: 'underline',
-    }
+    text: '#f0f',
+    background: 'black',
+    link: '#0ff',
   }
 }
 ```
 
-The following keys are available for theming:
-
-- `font`: base font family
-- `monospace`: font family for `<pre>` and `<code>`
-- `fontSizes`: array of font sizes from smallest to largest
-- `colors`: object of colors used for MDX components
-  - `text`: root foreground color
-  - `background`: root background color
-  - `link`
-  - `heading`
-  - `blockquote`
-  - `pre`
-  - `preBackground`
-  - `code`
-  - `codeBackground`
-- `css`: root CSS object
-- `heading`: CSS for all headings
-- `h1`: CSS for `<h1>`
-- `h2`: CSS for `<h2>`
-- `h3`: CSS for `<h3>`
-- `paragraph`: CSS for `<p>`
-- `link`: CSS for `<a>`
-- `ul`: CSS for `<ul>`
-- `ol`: CSS for `<ol>`
-- `li`: CSS for `<li>`
-- `img`: CSS for `<img>`
-- `table`: CSS for `<table>`
-
-### Syntax Highlighting
-
-By default fenced code blocks do not include any syntax highlighting.
-Syntax highlighting in fenced code blocks can be enabled by providing a `prism` style object in a theme.
-The syntax highlighting is built with [react-syntax-highlighter][] and [PrismJS][].
-Create a `theme.js` file and export it via the `MDX` file.
-
-```js
-export { default as theme } from './theme'
-//...
-```
-
-```js
-// example theme.js
-import { future } from 'mdx-deck/themes'
-import okaidia from 'react-syntax-highlighter/styles/prism/okaidia'
-
-export default {
-  ...future,
-  prism: {
-    style: okaidia
-  }
-}
-```
-
-By default, only JavaScript and JSX are enabled for syntax highlighting to keep bundle sizes to a minimum.
-To enable other languages, add a `languages` object to the `prism` object in the theme.
-
-```js
-// example theme.js
-import { future } from 'mdx-deck/themes'
-import okaidia from 'react-syntax-highlighter/styles/prism/okaidia'
-import prismRuby from 'react-syntax-highlighter/languages/prism/ruby'
-
-export default {
-  ...future,
-  prism: {
-    style: okaidia,
-    languages: {
-      ruby: prismRuby
-    }
-  }
-}
-```
-
-To see available syntax styles and languages, see:
-
-- [Prism languages](https://github.com/conorhastings/react-syntax-highlighter/blob/master/AVAILABLE_LANGUAGES_PRISM.MD)
-- [Prism styles](https://github.com/conorhastings/react-syntax-highlighter/blob/master/AVAILABLE_STYLES_PRISM.MD)
-
-[PrismJS]: https://github.com/PrismJS/prism
-[react-syntax-highlighter]: https://github.com/conorhastings/react-syntax-highlighter
-
-### Custom Components
-
-mdx-deck includes default components for MDX, but to provide custom components to the [MDXProvider][], export a `components` object.
-
-```mdx
-export { default as components } from './components'
-
-# Custom Components
-```
+Read more about theming in the [Theming docs](docs/theming.md)
 
 ### Components
 
-mdx-deck includes some built-in components to help with creating presentations.
+mdx-deck includes built-in components to help with creating presentations, including a full screen Image component, the Appear component that allows stepping through parts of a single slide, and the Notes component for adding speaker notes.
+Read more in the [components docs](docs/components.md).
 
-#### Image
-
-Use the `<Image />` component to render a fullscreen image (using the CSS `background-image` property).
-
-```mdx
-import { Image } from 'mdx-deck'
-
-<Image src='kitten.png' />
-```
-
-#### Appear
-
-Use the `<Appear />` component to make its children appear one at a time within a single slide.
-Use the up and down arrow keys to step through each element.
-
-```mdx
-import { Appear } from 'mdx-deck'
-
-<ul>
-  <Appear>
-    <li>One</li>
-    <li>Two</li>
-    <li>Three</li>
-  </Appear>
-</ul>
-```
 
 ### Layouts
 
@@ -308,74 +177,7 @@ export default Layout
 The layout component will wrap the MDX elements within that slide,
 which means you can use a nested ThemeProvider or target elements with CSS-in-JS.
 
-#### Built-in Layouts
-
-mdx-deck includes a few built-in layouts for common slide variations.
-
-##### Invert
-
-Inverts the foreground and background colors from the theme.
-
-```mdx
-import { Invert } from 'mdx-deck/layouts'
-
-# Normal
-
----
-
-export default Invert
-
-# Inverted
-```
-
-##### Split
-
-Creates a horizontal layout with the first child on the left and all other children on the right.
-
-```mdx
-import { Split } from 'mdx-deck/layouts'
-
-export default Split
-
-![](kitten.png)
-
-## Meow
-```
-
-##### SplitRight
-
-Same as the Split component, but renders the first child on the right.
-
-```mdx
-import { SplitRight } from 'mdx-deck/layouts'
-
-export default SplitRight
-
-![](kitten.png)
-
-## Meow
-```
-
-### Custom Provider
-
-A custom Provider component can be exported to wrap the entire application.
-This is useful for adding custom context providers in React.
-
-```mdx
-export { default as Provider } from './Provider'
-
-# Hello
-```
-
-A custom Provider component will receive the application's state as props,
-which can be used to show custom page numbers or add other elements to the UI.
-
-#### Props
-
-- `index`: (number) the current slide index
-- `length`: (number) the length of the slides array
-- `mode`: (string) the current mode (one of `'NORMAL'` or `'PRESENTER'`)
-- `notes`: (object) custom [speaker notes](#speaker-notes) for all slides
+- [Built-in Layouts](docs/components.md#layouts)
 
 ## Presenter Mode
 
@@ -458,52 +260,13 @@ This works well as a backup option for any unforeseen technical difficulties.
 --title       Title for the HTML document
 ```
 
-## React API
+## Docs
 
-mdx-deck components can also be used in any React application, such as [create-react-app][] or [next.js][].
+- [Theming](docs/theming.md)
+- [Themes](docs/themes.md)
+- [Components](docs/components.md)
+- [React API](docs/react.md)
 
-### Webpack Loader
-
-mdx-deck uses a custom webpack loader to split MDX files into an array of slides. Use this loader to import mdx files in a webpack application.
-
-```js
-// example webpack.config.js
-module.exports = {
-  module: {
-    rules: [
-      {
-        test: /\.mdx$/,
-        ignore: /node_modules/,
-        use: [
-          'babel-loader',
-          'mdx-deck/loader'
-        ]
-      }
-    ]
-  }
-}
-```
-
-### SlideDeck Component
-
-```js
-import React from 'react'
-import { SlideDeck } from 'mdx-deck'
-import slides from './deck.mdx'
-import theme from './theme'
-import components from './components'
-
-export default () =>
-  <SlideDeck
-    slides={slides}
-    theme={theme}
-    components={components}
-    width='100vw'
-    height='100vh'
-  />
-```
-
-View the source for other components available for use.
 
 ---
 
