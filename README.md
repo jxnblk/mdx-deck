@@ -248,6 +248,7 @@ Up Arrow | Hide current step in [Appear](#appear) component
 Down Arrow | Show next step in [Appear](#appear) component
 Option + P | Toggle [Presenter Mode](#presenter-mode)
 Option + O | Toggle [Overview Mode](#overview-mode)
+Option + G | Toggle grid view mode
 
 ## Exporting
 
