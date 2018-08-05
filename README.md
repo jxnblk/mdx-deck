@@ -103,13 +103,7 @@ export { dark as theme } from 'mdx-deck/themes'
 # Dark Theme
 ```
 
-The following themes are available from `mdx-deck/themes`:
-
-- `theme`: default theme with white background
-- `dark`: black background dark theme
-- `future`: dark theme with Avenir Next
-- `condensed`: dark theme with Roboto Condensed
-- `yellow`: bright yellow theme with Roboto Condensed
+For a list of available themes see the [Themes Docs](docs/themes.md).
 
 ### Custom Themes
 

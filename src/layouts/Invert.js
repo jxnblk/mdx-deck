@@ -7,6 +7,9 @@ const Invert = styled.div([], {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
+  '& a': {
+    color: 'inherit'
+  }
 }, color)
 
 Invert.defaultProps = {

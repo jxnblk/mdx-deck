@@ -421,7 +421,7 @@ Array [
   width: 100vw;
   height: 100vh;
   color: #000;
-  background-color: transparent;
+  background-color: white;
 }
 
 @media print {
