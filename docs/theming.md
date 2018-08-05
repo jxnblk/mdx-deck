@@ -50,7 +50,7 @@ export default {
 ### Google Fonts
 
 To use webfonts, mdx-deck will attempt to add `<link>` tags for any font from Google Fonts.
-To load webfonts from other sources, use a custom [Provider component](#provider-component) to add custom `<link>` tags.
+To load webfonts from other sources, use a custom [Provider component](advanced.md#custom-provider-component) to add custom `<link>` tags.
 
 ### Syntax Highlighting
 
@@ -152,12 +152,16 @@ The following keys are available for theming:
 - `h1`: CSS for `<h1>`
 - `h2`: CSS for `<h2>`
 - `h3`: CSS for `<h3>`
+- `h4`: CSS for `<h4>`
+- `h5`: CSS for `<h5>`
+- `h6`: CSS for `<h6>`
 - `paragraph`: CSS for `<p>`
 - `link`: CSS for `<a>`
 - `ul`: CSS for `<ul>`
 - `ol`: CSS for `<ol>`
 - `li`: CSS for `<li>`
 - `img`: CSS for `<img>`
+- `blockquote`: CSS for `<blockquote>`
 - `table`: CSS for `<table>`
 - `components`: object of MDX components to render markdown
 - `Provider`: component for wrapping the entire app

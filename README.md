@@ -21,8 +21,8 @@ npm i -D mdx-deck
 ```
 
 - :memo: Write presentations in markdown
-- :atom_symbol: Import and use React components
-- :nail_care: Customizable [themes](#theming) and [components](#custom-components)
+- :atom_symbol: Import and use [React components](#imports)
+- :nail_care: Customizable [themes](#theming) and components
 - :zero: Zero-config CLI
 - :tipping_hand_woman: [Presenter mode](#presenter-mode)
 - :notebook: [Speaker notes](#speaker-notes)
