@@ -70,11 +70,7 @@ describe('components', () => {
 
   describe('Slide', () => {
     test('renders', () => {
-      const json = renderJSON(
-        <Slide index={1}>
-          Hi
-        </Slide>
-      )
+      const json = renderJSON(<Slide index={1}>Hi</Slide>)
       expect(json).toMatchInlineSnapshot(`
 .c0 {
   -webkit-flex: none;
@@ -163,7 +159,8 @@ describe('components', () => {
   opacity: 0.5;
   margin: 0px;
   padding: 4px;
-  background-color: currentcolor;
+  color: text;
+  background-color: text;
 }
 
 .c1:focus {
@@ -182,6 +179,7 @@ describe('components', () => {
 >
   <button
     className="c1"
+    color="text"
     onClick={[Function]}
     title="go to: 0"
   />
@@ -216,7 +214,8 @@ describe('components', () => {
   opacity: 0.5;
   margin: 0px;
   padding: 4px;
-  background-color: currentcolor;
+  color: text;
+  background-color: text;
 }
 
 .c1:focus {
@@ -237,7 +236,8 @@ describe('components', () => {
   opacity: 0.125;
   margin: 0px;
   padding: 4px;
-  background-color: currentcolor;
+  color: text;
+  background-color: text;
 }
 
 .c2:focus {
@@ -256,41 +256,49 @@ describe('components', () => {
 >
   <button
     className="c1"
+    color="text"
     onClick={[Function]}
     title="go to: 0"
   />
   <button
     className="c1"
+    color="text"
     onClick={[Function]}
     title="go to: 1"
   />
   <button
     className="c1"
+    color="text"
     onClick={[Function]}
     title="go to: 2"
   />
   <button
     className="c1"
+    color="text"
     onClick={[Function]}
     title="go to: 3"
   />
   <button
     className="c2"
+    color="text"
     onClick={[Function]}
     title="go to: 4"
   />
   <button
     className="c2"
+    color="text"
     onClick={[Function]}
     title="go to: 5"
   />
   <button
     className="c2"
+    color="text"
     onClick={[Function]}
     title="go to: 6"
   />
   <button
     className="c2"
+    color="text"
     onClick={[Function]}
     title="go to: 7"
   />
@@ -380,7 +388,8 @@ describe('components', () => {
     test('renders', () => {
       const json = renderJSON(<SlideDeck slides={[]} />)
       expect(json).toMatchInlineSnapshot(`
-.c1 {
+Array [
+  .c1 {
   overflow-x: hidden;
   width: 100%;
   height: 100%;
@@ -405,20 +414,6 @@ describe('components', () => {
   transform: translateX(0%);
 }
 
-.c3 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  margin-top: -32px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 .c0 {
   font-family: system-ui,sans-serif;
   font-size: 16px;
@@ -426,7 +421,7 @@ describe('components', () => {
   width: 100vw;
   height: 100vh;
   color: #000;
-  background-color: transparent;
+  background-color: white;
 }
 
 @media print {
@@ -444,12 +439,6 @@ describe('components', () => {
 }
 
 @media print {
-  .c3 {
-    display: none;
-  }
-}
-
-@media print {
   .c0 {
     font-size: 24px;
     height: auto;
@@ -463,24 +452,94 @@ describe('components', () => {
 }
 
 <div
-  className="c0"
-  color="text"
-  height="100vh"
-  mode="NORMAL"
-  step={-1}
-  width="100vw"
->
-  <div
-    className="c1"
+    className="c0"
+    color="text"
+    height="100vh"
+    mode="NORMAL"
+    step={-1}
+    width="100vw"
   >
     <div
-      className="c2"
+      className="c1"
+    >
+      <div
+        className="c2"
+      />
+    </div>
+  </div>,
+  .c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin-bottom: 8px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.c0 {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+@media print {
+  .c1 {
+    display: none;
+  }
+}
+
+<div
+    className="c0"
+  >
+    <div
+      className="c1"
     />
-  </div>
-  <div
-    className="c3"
-  />
-</div>
+  </div>,
+  .c1 {
+  cursor: pointer;
+  width: 64px;
+  height: 100vh;
+}
+
+.c0 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+}
+
+<div
+    className="c0 c1"
+    onClick={[Function]}
+    role="button"
+    title="Previous Slide"
+  />,
+  .c1 {
+  cursor: pointer;
+  width: 64px;
+  height: 100vh;
+}
+
+.c0 {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+
+<div
+    className="c0 c1"
+    onClick={[Function]}
+    role="button"
+    title="Next Slide"
+  />,
+]
 `)
     })
 

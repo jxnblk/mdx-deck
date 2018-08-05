@@ -1,7 +1,7 @@
-export { default as theme } from './theme'
+export { future as theme } from '../themes'
 import { Image, Notes, Appear } from '../dist'
-import Layout from './Layout'
 import { Invert, Split, SplitRight } from '../layouts'
+import Counter from './Counter'
 
 # mdx-deck
 
@@ -41,7 +41,7 @@ import Box from 'superbox'
 
 ```notes
 - These are speaker notes
-- And they won't rendered in your slide
+- And they won't be rendered in your slide
 ```
 ---
 > “Blockquotes are essential to any good presentation”
@@ -66,6 +66,12 @@ import Box from 'superbox'
     <li>Four</li>
   </Appear>
 </ul>
+---
+
+### Real React Components
+
+<Counter />
+
 ---
 
 <Image src='https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=2048&q=20' />
@@ -97,7 +103,7 @@ Prop | Type | Description
 `bg` | string | sets background color
 
 ---
-export default Layout
+export default Invert
 
 # Get started :sunglasses:
 [GitHub](https://github.com/jxnblk/mdx-deck)
