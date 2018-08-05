@@ -109,6 +109,7 @@ export { dark as theme } from 'mdx-deck/themes'
 # Dark Theme
 ```
 
+MDX uses [exports](https://github.com/mdx-js/mdx#exports) as a way for files to communicate with their parent components.
 For a list of available themes see the [Themes Docs](docs/themes.md).
 
 ### Custom Themes
@@ -125,6 +126,7 @@ The theme should be an object with fields for fonts, colors, and CSS for individ
 It's recommended that all custom themes extend the default theme as a base.
 
 ```js
+// example theme.js
 import { theme } from 'mdx-deck/themes'
 
 export default {
@@ -146,8 +148,8 @@ Read more about theming in the [Theming docs](docs/theming.md)
 ### Components
 
 mdx-deck includes built-in components to help with creating presentations, including a full screen Image component, the Appear component that allows stepping through parts of a single slide, and the Notes component for adding speaker notes.
-Read more in the [components docs](docs/components.md).
 
+Read more in the [components docs](docs/components.md).
 
 ### Layouts
 
@@ -183,7 +185,9 @@ export default Layout
 The layout component will wrap the MDX elements within that slide,
 which means you can use a nested ThemeProvider or target elements with CSS-in-JS.
 
-- [Built-in Layouts](docs/components.md#layouts)
+### Built-in Layouts
+
+mdx-deck includes some built-in layouts for inverting theme colors and changing the layout of a slide. Read more about [built-in layouts](docs/components.md#layouts).
 
 ## Presenter Mode
 
@@ -270,6 +274,7 @@ This works well as a backup option for any unforeseen technical difficulties.
 
 - [Theming](docs/theming.md)
 - [Built-in Themes](docs/themes.md)
+- [Layouts](docs/layouts.md)
 - [Components](docs/components.md)
 - [Advanced Usage](docs/advanced.md)
 - [React API](docs/react.md)
