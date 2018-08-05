@@ -269,7 +269,7 @@ This works well as a backup option for any unforeseen technical difficulties.
 ## Docs
 
 - [Theming](docs/theming.md)
-- [Themes](docs/themes.md)
+- [Built-in Themes](docs/themes.md)
 - [Components](docs/components.md)
 - [React API](docs/react.md)
 
@@ -289,12 +289,9 @@ This works well as a backup option for any unforeseen technical difficulties.
 [MIT License](LICENSE.md)
 
 [MDX]: https://github.com/mdx-js/mdx
-[MDXProvider]: https://github.com/mdx-js/mdx#mdxprovider
 [ok-mdx]: https://github.com/jxnblk/ok-mdx
 [ok-cli]: https://github.com/jxnblk/ok-mdx/tree/master/packages/ok-cli
 [Compositor x0]: https://github.com/c8r/x0
 [styled-system]: https://github.com/jxnblk/styled-system
 [styled-components]: https://github.com/styled-components/styled-components
-[create-react-app]: https://github.com/facebook/create-react-app
-[next.js]: https://github.com/zeit/next.js/
 [Spectacle]: https://github.com/FormidableLabs/spectacle

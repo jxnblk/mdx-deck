@@ -45,3 +45,6 @@ export default () =>
 ```
 
 View the source for other components available for use.
+
+[create-react-app]: https://github.com/facebook/create-react-app
+[next.js]: https://github.com/zeit/next.js/
