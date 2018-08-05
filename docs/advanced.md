@@ -44,7 +44,7 @@ which can be used to show custom page numbers or add other elements to the UI.
 
 ## Combining multiple mdx files
 
-Unlink the official `@mdx-js/loader`,
+Unlike the official `@mdx-js/loader`,
 the `mdx-deck/loader` exports an array of components instead of just one.
 Multiple MDX files can be combined into a single presentation if the filesize is getting difficult to manage.
 
