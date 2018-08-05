@@ -30,7 +30,8 @@ Dot.propTypes = {
 Dot.defaultProps = {
   m: 0,
   p: 1,
-  bg: 'currentcolor',
+  color: 'text',
+  bg: 'text',
 }
 
 export const Dots = ({

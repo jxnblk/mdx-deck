@@ -5,6 +5,7 @@ import { ThemeProvider } from 'styled-components'
 import debounce from 'lodash.debounce'
 
 import { Provider as ContextProvider } from './context'
+import DefaultProvider from './Provider'
 import Carousel from './Carousel'
 import Slide from './Slide'
 import Dots from './Dots'
@@ -233,7 +234,7 @@ export class SlideDeck extends React.Component {
               ...defaultComponents,
               ...components
             }}>
-            <Provider {...this.state}>
+            <Provider {...this.state} update={this.update}>
               {mode === modes.overview ? (
                 <Overview
                   slides={slides}
@@ -253,20 +254,12 @@ export class SlideDeck extends React.Component {
                         key={i}
                         id={'slide-' + i}
                         index={i}
+                        className='Slide'
                       >
                         <Component />
                       </Slide>
                     ))}
                   </Carousel>
-                  <Dots
-                    mt={-32}
-                    mx='auto'
-                    index={index}
-                    length={length}
-                    onClick={index => {
-                      this.setState({ index })
-                    }}
-                  />
                 </Wrapper>
               )}
             </Provider>
