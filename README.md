@@ -187,6 +187,7 @@ which means you can use a nested ThemeProvider or target elements with CSS-in-JS
 
 ### Built-in Layouts
 
+
 mdx-deck includes some built-in layouts for inverting theme colors and changing the layout of a slide. Read more about [built-in layouts](docs/components.md#layouts).
 
 ## Presenter Mode

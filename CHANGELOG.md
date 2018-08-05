@@ -1,6 +1,10 @@
 
 # Changelog
 
+## v1.5.8 2018-08-04
+
+- Add support for `components` and `Provider` in themes
+
 ## v1.5.7 2018-08-04
 
 - Add more built-in themes

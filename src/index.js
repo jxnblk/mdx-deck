@@ -66,8 +66,8 @@ const keys = {
 export class SlideDeck extends React.Component {
   static propTypes = {
     slides: PropTypes.array.isRequired,
-    components: PropTypes.object,
     theme: PropTypes.object,
+    components: PropTypes.object,
     Provider: PropTypes.func,
     width: PropTypes.string,
     height: PropTypes.string,
@@ -201,12 +201,17 @@ export class SlideDeck extends React.Component {
     const {
       slides,
       theme,
-      components,
-      Provider,
+      components: propsComponents,
+      Provider: PropsProvider,
       width,
       height
     } = this.props
     const { index, length, mode, step} = this.state
+
+    const {
+      components = propsComponents,
+      Provider = PropsProvider
+    } = theme
 
     const Wrapper = mode === modes.presenter
       ? Presenter
