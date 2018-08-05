@@ -198,6 +198,7 @@ The following keys are available for theming:
 - `components`: object of MDX components to render markdown
 - `Provider`: component for wrapping the entire app
 
+
 [styled-components]: https://github.com/styled-components/styled-components
 [MDX]: https://github.com/mdx-js/mdx
 [MDXProvider]: https://github.com/mdx-js/mdx#mdxprovider

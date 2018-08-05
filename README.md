@@ -3,7 +3,7 @@
 
 ![](https://s3.amazonaws.com/jxnblk/mdx-deck.gif)
 
-[MDX][]-based presentation decks (**Beta**)
+[MDX][]-based presentation decks
 
 [![Build Status][badge]][travis]
 [![Version][version-badge]][npm]
@@ -90,7 +90,7 @@ import { Box } from 'grid-styled'
 
 ### Theming
 
-mdx-deck uses [styled-components][] for styling.
+mdx-deck uses [styled-components][] for styling, making practically any part of the presentation themeable.
 
 ### Built-in Themes
 
