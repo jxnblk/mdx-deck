@@ -29,6 +29,7 @@ export const Overview = ({
       <Box
         mr='auto'
         px={2}
+        py={3}
         css={{
           flex: 'none',
           height: '100vh',

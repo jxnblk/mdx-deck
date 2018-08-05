@@ -232,6 +232,8 @@ import { Notes } from 'mdx-deck'
 
 ## Overview Mode
 
+<img src='docs/images/overview-mode.png' width='256' />
+
 When editing a slide deck, toggle overview mode with `Option + O`.
 This shows a list of all slides on the left and a preview of the current slide on the right.
 
