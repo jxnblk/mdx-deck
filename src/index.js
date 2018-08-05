@@ -12,6 +12,7 @@ import Slide from './Slide'
 import Dots from './Dots'
 import Root from './Root'
 import Presenter from './Presenter'
+import Overview from './Overview'
 import Grid from './Grid'
 import GoogleFonts from './GoogleFonts'
 
@@ -226,7 +227,7 @@ export class SlideDeck extends React.Component {
     if (mode === modes.presenter) {
       Wrapper = Presenter
     } else if (mode === modes.overview) {
-      console.log('todo overview')
+      Wrapper = Overview
     }
 
     const context = {
