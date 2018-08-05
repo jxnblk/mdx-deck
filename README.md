@@ -191,19 +191,22 @@ The following keys are available for theming:
 By default fenced code blocks do not include any syntax highlighting.
 Syntax highlighting in fenced code blocks can be enabled by providing a `prism` style object in a theme.
 The syntax highlighting is built with [react-syntax-highlighter][] and [PrismJS][].
+Create a theme.js file and export it via the `index.mdx` file.
 
 ```js
-// example theme
+export { default as theme } from './theme'
+//...
+```
+
+```js
+// example theme.js
 import { future } from 'mdx-deck/themes'
 import okaidia from 'react-syntax-highlighter/styles/prism/okaidia'
 
 export default {
   ...future,
   prism: {
-    style: okaidia,
-    languages: {
-      html: prismHTML
-    }
+    style: okaidia
   }
 }
 ```
@@ -212,17 +215,17 @@ By default, only JavaScript and JSX are enabled for syntax highlighting to keep 
 To enable other languages, add a `languages` object to the `prism` object in the theme.
 
 ```js
-// example theme
+// example theme.js
 import { future } from 'mdx-deck/themes'
 import okaidia from 'react-syntax-highlighter/styles/prism/okaidia'
-import prismHTML from 'react-syntax-highlighter/languages/prism/html'
+import prismRuby from 'react-syntax-highlighter/languages/prism/ruby'
 
 export default {
   ...future,
   prism: {
     style: okaidia,
     languages: {
-      html: prismHTML
+      ruby: prismRuby
     }
   }
 }
