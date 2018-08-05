@@ -12,7 +12,7 @@ import Slide from './Slide'
 import Dots from './Dots'
 import Root from './Root'
 import Presenter from './Presenter'
-import Grid from './Overview'
+import Grid from './Grid'
 import GoogleFonts from './GoogleFonts'
 
 import defaultTheme from './themes'
@@ -63,6 +63,7 @@ const keys = {
   'space': 32,
   'p': 80,
   'o': 79,
+  'g': 71,
 }
 
 export class SlideDeck extends React.Component {
