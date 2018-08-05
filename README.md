@@ -72,7 +72,7 @@ For a video introduction, see this [egghead tutorial][egghead] by [@andrewdelpre
 [egghead]: https://egghead.io/lessons/react-build-a-slide-deck-with-mdx-deck-using-markdown-react
 
 
-## Usage
+## Using MDX
 
 MDX can use Markdown syntax and render React components with JSX.
 
@@ -88,7 +88,9 @@ import { Box } from 'grid-styled'
 </Box>
 ```
 
-### Theming
+Read more about MDX syntax in the [MDX Docs][MDX].
+
+## Theming
 
 mdx-deck uses [styled-components][] for styling, making practically any part of the presentation themeable.
 
