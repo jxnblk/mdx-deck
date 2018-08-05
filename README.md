@@ -271,8 +271,8 @@ This works well as a backup option for any unforeseen technical difficulties.
 - [Theming](docs/theming.md)
 - [Built-in Themes](docs/themes.md)
 - [Components](docs/components.md)
+- [Advanced Usage](docs/advanced.md)
 - [React API](docs/react.md)
-
 
 ---
 
