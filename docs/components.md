@@ -101,3 +101,17 @@ export default SplitRight
 ## Meow
 ```
 
+### FullScreenCode
+
+Render fenced code blocks fullscreen.
+
+````mdx
+import { FullScreenCode } from 'mdx-deck/layouts'
+
+export default FullScreenCode
+
+```jsx
+<Button>Beep</Button>
+```
+````
+
