@@ -117,33 +117,25 @@ export class SlideDeck extends React.Component {
       case keys.right:
       case keys.space:
         e.preventDefault()
-        if (steps && step < steps.length -1) {
-          this.update(incStep(steps))
-        } else {
-          this.update(inc)
-        }
+        this.next(this.state)
         break
       case keys.left:
         e.preventDefault()
-        if (steps && step !== - 1) {
-          this.update(decStep())
-        } else {
-          this.update(dec)
-        }
+        this.previous(this.state)
         break
       case keys.p:
         if (alt) {
-          this.update(toggleMode('presenter'))
+          this.updateMode('presenter')
         }
         break
       case keys.o:
         if (alt) {
-          this.update(toggleMode('overview'))
+          this.updateMode('overview')
         }
         break
       case keys.g:
         if (alt) {
-          this.update(toggleMode('grid'))
+          this.updateMode('grid')
         }
         break
     }
@@ -228,6 +220,26 @@ export class SlideDeck extends React.Component {
     history.pushState(null, null, query + '#' + index + step_)
     localStorage.setItem(MDX_SLIDE_INDEX, index)
     localStorage.setItem(MDX_SLIDE_STEP, step)
+  }
+
+  next = ({step, steps}) => {
+    if (steps && step < steps.length -1) {
+      this.update(incStep(steps))
+    } else {
+      this.update(inc)
+    }
+  }
+
+  previous = ({steps}) => {
+    if (steps && step !== - 1) {
+      this.update(decStep())
+    } else {
+      this.update(dec)
+    }
+  }
+
+  updateMode = (mode) => {
+    this.update(toggleMode(mode))
   }
 
   render () {
