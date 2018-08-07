@@ -6,8 +6,8 @@ const ZoomRoot = styled.div([], {
   backgroundColor: 'white',
 },
   props => ({
-    width: (100 * props.zoom) + 'vw',
-    height: (100 * props.zoom) + 'vh',
+    width:  `${(100 * props.zoom)}vw`,
+    height: `${(100 * props.zoom)}vh`
   })
 )
 
