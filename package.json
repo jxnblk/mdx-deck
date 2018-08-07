@@ -1,6 +1,6 @@
 {
   "name": "mdx-deck",
-  "version": "1.5.7",
+  "version": "1.5.10",
   "description": "MDX-based slide deck presentations",
   "main": "dist/index.js",
   "bin": {
@@ -35,6 +35,7 @@
     "pkg-conf": "^2.1.0",
     "prop-types": "^15.6.2",
     "puppeteer": "^1.6.1",
+    "querystring": "^0.2.0",
     "react": "^16.4.1",
     "react-dev-utils": "^5.0.1",
     "react-syntax-highlighter": "^8.0.1",

@@ -1,7 +1,21 @@
 
 # Changelog
 
-## v1.5.7 2018-08-04
+## v1.5.10 2018-08-05
+
+- Update overview mode styles
+- Add grid view mode
+- Update docs
+
+## v1.5.9 2018-08-05
+
+- Update docs
+
+## v1.5.8 2018-08-05
+
+- Add support for `components` and `Provider` in themes
+
+## v1.5.7 2018-08-05
 
 - Add more built-in themes
 
