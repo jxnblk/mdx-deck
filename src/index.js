@@ -4,7 +4,7 @@ import { MDXProvider } from '@mdx-js/tag'
 import { ThemeProvider } from 'styled-components'
 import debounce from 'lodash.debounce'
 import querystring from 'querystring'
-
+import Swipeable from 'react-swipeable'
 import { Provider as ContextProvider } from './context'
 import DefaultProvider from './Provider'
 import Carousel from './Carousel'
