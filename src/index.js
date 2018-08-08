@@ -1,4 +1,5 @@
 import React from 'react'
+import Swipeable from 'react-swipeable'
 import PropTypes from 'prop-types'
 import { MDXProvider } from '@mdx-js/tag'
 import { ThemeProvider } from 'styled-components'
@@ -33,13 +34,13 @@ const MDX_SLIDE_INDEX = 'mdx-slide-index'
 const MDX_SLIDE_STEP = 'mdx-slide-step'
 
 export const inc = state => ({
-  index: (state.index + 1) % state.length, step: -1
+  index: (state.index + 1) % state.length,
+  step: -1
 })
-export const dec = state => state.index > 0
-  ? ({ index: (state.index - 1) % state.length, step: -1 })
-  : null
+export const dec = state =>
+  state.index > 0 ? { index: (state.index - 1) % state.length, step: -1 } : null
 
-export const incStep = steps => state => ({
+export const incStep = steps => state => ({
   step: state.step < steps.length - 1 ? state.step + 1 : state.step
 })
 
@@ -51,7 +52,7 @@ export const modes = {
   normal: 'NORMAL',
   presenter: 'PRESENTER',
   overview: 'OVERVIEW',
-  grid: 'GRID',
+  grid: 'GRID'
 }
 
 export const toggleMode = key => state => ({
@@ -59,12 +60,12 @@ export const toggleMode = key => state => ({
 })
 
 const keys = {
-  'right': 39,
-  'left': 37,
-  'space': 32,
-  'p': 80,
-  'o': 79,
-  'g': 71,
+  right: 39,
+  left: 37,
+  space: 32,
+  p: 80,
+  o: 79,
+  g: 71
 }
 
 export class SlideDeck extends React.Component {
@@ -81,7 +82,7 @@ export class SlideDeck extends React.Component {
   static defaultProps = {
     slides: [],
     theme: defaultTheme,
-    components: {} ,
+    components: {},
     Provider: DefaultProvider,
     width: '100vw',
     height: '100vh',
@@ -99,8 +100,10 @@ export class SlideDeck extends React.Component {
   update = fn => this.setState(fn)
 
   handleKeyDown = e => {
-    if (document.activeElement.tagName !== 'BODY'
-      || this.props.ignoreKeyEvents) {
+    if (
+      document.activeElement.tagName !== 'BODY' ||
+      this.props.ignoreKeyEvents
+    ) {
       return
     }
 
@@ -150,7 +153,9 @@ export class SlideDeck extends React.Component {
   }
 
   getMode = () => {
-    const { mode } = querystring.parse(window.location.search.replace(/^\?/, ''))
+    const { mode } = querystring.parse(
+      window.location.search.replace(/^\?/, '')
+    )
     this.setState({
       mode: modes[mode]
     })
@@ -160,7 +165,7 @@ export class SlideDeck extends React.Component {
     if (e.key === MDX_SLIDE_INDEX) {
       const index = parseInt(e.newValue, 10)
       this.setState({ index })
-    } else if (e.key === MDX_SLIDE_STEP, 10) {
+    } else if ((e.key === MDX_SLIDE_STEP, 10)) {
       const step = parseInt(e.newValue, 10)
       this.setState({ step })
     }
@@ -175,7 +180,7 @@ export class SlideDeck extends React.Component {
     }))
   }
 
-  componentDidMount () {
+  componentDidMount() {
     document.body.addEventListener('keydown', this.handleKeyDown)
     window.addEventListener('hashchange', this.handleHashChange)
     window.addEventListener('storage', this.handleStorageChange)
@@ -183,13 +188,13 @@ export class SlideDeck extends React.Component {
     this.getMode()
   }
 
-  componentWillUnmount () {
+  componentWillUnmount() {
     document.body.removeEventListener('keydown', this.handleKeyDown)
     window.removeEventListener('hashchange', this.handleHashChange)
     window.removeEventListener('storage', this.handleStorageChange)
   }
 
-  componentDidUpdate () {
+  componentDidUpdate() {
     if (this.isHashChange) {
       this.isHashChange = false
       return
@@ -201,13 +206,13 @@ export class SlideDeck extends React.Component {
         mode: (mode || '').toLowerCase()
       })
     }
-    const step_ = step !== -1 ? ('.' + (step + 1)) : ''
+    const step_ = step !== -1 ? '.' + (step + 1) : ''
     history.pushState(null, null, query + '#' + index + step_)
     localStorage.setItem(MDX_SLIDE_INDEX, index)
     localStorage.setItem(MDX_SLIDE_STEP, step)
   }
 
-  render () {
+  render() {
     const {
       slides,
       theme,
@@ -216,12 +221,9 @@ export class SlideDeck extends React.Component {
       width,
       height
     } = this.props
-    const { index, length, mode, step} = this.state
+    const { index, length, mode, step } = this.state
 
-    const {
-      components = propsComponents,
-      Provider = PropsProvider
-    } = theme
+    const { components = propsComponents, Provider = PropsProvider } = theme
 
     let Wrapper = Root
     if (mode === modes.presenter) {
@@ -247,31 +249,31 @@ export class SlideDeck extends React.Component {
             }}>
             <Provider {...this.state} update={this.update}>
               {mode === modes.grid ? (
-                <Grid
-                  slides={slides}
-                  update={this.update}
-                />
+                <Grid slides={slides} update={this.update} />
               ) : (
-                <Wrapper
-                  {...this.state}
-                  slides={slides}
-                  width={width}
-                  height={height}
-                  update={this.update}>
-                  <GoogleFonts />
-                  <Carousel index={index}>
-                    {slides.map((Component, i) => (
-                      <Slide
-                        key={i}
-                        id={'slide-' + i}
-                        index={i}
-                        className='Slide'
-                      >
-                        <Component />
-                      </Slide>
-                    ))}
-                  </Carousel>
-                </Wrapper>
+                <Swipeable
+                  onSwipedLeft={() => this.update(inc)}
+                  onSwipedRight={() => this.update(dec)}>
+                  <Wrapper
+                    {...this.state}
+                    slides={slides}
+                    width={width}
+                    height={height}
+                    update={this.update}>
+                    <GoogleFonts />
+                    <Carousel index={index}>
+                      {slides.map((Component, i) => (
+                        <Slide
+                          key={i}
+                          id={'slide-' + i}
+                          index={i}
+                          className="Slide">
+                          <Component />
+                        </Slide>
+                      ))}
+                    </Carousel>
+                  </Wrapper>
+                </Swipeable>
               )}
             </Provider>
           </MDXProvider>
