@@ -109,10 +109,6 @@ export class SlideDeck extends React.Component {
 
     const alt = e.altKey
 
-    const { fragments, index, step } = this.state
-
-    const steps = fragments[index]
-
     switch (e.keyCode) {
       case keys.right:
       case keys.space:
@@ -222,7 +218,8 @@ export class SlideDeck extends React.Component {
     localStorage.setItem(MDX_SLIDE_STEP, step)
   }
 
-  next = ({step, steps}) => {
+  next = ({ fragments, index, step }) => {
+    const steps = fragments[index]
     if (steps && step < steps.length -1) {
       this.update(incStep(steps))
     } else {
@@ -230,7 +227,8 @@ export class SlideDeck extends React.Component {
     }
   }
 
-  previous = ({steps}) => {
+  previous = ({ fragments, index, step }) => {
+    const steps = fragments[index]
     if (steps && step !== - 1) {
       this.update(decStep())
     } else {
