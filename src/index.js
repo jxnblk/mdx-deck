@@ -116,11 +116,11 @@ export class SlideDeck extends React.Component {
       case keys.right:
       case keys.space:
         e.preventDefault()
-        this.next(this.state)
+        this.next()
         break
       case keys.left:
         e.preventDefault()
-        this.previous(this.state)
+        this.previous()
         break
       case keys.p:
         if (alt) {
@@ -229,14 +229,15 @@ export class SlideDeck extends React.Component {
 
   autoTransition = () => {
     if (this.state.seconds >= this.props.autoTransition) {
-      this.next(this.state)
+      this.next()
       this.setState({ seconds: 1 })
     } else {
       this.setState(state => ({ seconds: state.seconds + 1 }))
     }
   }
 
-  next = ({ fragments, index, step }) => {
+  next = () => {
+    const { fragments, index, step } = this.state
     const steps = fragments[index]
     if (steps && step < steps.length -1) {
       this.update(incStep(steps))
@@ -245,7 +246,8 @@ export class SlideDeck extends React.Component {
     }
   }
 
-  previous = ({ fragments, index, step }) => {
+  previous = () => {
+    const { fragments, index, step } = this.state
     const steps = fragments[index]
     if (steps && step !== - 1) {
       this.update(decStep())
