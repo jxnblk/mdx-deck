@@ -253,7 +253,8 @@ export class SlideDeck extends React.Component {
               ) : (
                 <Swipeable
                   onSwipedLeft={() => this.update(inc)}
-                  onSwipedRight={() => this.update(dec)}>
+                  onSwipedRight={() => this.update(dec)}
+                  trackMouse>
                   <Wrapper
                     {...this.state}
                     slides={slides}
