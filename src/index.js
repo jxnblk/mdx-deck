@@ -75,7 +75,8 @@ export class SlideDeck extends React.Component {
     Provider: PropTypes.func,
     width: PropTypes.string,
     height: PropTypes.string,
-    ignoreKeyEvents: PropTypes.bool
+    ignoreKeyEvents: PropTypes.bool,
+    autoTransition: PropTypes.number
   }
 
   static defaultProps = {
@@ -85,7 +86,8 @@ export class SlideDeck extends React.Component {
     Provider: DefaultProvider,
     width: '100vw',
     height: '100vh',
-    ignoreKeyEvents: false
+    ignoreKeyEvents: false,
+    autoTransition: -1
   }
 
   state = {
@@ -94,7 +96,8 @@ export class SlideDeck extends React.Component {
     mode: modes.normal,
     notes: {},
     fragments: {},
-    step: -1
+    step: -1,
+    seconds: 0
   }
 
   update = fn => this.setState(fn)
@@ -192,12 +195,18 @@ export class SlideDeck extends React.Component {
     window.addEventListener('storage', this.handleStorageChange)
     this.hashToState()
     this.getMode()
+    if (this.props.autoTransition >= 0) {
+      this.autoTransitionTimer = setInterval(this.autoTransition, 1000)
+    }
   }
 
   componentWillUnmount () {
     document.body.removeEventListener('keydown', this.handleKeyDown)
     window.removeEventListener('hashchange', this.handleHashChange)
     window.removeEventListener('storage', this.handleStorageChange)
+    if (this.autoTransitionTimer) {
+      clearInterval(this.autoTransitionTimer)
+    }
   }
 
   componentDidUpdate () {
@@ -216,6 +225,15 @@ export class SlideDeck extends React.Component {
     history.pushState(null, null, query + '#' + index + step_)
     localStorage.setItem(MDX_SLIDE_INDEX, index)
     localStorage.setItem(MDX_SLIDE_STEP, step)
+  }
+
+  autoTransition = () => {
+    if (this.state.seconds >= this.props.autoTransition) {
+      this.next(this.state)
+      this.setState({ seconds: 1 })
+    } else {
+      this.setState(state => ({ seconds: state.seconds + 1 }))
+    }
   }
 
   next = ({ fragments, index, step }) => {

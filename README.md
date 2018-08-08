@@ -250,6 +250,18 @@ Option + P | Toggle [Presenter Mode](#presenter-mode)
 Option + O | Toggle [Overview Mode](#overview-mode)
 Option + G | Toggle grid view mode
 
+## Auto Transition
+
+To enable the automatic transitioning of your slides and appears, export a `autoTransition` constant.
+`autoTransition` should set the time between transitions.
+For example if you need to transition every 10 seconds, add the following to your MDX file
+
+```js
+// Example index.mdx
+
+export const autoTransition = 10
+```
+
 ## Exporting
 
 Add a `build` script to your `package.json` to export a presentation as HTML with a JS bundle.
