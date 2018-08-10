@@ -48,7 +48,7 @@ class Slide extends React.Component {
 }
 
 Slide.propTypes = {
-  index: PropTypes.number.isRequired,
+  index: PropTypes.number,
   ...space.propTypes,
   ...color.propTypes
 }
