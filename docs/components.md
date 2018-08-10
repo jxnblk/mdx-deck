@@ -13,6 +13,10 @@ import { Image } from 'mdx-deck'
 <Image src='kitten.png' />
 ```
 
+### Props
+- `src` (string) image URL
+- `size` (string) CSS background-size
+
 ## Appear
 
 Use the `<Appear />` component to make its children appear one at a time within a single slide.

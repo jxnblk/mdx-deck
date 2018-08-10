@@ -8,8 +8,9 @@ describe('Image', () => {
     const json = render(<Image />).toJSON()
     expect(json).toMatchInlineSnapshot(`
 .c0 {
-  background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   background-image: url(undefined);
   width: 100vw;
   height: 100vh;
@@ -24,7 +25,7 @@ describe('Image', () => {
   })
 
   test('renders with image', () => {
-    const json = render(<Image src='kitten.png' />).toJSON()
+    const json = render(<Image src="kitten.png" />).toJSON()
     expect(json).toHaveStyleRule('background-image', 'url(kitten.png)')
   })
 
