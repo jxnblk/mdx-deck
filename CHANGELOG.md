@@ -1,6 +1,10 @@
 
 # Changelog
 
+## v1.5.12 2018-08-10
+
+- Add FullScreenCode layout component
+
 ## v1.5.11 2018-08-10
 
 - Adjust querystring updater to fix mode showing as undefined
