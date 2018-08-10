@@ -1,6 +1,10 @@
 
 # Changelog
 
+## v1.5.11 2018-08-10
+
+- Adjust querystring updater to fix mode showing as undefined
+
 ## v1.5.10 2018-08-05
 
 - Update overview mode styles
