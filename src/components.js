@@ -171,7 +171,8 @@ inlineCode.defaultProps = {
 const img = styled.img([], {
   maxWidth: '100%',
   height: 'auto',
-  objectFit: 'cover',
+  maxHeight: '100%',
+  objectFit: 'scale-down',
 }, css('img'), css('image'))
 
 const TableRoot = styled.div([], {
