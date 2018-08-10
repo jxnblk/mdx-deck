@@ -195,11 +195,13 @@ export class SlideDeck extends React.Component {
       return
     }
     const { index, mode, step } = this.state
-    let query = '?'
-    if (mode !== modes.normal) {
-      query += querystring.stringify({
+    let query = ''
+    if (mode && mode !== modes.normal) {
+      query += '?' + querystring.stringify({
         mode: (mode || '').toLowerCase()
       })
+    } else if (mode === modes.normal) {
+      query += '/'
     }
     const step_ = step !== -1 ? ('.' + (step + 1)) : ''
     history.pushState(null, null, query + '#' + index + step_)
