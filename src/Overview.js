@@ -51,7 +51,7 @@ export const Overview = ({
             }}>
             <Zoom zoom={1/6}>
               <Root {...props}>
-                <Slide index={index + 1}>
+                <Slide>
                   <Component />
                 </Slide>
               </Root>
