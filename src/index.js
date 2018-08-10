@@ -75,8 +75,7 @@ export class SlideDeck extends React.Component {
     Provider: PropTypes.func,
     width: PropTypes.string,
     height: PropTypes.string,
-    ignoreKeyEvents: PropTypes.bool,
-    autoTransition: PropTypes.number
+    ignoreKeyEvents: PropTypes.bool
   }
 
   static defaultProps = {
@@ -86,8 +85,7 @@ export class SlideDeck extends React.Component {
     Provider: DefaultProvider,
     width: '100vw',
     height: '100vh',
-    ignoreKeyEvents: false,
-    autoTransition: -1
+    ignoreKeyEvents: false
   }
 
   state = {
@@ -97,7 +95,8 @@ export class SlideDeck extends React.Component {
     notes: {},
     fragments: {},
     step: -1,
-    seconds: 0
+    seconds: 0,
+    autoTransition: 0
   }
 
   update = fn => this.setState(fn)
@@ -189,15 +188,18 @@ export class SlideDeck extends React.Component {
     }))
   }
 
+  setAutoTransition = (value) => {
+    const autoTransition = parseInt(value, 10)
+    if (isNaN(autoTransition)) return
+    this.setState({ autoTransition })
+  }
+
   componentDidMount () {
     document.body.addEventListener('keydown', this.handleKeyDown)
     window.addEventListener('hashchange', this.handleHashChange)
     window.addEventListener('storage', this.handleStorageChange)
     this.hashToState()
     this.getMode()
-    if (this.props.autoTransition >= 0) {
-      this.autoTransitionTimer = setInterval(this.autoTransition, 1000)
-    }
   }
 
   componentWillUnmount () {
@@ -209,12 +211,19 @@ export class SlideDeck extends React.Component {
     }
   }
 
-  componentDidUpdate () {
+  componentDidUpdate (prevProps, prevState) {
+    const { index, mode, step, autoTransition } = this.state
+    if (prevState.autoTransition !== autoTransition) {
+      if (autoTransition > 0) {
+        this.autoTransitionTimer = setInterval(this.autoTransition, 1000)
+      } else if (this.autoTransitionTimer) {
+        clearInterval(this.autoTransitionTimer)
+      }
+    }
     if (this.isHashChange) {
       this.isHashChange = false
       return
     }
-    const { index, mode, step } = this.state
     let query = '?'
     if (mode !== modes.normal) {
       query += querystring.stringify({
@@ -228,7 +237,7 @@ export class SlideDeck extends React.Component {
   }
 
   autoTransition = () => {
-    if (this.state.seconds >= this.props.autoTransition) {
+    if (this.state.seconds >= this.state.autoTransition) {
       this.next()
       this.setState({ seconds: 1 })
     } else {
@@ -310,7 +319,8 @@ export class SlideDeck extends React.Component {
                   slides={slides}
                   width={width}
                   height={height}
-                  update={this.update}>
+                  update={this.update}
+                  updateAutoTransition={this.setAutoTransition}>
                   <GoogleFonts />
                   <Carousel index={index}>
                     {slides.map((Component, i) => (
