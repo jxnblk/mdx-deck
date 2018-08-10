@@ -1,6 +1,10 @@
 
 # Changelog
 
+## v1.5.13 2018-08-10
+
+- Fixes an issue where speaker notes would incorrectly show on the wrong slide
+
 ## v1.5.12 2018-08-10
 
 - Add FullScreenCode layout component
