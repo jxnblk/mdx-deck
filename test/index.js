@@ -388,7 +388,8 @@ describe('components', () => {
     test('renders', () => {
       const json = renderJSON(<SlideDeck slides={[]} />)
       expect(json).toMatchInlineSnapshot(`
-.c1 {
+Array [
+  .c1 {
   overflow-x: hidden;
   width: 100%;
   height: 100%;
@@ -451,20 +452,94 @@ describe('components', () => {
 }
 
 <div
-  className="c0"
-  color="text"
-  height="100vh"
-  step={-1}
-  width="100vw"
->
-  <div
-    className="c1"
+    className="c0"
+    color="text"
+    height="100vh"
+    mode="NORMAL"
+    step={-1}
+    width="100vw"
   >
     <div
-      className="c2"
+      className="c1"
+    >
+      <div
+        className="c2"
+      />
+    </div>
+  </div>,
+  .c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin-bottom: 8px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.c0 {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+@media print {
+  .c1 {
+    display: none;
+  }
+}
+
+<div
+    className="c0"
+  >
+    <div
+      className="c1"
     />
-  </div>
-</div>
+  </div>,
+  .c1 {
+  cursor: pointer;
+  width: 64px;
+  height: 100vh;
+}
+
+.c0 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+}
+
+<div
+    className="c0 c1"
+    onClick={[Function]}
+    role="button"
+    title="Previous Slide"
+  />,
+  .c1 {
+  cursor: pointer;
+  width: 64px;
+  height: 100vh;
+}
+
+.c0 {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+
+<div
+    className="c0 c1"
+    onClick={[Function]}
+    role="button"
+    title="Next Slide"
+  />,
+]
 `)
     })
 
