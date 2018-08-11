@@ -207,7 +207,7 @@ export class SlideDeck extends React.Component {
         mode: (mode || '').toLowerCase()
       })
     } else if (mode === modes.normal) {
-      query += '/'
+      query += window.location.pathname
     }
     const step_ = step !== -1 ? ('.' + (step + 1)) : ''
     history.pushState(null, null, query + '#' + index + step_)
