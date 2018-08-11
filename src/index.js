@@ -158,7 +158,7 @@ export class SlideDeck extends React.Component {
   getMode = () => {
     const { mode } = querystring.parse(window.location.search.replace(/^\?/, ''))
     this.setState({
-      mode: modes[mode]
+      mode: modes[mode] || modes.normal
     })
   }
 
