@@ -451,18 +451,25 @@ describe('components', () => {
 }
 
 <div
-  className="c0"
-  color="text"
-  height="100vh"
-  step={-1}
-  width="100vw"
+  onMouseDown={[Function]}
+  onTouchEnd={[Function]}
+  onTouchMove={[Function]}
+  onTouchStart={[Function]}
 >
   <div
-    className="c1"
+    className="c0"
+    color="text"
+    height="100vh"
+    step={-1}
+    width="100vw"
   >
     <div
-      className="c2"
-    />
+      className="c1"
+    >
+      <div
+        className="c2"
+      />
+    </div>
   </div>
 </div>
 `)

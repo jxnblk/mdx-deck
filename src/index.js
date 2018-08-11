@@ -4,7 +4,7 @@ import { MDXProvider } from '@mdx-js/tag'
 import { ThemeProvider } from 'styled-components'
 import debounce from 'lodash.debounce'
 import querystring from 'querystring'
-
+import Swipeable from 'react-swipeable'
 import { Provider as ContextProvider } from './context'
 import DefaultProvider from './Provider'
 import Carousel from './Carousel'
@@ -260,26 +260,31 @@ export class SlideDeck extends React.Component {
                   update={this.update}
                 />
               ) : (
-                <Wrapper
-                  {...this.state}
-                  slides={slides}
-                  width={width}
-                  height={height}
-                  update={this.update}>
-                  <GoogleFonts />
-                  <Carousel index={index}>
-                    {slides.map((Component, i) => (
-                      <Slide
-                        key={i}
-                        id={'slide-' + i}
-                        index={i}
-                        className='Slide'
-                      >
-                        <Component />
-                      </Slide>
-                    ))}
-                  </Carousel>
-                </Wrapper>
+                <Swipeable
+                  onSwipedLeft={() => this.update(inc)}
+                  onSwipedRight={() => this.update(dec)}
+                  trackMouse>
+                  <Wrapper
+                    {...this.state}
+                    slides={slides}
+                    width={width}
+                    height={height}
+                    update={this.update}>
+                    <GoogleFonts />
+                    <Carousel index={index}>
+                      {slides.map((Component, i) => (
+                        <Slide
+                          key={i}
+                          id={'slide-' + i}
+                          index={i}
+                          className='Slide'
+                        >
+                          <Component />
+                        </Slide>
+                      ))}
+                    </Carousel>
+                  </Wrapper>
+                </Swipeable>
               )}
             </Provider>
           </MDXProvider>
