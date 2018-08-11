@@ -59,6 +59,12 @@ pointing to the `.mdx` file to start the dev server:
 }
 ```
 
+Make sure you have either a global or a local Babel configuration file in place.
+
+```sh
+echo "{}" > .babelrc
+```
+
 Start the dev server:
 
 ```sh
