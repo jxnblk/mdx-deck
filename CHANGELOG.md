@@ -1,6 +1,13 @@
 
 # Changelog
 
+## v1.5.15 2018-08-11
+
+- Adds swipe gesture support for touchscreen devices
+- Fixes URL bug when initializing mode
+- Fixes bug previous/next buttons are not rendered
+- Prevents last slide from cycling back to the beginning
+
 ## v1.5.14 2018-08-10
 
 - Adds `size` prop to Image component
