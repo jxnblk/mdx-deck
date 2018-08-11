@@ -32,11 +32,17 @@ export * as themes from './themes'
 const MDX_SLIDE_INDEX = 'mdx-slide-index'
 const MDX_SLIDE_STEP = 'mdx-slide-step'
 
-export const inc = state => ({
-  index: (state.index + 1) % state.length, step: -1
-})
+export const inc = state => state.index < state.length - 1
+  ? ({
+    index: (state.index + 1) % state.length,
+    step: -1
+  })
+  : null
 export const dec = state => state.index > 0
-  ? ({ index: (state.index - 1) % state.length, step: -1 })
+  ? ({
+    index: (state.index - 1) % state.length,
+    step: -1
+  })
   : null
 
 export const incStep = steps => state => ({
