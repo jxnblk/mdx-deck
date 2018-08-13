@@ -274,7 +274,8 @@ export class SlideDeck extends React.Component {
                     slides={slides}
                     width={width}
                     height={height}
-                    update={this.update}>
+                    update={this.update}
+                    timer={timer}>
                     <GoogleFonts />
                     <Carousel index={index}>
                       {slides.map((Component, i) => (
