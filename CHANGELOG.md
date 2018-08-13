@@ -1,6 +1,55 @@
 
 # Changelog
 
+## v1.5.15 2018-08-11
+
+- Adds swipe gesture support for touchscreen devices
+- Fixes URL bug when initializing mode
+- Fixes bug previous/next buttons are not rendered
+- Prevents last slide from cycling back to the beginning
+
+## v1.5.14 2018-08-10
+
+- Adds `size` prop to Image component
+
+## v1.5.13 2018-08-10
+
+- Fixes an issue where speaker notes would incorrectly show on the wrong slide
+
+## v1.5.12 2018-08-10
+
+- Add FullScreenCode layout component
+
+## v1.5.11 2018-08-10
+
+- Adjust querystring updater to fix mode showing as undefined
+
+## v1.5.10 2018-08-05
+
+- Update overview mode styles
+- Add grid view mode
+- Update docs
+
+## v1.5.9 2018-08-05
+
+- Update docs
+
+## v1.5.8 2018-08-05
+
+- Add support for `components` and `Provider` in themes
+
+## v1.5.7 2018-08-05
+
+- Add more built-in themes
+
+## v1.5.6 2018-08-05
+
+- Add invisible buttons to left and right for use on mobile devices
+
+## v1.5.5 2018-08-05
+
+- Update docs
+
 ## v1.5.4 2018-08-04
 
 - Add docs for syntax highlighting

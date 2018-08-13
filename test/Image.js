@@ -6,25 +6,11 @@ import Image from '../src/Image'
 describe('Image', () => {
   test('renders', () => {
     const json = render(<Image />).toJSON()
-    expect(json).toMatchInlineSnapshot(`
-.c0 {
-  background-size: cover;
-  background-position: center;
-  background-image: url(undefined);
-  width: 100vw;
-  height: 100vh;
-}
-
-<div
-  className="c0"
-  height="100vh"
-  width="100vw"
-/>
-`)
+    expect(json).toMatchSnapshot()
   })
 
   test('renders with image', () => {
-    const json = render(<Image src='kitten.png' />).toJSON()
+    const json = render(<Image src="kitten.png" />).toJSON()
     expect(json).toHaveStyleRule('background-image', 'url(kitten.png)')
   })
 

@@ -5,7 +5,7 @@ import { withSlide } from './Slide'
 export default withDeck(withSlide(class extends React.Component {
   setNotes = (props) => {
     const { slide, deck, children } = props
-    if (!slide.index) return
+    if (typeof slide.index === 'undefined') return
     deck.addNotes({
       index: slide.index,
       children

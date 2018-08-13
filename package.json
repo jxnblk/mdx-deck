@@ -1,6 +1,6 @@
 {
   "name": "mdx-deck",
-  "version": "1.5.4",
+  "version": "1.5.15",
   "description": "MDX-based slide deck presentations",
   "main": "dist/index.js",
   "bin": {
@@ -20,7 +20,7 @@
   "author": "Brent Jackson",
   "license": "MIT",
   "dependencies": {
-    "@compositor/webfont": "^1.0.38",
+    "@compositor/webfont": "^1.0.39",
     "@mdx-js/mdx": "^0.15.0-1",
     "@mdx-js/tag": "^0.14.1",
     "chalk": "^2.4.1",
@@ -35,8 +35,10 @@
     "pkg-conf": "^2.1.0",
     "prop-types": "^15.6.2",
     "puppeteer": "^1.6.1",
+    "querystring": "^0.2.0",
     "react": "^16.4.1",
     "react-dev-utils": "^5.0.1",
+    "react-swipeable": "^4.3.0",
     "react-syntax-highlighter": "^8.0.1",
     "remark-emoji": "^2.0.1",
     "remark-unwrap-images": "0.0.2-0",

@@ -3,14 +3,17 @@ import PropTypes from 'prop-types'
 import { MDXProvider } from '@mdx-js/tag'
 import { ThemeProvider } from 'styled-components'
 import debounce from 'lodash.debounce'
-
+import querystring from 'querystring'
+import Swipeable from 'react-swipeable'
 import { Provider as ContextProvider } from './context'
+import DefaultProvider from './Provider'
 import Carousel from './Carousel'
 import Slide from './Slide'
 import Dots from './Dots'
 import Root from './Root'
 import Presenter from './Presenter'
 import Overview from './Overview'
+import Grid from './Grid'
 import GoogleFonts from './GoogleFonts'
 
 import defaultTheme from './themes'
@@ -29,11 +32,17 @@ export * as themes from './themes'
 const MDX_SLIDE_INDEX = 'mdx-slide-index'
 const MDX_SLIDE_STEP = 'mdx-slide-step'
 
-export const inc = state => ({
-  index: (state.index + 1) % state.length, step: -1
-})
+export const inc = state => state.index < state.length - 1
+  ? ({
+    index: (state.index + 1) % state.length,
+    step: -1
+  })
+  : null
 export const dec = state => state.index > 0
-  ? ({ index: (state.index - 1) % state.length, step: -1 })
+  ? ({
+    index: (state.index - 1) % state.length,
+    step: -1
+  })
   : null
 
 export const incStep = steps => state => ({
@@ -48,6 +57,7 @@ export const modes = {
   normal: 'NORMAL',
   presenter: 'PRESENTER',
   overview: 'OVERVIEW',
+  grid: 'GRID',
 }
 
 export const toggleMode = key => state => ({
@@ -60,6 +70,7 @@ const keys = {
   'space': 32,
   'p': 80,
   'o': 79,
+  'g': 71,
 }
 
 const DEFAULT_COUNTDOWN = 30
@@ -67,8 +78,8 @@ const DEFAULT_COUNTDOWN = 30
 export class SlideDeck extends React.Component {
   static propTypes = {
     slides: PropTypes.array.isRequired,
-    components: PropTypes.object,
     theme: PropTypes.object,
+    components: PropTypes.object,
     Provider: PropTypes.func,
     width: PropTypes.string,
     height: PropTypes.string,
@@ -80,7 +91,7 @@ export class SlideDeck extends React.Component {
     slides: [],
     theme: defaultTheme,
     components: {} ,
-    Provider: props => <React.Fragment children={props.children} />,
+    Provider: DefaultProvider,
     width: '100vw',
     height: '100vh',
     ignoreKeyEvents: false,
@@ -126,6 +137,11 @@ export class SlideDeck extends React.Component {
           this.update(toggleMode('overview'))
         }
         break
+      case keys.g:
+        if (alt) {
+          this.update(toggleMode('grid'))
+        }
+        break
     }
   }
 
@@ -144,13 +160,10 @@ export class SlideDeck extends React.Component {
   }
 
   getMode = () => {
-    const { search } = window.location
-    const presenter = search.includes('presenter')
-    if (presenter) {
-      this.setState({
-        mode: modes.presenter
-      })
-    }
+    const { mode } = querystring.parse(window.location.search.replace(/^\?/, ''))
+    this.setState({
+      mode: modes[mode] || modes.normal
+    })
   }
 
   handleStorageChange = e => {
@@ -192,8 +205,14 @@ export class SlideDeck extends React.Component {
       return
     }
     const { index, mode, step } = this.state
-    let query = '?'
-    if (mode === modes.presenter) query += 'presenter'
+    let query = ''
+    if (mode && mode !== modes.normal) {
+      query += '?' + querystring.stringify({
+        mode: (mode || '').toLowerCase()
+      })
+    } else if (mode === modes.normal) {
+      query += window.location.pathname
+    }
     const step_ = step !== -1 ? ('.' + (step + 1)) : ''
     history.pushState(null, null, query + '#' + index + step_)
     localStorage.setItem(MDX_SLIDE_INDEX, index)
@@ -204,17 +223,25 @@ export class SlideDeck extends React.Component {
     const {
       slides,
       theme,
-      components,
-      Provider,
+      components: propsComponents,
+      Provider: PropsProvider,
       width,
       height,
       timer
     } = this.props
     const { index, length, mode, step} = this.state
 
-    const Wrapper = mode === modes.presenter
-      ? Presenter
-      : Root
+    const {
+      components = propsComponents,
+      Provider = PropsProvider
+    } = theme
+
+    let Wrapper = Root
+    if (mode === modes.presenter) {
+      Wrapper = Presenter
+    } else if (mode === modes.overview) {
+      Wrapper = Overview
+    }
 
     const context = {
       ...this.state,
@@ -231,42 +258,38 @@ export class SlideDeck extends React.Component {
               ...defaultComponents,
               ...components
             }}>
-            <Provider {...this.state}>
-              {mode === modes.overview ? (
-                <Overview
+            <Provider {...this.state} update={this.update}>
+              {mode === modes.grid ? (
+                <Grid
                   slides={slides}
                   update={this.update}
                 />
               ) : (
-                <Wrapper
-                  {...this.state}
-                  slides={slides}
-                  width={width}
-                  height={height}
-                  update={this.update}
-                  timer={timer}>
-                  <GoogleFonts />
-                  <Carousel index={index}>
-                    {slides.map((Component, i) => (
-                      <Slide
-                        key={i}
-                        id={'slide-' + i}
-                        index={i}
-                      >
-                        <Component />
-                      </Slide>
-                    ))}
-                  </Carousel>
-                  <Dots
-                    mt={-32}
-                    mx='auto'
-                    index={index}
-                    length={length}
-                    onClick={index => {
-                      this.setState({ index })
-                    }}
-                  />
-                </Wrapper>
+                <Swipeable
+                  onSwipedLeft={() => this.update(inc)}
+                  onSwipedRight={() => this.update(dec)}
+                  trackMouse>
+                  <Wrapper
+                    {...this.state}
+                    slides={slides}
+                    width={width}
+                    height={height}
+                    update={this.update}>
+                    <GoogleFonts />
+                    <Carousel index={index}>
+                      {slides.map((Component, i) => (
+                        <Slide
+                          key={i}
+                          id={'slide-' + i}
+                          index={i}
+                          className='Slide'
+                        >
+                          <Component />
+                        </Slide>
+                      ))}
+                    </Carousel>
+                  </Wrapper>
+                </Swipeable>
               )}
             </Provider>
           </MDXProvider>

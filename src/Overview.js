@@ -1,41 +1,91 @@
 import React from 'react'
-import Flex from './Flex'
+import PropTypes from 'prop-types'
 import Box from './Box'
-import Slide from './Slide'
+import Flex from './Flex'
 import Zoom from './Zoom'
+import Slide from './Slide'
 import Root from './Root'
-import { modes } from './index'
+import Mono from './Mono'
 
-export default ({
+export const Overview = ({
+  index,
+  length,
   slides = [],
-  update
-}) => (
-  <Box bg='black' css={{ minHeight: '100vh' }}>
+  mode,
+  notes = {},
+  update,
+  step,
+  ...props
+}) => {
+
+  return (
     <Flex
+      color='white'
+      bg='black'
       css={{
-        justifyContent: 'flex-start',
-        flexWrap: 'wrap'
+        alignItems: 'flex-start',
+        height: '100vh'
       }}>
-      {slides.map((Component, i) => (
-        <Box key={i} css={{ cursor: 'pointer' }}>
-          <div role='link'
-            href={'#' + i}
+      <Box
+        mr='auto'
+        px={2}
+        py={3}
+        css={{
+          flex: 'none',
+          height: '100vh',
+          overflowY: 'auto'
+        }}>
+        {slides.map((Component, i) => (
+          <Box
+            key={i}
+            role='link'
+            p={1}
+            style={{
+              outline: i === index ? '1px solid #07c' : null
+            }}
+            css={{
+              cursor: 'pointer'
+            }}
             onClick={e => {
-              update({
-                index: i,
-                mode: modes.normal
-              })
+              update({ index: i })
             }}>
-            <Zoom zoom={1/4}>
-              <Root width='100vw' height='100vh'>
-                <Slide index={i}>
+            <Zoom zoom={1/6}>
+              <Root {...props}>
+                <Slide>
                   <Component />
                 </Slide>
               </Root>
             </Zoom>
-          </div>
+          </Box>
+        ))}
+      </Box>
+      <Box mx='auto' py={4} width={2/3}>
+        <Zoom zoom={2/3}>
+          <Root {...props}>
+            {props.children}
+          </Root>
+        </Zoom>
+        <Flex>
+          <Box ml='auto' py={2}>
+            {index}/{length}
+          </Box>
+        </Flex>
+        <Box mt={3}>
+          {notes[index]}
         </Box>
-      ))}
+      </Box>
     </Flex>
-  </Box>
-)
+  )
+}
+
+Overview.propTypes = {
+  index: PropTypes.number.isRequired,
+  length: PropTypes.number.isRequired,
+  update: PropTypes.func.isRequired,
+  step: PropTypes.number.isRequired,
+  slides: PropTypes.array,
+  mode: PropTypes.string,
+  notes: PropTypes.object
+}
+
+export default Overview
