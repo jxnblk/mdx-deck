@@ -13,6 +13,10 @@ import { Image } from 'mdx-deck'
 <Image src='kitten.png' />
 ```
 
+### Props
+- `src` (string) image URL
+- `size` (string) CSS background-size
+
 ## Appear
 
 Use the `<Appear />` component to make its children appear one at a time within a single slide.
@@ -100,4 +104,18 @@ export default SplitRight
 
 ## Meow
 ```
+
+### FullScreenCode
+
+Render fenced code blocks fullscreen.
+
+````mdx
+import { FullScreenCode } from 'mdx-deck/layouts'
+
+export default FullScreenCode
+
+```jsx
+<Button>Beep</Button>
+```
+````
 

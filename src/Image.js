@@ -4,10 +4,11 @@ import styled from 'styled-components'
 import { width, height } from 'styled-system'
 
 const Image = styled.div([], {
-  backgroundSize: 'cover',
   backgroundPosition: 'center',
+  backgroundRepeat: 'no-repeat',
 },
   props => ({
+    backgroundSize: props.size || 'cover',
     backgroundImage: `url(${props.src})`
   }),
   width,

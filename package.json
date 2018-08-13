@@ -1,6 +1,6 @@
 {
   "name": "mdx-deck",
-  "version": "1.5.10",
+  "version": "1.5.15",
   "description": "MDX-based slide deck presentations",
   "main": "dist/index.js",
   "bin": {
@@ -38,6 +38,7 @@
     "querystring": "^0.2.0",
     "react": "^16.4.1",
     "react-dev-utils": "^5.0.1",
+    "react-swipeable": "^4.3.0",
     "react-syntax-highlighter": "^8.0.1",
     "remark-emoji": "^2.0.1",
     "remark-unwrap-images": "0.0.2-0",
