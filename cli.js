@@ -10,19 +10,7 @@ const remark = {
 const pkg = require('./package.json')
 
 const config = require('pkg-conf').sync('mdx-deck')
-
-const log = (...args) => {
-  console.log(
-    chalk.magenta('[mdx-deck]'),
-    ...args
-  )
-}
-log.error = (...args) => {
-  console.log(
-    chalk.red('[err]'),
-    ...args
-  )
-}
+const log = require('./lib/log')
 
 const cli = meow(`
   ${chalk.gray('Usage')}
@@ -104,6 +92,7 @@ switch (cmd) {
     build(opts)
       .then(res => {
         log('done')
+        process.exit(0)
       })
       .catch(err => {
         log.error(err)
