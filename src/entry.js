@@ -11,6 +11,7 @@ export default class App extends React.Component {
   render () {
     return (
       <SlideDeck
+        {...this.props}
         slides={slides}
         theme={theme}
         components={components}
@@ -20,9 +21,11 @@ export default class App extends React.Component {
   }
 }
 
-render(
-  <App />,
-  document.getElementById('root')
-)
+if (typeof document !== 'undefined') {
+  render(
+    <App />,
+    document.getElementById('root')
+  )
+}
 
 if (module.hot) module.hot.accept()

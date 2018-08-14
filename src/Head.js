@@ -21,7 +21,7 @@ export class HeadProvider extends React.Component {
 
   render () {
     const context = {
-      ...this.state,
+      ...this.props,
       push: this.push
     }
 

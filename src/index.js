@@ -6,6 +6,7 @@ import debounce from 'lodash.debounce'
 import querystring from 'querystring'
 import Swipeable from 'react-swipeable'
 import { Provider as ContextProvider } from './context'
+import { HeadProvider } from './Head'
 import DefaultProvider from './Provider'
 import Carousel from './Carousel'
 import Slide from './Slide'
@@ -19,7 +20,7 @@ import GoogleFonts from './GoogleFonts'
 import defaultTheme from './themes'
 import defaultComponents from './components'
 
-export { default as Head } from './Head'
+export { Head } from './Head'
 export { default as Image } from './Image'
 export { default as Notes } from './Notes'
 export { default as Appear } from './Appear'
@@ -82,7 +83,8 @@ export class SlideDeck extends React.Component {
     Provider: PropTypes.func,
     width: PropTypes.string,
     height: PropTypes.string,
-    ignoreKeyEvents: PropTypes.bool
+    ignoreKeyEvents: PropTypes.bool,
+    headTags: PropTypes.array.isRequired,
   }
 
   static defaultProps = {
@@ -92,7 +94,8 @@ export class SlideDeck extends React.Component {
     Provider: DefaultProvider,
     width: '100vw',
     height: '100vh',
-    ignoreKeyEvents: false
+    ignoreKeyEvents: false,
+    headTags: [],
   }
 
   state = {
@@ -223,7 +226,8 @@ export class SlideDeck extends React.Component {
       components: propsComponents,
       Provider: PropsProvider,
       width,
-      height
+      height,
+      headTags
     } = this.props
     const { index, length, mode, step} = this.state
 
@@ -248,48 +252,50 @@ export class SlideDeck extends React.Component {
 
     return (
       <ContextProvider value={context}>
-        <ThemeProvider theme={theme}>
-          <MDXProvider
-            components={{
-              ...defaultComponents,
-              ...components
-            }}>
-            <Provider {...this.state} update={this.update}>
-              {mode === modes.grid ? (
-                <Grid
-                  slides={slides}
-                  update={this.update}
-                />
-              ) : (
-                <Swipeable
-                  onSwipedLeft={() => this.update(inc)}
-                  onSwipedRight={() => this.update(dec)}
-                  trackMouse>
-                  <Wrapper
-                    {...this.state}
+        <HeadProvider tags={headTags}>
+          <ThemeProvider theme={theme}>
+            <MDXProvider
+              components={{
+                ...defaultComponents,
+                ...components
+              }}>
+              <Provider {...this.state} update={this.update}>
+                {mode === modes.grid ? (
+                  <Grid
                     slides={slides}
-                    width={width}
-                    height={height}
-                    update={this.update}>
-                    <GoogleFonts />
-                    <Carousel index={index}>
-                      {slides.map((Component, i) => (
-                        <Slide
-                          key={i}
-                          id={'slide-' + i}
-                          index={i}
-                          className='Slide'
-                        >
-                          <Component />
-                        </Slide>
-                      ))}
-                    </Carousel>
-                  </Wrapper>
-                </Swipeable>
-              )}
-            </Provider>
-          </MDXProvider>
-        </ThemeProvider>
+                    update={this.update}
+                  />
+                ) : (
+                  <Swipeable
+                    onSwipedLeft={() => this.update(inc)}
+                    onSwipedRight={() => this.update(dec)}
+                    trackMouse>
+                    <Wrapper
+                      {...this.state}
+                      slides={slides}
+                      width={width}
+                      height={height}
+                      update={this.update}>
+                      <GoogleFonts />
+                      <Carousel index={index}>
+                        {slides.map((Component, i) => (
+                          <Slide
+                            key={i}
+                            id={'slide-' + i}
+                            index={i}
+                            className='Slide'
+                          >
+                            <Component />
+                          </Slide>
+                        ))}
+                      </Carousel>
+                    </Wrapper>
+                  </Swipeable>
+                )}
+              </Provider>
+            </MDXProvider>
+          </ThemeProvider>
+        </HeadProvider>
       </ContextProvider>
     )
   }
