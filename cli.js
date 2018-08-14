@@ -3,7 +3,6 @@ const path = require('path')
 const meow = require('meow')
 const open = require('react-dev-utils/openBrowser')
 const chalk = require('chalk')
-const ok = require('ok-cli')
 const remark = {
   emoji: require('remark-emoji'),
   unwrapImages: require('remark-unwrap-images')
@@ -132,10 +131,13 @@ const opts = Object.assign({
 
 opts.outDir = path.resolve(opts.outDir)
 
+let dev
+
 switch (cmd) {
   case 'build':
     log('building')
-    ok.build(opts)
+    const build = require('./lib/build')
+    build(opts)
       .then(res => {
         log('done')
       })
@@ -147,7 +149,8 @@ switch (cmd) {
   case 'pdf':
     log('exporting to PDF')
     const pdf = require('./lib/pdf')
-    ok(opts)
+    dev = require('./lib/dev')
+    dev(opts)
       .then(({ server }) => {
         log('rendering PDF')
         pdf(opts)
@@ -169,7 +172,8 @@ switch (cmd) {
   case 'dev':
   default:
     log('starting dev server')
-    ok(opts)
+    dev = require('./lib/dev')
+    dev(opts)
       .then(res => {
         const url = 'http://localhost:' + res.port
         if (opts.open) open(url)

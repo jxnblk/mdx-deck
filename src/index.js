@@ -19,6 +19,7 @@ import GoogleFonts from './GoogleFonts'
 import defaultTheme from './themes'
 import defaultComponents from './components'
 
+export { default as Head } from './Head'
 export { default as Image } from './Image'
 export { default as Notes } from './Notes'
 export { default as Appear } from './Appear'

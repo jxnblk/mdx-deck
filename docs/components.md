@@ -3,6 +3,18 @@
 
 mdx-deck includes a few built-in components to help with creating presentations.
 
+## Head
+
+TK
+
+```mdx
+import { Head } from 'mdx-deck'
+
+<Head>
+  <title>My Presentation</title>
+</Head>
+```
+
 ## Image
 
 Use the `<Image />` component to render a fullscreen image (using the CSS `background-image` property).
