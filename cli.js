@@ -24,6 +24,7 @@ log.error = (...args) => {
   )
 }
 
+/*
 const getConfig = conf => {
   conf.module.rules = [
     ...conf.module.rules
@@ -57,6 +58,7 @@ const getConfig = conf => {
 
   return conf
 }
+*/
 
 const cli = meow(`
   ${chalk.gray('Usage')}
@@ -117,12 +119,12 @@ const doc = file || cmd
 if (!doc) cli.showHelp(0)
 
 const opts = Object.assign({
-  entry: path.join(__dirname, './dist/entry.js'),
+  // entry: path.join(__dirname, './dist/entry.js'),
   dirname: path.dirname(path.resolve(doc)),
   globals: {
-    DOC_FILENAME: JSON.stringify(path.resolve(doc))
+    FILENAME: JSON.stringify(path.resolve(doc))
   },
-  config: getConfig,
+  // config: getConfig,
   title: 'mdx-deck',
   port: 8080,
   outDir: 'dist',
