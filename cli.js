@@ -24,42 +24,6 @@ log.error = (...args) => {
   )
 }
 
-/*
-const getConfig = conf => {
-  conf.module.rules = [
-    ...conf.module.rules
-    .filter(rule => !rule.test.test('.mdx')),
-    {
-      test: /\.mdx?$/,
-      exclude: /node_modules/,
-      use: [
-        {
-          loader: require.resolve('babel-loader'),
-          options: {
-            presets: [
-              'babel-preset-env',
-              'babel-preset-stage-0',
-              'babel-preset-react',
-            ].map(require.resolve)
-          }
-        },
-        {
-          loader: require.resolve('./lib/loader.js'),
-          options: {
-            mdPlugins: [
-              remark.emoji,
-              remark.unwrapImages
-            ]
-          }
-        }
-      ]
-    }
-  ]
-
-  return conf
-}
-*/
-
 const cli = meow(`
   ${chalk.gray('Usage')}
 
@@ -119,12 +83,10 @@ const doc = file || cmd
 if (!doc) cli.showHelp(0)
 
 const opts = Object.assign({
-  // entry: path.join(__dirname, './dist/entry.js'),
   dirname: path.dirname(path.resolve(doc)),
   globals: {
     FILENAME: JSON.stringify(path.resolve(doc))
   },
-  // config: getConfig,
   title: 'mdx-deck',
   port: 8080,
   outDir: 'dist',
@@ -156,6 +118,29 @@ switch (cmd) {
       .then(({ server }) => {
         log('rendering PDF')
         pdf(opts)
+          .then(filename => {
+            server.close()
+            log('done', filename)
+            process.exit(0)
+          })
+          .catch(err => {
+            log.error(err)
+            process.exit(1)
+          })
+      })
+      .catch(err => {
+        log.error(err)
+        process.exit(1)
+      })
+    break
+  case 'screenshot':
+    log('exporting to PNG')
+    const screenshot = require('./lib/screenshot')
+    dev = require('./lib/dev')
+    dev(opts)
+      .then(({ server }) => {
+        log('rendering screenshot')
+        screenshot(opts)
           .then(filename => {
             server.close()
             log('done', filename)
