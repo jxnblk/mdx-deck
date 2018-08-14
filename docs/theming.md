@@ -31,7 +31,7 @@ It's recommended that all custom themes extend the default theme as a base.
 
 ```js
 // Example theme.js
-import { theme } from 'mdx-deck/themes'
+import theme from 'mdx-deck/themes'
 
 export default {
   // extends the default theme
