@@ -25,6 +25,7 @@
     "@mdx-js/mdx": "^0.15.0-1",
     "@mdx-js/tag": "^0.14.1",
     "ansi-html": "0.0.7",
+    "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
