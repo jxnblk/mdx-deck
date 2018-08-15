@@ -271,7 +271,9 @@ See more exporting options in the [Exporting Documentation](docs/exporting.md)
 -p --port     Dev server port
 --no-open     Prevent from opening in default browser
 -d --out-dir  Output directory for exporting
---title       Title for the HTML document
+--out-file    Filename for screenshot or PDF export
+--width       Width in pixels
+--height      Height in pixels
 ```
 
 ## Docs

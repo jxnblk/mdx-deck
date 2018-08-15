@@ -25,8 +25,6 @@ const cli = meow(`
 
   ${chalk.gray('Options')}
 
-    --title       Title for the HTML document
-
     ${chalk.gray('Dev server options')}
 
       -p --port     Dev server port
@@ -40,7 +38,7 @@ const cli = meow(`
 
       --out-file    Filename for screenshot or PDF export
       --width       Width in pixels
-      --heigh       Height in pixels
+      --height      Height in pixels
 
 `, {
   description: chalk.magenta('[mdx-deck] ') + chalk.gray(pkg.description),
@@ -58,9 +56,6 @@ const cli = meow(`
       type: 'string',
       alias: 'd'
     },
-    title: {
-      type: 'string'
-    },
     outFile: {
       type: 'string',
     }
@@ -77,7 +72,6 @@ const opts = Object.assign({
   globals: {
     FILENAME: JSON.stringify(path.resolve(doc))
   },
-  title: 'mdx-deck',
   port: 8080,
   outDir: 'dist',
 }, config, cli.flags)
