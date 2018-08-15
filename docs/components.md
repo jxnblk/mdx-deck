@@ -5,13 +5,19 @@ mdx-deck includes a few built-in components to help with creating presentations.
 
 ## Head
 
-TK
+Use the `<Head />` component to set content in the document head.
 
 ```mdx
+// example for twitter cards
 import { Head } from 'mdx-deck'
 
 <Head>
   <title>My Presentation</title>
+  <meta name='twitter:card' content='summary_large_image' />
+  <meta name='twitter:site' content='@jxnblk' />
+  <meta name='twitter:title' content='My Presentation' />
+  <meta name='twitter:description' content='A really great presentation' />
+  <meta name='twitter:image' content='https://example.com/card.png' />
 </Head>
 ```
 

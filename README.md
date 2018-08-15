@@ -262,16 +262,8 @@ Add a `build` script to your `package.json` to export a presentation as HTML wit
 }
 ```
 
-### PDF Export
+See more exporting options in the [Exporting Documentation](docs/exporting.md)
 
-Presentations can be exported as PDF using the CLI.
-This works well as a backup option for any unforeseen technical difficulties.
-
-```json
-"script": {
-  "pdf": "mdx-deck pdf deck.mdx"
-}
-```
 
 ## CLI Options
 
@@ -288,6 +280,7 @@ This works well as a backup option for any unforeseen technical difficulties.
 - [Built-in Themes](docs/themes.md)
 - [Layouts](docs/layouts.md)
 - [Components](docs/components.md)
+- [Exporting](docs/exporting.md)
 - [Advanced Usage](docs/advanced.md)
 - [React API](docs/react.md)
 

@@ -19,9 +19,9 @@ const cli = meow(`
 
     $ ${chalk.magenta('mdx-deck build deck.mdx')}
 
-    $ ${chalk.magenta('mdx-deck screenshot deck.mdx')}
-
     $ ${chalk.magenta('mdx-deck pdf deck.mdx')}
+
+    $ ${chalk.magenta('mdx-deck screenshot deck.mdx')}
 
   ${chalk.gray('Options')}
 
