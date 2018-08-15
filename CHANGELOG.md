@@ -1,6 +1,20 @@
 
 # Changelog
 
+## v1.6.2 2018-08-15
+
+- Adjust import/export parsing in loader
+
+## v1.6.1 2018-08-15
+
+- Add missing `babel-core` dependency
+
+## v1.6.0 2018-08-14
+
+- Adds `Head` component for setting document head
+- Adds screenshot command to create a screenshot of the first slide
+- Removes the `--title` option in favor of using the `Head` component
+
 ## v1.5.15 2018-08-11
 
 - Adds swipe gesture support for touchscreen devices
