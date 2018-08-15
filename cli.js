@@ -3,7 +3,6 @@ const path = require('path')
 const meow = require('meow')
 const open = require('react-dev-utils/openBrowser')
 const chalk = require('chalk')
-const ok = require('ok-cli')
 const remark = {
   emoji: require('remark-emoji'),
   unwrapImages: require('remark-unwrap-images')
@@ -11,53 +10,7 @@ const remark = {
 const pkg = require('./package.json')
 
 const config = require('pkg-conf').sync('mdx-deck')
-
-const log = (...args) => {
-  console.log(
-    chalk.magenta('[mdx-deck]'),
-    ...args
-  )
-}
-log.error = (...args) => {
-  console.log(
-    chalk.red('[err]'),
-    ...args
-  )
-}
-
-const getConfig = conf => {
-  conf.module.rules = [
-    ...conf.module.rules
-    .filter(rule => !rule.test.test('.mdx')),
-    {
-      test: /\.mdx?$/,
-      exclude: /node_modules/,
-      use: [
-        {
-          loader: require.resolve('babel-loader'),
-          options: {
-            presets: [
-              'babel-preset-env',
-              'babel-preset-stage-0',
-              'babel-preset-react',
-            ].map(require.resolve)
-          }
-        },
-        {
-          loader: require.resolve('./lib/loader.js'),
-          options: {
-            mdPlugins: [
-              remark.emoji,
-              remark.unwrapImages
-            ]
-          }
-        }
-      ]
-    }
-  ]
-
-  return conf
-}
+const log = require('./lib/log')
 
 const cli = meow(`
   ${chalk.gray('Usage')}
@@ -68,9 +21,9 @@ const cli = meow(`
 
     $ ${chalk.magenta('mdx-deck pdf deck.mdx')}
 
-  ${chalk.gray('Options')}
+    $ ${chalk.magenta('mdx-deck screenshot deck.mdx')}
 
-    --title       Title for the HTML document
+  ${chalk.gray('Options')}
 
     ${chalk.gray('Dev server options')}
 
@@ -81,11 +34,11 @@ const cli = meow(`
 
       -d --out-dir  Output directory for exporting
 
-    ${chalk.gray('PDF options')}
+    ${chalk.gray('Export options')}
 
-      --out-file    Filename for PDF export
+      --out-file    Filename for screenshot or PDF export
       --width       Width in pixels
-      --heigh       Height in pixels
+      --height      Height in pixels
 
 `, {
   description: chalk.magenta('[mdx-deck] ') + chalk.gray(pkg.description),
@@ -103,9 +56,6 @@ const cli = meow(`
       type: 'string',
       alias: 'd'
     },
-    title: {
-      type: 'string'
-    },
     outFile: {
       type: 'string',
     }
@@ -118,26 +68,26 @@ const doc = file || cmd
 if (!doc) cli.showHelp(0)
 
 const opts = Object.assign({
-  entry: path.join(__dirname, './dist/entry.js'),
   dirname: path.dirname(path.resolve(doc)),
   globals: {
-    DOC_FILENAME: JSON.stringify(path.resolve(doc))
+    FILENAME: JSON.stringify(path.resolve(doc))
   },
-  config: getConfig,
-  title: 'mdx-deck',
   port: 8080,
   outDir: 'dist',
-  outFile: 'presentation.pdf'
 }, config, cli.flags)
 
 opts.outDir = path.resolve(opts.outDir)
 
+let dev
+
 switch (cmd) {
   case 'build':
     log('building')
-    ok.build(opts)
+    const build = require('./lib/build')
+    build(opts)
       .then(res => {
         log('done')
+        process.exit(0)
       })
       .catch(err => {
         log.error(err)
@@ -147,7 +97,8 @@ switch (cmd) {
   case 'pdf':
     log('exporting to PDF')
     const pdf = require('./lib/pdf')
-    ok(opts)
+    dev = require('./lib/dev')
+    dev(opts)
       .then(({ server }) => {
         log('rendering PDF')
         pdf(opts)
@@ -166,10 +117,34 @@ switch (cmd) {
         process.exit(1)
       })
     break
+  case 'screenshot':
+    log('exporting to PNG')
+    const screenshot = require('./lib/screenshot')
+    dev = require('./lib/dev')
+    dev(opts)
+      .then(({ server }) => {
+        log('rendering screenshot')
+        screenshot(opts)
+          .then(filename => {
+            server.close()
+            log('done', filename)
+            process.exit(0)
+          })
+          .catch(err => {
+            log.error(err)
+            process.exit(1)
+          })
+      })
+      .catch(err => {
+        log.error(err)
+        process.exit(1)
+      })
+    break
   case 'dev':
   default:
     log('starting dev server')
-    ok(opts)
+    dev = require('./lib/dev')
+    dev(opts)
       .then(res => {
         const url = 'http://localhost:' + res.port
         if (opts.open) open(url)
