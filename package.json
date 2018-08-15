@@ -22,8 +22,8 @@
   "license": "MIT",
   "dependencies": {
     "@compositor/webfont": "^1.0.39",
-    "@mdx-js/mdx": "^0.15.0-1",
-    "@mdx-js/tag": "^0.14.1",
+    "@mdx-js/mdx": "^0.15.0",
+    "@mdx-js/tag": "^0.15.0",
     "ansi-html": "0.0.7",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
