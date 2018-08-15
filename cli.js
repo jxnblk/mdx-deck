@@ -19,6 +19,8 @@ const cli = meow(`
 
     $ ${chalk.magenta('mdx-deck build deck.mdx')}
 
+    $ ${chalk.magenta('mdx-deck screenshot deck.mdx')}
+
     $ ${chalk.magenta('mdx-deck pdf deck.mdx')}
 
   ${chalk.gray('Options')}
@@ -34,9 +36,9 @@ const cli = meow(`
 
       -d --out-dir  Output directory for exporting
 
-    ${chalk.gray('PDF options')}
+    ${chalk.gray('Export options')}
 
-      --out-file    Filename for PDF export
+      --out-file    Filename for screenshot or PDF export
       --width       Width in pixels
       --heigh       Height in pixels
 
@@ -78,7 +80,6 @@ const opts = Object.assign({
   title: 'mdx-deck',
   port: 8080,
   outDir: 'dist',
-  outFile: 'presentation.pdf'
 }, config, cli.flags)
 
 opts.outDir = path.resolve(opts.outDir)

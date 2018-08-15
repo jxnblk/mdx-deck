@@ -53,7 +53,9 @@ export class Head extends React.Component {
         if (title) title.remove()
       }
       if (child.type === 'meta') {
-        const meta = document.head.querySelector(`meta[name=${child.props.name}]`)
+        const { name } = child.props
+        let meta
+        if (name) meta = document.head.querySelector(`meta[name="${name}"]`)
         if (meta) meta.remove()
       }
     })
