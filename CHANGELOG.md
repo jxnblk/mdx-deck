@@ -1,6 +1,10 @@
 
 # Changelog
 
+## v1.6.1 2018-08-15
+
+- Add missing `babel-core` dependency
+
 ## v1.6.0 2018-08-14
 
 - Adds `Head` component for setting document head
