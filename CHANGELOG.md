@@ -1,6 +1,10 @@
 
 # Changelog
 
+## v1.6.2 2018-08-15
+
+- Adjust import/export parsing in loader
+
 ## v1.6.1 2018-08-15
 
 - Add missing `babel-core` dependency
