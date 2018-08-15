@@ -13,7 +13,7 @@
     "start": "./cli.js docs/index.mdx -p 8989",
     "build": "./cli.js build docs/index.mdx -d site",
     "pdf": "./cli.js pdf docs/index.mdx -d site",
-    "screenshot": "./cli.js screenshot docs/index.mdx -d site --no-sandbox",
+    "screenshot": "./cli.js screenshot docs/index.mdx -d docs",
     "help": "./cli.js",
     "test": "jest"
   },
