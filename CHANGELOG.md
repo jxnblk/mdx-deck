@@ -1,6 +1,11 @@
 
 # Changelog
 
+## v1.6.3 2018-08-18
+
+- Add respository field to package.json
+- Remove trailing comma in function arguments
+
 ## v1.6.2 2018-08-16
 
 - Disable swiping with mouse
