@@ -20,6 +20,7 @@
   "keywords": [],
   "author": "Brent Jackson",
   "license": "MIT",
+  "repository": "github:jxnblk/mdx-deck",
   "dependencies": {
     "@compositor/webfont": "^1.0.39",
     "@mdx-js/mdx": "^0.15.0",
