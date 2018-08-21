@@ -67,7 +67,7 @@ export const Overview = ({
         </Zoom>
         <Flex>
           <Box ml='auto' py={2}>
-            {index}/{length}
+            {index + 1}/{length}
           </Box>
         </Flex>
         <Box mt={3}>
