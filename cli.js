@@ -33,6 +33,7 @@ const cli = meow(`
     ${chalk.gray('Build options')}
 
       -d --out-dir  Output directory for exporting
+      --no-html     Disable static HTML rendering
 
     ${chalk.gray('Export options')}
 
@@ -58,6 +59,10 @@ const cli = meow(`
     },
     outFile: {
       type: 'string',
+    },
+    html: {
+      type: 'boolean',
+      default: true
     }
   }
 })
