@@ -1,6 +1,6 @@
 {
   "name": "mdx-deck",
-  "version": "1.6.6",
+  "version": "1.6.7",
   "description": "MDX-based presentation decks",
   "main": "dist/index.js",
   "bin": {
