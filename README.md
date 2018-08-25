@@ -71,6 +71,13 @@ For a video introduction, see this [egghead tutorial][egghead] by [@andrewdelpre
 
 [egghead]: https://egghead.io/lessons/react-build-a-slide-deck-with-mdx-deck-using-markdown-react
 
+## Quick Start
+
+To create a new presentation with zero-configuration, run the following command to generate a presentation deck in a new folder:
+
+```sh
+npm init deck my-presentation-name
+```
 
 ## Using MDX
 
