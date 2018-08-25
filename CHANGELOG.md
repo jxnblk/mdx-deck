@@ -1,18 +1,22 @@
 
 # Changelog
 
-## v1.6.3 2018-08-18
+## v1.6.5 2018-08-25
 
-- Add respository field to package.json
-- Remove trailing comma in function arguments
+- Adjust slide number in overview mode #122
 
-## v1.6.2 2018-08-16
+## v1.6.4 2018-08-18
 
-- Disable swiping with mouse
+- Add respository field to package.json #117
+- Remove trailing comma in function arguments #115
+
+## v1.6.3 2018-08-16
+
+- Disable swiping with mouse #113
 
 ## v1.6.2 2018-08-15
 
-- Adjust import/export parsing in loader
+- Adjust import/export parsing in loader #110
 
 ## v1.6.1 2018-08-15
 
