@@ -46,6 +46,7 @@
     "lodash.get": "^4.4.2",
     "meow": "^5.0.0",
     "mini-html-webpack-plugin": "^0.2.3",
+    "mkdirp": "^0.5.1",
     "normalize-newline": "^3.0.0",
     "pkg-conf": "^2.1.0",
     "progress-bar-webpack-plugin": "^1.11.0",
