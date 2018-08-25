@@ -28,6 +28,7 @@
     "ansi-html": "0.0.7",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
+    "babel-plugin-styled-components": "^1.5.1",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
@@ -63,7 +64,8 @@
     "styled-system": "^3.0.2",
     "superbox": "^2.1.0",
     "webpack": "^4.16.5",
-    "webpack-hot-client": "^4.1.1"
+    "webpack-hot-client": "^4.1.1",
+    "webpack-node-externals": "^1.7.2"
   },
   "peerDependencies": {},
   "devDependencies": {
