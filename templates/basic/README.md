@@ -1,8 +1,6 @@
 
 # mdx-deck basic template
 
-![screenshot](dist/card.png)
-
 This was generated with [mdx-deck][]'s `npm init deck` command.
 
 ## Development
