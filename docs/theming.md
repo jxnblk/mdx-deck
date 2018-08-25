@@ -105,6 +105,20 @@ For lists of available syntax styles and languages, see:
 [PrismJS]: https://github.com/PrismJS/prism
 [react-syntax-highlighter]: https://github.com/conorhastings/react-syntax-highlighter
 
+### Slide Transitions
+
+The slide transition timing function and duration can be customized with a custom theme.
+
+```js
+// example theme
+import theme from 'mdx-deck/themes'
+
+export default {
+  ...theme,
+  transitionTimingFunction: 'linear',
+  transitionDuration: '.1s'
+}
+```
 
 ### Styling Elements
 
@@ -147,6 +161,8 @@ The following keys are available for theming:
   - `preBackground`
   - `code`
   - `codeBackground`
+- `transitionTimingFunction`: timing function value for slide transitions
+- `transitionDuration`: duration value for slide transitions. set to `0` to disable transitions
 - `css`: root CSS object
 - `heading`: CSS for all headings
 - `h1`: CSS for `<h1>`
