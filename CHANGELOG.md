@@ -1,6 +1,11 @@
 
 # Changelog
 
+## v1.6.7 2018-08-25
+
+- Use `mkdirp` for build and export
+- Adds ability to change slide transition timing function and duration via themes
+
 ## v1.6.6 2018-08-25
 
 - Left align text in code blocks #130
