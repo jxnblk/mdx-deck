@@ -1,6 +1,12 @@
 
 # Changelog
 
+## v1.6.6 2018-08-25
+
+- Left align text in code blocks #130
+- Extract static CSS on build #129
+- Adds `--no-html` option for client-side only builds
+
 ## v1.6.5 2018-08-25
 
 - Adjust slide number in overview mode #122
