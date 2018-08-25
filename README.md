@@ -65,7 +65,7 @@ Start the dev server:
 npm start
 ```
 
-### Video Tutorial
+## Video Tutorial
 
 For a video introduction, see this [egghead tutorial][egghead] by [@andrewdelprete](https://github.com/andrewdelprete).
 
