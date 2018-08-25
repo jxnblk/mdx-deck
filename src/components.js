@@ -118,6 +118,7 @@ blockquote.defaultProps = {
 
 const Pre = styled.pre([], props => ({
   fontFamily: props.theme.monospace,
+  textAlign: 'left',
   whiteSpace: 'pre-wrap'
 }),
   fontSize,
