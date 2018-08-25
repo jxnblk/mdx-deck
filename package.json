@@ -43,6 +43,7 @@
     "koa-webpack": "^5.1.0",
     "loader-utils": "^1.1.0",
     "lodash.debounce": "^4.0.8",
+    "lodash.get": "^4.4.2",
     "meow": "^5.0.0",
     "mini-html-webpack-plugin": "^0.2.3",
     "normalize-newline": "^3.0.0",
