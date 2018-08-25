@@ -7,3 +7,5 @@ test
 .travis.yml
 CHANGELOG.md
 CONTRIBUTING.md
+templates
+create-deck

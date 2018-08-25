@@ -1,0 +1,15 @@
+{
+  "name": "create-deck",
+  "version": "1.0.0",
+  "description": "Create mdx-deck presentations",
+  "bin": {
+    "create-deck": "cli.js"
+  },
+  "author": "Brent Jackson",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^2.4.1",
+    "initit": "^1.0.0-2",
+    "meow": "^5.0.0"
+  }
+}
