@@ -34,6 +34,7 @@
     "babel-preset-stage-0": "^6.24.1",
     "chalk": "^2.4.1",
     "clipboardy": "^1.2.3",
+    "find-up": "^3.0.0",
     "get-port": "^4.0.0",
     "gray-matter": "^4.0.1",
     "hhmmss": "^1.0.0",
@@ -67,6 +68,7 @@
     "superbox": "^2.1.0",
     "webpack": "^4.16.5",
     "webpack-hot-client": "^4.1.1",
+    "webpack-merge": "^4.1.4",
     "webpack-node-externals": "^1.7.2"
   },
   "peerDependencies": {},
