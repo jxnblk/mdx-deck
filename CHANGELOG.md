@@ -1,6 +1,11 @@
 
 # Changelog
 
+## v1.6.8 2018-08-27
+
+- Fixes `build` when using Notes or Appear components #138
+- Fixes slide number in presenter mode #142
+
 ## v1.6.7 2018-08-25
 
 - Use `mkdirp` for build and export
