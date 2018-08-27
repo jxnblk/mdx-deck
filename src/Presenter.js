@@ -73,7 +73,7 @@ export const Presenter = ({
         </Flex>
       </Flex>
       <Flex mt='auto' px={3} py={3}>
-        <Mono>Slide {index} of {length}</Mono>
+        <Mono>Slide {index + 1} of {length}</Mono>
         <Box mx='auto' />
         <Timer />
       </Flex>
