@@ -282,6 +282,7 @@ See more exporting options in the [Exporting Documentation](docs/exporting.md)
 --out-file    Filename for screenshot or PDF export
 --width       Width in pixels
 --height      Height in pixels
+--webpack     Path to webpack config file
 ```
 
 ## Docs
