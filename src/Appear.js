@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { withDeck } from './context'
 import { withSlide } from './Slide'
-import { modes, incStep, decStep } from './index'
+import { modes } from './index'
 
 export default withDeck(withSlide(class Appear extends React.Component {
   static propTypes = {
@@ -11,29 +11,12 @@ export default withDeck(withSlide(class Appear extends React.Component {
     deck: PropTypes.object.isRequired
   }
 
-  componentDidMount() {
-    document.body.addEventListener('keydown', this.handleKeyDown)
-  }
-
-  componentWillUnmount() {
-    document.body.removeEventListener('keydown', this.handleKeyDown)
-  }
-
-  handleKeyDown = e => {
-    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return
-    if (this.props.deck.index !== this.props.slide.index) return
-    const { children } = this.props
-    const { update } = this.props.deck
-    switch (e.key) {
-      case 'ArrowDown':
-        e.preventDefault()
-        update(incStep(children))
-        break
-      case 'ArrowUp':
-        e.preventDefault()
-        update(decStep())
-        break
-    }
+  componentWillMount () {
+    const { slide, deck, children } = this.props
+    deck.addFragments({
+      index: slide.index,
+      children
+    })
   }
 
   render() {

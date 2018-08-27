@@ -250,11 +250,9 @@ This shows a list of all slides on the left and a preview of the current slide o
 
 Key | Description
 ---|---
-Left Arrow | Go to previous slide
-Right Arrow | Go to next slide
+Left Arrow | Go to previous slide (Hide current step in [Appear](#appear) component)
+Right Arrow | Go to next slide (Show next step in [Appear](#appear) component)
 Space | Go to next slide
-Up Arrow | Hide current step in [Appear](#appear) component
-Down Arrow | Show next step in [Appear](#appear) component
 Option + P | Toggle [Presenter Mode](#presenter-mode)
 Option + O | Toggle [Overview Mode](#overview-mode)
 Option + G | Toggle grid view mode

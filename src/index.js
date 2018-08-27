@@ -103,6 +103,7 @@ export class SlideDeck extends React.Component {
     index: 0,
     mode: modes.normal,
     notes: {},
+    fragments: {},
     step: -1
   }
 
@@ -115,31 +116,32 @@ export class SlideDeck extends React.Component {
     }
 
     if (e.metaKey || e.ctrlKey || e.shiftKey) return
+
     const alt = e.altKey
 
     switch (e.keyCode) {
       case keys.right:
       case keys.space:
         e.preventDefault()
-        this.update(inc)
+        this.next(this.state)
         break
       case keys.left:
         e.preventDefault()
-        this.update(dec)
+        this.previous(this.state)
         break
       case keys.p:
         if (alt) {
-          this.update(toggleMode('presenter'))
+          this.updateMode('presenter')
         }
         break
       case keys.o:
         if (alt) {
-          this.update(toggleMode('overview'))
+          this.updateMode('overview')
         }
         break
       case keys.g:
         if (alt) {
-          this.update(toggleMode('grid'))
+          this.updateMode('grid')
         }
         break
     }
@@ -185,6 +187,15 @@ export class SlideDeck extends React.Component {
     }))
   }
 
+  addFragments = ({ index, children }) => {
+    this.setState(state => ({
+      fragments: {
+        ...state.fragments,
+        [index]: children
+      }
+    }))
+  }
+
   componentDidMount () {
     document.body.addEventListener('keydown', this.handleKeyDown)
     window.addEventListener('hashchange', this.handleHashChange)
@@ -219,6 +230,28 @@ export class SlideDeck extends React.Component {
     localStorage.setItem(MDX_SLIDE_STEP, step)
   }
 
+  next = ({ fragments, index, step }) => {
+    const steps = fragments[index]
+    if (steps && step < steps.length -1) {
+      this.update(incStep(steps))
+    } else {
+      this.update(inc)
+    }
+  }
+
+  previous = ({ fragments, index, step }) => {
+    const steps = fragments[index]
+    if (steps && step !== - 1) {
+      this.update(decStep())
+    } else {
+      this.update(dec)
+    }
+  }
+
+  updateMode = (mode) => {
+    this.update(toggleMode(mode))
+  }
+
   render () {
     const {
       slides,
@@ -247,7 +280,7 @@ export class SlideDeck extends React.Component {
       ...this.state,
       slides,
       addNotes: this.addNotes,
-      update: this.update
+      addFragments: this.addFragments
     }
 
     return (
