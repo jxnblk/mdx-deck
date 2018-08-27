@@ -104,11 +104,19 @@ Webpack configuration files named `webpack.config.js` will automatically be merg
 module.exports = {
   module: {
     rules: [
-      { test: /\.svg$/, loader: 'react-svg-loader' }
+      { 
+        test: /\.svg$/, 
+        use: [
+          { loader: 'babel-loader' },
+          { loader: 'react-svg-loader' }
+        ]
+      }
     ]
   }
 }
 ```
+
+**Careful**: When overwriting the loader for `mdx` files, make sure to include the default loader from `mdx-deck/loader`.
 
 ## Custom build setups
 
