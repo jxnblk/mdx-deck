@@ -1,6 +1,10 @@
 
 # Changelog
 
+## v1.6.9 2018-08-27
+
+- Adds support for custom webpack configs #136
+
 ## v1.6.8 2018-08-27
 
 - Fixes `build` when using Notes or Appear components #138
