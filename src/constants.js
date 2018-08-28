@@ -14,4 +14,6 @@ export const keys = {
   'p': 80,
   'o': 79,
   'g': 71,
+  'up': 38,
+  'down': 40,
 }

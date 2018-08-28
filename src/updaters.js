@@ -11,7 +11,7 @@ export const previous = state => {
 
 export const next = state => {
   const steps = get(state, `metadata[${state.index}].steps`, 0)
-  if (steps && state.step < steps - 1) {
+  if (steps && state.step < steps) {
     return incrementStep(state)
   }
   return incrementIndex(state)
@@ -20,7 +20,7 @@ export const next = state => {
 export const decrementIndex = state => state.index > 0
   ? ({
     index: (state.index - 1) % state.length,
-    step: get(state, `metadata[${state.index - 1}].steps`, 1) - 1
+    step: get(state, `metadata[${state.index - 1}].steps`, 0)
   })
   : null
 

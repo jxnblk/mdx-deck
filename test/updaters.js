@@ -50,7 +50,7 @@ describe('updaters', () => {
     test('next at last step', () => {
       const state = next({
         index: 2,
-        step: 3,
+        step: 4,
         length: 8,
         metadata: {
           2: {
@@ -106,7 +106,7 @@ describe('updaters', () => {
         }
       })
       expect(state.index).toBe(1)
-      expect(state.step).toBe(2)
+      expect(state.step).toBe(3)
     })
   })
 

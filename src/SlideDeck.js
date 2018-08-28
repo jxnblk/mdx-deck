@@ -19,10 +19,10 @@ import GoogleFonts from './GoogleFonts'
 import defaultTheme from './themes'
 import defaultComponents from './components'
 import {
-  inc,
-  dec,
-  incStep,
-  decStep,
+  previous,
+  next,
+  decrementStep,
+  incrementStep,
   toggleMode,
 } from './updaters'
 import {
@@ -75,31 +75,37 @@ export class SlideDeck extends React.Component {
     if (e.metaKey || e.ctrlKey || e.shiftKey) return
     const alt = e.altKey
 
-    switch (e.keyCode) {
-      case keys.right:
-      case keys.space:
-        e.preventDefault()
-        this.update(inc)
-        break
-      case keys.left:
-        e.preventDefault()
-        this.update(dec)
-        break
-      case keys.p:
-        if (alt) {
+    if (alt) {
+      switch (e.keyCode) {
+        case keys.p:
           this.update(toggleMode('presenter'))
-        }
-        break
-      case keys.o:
-        if (alt) {
+          break
+        case keys.o:
           this.update(toggleMode('overview'))
-        }
-        break
-      case keys.g:
-        if (alt) {
+          break
+        case keys.g:
           this.update(toggleMode('grid'))
-        }
-        break
+          break
+      }
+    } else {
+      switch (e.keyCode) {
+        case keys.right:
+        case keys.space:
+          e.preventDefault()
+          this.update(next)
+          break
+        case keys.left:
+          e.preventDefault()
+          this.update(previous)
+          break
+        // shim for old Appear API
+        case keys.up:
+          this.update(decrementStep)
+          break
+        case keys.down:
+          this.update(incrementStep)
+          break
+      }
     }
   }
 
@@ -218,8 +224,8 @@ export class SlideDeck extends React.Component {
                 />
               ) : (
                 <Swipeable
-                  onSwipedLeft={() => this.update(inc)}
-                  onSwipedRight={() => this.update(dec)}>
+                  onSwipedLeft={() => this.update(previous)}
+                  onSwipedRight={() => this.update(next)}>
                   <Wrapper
                     {...this.state}
                     slides={slides}
