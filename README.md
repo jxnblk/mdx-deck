@@ -65,11 +65,20 @@ Start the dev server:
 npm start
 ```
 
-## Video Tutorial
+## Videos & Articles
 
-For a video introduction, see this [egghead tutorial][egghead] by [@andrewdelprete](https://github.com/andrewdelprete).
+- [Egghead Tutorial][egghead] by [Andrew Del Prete](https://github.com/andrewdelprete).
+- [mdx-deck: slide decks powered by markdown and react][kcd-medium] by [Kent C. Dodds][]
+- [Make Fast & Beautiful Presentations with MDX-Deck][hw-video] by [Harry Wolff][] ([Demo][hw-demo])
+- [What is MDX][kcd-video] by [Kent C. Dodds][]
 
 [egghead]: https://egghead.io/lessons/react-build-a-slide-deck-with-mdx-deck-using-markdown-react
+[Kent C. Dodds]: https://mobile.twitter.com/kentcdodds
+[kcd-video]: http://youtu.be/d2sQiI5NFAM?a
+[kcd-medium]: https://blog.kentcdodds.com/mdx-deck-slide-decks-powered-by-markdown-and-react-bfc6d6af20da
+[hw-video]: https://www.youtube.com/watch?v=LvP2EqCiQMg&feature=youtu.be
+[hw-demo]: https://github.com/hswolff/mdx-deck-demo
+[Harry Wolff]: https://mobile.twitter.com/hswolff
 
 ## Quick Start
 
@@ -159,6 +168,14 @@ Read more about theming in the [Theming docs](docs/theming.md)
 mdx-deck includes built-in components to help with creating presentations, including a full screen Image component, the Appear component that allows stepping through parts of a single slide, and the Notes component for adding speaker notes.
 
 Read more in the [components docs](docs/components.md).
+
+### Libraries
+
+These third-party libraries are great for use with mdx-deck.
+
+- [CodeSurfer][]: React component for scrolling, zooming and highlighting code.
+
+[CodeSurfer]: https://github.com/pomber/code-surfer
 
 ### Layouts
 
@@ -316,3 +333,9 @@ See more exporting options in the [Exporting Documentation](docs/exporting.md)
 [styled-system]: https://github.com/jxnblk/styled-system
 [styled-components]: https://github.com/styled-components/styled-components
 [Spectacle]: https://github.com/FormidableLabs/spectacle
+
+<!-- examples -->
+[design-systems-in-react]: https://github-ds.now.sh/#0
+[simplify-react]: https://simply-react.netlify.com/#0
+[brazil-now]: https://braziljs.now.sh
+
