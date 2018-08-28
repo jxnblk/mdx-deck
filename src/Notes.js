@@ -1,18 +1,13 @@
 import React from 'react'
 import { withDeck } from './context'
+import { setNotes } from './updaters'
 
 export default withDeck(class extends React.Component {
-  setNotes = (props) => {
+  constructor (props) {
+    super(props)
     const { deck, children } = props
     if (typeof deck.index === 'undefined') return
-    deck.addNotes({
-      index: deck.index,
-      children
-    })
-  }
-
-  componentWillMount () {
-    this.setNotes(this.props)
+    deck.update(setNotes(deck.index, children))
   }
 
   render () {

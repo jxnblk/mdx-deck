@@ -61,8 +61,7 @@ export class SlideDeck extends React.Component {
     mode: modes.normal,
     // contextual metadata for slides
     metadata: {},
-    notes: {},
-    step: -1
+    step: 0
   }
 
   update = fn => this.setState(fn)
@@ -135,15 +134,6 @@ export class SlideDeck extends React.Component {
     }
   }
 
-  addNotes = ({ index, children }) => {
-    this.setState(state => ({
-      notes: {
-        ...state.notes,
-        [index]: children
-      }
-    }))
-  }
-
   componentDidMount () {
     document.body.addEventListener('keydown', this.handleKeyDown)
     window.addEventListener('hashchange', this.handleHashChange)
@@ -188,7 +178,11 @@ export class SlideDeck extends React.Component {
       height,
       headTags
     } = this.props
-    const { index, length, mode, step } = this.state
+    const {
+      index,
+      mode,
+      metadata,
+    } = this.state
 
     const {
       components = propsComponents,
@@ -205,7 +199,6 @@ export class SlideDeck extends React.Component {
     const context = {
       ...this.state,
       slides,
-      addNotes: this.addNotes,
       update: this.update
     }
 
@@ -242,7 +235,8 @@ export class SlideDeck extends React.Component {
                           {...context}
                           index={i}
                           className='Slide'
-                          active={i === index}>
+                          active={i === index}
+                          metadata={metadata[i]}>
                           <Component />
                         </Slide>
                       ))}

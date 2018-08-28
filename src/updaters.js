@@ -43,6 +43,19 @@ export const toggleMode = key => state => ({
   mode: state.mode === modes[key] ? modes.normal : modes[key]
 })
 
+export const setMetadata = (i, metadata) => state => ({
+  metadata: {
+    ...state.metadata,
+    [i]: {
+      ...(state.metadata[i] || {}),
+      ...metadata
+    }
+  }
+})
+
+export const setNotes = (i, notes) => setMetadata(i, { notes })
+export const setSteps = (i, steps) => setMetadata(i, { steps })
+
 // TODO: fix inc/decStep usage
 // TODO: what is step: -1 used for?
 
