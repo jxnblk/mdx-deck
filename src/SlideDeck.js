@@ -59,6 +59,8 @@ export class SlideDeck extends React.Component {
     length: this.props.slides.length,
     index: 0,
     mode: modes.normal,
+    // contextual metadata for slides
+    metadata: {},
     notes: {},
     step: -1
   }
@@ -186,7 +188,7 @@ export class SlideDeck extends React.Component {
       height,
       headTags
     } = this.props
-    const { index, length, mode, step} = this.state
+    const { index, length, mode, step } = this.state
 
     const {
       components = propsComponents,
