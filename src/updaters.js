@@ -56,11 +56,6 @@ export const setMetadata = (i, metadata) => state => ({
 export const setNotes = (i, notes) => setMetadata(i, { notes })
 export const setSteps = (i, steps) => setMetadata(i, { steps })
 
-// TODO: fix inc/decStep usage
-// TODO: what is step: -1 used for?
-
 // shims
 export const inc = incrementIndex
 export const dec = decrementIndex
-export const decStep = decrementStep
-export const incStep = incrementStep

@@ -120,7 +120,7 @@ export class SlideDeck extends React.Component {
     const index = parseInt(index_, 10)
     const step = parseInt(step_, 10)
     if (isNaN(index)) return
-    this.setState({ index, step: isNaN(step) ? -1 : step - 1 })
+    this.setState({ index, step: isNaN(step) ? 0 : step })
   }
 
   getMode = () => {
@@ -168,7 +168,7 @@ export class SlideDeck extends React.Component {
     } else if (mode === modes.normal) {
       query += window.location.pathname
     }
-    const step_ = step !== -1 ? ('.' + (step + 1)) : ''
+    const step_ = step !== 0 ? ('.' + step) : ''
     history.pushState(null, null, query + '#' + index + step_)
     localStorage.setItem(MDX_SLIDE_INDEX, index)
     localStorage.setItem(MDX_SLIDE_STEP, step)
