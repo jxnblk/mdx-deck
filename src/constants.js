@@ -4,3 +4,14 @@ export const modes = {
   overview: 'OVERVIEW',
   grid: 'GRID',
 }
+export const MDX_SLIDE_INDEX = 'mdx-slide-index'
+export const MDX_SLIDE_STEP = 'mdx-slide-step'
+
+export const keys = {
+  'right': 39,
+  'left': 37,
+  'space': 32,
+  'p': 80,
+  'o': 79,
+  'g': 71,
+}

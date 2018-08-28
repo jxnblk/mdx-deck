@@ -2,12 +2,12 @@ import React from 'react'
 import { create as render } from 'react-test-renderer'
 import { renderIntoDocument, Simulate } from 'react-dom/test-utils'
 import 'jest-styled-components'
-import { inc, dec, SlideDeck } from '../src'
 import Carousel from '../src/Carousel'
 import Slide from '../src/Slide'
 import Dots from '../src/Dots'
 import Root from '../src/Root'
 import GoogleFonts from '../src/GoogleFonts'
+import { SlideDeck } from '../src'
 
 const renderJSON = el => render(el).toJSON()
 
@@ -166,17 +166,3 @@ describe('components', () => {
   })
 })
 
-describe('updaters', () => {
-  test('inc', () => {
-    const next = inc({ index: 0, length: 8 })
-    expect(next.index).toBe(1)
-  })
-  test('dec', () => {
-    const next = dec({ index: 1, length: 8 })
-    expect(next.index).toBe(0)
-  })
-  test('dec 0', () => {
-    const next = dec({ index: 0, length: 8 })
-    expect(next).toBe(null)
-  })
-})
