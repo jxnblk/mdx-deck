@@ -1,13 +1,12 @@
 import React from 'react'
 import { withDeck } from './context'
-import { withSlide } from './Slide'
 
-export default withDeck(withSlide(class extends React.Component {
+export default withDeck(class extends React.Component {
   setNotes = (props) => {
-    const { slide, deck, children } = props
-    if (typeof slide.index === 'undefined') return
+    const { deck, children } = props
+    if (typeof deck.index === 'undefined') return
     deck.addNotes({
-      index: slide.index,
+      index: deck.index,
       children
     })
   }
@@ -19,4 +18,4 @@ export default withDeck(withSlide(class extends React.Component {
   render () {
     return false
   }
-}))
+})

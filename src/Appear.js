@@ -1,13 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { withDeck } from './context'
-import { withSlide } from './Slide'
 import { modes, incStep, decStep } from './index'
 
-export default withDeck(withSlide(class Appear extends React.Component {
+export default withDeck(class Appear extends React.Component {
   static propTypes = {
     children: PropTypes.array.isRequired,
-    slide: PropTypes.object.isRequired,
     deck: PropTypes.object.isRequired
   }
 
@@ -21,7 +19,7 @@ export default withDeck(withSlide(class Appear extends React.Component {
 
   handleKeyDown = e => {
     if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return
-    if (this.props.deck.index !== this.props.slide.index) return
+    if (!this.props.deck.active) return
     const { children } = this.props
     const { update } = this.props.deck
     switch (e.key) {
@@ -62,4 +60,4 @@ export default withDeck(withSlide(class Appear extends React.Component {
       </React.Fragment>
     )
   }
-}))
+})
