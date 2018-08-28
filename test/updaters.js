@@ -1,4 +1,5 @@
 import {
+  toggleMode,
   inc,
   dec,
   previous,
@@ -10,6 +11,7 @@ import {
 } from '../src/updaters'
 
 describe('updaters', () => {
+  test.skip('toggleMode', () => {})
   test('next', () => {
     const state = next({ index: 0, length: 8 })
     expect(state.index).toBe(1)
@@ -17,7 +19,7 @@ describe('updaters', () => {
 
   test('next at last slide', () => {
     const state = next({ index: 7, length: 8 })
-    expect(state.index).toBe(7)
+    expect(state).toBe(null)
   })
 
   test('previous', () => {
@@ -27,7 +29,7 @@ describe('updaters', () => {
 
   test('previous at first slide', () => {
     const state = previous({ index: 0, length: 8 })
-    expect(state.index).toBe(0)
+    expect(state).toBe(null)
   })
 
   describe('with steps', () => {
@@ -42,7 +44,6 @@ describe('updaters', () => {
           }
         }
       })
-      expect(state.index).toBe(2)
       expect(state.step).toBe(1)
     })
 
@@ -87,7 +88,6 @@ describe('updaters', () => {
           }
         }
       })
-      expect(state.index).toBe(2)
       expect(state.step).toBe(2)
     })
 
