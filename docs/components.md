@@ -38,7 +38,7 @@ import { Image } from 'mdx-deck'
 ## Appear
 
 Use the `<Appear />` component to make its children appear one at a time within a single slide.
-Use the up and down arrow keys to step through each element.
+Use the left and right arrow keys to step through each element.
 
 ```mdx
 import { Appear } from 'mdx-deck'
