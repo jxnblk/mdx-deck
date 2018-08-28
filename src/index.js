@@ -18,6 +18,14 @@ import GoogleFonts from './GoogleFonts'
 
 import defaultTheme from './themes'
 import defaultComponents from './components'
+import {
+  inc,
+  dec,
+  incStep,
+  decStep,
+  toggleMode,
+} from './updaters'
+import { modes } from './constants'
 
 export { withDeck, withSlide } from './context'
 export { Head } from './Head'
@@ -33,38 +41,6 @@ export * as themes from './themes'
 
 const MDX_SLIDE_INDEX = 'mdx-slide-index'
 const MDX_SLIDE_STEP = 'mdx-slide-step'
-
-export const inc = state => state.index < state.length - 1
-  ? ({
-    index: (state.index + 1) % state.length,
-    step: -1
-  })
-  : null
-export const dec = state => state.index > 0
-  ? ({
-    index: (state.index - 1) % state.length,
-    step: -1
-  })
-  : null
-
-export const incStep = steps => state => ({
-  step: state.step < steps.length - 1 ? state.step + 1 : state.step
-})
-
-export const decStep = () => state => ({
-  step: state.step >= 0 ? state.step - 1 : -1
-})
-
-export const modes = {
-  normal: 'NORMAL',
-  presenter: 'PRESENTER',
-  overview: 'OVERVIEW',
-  grid: 'GRID',
-}
-
-export const toggleMode = key => state => ({
-  mode: state.mode === modes[key] ? modes.normal : modes[key]
-})
 
 const keys = {
   'right': 39,

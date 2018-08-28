@@ -1,7 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import Dots from './Dots'
-import { modes, dec, inc } from './index'
+import { dec, inc } from './updaters'
+import { modes } from './constants'
 
 const Bottom = styled.div([], {
   position: 'fixed',

@@ -1,7 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { withDeck } from './context'
-import { modes, incStep, decStep } from './index'
+import { incStep, decStep } from './updaters'
+import { modes } from './constants'
 
 export default withDeck(class Appear extends React.Component {
   static propTypes = {
