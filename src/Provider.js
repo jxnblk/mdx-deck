@@ -1,7 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import Dots from './Dots'
-import { modes, dec, inc } from './index'
+import { previous, next } from './updaters'
+import { modes } from './constants'
 
 const Bottom = styled.div([], {
   position: 'fixed',
@@ -64,14 +65,14 @@ export default class Provider extends React.Component {
           role='button'
           title='Previous Slide'
           onClick={e => {
-            update(dec)
+            update(previous)
           }}
         />
         <Next
           role='button'
           title='Next Slide'
           onClick={e => {
-            update(inc)
+            update(next)
           }}
         />
       </React.Fragment>

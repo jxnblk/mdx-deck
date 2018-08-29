@@ -1,7 +1,7 @@
 import React from 'react'
 import { render } from 'react-dom'
 import PropTypes from 'prop-types'
-import SlideDeck from './index'
+import SlideDeck from './SlideDeck'
 
 const mod = require(FILENAME)
 const slides = mod.default

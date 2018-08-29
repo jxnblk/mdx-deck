@@ -1,65 +1,45 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { withDeck } from './context'
-import { withSlide } from './Slide'
-import { modes, incStep, decStep } from './index'
+import { setSteps } from './updaters'
+import { modes } from './constants'
 
-export default withDeck(withSlide(class Appear extends React.Component {
+export default withDeck(class Appear extends React.Component {
   static propTypes = {
     children: PropTypes.array.isRequired,
-    slide: PropTypes.object.isRequired,
     deck: PropTypes.object.isRequired
   }
 
-  componentDidMount() {
-    document.body.addEventListener('keydown', this.handleKeyDown)
-  }
-
-  componentWillUnmount() {
-    document.body.removeEventListener('keydown', this.handleKeyDown)
-  }
-
-  handleKeyDown = e => {
-    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return
-    if (this.props.deck.index !== this.props.slide.index) return
-    const { children } = this.props
-    const { update } = this.props.deck
-    switch (e.key) {
-      case 'ArrowDown':
-        e.preventDefault()
-        update(incStep(children))
-        break
-      case 'ArrowUp':
-        e.preventDefault()
-        update(decStep())
-        break
-    }
+  constructor (props) {
+    super(props)
+    const { update, index } = props.deck
+    const steps = React.Children.toArray(props.children).length
+    update(setSteps(index, steps))
   }
 
   render() {
-    const { children } = this.props
+    const children = React.Children.toArray(this.props.children)
+      .map(child => typeof child === 'string'
+        ? <div>{child}</div>
+        : child
+      )
     const { step, mode } = this.props.deck
-    const isOverview = mode === modes.overview
+
+    if (mode === modes.grid) {
+      return children
+    }
+
     return (
       <React.Fragment>
-        {children.map((fragment, index) =>
-          typeof fragment === 'string' ? (
-            <div
-              key={index}
-              style={{
-                visibility: (isOverview || index <= step) ? 'visible' : 'hidden'
-              }}>
-              {fragment}
-            </div>
-          ) : (
-            React.cloneElement(fragment, {
-              key: index,
-              style: {
-                visibility: (isOverview || index <= step) ? 'visible' : 'hidden'
-              }
-            })
+        {children.map((child, i) => (
+          React.cloneElement(child, {
+            key: i,
+            style: {
+              visibility: (step >= i + 1) ? 'visible' : 'hidden'
+            }
+          })
         ))}
       </React.Fragment>
     )
   }
-}))
+})

@@ -2,18 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { space, color } from 'styled-system'
-
-const Context = React.createContext(null)
-
-export const withSlide = Component => props =>
-  <Context.Consumer>
-    {slide => (
-      <Component
-        {...props}
-        slide={slide}
-      />
-    )}
-  </Context.Consumer>
+import { Context, withDeck } from './context'
 
 const Root = styled.div([], {
   flex: 'none',
@@ -34,14 +23,25 @@ const Root = styled.div([], {
 }, space, color)
 
 class Slide extends React.Component {
+  static defaultProps = {
+    addNotes: () => {},
+    update: () => {},
+  }
   render () {
     const {
       index,
+      color,
+      bg,
       ...props
     } = this.props
     return (
-      <Context.Provider value={{ index }}>
-        <Root {...props} />
+      <Context.Provider value={this.props}>
+        <Root
+          color={color}
+          bg={bg}
+          px={[ 4, 5, 6 ]}>
+          {props.children}
+        </Root>
       </Context.Provider>
     )
   }
@@ -53,8 +53,5 @@ Slide.propTypes = {
   ...color.propTypes
 }
 
-Slide.defaultProps = {
-  px: [ 4, 5, 6 ]
-}
 
 export default Slide

@@ -4,7 +4,7 @@ import Box from './Box'
 import Slide from './Slide'
 import Zoom from './Zoom'
 import Root from './Root'
-import { modes } from './index'
+import { modes } from './constants'
 
 export default ({
   slides = [],

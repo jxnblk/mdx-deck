@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import get from 'lodash.get'
 import Box from './Box'
 import Flex from './Flex'
 import Zoom from './Zoom'
@@ -12,11 +13,12 @@ export const Overview = ({
   length,
   slides = [],
   mode,
-  notes = {},
+  metadata = {},
   update,
   step,
   ...props
 }) => {
+  const notes = get(metadata, index + '.notes')
 
   return (
     <Flex
@@ -71,7 +73,7 @@ export const Overview = ({
           </Box>
         </Flex>
         <Box mt={3}>
-          {notes[index]}
+          {notes}
         </Box>
       </Box>
     </Flex>

@@ -373,7 +373,7 @@ Array [
       color="text"
       height="100vh"
       mode="NORMAL"
-      step={-1}
+      step={0}
       width="100vw"
     >
       <div
