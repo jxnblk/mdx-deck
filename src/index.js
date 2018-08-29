@@ -11,3 +11,6 @@ export { default as components } from './components'
 export { default as theme } from './themes'
 export * as themes from './themes'
 
+// internals for third-party components
+export * as updaters from './updaters'
+export * as constants from './constants'
