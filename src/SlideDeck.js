@@ -21,6 +21,8 @@ import defaultComponents from './components'
 import {
   previous,
   next,
+  decrementIndex,
+  incrementIndex,
   decrementStep,
   incrementStep,
   toggleMode,
@@ -72,8 +74,9 @@ export class SlideDeck extends React.Component {
       return
     }
 
-    if (e.metaKey || e.ctrlKey || e.shiftKey) return
-    const alt = e.altKey
+    if (e.metaKey || e.ctrlKey) return
+    const alt = e.altKey && !e.shiftKey
+    const shift = e.shiftKey && !e.altKey
 
     if (alt) {
       switch (e.keyCode) {
@@ -87,7 +90,18 @@ export class SlideDeck extends React.Component {
           this.update(toggleMode('grid'))
           break
       }
-    } else {
+    } else if (shift) {
+      switch (e.keyCode) {
+        case keys.right:
+          e.preventDefault()
+          this.update(incrementIndex)
+          break
+        case keys.left:
+          e.preventDefault()
+          this.update(decrementIndex)
+          break
+      }
+    } else if (!alt && !shift) {
       switch (e.keyCode) {
         case keys.right:
         case keys.space:
