@@ -1,6 +1,11 @@
 
 # Changelog
 
+## v1.7.0 2018-08-29
+
+- Adds support for stepping through Appear component with left and right arrows #144
+- Refactor internal context
+
 ## v1.6.9 2018-08-27
 
 - Adds support for custom webpack configs #136
