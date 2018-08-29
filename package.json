@@ -35,6 +35,7 @@
     "chalk": "^2.4.1",
     "clipboardy": "^1.2.3",
     "find-up": "^3.0.0",
+    "focus-trap": "^3.0.0",
     "get-port": "^4.0.0",
     "gray-matter": "^4.0.1",
     "hhmmss": "^1.0.0",
