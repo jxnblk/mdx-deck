@@ -3,8 +3,9 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { space, color } from 'styled-system'
 import { Context, withDeck } from './context'
+import FocusTrap from './FocusTrap'
 
-const Root = styled.div([], {
+const Root = styled(FocusTrap)([], {
   flex: 'none',
   display: 'flex',
   alignItems: 'center',
@@ -32,11 +33,14 @@ class Slide extends React.Component {
       index,
       color,
       bg,
+      active,
       ...props
     } = this.props
     return (
       <Context.Provider value={this.props}>
         <Root
+          active={active}
+          index={index}
           color={color}
           bg={bg}
           px={[ 4, 5, 6 ]}>
