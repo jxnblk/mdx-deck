@@ -1,6 +1,10 @@
 
 # Changelog
 
+## v1.7.1 2018-08-30
+
+- Fix for localStorage updater
+
 ## v1.7.0 2018-08-29
 
 - Adds support for stepping through Appear component with left and right arrows #144
