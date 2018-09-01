@@ -314,13 +314,20 @@ See more exporting options in the [Exporting Documentation](docs/exporting.md)
 - [Advanced Usage](docs/advanced.md)
 - [React API](docs/react.md)
 
+## Examples
+
+- [Design Systems & React][design-systems-react] by [Diana Mount](https://mobile.twitter.com/broccolini)
+- [Bringing Brazil to the Cloud, Now][brazil-now] by [Guillermo Rauch](https://mobile.twitter.com/rauchg/)
+- [Simplify React][simplify-react] by [Kent C. Dodds](https://mobile.twitter.com/kentcdodds)
+- [I Got 99 Problems but GraphQL Ain't One][99-problems] by [Sara Vieira](https://mobile.twitter.com/NikkitaFTW)
+
 ---
 
 ### Related
 
 - [MDX][]
+- [mdx-go][]
 - [ok-mdx][]
-- [ok-cli][]
 - [Compositor x0][]
 - [styled-components][]
 - [styled-system][]
@@ -330,14 +337,14 @@ See more exporting options in the [Exporting Documentation](docs/exporting.md)
 
 [MDX]: https://github.com/mdx-js/mdx
 [ok-mdx]: https://github.com/jxnblk/ok-mdx
-[ok-cli]: https://github.com/jxnblk/ok-mdx/tree/master/packages/ok-cli
 [Compositor x0]: https://github.com/c8r/x0
 [styled-system]: https://github.com/jxnblk/styled-system
 [styled-components]: https://github.com/styled-components/styled-components
 [Spectacle]: https://github.com/FormidableLabs/spectacle
+[mdx-go]: https://github.com/jxnblk/mdx-go
 
 <!-- examples -->
-[design-systems-in-react]: https://github-ds.now.sh/#0
-[simplify-react]: https://simply-react.netlify.com/#0
+[design-systems-react]: https://github-ds.now.sh/#0
 [brazil-now]: https://braziljs.now.sh
-
+[simplify-react]: https://simply-react.netlify.com/#0
+[99-problems]: https://99-problems-graphql-aint-one.now.sh/#0
