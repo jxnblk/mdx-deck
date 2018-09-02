@@ -15,6 +15,7 @@ import Presenter from './Presenter'
 import Overview from './Overview'
 import Grid from './Grid'
 import GoogleFonts from './GoogleFonts'
+import FocusTrap from './FocusTrap'
 
 import defaultTheme from './themes'
 import defaultComponents from './components'
