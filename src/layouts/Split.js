@@ -5,7 +5,7 @@ import Box from '../Box'
 
 const Root = styled.div([], {
   width: '100vw',
-  height: '100vh'
+  height: '100vh',
 })
 
 const Split = ({ children }) => {

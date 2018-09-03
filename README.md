@@ -70,12 +70,12 @@ npm start
 - [What is MDX][kcd-video] by [Kent C. Dodds][]
 
 [egghead]: https://egghead.io/lessons/react-build-a-slide-deck-with-mdx-deck-using-markdown-react
-[kent c. dodds]: https://mobile.twitter.com/kentcdodds
+[Kent C. Dodds]: https://mobile.twitter.com/kentcdodds
 [kcd-video]: http://youtu.be/d2sQiI5NFAM?a
 [kcd-medium]: https://blog.kentcdodds.com/mdx-deck-slide-decks-powered-by-markdown-and-react-bfc6d6af20da
 [hw-video]: https://www.youtube.com/watch?v=LvP2EqCiQMg&feature=youtu.be
 [hw-demo]: https://github.com/hswolff/mdx-deck-demo
-[harry wolff]: https://mobile.twitter.com/hswolff
+[Harry Wolff]: https://mobile.twitter.com/hswolff
 
 ## Quick Start
 
@@ -101,7 +101,7 @@ import { Box } from 'grid-styled'
 </Box>
 ```
 
-Read more about MDX syntax in the [MDX Docs][mdx].
+Read more about MDX syntax in the [MDX Docs][MDX].
 
 ## Theming
 
@@ -153,7 +153,7 @@ export default {
   colors: {
     text: '#f0f',
     background: 'black',
-    link: '#0ff'
+    link: '#0ff',
   }
 }
 ```
@@ -273,7 +273,7 @@ This shows a list of all slides on the left and a preview of the current slide o
 | Option + O  | Toggle [Overview Mode](#overview-mode)                              |
 | Option + G  | Toggle grid view mode                                               |
 
-[appear]: docs/components.md#appear
+[Appear]: docs/components.md#appear
 
 ## Exporting
 
@@ -332,12 +332,12 @@ See more exporting options in the [Exporting Documentation](docs/exporting.md)
 
 [MIT License](LICENSE.md)
 
-[mdx]: https://github.com/mdx-js/mdx
+[MDX]: https://github.com/mdx-js/mdx
 [ok-mdx]: https://github.com/jxnblk/ok-mdx
-[compositor x0]: https://github.com/c8r/x0
+[Compositor x0]: https://github.com/c8r/x0
 [styled-system]: https://github.com/jxnblk/styled-system
 [styled-components]: https://github.com/styled-components/styled-components
-[spectacle]: https://github.com/FormidableLabs/spectacle
+[Spectacle]: https://github.com/FormidableLabs/spectacle
 [mdx-go]: https://github.com/jxnblk/mdx-go
 
 <!-- examples -->
