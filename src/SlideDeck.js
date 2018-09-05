@@ -244,8 +244,8 @@ export class SlideDeck extends React.Component {
                 />
               ) : (
                 <Swipeable
-                  onSwipedLeft={() => this.update(previous)}
-                  onSwipedRight={() => this.update(next)}>
+                  onSwipedLeft={() => this.update(next)}
+                  onSwipedRight={() => this.update(previous)}>
                   <Wrapper
                     {...this.state}
                     slides={slides}
