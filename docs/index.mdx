@@ -1,7 +1,6 @@
 export { future as theme } from '../themes'
 import { Head, Image, Notes, Appear } from '../dist'
 import { Invert, Split, FullScreenCode } from '../layouts'
-import { CodeSurfer } from 'mdx-deck-code-surfer'
 import Counter from './Counter'
 import code from './code'
 
@@ -144,18 +143,6 @@ Prop | Type | Description
 `width` | number, string, or array | sets element width
 `color` | string | sets foreground color
 `bg` | string | sets background color
-
----
-
-<CodeSurfer
-  title='CodeSurfer'
-  code={code.surfer}
-  steps={[
-    { lines: [ 1, 2 ], notes: 'Import CodeSurfer and a code snippet ' },
-    { range: [ 4, 9 ], notes: 'Use the component in a slide' },
-    { range: [ 7, 12 ], notes: 'Use the steps prop to add notes' },
-  ]}
-/>
 
 ---
 export default Invert

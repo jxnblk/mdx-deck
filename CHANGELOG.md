@@ -1,6 +1,10 @@
 
 # Changelog
 
+## v1.7.3 2018-09-05
+
+- Fix swipe direction on touchscreens
+
 ## v1.7.1 2018-08-30
 
 - Fix for localStorage updater

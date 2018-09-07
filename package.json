@@ -1,6 +1,6 @@
 {
   "name": "mdx-deck",
-  "version": "1.7.1",
+  "version": "1.7.3",
   "description": "MDX-based presentation decks",
   "main": "dist/index.js",
   "bin": {
@@ -28,7 +28,7 @@
     "ansi-html": "0.0.7",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
-    "babel-plugin-styled-components": "^1.5.1",
+    "babel-plugin-styled-components": "^1.6.2",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
@@ -55,7 +55,7 @@
     "puppeteer": "^1.6.1",
     "querystring": "^0.2.0",
     "react": "^16.4.2",
-    "react-dev-utils": "^5.0.1",
+    "react-dev-utils": "^5.0.2",
     "react-dom": "^16.4.2",
     "react-swipeable": "^4.3.0",
     "react-syntax-highlighter": "^8.0.1",
@@ -66,7 +66,7 @@
     "styled-components": ">=3.0.0",
     "styled-system": "^3.0.2",
     "superbox": "^2.1.0",
-    "webpack": "^4.16.5",
+    "webpack": "^4.17.2",
     "webpack-hot-client": "^4.1.1",
     "webpack-merge": "^4.1.4",
     "webpack-node-externals": "^1.7.2"
