@@ -13,6 +13,7 @@ const Root = styled.div([], {
   overflow: 'hidden',
   width: '100%',
   height: '100%',
+  position: 'relative',
   '@media print': {
     width: '100vw',
     height: '100vh',
