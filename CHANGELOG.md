@@ -1,6 +1,10 @@
 
 # Changelog
 
+## v1.7.4 2018-09-15
+
+- Add `--host` option
+
 ## v1.7.3 2018-09-05
 
 - Fix swipe direction on touchscreens
