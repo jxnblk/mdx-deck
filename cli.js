@@ -30,6 +30,7 @@ const cli = meow(`
 
     ${chalk.gray('Dev server options')}
 
+      -h --host     Dev server host
       -p --port     Dev server port
       --no-open     Prevent from opening in default browser
 
@@ -50,6 +51,10 @@ const cli = meow(`
     port: {
       type: 'string',
       alias: 'p'
+    },
+    host: {
+      type: 'string',
+      alias: 'h'
     },
     open: {
       type: 'boolean',
@@ -83,6 +88,7 @@ const opts = Object.assign({
   globals: {
     FILENAME: JSON.stringify(path.resolve(doc))
   },
+  host: 'localhost',
   port: 8080,
   outDir: 'dist',
 }, config, cli.flags)
@@ -163,7 +169,8 @@ switch (cmd) {
     dev = require('./lib/dev')
     dev(opts)
       .then(res => {
-        const url = 'http://localhost:' + res.port
+        const { address, port } = res.server.address()
+        const url = 'http://' + address + ':' + res.port
         if (opts.open) open(url)
         log('listening on', chalk.magenta(url))
       })
