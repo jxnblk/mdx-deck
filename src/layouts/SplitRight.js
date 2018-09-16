@@ -5,12 +5,11 @@ import Box from '../Box'
 
 const Root = styled.div([], {
   width: '100vw',
-  height: '100vh',
+  height: '100vh'
 })
 
 const SplitRight = ({ children }) => {
-  const kids = React.Children.toArray(children.props.children).reverse()
-  const numberOfChildren = kids.length
+  const [a, ...rest] = React.Children.toArray(children.props.children)
 
   return (
     <Root>
@@ -19,11 +18,8 @@ const SplitRight = ({ children }) => {
           alignItems: 'center',
           height: '100%'
         }}>
-        {kids.map(k => (
-          <Box key={k.key} width={1 / numberOfChildren}>
-            {k}
-          </Box>
-        ))}
+        <Box width={1 / 2}>{rest}</Box>
+        <Box width={1 / 2}>{a}</Box>
       </Flex>
     </Root>
   )
