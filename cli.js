@@ -32,6 +32,7 @@ const cli = meow(`
 
       -h --host     Dev server host
       -p --port     Dev server port
+      --hotPort     Dev server hot reload port
       --no-open     Prevent from opening in default browser
 
     ${chalk.gray('Build options')}
@@ -74,6 +75,9 @@ const cli = meow(`
     },
     webpack: {
       type: 'string',
+      hotPort: {
+        type: 'string'
+      },
     }
   }
 })
