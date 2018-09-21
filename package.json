@@ -68,8 +68,7 @@
     "superbox": "^2.1.0",
     "webpack": "^4.17.2",
     "webpack-hot-client": "^4.1.1",
-    "webpack-merge": "^4.1.4",
-    "webpack-node-externals": "^1.7.2"
+    "webpack-merge": "^4.1.4"
   },
   "peerDependencies": {},
   "devDependencies": {
