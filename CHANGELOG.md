@@ -3,6 +3,8 @@
 
 ## Unreleased
 
+- Remove overflow hidden styles from body
+
 ## v1.7.6 2018-09-22
 
 - Changes styles to use `translate3d`
