@@ -1,4 +1,3 @@
-
 # mdx-deck
 
 ![](https://s3.amazonaws.com/jxnblk/mdx-deck.gif)
@@ -11,7 +10,6 @@
 
 [badge]: https://img.shields.io/travis/jxnblk/mdx-deck.svg?style=flat-square
 [travis]: https://travis-ci.org/jxnblk/mdx-deck
-
 [version-badge]: https://img.shields.io/npm/v/mdx-deck.svg?style=flat-square
 [downloads-badge]: https://img.shields.io/npm/dw/mdx-deck.svg?style=flat-square
 [npm]: https://npmjs.com/package/mdx-deck
@@ -28,7 +26,6 @@ npm i -D mdx-deck
 - :notebook: [Speaker notes](#speaker-notes)
 
 [View demo](https://jxnblk.com/mdx-deck)
-
 
 ## Getting Started
 
@@ -175,7 +172,7 @@ These third-party libraries are great for use with mdx-deck.
 
 - [CodeSurfer][]: React component for scrolling, zooming and highlighting code.
 
-[CodeSurfer]: https://github.com/pomber/code-surfer
+[codesurfer]: https://github.com/pomber/code-surfer
 
 ### Layouts
 
@@ -186,7 +183,7 @@ This can be used as a substitute for slide templates found in other presentation
 // example Layout.js
 import React from 'react'
 
-export default ({ children }) =>
+export default ({ children }) => (
   <div
     style={{
       width: '100vw',
@@ -195,6 +192,7 @@ export default ({ children }) =>
     }}>
     {children}
   </div>
+)
 ```
 
 ```mdx
@@ -212,7 +210,6 @@ The layout component will wrap the MDX elements within that slide,
 which means you can use a nested ThemeProvider or target elements with CSS-in-JS.
 
 ### Built-in Layouts
-
 
 mdx-deck includes some built-in layouts for inverting theme colors and changing the layout of a slide. Read more about [built-in layouts](docs/components.md#layouts).
 
@@ -246,7 +243,7 @@ These are only visible in presenter mode
 
 **Notes Component:** Use the `Notes` component to create more complex speaker notes.
 
-````mdx
+```mdx
 import { Notes } from 'mdx-deck'
 
 # Slide Content
@@ -254,7 +251,7 @@ import { Notes } from 'mdx-deck'
 <Notes>
   Only visible in presenter mode
 </Notes>
-````
+```
 
 ## Overview Mode
 
@@ -265,16 +262,16 @@ This shows a list of all slides on the left and a preview of the current slide o
 
 ## Keyboard Shortcuts
 
-Key | Description
----|---
-Left Arrow | Go to previous slide (or step in [Appear][])
-Right Arrow | Go to next slide (or step in [Appear][])
-Space | Go to next slide (or step in [Appear][])
-Up Arrow | Hide current step in [Appear][] component without navigating slides
-Down Arrow | Show next step in [Appear][] component without navigating slides
-Option + P | Toggle [Presenter Mode](#presenter-mode)
-Option + O | Toggle [Overview Mode](#overview-mode)
-Option + G | Toggle grid view mode
+| Key         | Description                                                         |
+| ----------- | ------------------------------------------------------------------- |
+| Left Arrow  | Go to previous slide (or step in [Appear][])                        |
+| Right Arrow | Go to next slide (or step in [Appear][])                            |
+| Space       | Go to next slide (or step in [Appear][])                            |
+| Up Arrow    | Hide current step in [Appear][] component without navigating slides |
+| Down Arrow  | Show next step in [Appear][] component without navigating slides    |
+| Option + P  | Toggle [Presenter Mode](#presenter-mode)                            |
+| Option + O  | Toggle [Overview Mode](#overview-mode)                              |
+| Option + G  | Toggle grid view mode                                               |
 
 [Appear]: docs/components.md#appear
 
@@ -289,7 +286,6 @@ Add a `build` script to your `package.json` to export a presentation as HTML wit
 ```
 
 See more exporting options in the [Exporting Documentation](docs/exporting.md)
-
 
 ## CLI Options
 
@@ -320,6 +316,7 @@ See more exporting options in the [Exporting Documentation](docs/exporting.md)
 - [Bringing Brazil to the Cloud, Now][brazil-now] by [Guillermo Rauch](https://mobile.twitter.com/rauchg/)
 - [Simplify React][simplify-react] by [Kent C. Dodds](https://mobile.twitter.com/kentcdodds)
 - [I Got 99 Problems but GraphQL Ain't One][99-problems] by [Sara Vieira](https://mobile.twitter.com/NikkitaFTW)
+- [Stop de #divFest][stop-div-fest] by [Sara Vieira](https://mobile.twitter.com/NikkitaFTW)
 
 ---
 
@@ -344,7 +341,9 @@ See more exporting options in the [Exporting Documentation](docs/exporting.md)
 [mdx-go]: https://github.com/jxnblk/mdx-go
 
 <!-- examples -->
+
 [design-systems-react]: https://github-ds.now.sh/#0
 [brazil-now]: https://braziljs.now.sh
 [simplify-react]: https://simply-react.netlify.com/#0
 [99-problems]: https://99-problems-graphql-aint-one.now.sh/#0
+[stop-div-fest]: https://stop-div-fest.now.sh/
