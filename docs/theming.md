@@ -1,4 +1,3 @@
-
 # Theming
 
 mdx-deck uses [styled-components][] for styling, making practically any part of the presentation themeable.
@@ -26,7 +25,7 @@ export { default as theme } from './theme'
 # Hello
 ```
 
-The theme should be an object with fields for fonts, colors, and CSS for individual components.
+The theme should be an object with fields for fonts, colors, CSS for individual components, progress type and controls.
 It's recommended that all custom themes extend the default theme as a base.
 
 ```js
@@ -38,12 +37,18 @@ export default {
   ...theme,
   // add a custom font
   font: 'Roboto, sans-serif',
+  // set typye of progress you want to see
+  // accepts: none, bar and defauts to dots
+  progress: 'bar',
+  // have control buttons on the side
+  // defaults to true
+  controls: false,
   // custom colors
   colors: {
     text: '#f0f',
     background: 'black',
     link: '#0ff',
-  }
+  },
 }
 ```
 
@@ -72,8 +77,8 @@ import okaidia from 'react-syntax-highlighter/styles/prism/okaidia'
 export default {
   ...future,
   prism: {
-    style: okaidia
-  }
+    style: okaidia,
+  },
 }
 ```
 
@@ -91,9 +96,9 @@ export default {
   prism: {
     style: okaidia,
     languages: {
-      ruby: prismRuby
-    }
-  }
+      ruby: prismRuby,
+    },
+  },
 }
 ```
 
@@ -102,7 +107,7 @@ For lists of available syntax styles and languages, see:
 - [Prism languages](https://github.com/conorhastings/react-syntax-highlighter/blob/master/AVAILABLE_LANGUAGES_PRISM.MD)
 - [Prism styles](https://github.com/conorhastings/react-syntax-highlighter/blob/master/AVAILABLE_STYLES_PRISM.MD)
 
-[PrismJS]: https://github.com/PrismJS/prism
+[prismjs]: https://github.com/PrismJS/prism
 [react-syntax-highlighter]: https://github.com/conorhastings/react-syntax-highlighter
 
 ### Slide Transitions
@@ -116,7 +121,7 @@ import theme from 'mdx-deck/themes'
 export default {
   ...theme,
   transitionTimingFunction: 'linear',
-  transitionDuration: '.1s'
+  transitionDuration: '.1s',
 }
 ```
 
@@ -132,16 +137,15 @@ export default {
   ...theme,
   h1: {
     textTransform: 'uppercase',
-    letterSpacing: '0.1em'
+    letterSpacing: '0.1em',
   },
   blockquote: {
-    fontStyle: 'italic'
-  }
+    fontStyle: 'italic',
+  },
 }
 ```
 
 See the [reference](#reference) below for a full list of element keys.
-
 
 ## Reference
 
@@ -187,4 +191,4 @@ The following keys are available for theming:
 For more advanced customizations see the [Advanced Usage](advanced.md) docs.
 
 [styled-components]: https://github.com/styled-components/styled-components
-[MDX]: https://github.com/mdx-js/mdx
+[mdx]: https://github.com/mdx-js/mdx
