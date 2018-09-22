@@ -4,6 +4,7 @@
 ## Unreleased
 
 - Remove overflow hidden styles from body
+- Adds prettier
 
 ## v1.7.6 2018-09-22
 
