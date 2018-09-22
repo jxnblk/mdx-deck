@@ -1,6 +1,10 @@
 
 # Changelog
 
+## Unreleased
+
+- Changes styles to use `translate3d`
+
 ## v1.7.5 2018-09-22
 
 - Add `Horizontal` layout component
