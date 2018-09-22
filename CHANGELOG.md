@@ -3,6 +3,8 @@
 
 ## Unreleased
 
+## v1.7.7 2018-09-22
+
 - Remove overflow hidden styles from body
 - Adds prettier
 
