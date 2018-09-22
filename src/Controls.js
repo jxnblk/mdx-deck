@@ -23,7 +23,6 @@ const Next = styled(Button)([], {
 const Controls = ({ update, theme: { controls } }) =>
   controls !== false ? (
     <Fragment>
-      {console.log(controls)}
       <Previous
         role="button"
         title="Previous Slide"
