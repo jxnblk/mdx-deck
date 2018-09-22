@@ -74,10 +74,12 @@
   "peerDependencies": {},
   "devDependencies": {
     "babel-cli": "^6.26.0",
+    "husky": "^1.0.0-rc.14",
     "jest": "^23.4.2",
     "jest-styled-components": "^5.0.1",
+    "lint-staged": "^7.3.0",
     "mdx-deck-code-surfer": "^0.3.0",
-    "prettier": "^1.14.0",
+    "prettier": "^1.14.3",
     "react-test-renderer": "^16.4.1"
   },
   "jest": {
@@ -92,9 +94,21 @@
       "html"
     ]
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,json}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
   "prettier": {
     "semi": false,
     "singleQuote": true,
+    "trailingComma": "es5",
     "jsxBracketSameLine": true
   }
 }
