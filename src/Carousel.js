@@ -30,7 +30,7 @@ const CarouselInner = styled.div([], {
   themeable('transitionTimingFunction'),
   themeable('transitionDuration'),
   props => ({
-    transform: `translateX(${-100 * props.index}%)`
+    transform: `translate3d(${-100 * props.index}%, 0, 0)`
   })
 )
 
