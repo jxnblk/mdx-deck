@@ -1,6 +1,10 @@
 
 # Changelog
 
+## v1.7.5 2018-09-22
+
+- Add `Horizontal` layout component
+
 ## v1.7.4 2018-09-15
 
 - Add `--host` option
