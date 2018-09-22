@@ -3,6 +3,8 @@
 
 ## Unreleased
 
+## v1.7.6 2018-09-22
+
 - Changes styles to use `translate3d`
 - Add support for page up and page down keys
 
