@@ -262,16 +262,16 @@ This shows a list of all slides on the left and a preview of the current slide o
 
 ## Keyboard Shortcuts
 
-| Key         | Description                                                         |
-| ----------- | ------------------------------------------------------------------- |
-| Left Arrow  | Go to previous slide (or step in [Appear][])                        |
-| Right Arrow | Go to next slide (or step in [Appear][])                            |
-| Space       | Go to next slide (or step in [Appear][])                            |
-| Up Arrow    | Hide current step in [Appear][] component without navigating slides |
-| Down Arrow  | Show next step in [Appear][] component without navigating slides    |
-| Option + P  | Toggle [Presenter Mode](#presenter-mode)                            |
-| Option + O  | Toggle [Overview Mode](#overview-mode)                              |
-| Option + G  | Toggle grid view mode                                               |
+Key         | Description
+----------- | -----------
+Left Arrow  | Go to previous slide (or step in [Appear][])
+Right Arrow | Go to next slide (or step in [Appear][])
+Space       | Go to next slide (or step in [Appear][])
+Up Arrow    | Hide current step in [Appear][] component without navigating slides
+Down Arrow  | Show next step in [Appear][] component without navigating slides
+Option + P  | Toggle [Presenter Mode](#presenter-mode)
+Option + O  | Toggle [Overview Mode](#overview-mode)
+Option + G  | Toggle grid view mode
 
 [Appear]: docs/components.md#appear
 
