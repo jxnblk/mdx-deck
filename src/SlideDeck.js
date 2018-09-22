@@ -93,12 +93,12 @@ export class SlideDeck extends React.Component {
     } else if (shift) {
       switch (e.keyCode) {
         case keys.right:
-        case keys.pgDown:
+        case keys.pageDown:
           e.preventDefault()
           this.update(incrementIndex)
           break
         case keys.left:
-        case keys.pgUp:
+        case keys.pageUp:
           e.preventDefault()
           this.update(decrementIndex)
           break
@@ -106,13 +106,13 @@ export class SlideDeck extends React.Component {
     } else if (!alt && !shift) {
       switch (e.keyCode) {
         case keys.right:
-        case keys.pgDown:
+        case keys.pageDown:
         case keys.space:
           e.preventDefault()
           this.update(next)
           break
         case keys.left:
-        case keys.pgUp:
+        case keys.pageUp:
           e.preventDefault()
           this.update(previous)
           break
