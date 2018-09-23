@@ -31,7 +31,6 @@
     "babel-plugin-styled-components": "^1.7.1",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-0": "^6.24.1",
     "chalk": "^2.4.1",
     "clipboardy": "^1.2.3",
     "find-up": "^3.0.0",
@@ -74,6 +73,9 @@
   "peerDependencies": {},
   "devDependencies": {
     "babel-cli": "^6.26.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-export-extensions": "^6.22.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "husky": "^1.0.0-rc.15",
     "jest": "^23.6.0",
     "jest-styled-components": "^5.0.1",
