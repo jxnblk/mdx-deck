@@ -1,5 +1,164 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`components Bar renders 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.c1 {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 0;
+  height: 10px;
+  color: inherit;
+  opacity: 1;
+  width: 1%;
+  margin: 0px;
+  padding: 4px;
+  color: text;
+  background-color: text;
+}
+
+.c1:focus {
+  outline: none;
+}
+
+@media print {
+  .c0 {
+    display: none;
+  }
+}
+
+<div
+  className="c0"
+>
+  <button
+    className="c1"
+    color="text"
+    onClick={[Function]}
+    title="go to: 0"
+  />
+</div>
+`;
+
+exports[`components Bar renders with index 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.c1 {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 0;
+  height: 10px;
+  color: inherit;
+  opacity: 1;
+  width: 8%;
+  margin: 0px;
+  padding: 4px;
+  color: text;
+  background-color: text;
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c2 {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 0;
+  height: 10px;
+  color: inherit;
+  opacity: 0.125;
+  width: 8%;
+  margin: 0px;
+  padding: 4px;
+  color: text;
+  background-color: text;
+}
+
+.c2:focus {
+  outline: none;
+}
+
+@media print {
+  .c0 {
+    display: none;
+  }
+}
+
+<div
+  className="c0"
+>
+  <button
+    className="c1"
+    color="text"
+    onClick={[Function]}
+    title="go to: 0"
+  />
+  <button
+    className="c1"
+    color="text"
+    onClick={[Function]}
+    title="go to: 1"
+  />
+  <button
+    className="c1"
+    color="text"
+    onClick={[Function]}
+    title="go to: 2"
+  />
+  <button
+    className="c1"
+    color="text"
+    onClick={[Function]}
+    title="go to: 3"
+  />
+  <button
+    className="c2"
+    color="text"
+    onClick={[Function]}
+    title="go to: 4"
+  />
+  <button
+    className="c2"
+    color="text"
+    onClick={[Function]}
+    title="go to: 5"
+  />
+  <button
+    className="c2"
+    color="text"
+    onClick={[Function]}
+    title="go to: 6"
+  />
+  <button
+    className="c2"
+    color="text"
+    onClick={[Function]}
+    title="go to: 7"
+  />
+</div>
+`;
+
 exports[`components Carousel renders 1`] = `
 .c0 {
   overflow-x: hidden;
@@ -69,7 +228,7 @@ exports[`components Dots renders 1`] = `
   appearance: none;
   border: 4px solid transparent;
   background-clip: padding-box;
-  border-radius: 9999px;
+  border-radius: 50%;
   width: 8px;
   height: 8px;
   color: inherit;
@@ -121,7 +280,7 @@ exports[`components Dots renders with index 1`] = `
   appearance: none;
   border: 4px solid transparent;
   background-clip: padding-box;
-  border-radius: 9999px;
+  border-radius: 50%;
   width: 8px;
   height: 8px;
   color: inherit;
@@ -143,7 +302,7 @@ exports[`components Dots renders with index 1`] = `
   appearance: none;
   border: 4px solid transparent;
   background-clip: padding-box;
-  border-radius: 9999px;
+  border-radius: 50%;
   width: 8px;
   height: 8px;
   color: inherit;

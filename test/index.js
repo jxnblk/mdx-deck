@@ -4,7 +4,8 @@ import { renderIntoDocument, Simulate } from 'react-dom/test-utils'
 import 'jest-styled-components'
 import Carousel from '../src/Carousel'
 import Slide from '../src/Slide'
-import Dots from '../src/Dots'
+import Dots from '../src/Progress/Dots'
+import Bar from '../src/Progress/Bar'
 import Root from '../src/Root'
 import GoogleFonts from '../src/GoogleFonts'
 import { SlideDeck } from '../src'
@@ -38,6 +39,18 @@ describe('components', () => {
     })
   })
 
+  describe('Bar', () => {
+    test('renders', () => {
+      const json = renderJSON(<Bar index={0} length={1} />)
+      expect(json).toMatchSnapshot()
+    })
+
+    test('renders with index', () => {
+      const json = renderJSON(<Bar index={3} length={8} />)
+      expect(json).toMatchSnapshot()
+    })
+  })
+
   describe('Root', () => {
     test('renders', () => {
       const json = renderJSON(<Root>Hi</Root>)
@@ -48,7 +61,7 @@ describe('components', () => {
       const json = renderJSON(
         <Root
           theme={{
-            font: 'Roboto'
+            font: 'Roboto',
           }}
         />
       )
@@ -61,8 +74,8 @@ describe('components', () => {
           theme={{
             colors: {
               text: 'tomato',
-              background: 'black'
-            }
+              background: 'black',
+            },
           }}
         />
       )
@@ -76,7 +89,7 @@ describe('components', () => {
       const json = renderJSON(
         <GoogleFonts
           theme={{
-            font: '"Roboto Mono"'
+            font: '"Roboto Mono"',
           }}
         />
       )
@@ -88,7 +101,7 @@ describe('components', () => {
         <GoogleFonts
           theme={{
             font: '"Roboto"',
-            monospace: '"Roboto Mono"'
+            monospace: '"Roboto Mono"',
           }}
         />
       )
@@ -121,7 +134,7 @@ describe('components', () => {
         <SlideDeck slides={[() => false, () => false]} />
       )
       const e = new KeyboardEvent('keydown', {
-        keyCode: 39
+        keyCode: 39,
       })
       expect(root.state.index).toBe(0)
       document.body.dispatchEvent(e)
@@ -134,7 +147,7 @@ describe('components', () => {
         <SlideDeck slides={[() => false, () => false]} />
       )
       const e = new KeyboardEvent('keydown', {
-        keyCode: 37
+        keyCode: 37,
       })
       expect(root.state.index).toBe(1)
       document.body.dispatchEvent(e)
@@ -147,7 +160,7 @@ describe('components', () => {
         <SlideDeck ignoreKeyEvents={true} slides={[() => false, () => false]} />
       )
       const e = new KeyboardEvent('keydown', {
-        keyCode: 37
+        keyCode: 37,
       })
       expect(root.state.index).toBe(1)
       document.body.dispatchEvent(e)
@@ -165,4 +178,3 @@ describe('components', () => {
     })
   })
 })
-
