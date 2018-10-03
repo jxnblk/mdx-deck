@@ -9,7 +9,7 @@ const Image = styled.div([], {
 },
   props => ({
     backgroundSize: props.size || 'cover',
-    backgroundImage: `url(${props.src})`
+    backgroundImage: `url("${props.src}")`
   }),
   width,
   height,
