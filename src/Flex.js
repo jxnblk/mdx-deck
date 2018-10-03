@@ -4,10 +4,7 @@ import { space, width, color } from 'styled-system'
 
 const Flex = styled.div([], {
   display: 'flex',
-  justifyContent: 'center',
-  '@media print': {
-    display: 'none'
-  }
+  justifyContent: 'center'
 }, props => props.css,
   space,
   width,
