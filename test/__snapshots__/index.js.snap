@@ -85,12 +85,6 @@ exports[`components Dots renders 1`] = `
   box-shadow: 0 0 0 1px;
 }
 
-@media print {
-  .c0 {
-    display: none;
-  }
-}
-
 <div
   className="c0"
 >
@@ -157,12 +151,6 @@ exports[`components Dots renders with index 1`] = `
 .c2:focus {
   outline: none;
   box-shadow: 0 0 0 1px;
-}
-
-@media print {
-  .c0 {
-    display: none;
-  }
 }
 
 <div
@@ -404,12 +392,6 @@ Array [
   left: 0;
   right: 0;
   bottom: 0;
-}
-
-@media print {
-  .c1 {
-    display: none;
-  }
 }
 
 <div
