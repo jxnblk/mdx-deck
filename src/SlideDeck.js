@@ -153,7 +153,7 @@ export class SlideDeck extends React.Component {
       const index = parseInt(e.newValue, 10)
       this.isStorageChange = true
       this.setState({ index })
-    } else if (e.key === MDX_SLIDE_STEP, 10) {
+    } else if (e.key === MDX_SLIDE_STEP) {
       const step = parseInt(e.newValue, 10)
       this.isStorageChange = true
       this.setState({ step })
