@@ -29,6 +29,8 @@ export { default as theme } from './theme'
 The theme should be an object with fields for fonts, colors, and CSS for individual components.
 It's recommended that all custom themes extend the default theme as a base.
 
+<small>Note: you need to include [all keys](#reference) in the `colors` object for the theming to work correctly. You may want to use a deep [merge](https://www.npmjs.com/search?q=merge) strategy for extending existing themes more easily.</small>
+
 ```js
 // Example theme.js
 import theme from 'mdx-deck/themes'
@@ -40,6 +42,7 @@ export default {
   font: 'Roboto, sans-serif',
   // custom colors
   colors: {
+    ...theme.colors, // include existing theme colors
     text: '#f0f',
     background: 'black',
     link: '#0ff',
