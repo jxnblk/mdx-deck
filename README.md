@@ -222,7 +222,7 @@ mdx-deck includes a built-in presenter mode, with a preview of the next slide an
 To use presenter mode:
 
 - Open two windows in the same browser, with the same URL on two different screens. (this should work in both development and exported presentations)
-- In your window press the `Option + P` (`Alt + P`) key to enter presenter mode.
+- In your window, press the `Option/Alt + P` keys to enter presenter mode.
 - Display the other window on the screen for the audience to see.
 - Control the presentation from your window by using the left and right arrow keys; the other window should stay in sync
 
