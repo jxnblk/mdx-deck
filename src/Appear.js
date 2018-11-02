@@ -6,7 +6,7 @@ import { modes } from './constants'
 
 export default withDeck(class Appear extends React.Component {
   static propTypes = {
-    children: PropTypes.array.isRequired,
+    children: PropTypes.node.isRequired,
     deck: PropTypes.object.isRequired
   }
 
