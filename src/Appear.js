@@ -35,7 +35,7 @@ export default withDeck(class Appear extends React.Component {
           React.cloneElement(child, {
             key: i,
             style: {
-              ...((child.props || {}).style || {})
+              ...((child.props || {}).style || {}),
               visibility: (step >= i + 1) ? 'visible' : 'hidden'
             }
           })
