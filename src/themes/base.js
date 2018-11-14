@@ -1,5 +1,3 @@
-import { inherits } from 'util'
-
 export default {
   font: 'system-ui, sans-serif',
   monospace: 'Menlo, monospace',
