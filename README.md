@@ -174,8 +174,10 @@ Read more in the [components docs](docs/components.md).
 These third-party libraries are great for use with mdx-deck.
 
 - [CodeSurfer][]: React component for scrolling, zooming and highlighting code.
+- [mdx-code][]: Runnable code playgrounds for MDX Deck.
 
 [codesurfer]: https://github.com/pomber/code-surfer
+[mdx-code]: https://github.com/pranaygp/mdx-code
 
 ### Layouts
 
