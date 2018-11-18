@@ -296,6 +296,7 @@ See more exporting options in the [Exporting Documentation](docs/exporting.md)
 
 ```
 -p --port     Dev server port
+-h            Host the dev server listens to
 --no-open     Prevent from opening in default browser
 -d --out-dir  Output directory for exporting
 --no-html     Disable static HTML rendering
