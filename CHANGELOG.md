@@ -3,6 +3,10 @@
 
 ## Unreleased
 
+## v1.7.14 2018-11-18
+
+- Fix typo in SlideDeck
+
 ## v1.7.13 2018-11-18
 
 - Add overflow auto to FullScreenCode
