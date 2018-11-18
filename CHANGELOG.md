@@ -3,6 +3,33 @@
 
 ## Unreleased
 
+## v1.7.13 2018-11-18
+
+- Add overflow auto to FullScreenCode
+
+## v1.7.12 2018-11-18
+
+- Keep styles intact for Appear children
+- Fix prop types for Appear component
+- Add missing CLI option to docs
+
+## v1.7.11 2018-11-18
+
+- Update remark-unwrap-images
+
+## v1.7.10 2018-11-12
+
+- Update dependencies
+
+## v1.7.9 2018-11-12
+
+- Update dependencies
+
+## v1.7.8 2018-11-12
+
+- Fix typo in Root prop types
+- Edit docs
+
 ## v1.7.7 2018-09-22
 
 - Remove overflow hidden styles from body
