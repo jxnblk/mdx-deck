@@ -419,13 +419,10 @@ Array [
       className="c1"
     />
   </div>,
-  .c1 {
+  .c0 {
   cursor: pointer;
   width: 64px;
   height: 100vh;
-}
-
-.c0 {
   position: fixed;
   top: 0;
   left: 0;
@@ -433,18 +430,15 @@ Array [
 }
 
 <div
-    className="c0 c1"
+    className="c0"
     onClick={[Function]}
     role="button"
     title="Previous Slide"
   />,
-  .c1 {
+  .c0 {
   cursor: pointer;
   width: 64px;
   height: 100vh;
-}
-
-.c0 {
   position: fixed;
   top: 0;
   right: 0;
@@ -452,7 +446,7 @@ Array [
 }
 
 <div
-    className="c0 c1"
+    className="c0"
     onClick={[Function]}
     role="button"
     title="Next Slide"
