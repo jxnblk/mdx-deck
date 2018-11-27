@@ -29,6 +29,10 @@ export default withDeck(class Appear extends React.Component {
       return children
     }
 
+    if (window.navigator.userAgent.includes('Print/PDF')) {
+      return children;
+    }
+
     return (
       <React.Fragment>
         {children.map((child, i) => (
