@@ -3,6 +3,10 @@
 
 ## Unreleased
 
+## v1.8.0 2018-11-27
+
+- Adds button to open new window for presenting in presenter mode
+
 ## v1.7.14 2018-11-18
 
 - Fix typo in SlideDeck
