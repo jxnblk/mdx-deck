@@ -3,6 +3,10 @@
 
 ## Unreleased
 
+## v1.8.1 2018-11-27
+
+- Show Appear children in PDF export
+
 ## v1.8.0 2018-11-27
 
 - Adds button to open new window for presenting in presenter mode
