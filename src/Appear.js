@@ -29,7 +29,7 @@ export default withDeck(class Appear extends React.Component {
       return children
     }
 
-    if (window.navigator.userAgent.includes('Print/PDF')) {
+    if (typeof window !== 'undefined' && window.navigator.userAgent.includes('Print/PDF')) {
       return children;
     }
 
