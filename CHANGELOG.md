@@ -3,6 +3,10 @@
 
 ## Unreleased
 
+## v1.8.2 2018-12-04
+
+- Bugfix for window check
+
 ## v1.8.1 2018-11-27
 
 - Show Appear children in PDF export
