@@ -27,12 +27,7 @@ import {
   incrementStep,
   toggleMode,
 } from './updaters'
-import {
-  modes,
-  keys,
-  MDX_SLIDE_INDEX,
-  MDX_SLIDE_STEP,
-} from './constants'
+import { modes, keys, MDX_SLIDE_INDEX, MDX_SLIDE_STEP } from './constants'
 
 export class SlideDeck extends React.Component {
   static propTypes = {
@@ -49,7 +44,7 @@ export class SlideDeck extends React.Component {
   static defaultProps = {
     slides: [],
     theme: defaultTheme,
-    components: {} ,
+    components: {},
     Provider: DefaultProvider,
     width: '100vw',
     height: '100vh',
@@ -63,14 +58,16 @@ export class SlideDeck extends React.Component {
     mode: modes.normal,
     // contextual metadata for slides
     metadata: {},
-    step: 0
+    step: 0,
   }
 
   update = fn => this.setState(fn)
 
   handleKeyDown = e => {
-    if (document.activeElement.tagName !== 'BODY'
-      || this.props.ignoreKeyEvents) {
+    if (
+      document.activeElement.tagName !== 'BODY' ||
+      this.props.ignoreKeyEvents
+    ) {
       return
     }
 
@@ -142,9 +139,11 @@ export class SlideDeck extends React.Component {
   }
 
   getMode = () => {
-    const { mode } = querystring.parse(window.location.search.replace(/^\?/, ''))
+    const { mode } = querystring.parse(
+      window.location.search.replace(/^\?/, '')
+    )
     this.setState({
-      mode: modes[mode] || modes.normal
+      mode: modes[mode] || modes.normal,
     })
   }
 
@@ -153,14 +152,14 @@ export class SlideDeck extends React.Component {
       const index = parseInt(e.newValue, 10)
       this.isStorageChange = true
       this.setState({ index })
-    } else if (e.key === MDX_SLIDE_STEP, 10) {
+    } else if (e.key === MDX_SLIDE_STEP) {
       const step = parseInt(e.newValue, 10)
       this.isStorageChange = true
       this.setState({ step })
     }
   }
 
-  componentDidMount () {
+  componentDidMount() {
     document.body.addEventListener('keydown', this.handleKeyDown)
     window.addEventListener('hashchange', this.handleHashChange)
     window.addEventListener('storage', this.handleStorageChange)
@@ -168,13 +167,13 @@ export class SlideDeck extends React.Component {
     this.getMode()
   }
 
-  componentWillUnmount () {
+  componentWillUnmount() {
     document.body.removeEventListener('keydown', this.handleKeyDown)
     window.removeEventListener('hashchange', this.handleHashChange)
     window.removeEventListener('storage', this.handleStorageChange)
   }
 
-  componentDidUpdate () {
+  componentDidUpdate() {
     if (this.isHashChange) {
       this.isHashChange = false
       return
@@ -186,19 +185,21 @@ export class SlideDeck extends React.Component {
     const { index, mode, step } = this.state
     let query = ''
     if (mode && mode !== modes.normal) {
-      query += '?' + querystring.stringify({
-        mode: (mode || '').toLowerCase()
-      })
+      query +=
+        '?' +
+        querystring.stringify({
+          mode: (mode || '').toLowerCase(),
+        })
     } else if (mode === modes.normal) {
       query += window.location.pathname
     }
-    const step_ = step !== 0 ? ('.' + step) : ''
+    const step_ = step !== 0 ? '.' + step : ''
     history.pushState(null, null, query + '#' + index + step_)
     localStorage.setItem(MDX_SLIDE_INDEX, index)
     localStorage.setItem(MDX_SLIDE_STEP, step)
   }
 
-  render () {
+  render() {
     const {
       slides,
       theme,
@@ -206,18 +207,11 @@ export class SlideDeck extends React.Component {
       Provider: PropsProvider,
       width,
       height,
-      headTags
+      headTags,
     } = this.props
-    const {
-      index,
-      mode,
-      metadata,
-    } = this.state
+    const { index, mode, metadata } = this.state
 
-    const {
-      components = propsComponents,
-      Provider = PropsProvider
-    } = theme
+    const { components = propsComponents, Provider = PropsProvider } = theme
 
     let Wrapper = Root
     if (mode === modes.presenter) {
@@ -229,7 +223,7 @@ export class SlideDeck extends React.Component {
     const context = {
       ...this.state,
       slides,
-      update: this.update
+      update: this.update,
     }
 
     return (
@@ -238,14 +232,11 @@ export class SlideDeck extends React.Component {
           <MDXProvider
             components={{
               ...defaultComponents,
-              ...components
+              ...components,
             }}>
             <Provider {...this.state} update={this.update}>
               {mode === modes.grid ? (
-                <Grid
-                  slides={slides}
-                  update={this.update}
-                />
+                <Grid slides={slides} update={this.update} />
               ) : (
                 <Swipeable
                   onSwipedLeft={() => this.update(next)}
@@ -264,7 +255,7 @@ export class SlideDeck extends React.Component {
                           id={'slide-' + i}
                           {...context}
                           index={i}
-                          className='Slide'
+                          className="Slide"
                           active={i === index}
                           metadata={metadata[i]}>
                           <Component />

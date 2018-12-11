@@ -8,6 +8,9 @@ import Slide from './Slide'
 import Root from './Root'
 import Timer from './Timer'
 import Mono from './Mono'
+import Button from './Button'
+
+const Anchor = Button.withComponent('a')
 
 export const Presenter = ({
   index,
@@ -24,38 +27,36 @@ export const Presenter = ({
 
   return (
     <Flex
-      color='white' bg='black'
+      color="white"
+      bg="black"
       css={{
         flexDirection: 'column',
-        height: '100vh'
-      }}
-    >
-      <Flex my='auto'>
+        height: '100vh',
+      }}>
+      <Flex my="auto">
         <Box
-          mx='auto'
-          width={5/8}
+          mx="auto"
+          width={5 / 8}
           css={{
-            border: '1px solid rgba(128, 128, 128, 0.25)'
+            border: '1px solid rgba(128, 128, 128, 0.25)',
           }}>
-          <Zoom zoom={5/8}>
-            <Root {...props}>
-              {props.children}
-            </Root>
+          <Zoom zoom={5 / 8}>
+            <Root {...props}>{props.children}</Root>
           </Zoom>
         </Box>
         <Flex
-          width={1/4}
-          mx='auto'
+          width={1 / 4}
+          mx="auto"
           css={{
             flex: 'none',
-            flexDirection: 'column'
+            flexDirection: 'column',
           }}>
           <Box
-            mx='auto'
+            mx="auto"
             css={{
-              border: '1px solid rgba(128, 128, 128, 0.25)'
+              border: '1px solid rgba(128, 128, 128, 0.25)',
             }}>
-            <Zoom zoom={1/4}>
+            <Zoom zoom={1 / 4}>
               <Root {...props}>
                 {Next && (
                   <Slide>
@@ -68,15 +69,24 @@ export const Presenter = ({
           <Box
             py={3}
             css={{
-              flex: 'auto'
+              flex: 'auto',
             }}>
             {notes}
           </Box>
         </Flex>
       </Flex>
-      <Flex mt='auto' px={3} py={3}>
-        <Mono>Slide {index + 1} of {length}</Mono>
-        <Box mx='auto' />
+      <Flex mt="auto" px={3} py={3}>
+        <Mono>
+          Slide {index + 1} of {length}
+        </Mono>
+        <Box mx="auto" />
+        <Anchor
+          target="_blank"
+          rel="noopener noreferrer"
+          href={`${window.location.origin}/${window.location.hash}`}>
+          Open in Normal mode
+        </Anchor>
+        <Box mx="auto" />
         <Timer />
       </Flex>
     </Flex>
@@ -90,7 +100,7 @@ Presenter.propTypes = {
   step: PropTypes.number.isRequired,
   slides: PropTypes.array,
   mode: PropTypes.string,
-  metadata: PropTypes.object
+  metadata: PropTypes.object,
 }
 
 export default Presenter
