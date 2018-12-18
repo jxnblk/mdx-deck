@@ -7,12 +7,15 @@
 [![Build Status][badge]][travis]
 [![Version][version-badge]][npm]
 [![Downloads][downloads-badge]][npm]
+[![Install Size][install-size-badge]][install-size]
 
 [badge]: https://img.shields.io/travis/jxnblk/mdx-deck.svg?style=flat-square
 [travis]: https://travis-ci.org/jxnblk/mdx-deck
 [version-badge]: https://img.shields.io/npm/v/mdx-deck.svg?style=flat-square
 [downloads-badge]: https://img.shields.io/npm/dw/mdx-deck.svg?style=flat-square
 [npm]: https://npmjs.com/package/mdx-deck
+[install-size-badge]: https://flat.badgen.net/packagephobia/install/mdx-deck
+[install-size]: https://packagephobia.now.sh/result?p=mdx-deck
 
 ```sh
 npm i -D mdx-deck
