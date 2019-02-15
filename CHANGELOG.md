@@ -3,6 +3,8 @@
 
 ## Unreleased
 
+- Simplified custom mdx loader, removing unused front-matter support
+
 ## v1.8.2 2018-12-04
 
 - Bugfix for window check

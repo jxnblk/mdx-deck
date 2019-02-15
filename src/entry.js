@@ -1,17 +1,15 @@
 import React from 'react'
 import { render } from 'react-dom'
-import PropTypes from 'prop-types'
-import SlideDeck from './SlideDeck'
+import { MDXDeck } from './index'
 
 const mod = require(FILENAME)
 const slides = mod.default
 const { theme, components, Provider } = mod
 
 export default class App extends React.Component {
-  render () {
+  render() {
     return (
-      <SlideDeck
-        {...this.props}
+      <MDXDeck
         slides={slides}
         theme={theme}
         components={components}
@@ -22,10 +20,7 @@ export default class App extends React.Component {
 }
 
 if (typeof document !== 'undefined') {
-  render(
-    <App />,
-    document.getElementById('root')
-  )
+  render(<App />, document.getElementById('root'))
 }
 
 if (module.hot) module.hot.accept()
