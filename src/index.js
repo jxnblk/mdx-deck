@@ -22,9 +22,12 @@ export * as constants from './constants'
  *  todo:
  *  - [x] Head
  *  - [x] Image
- *  - [ ] Notes
- *  - [ ] Appear
+ *  - [x] Notes
+ *  - [x] Appear
  *  - [ ] Code
+ *    - [ ] notes code fence
+ *    - [ ] syntax highlighting
+ *  - [ ] mdx components
  *  - [ ] themes
  *  - [ ] layouts
  *  - [ ] presenter mode
@@ -37,7 +40,8 @@ import React from 'react'
 import { createPortal } from 'react-dom'
 import PropTypes from 'prop-types'
 import { Router, globalHistory, navigate } from '@reach/router'
-import styled, { ThemeProvider } from 'styled-components'
+import styled, { ThemeProvider, withTheme } from 'styled-components'
+import { MDXProvider } from '@mdx-js/tag'
 import { width, height } from 'styled-system'
 
 const NORMAL = 'NORMAL'
@@ -73,6 +77,40 @@ const Slide = ({ children, ...props }) => (
   </Context.Provider>
 )
 
+const DefaultProvider = props => <>{props.children}</>
+
+const components = {
+  // h1,
+  // h2,
+  // h3,
+  // h4,
+  // h5,
+  // h6,
+  // a,
+  // p,
+  // blockquote,
+  // ul,
+  // ol,
+  // li,
+  pre: props => props.children,
+  // code,
+  // inlineCode,
+  // img,
+  // table,
+}
+
+const keys = {
+  right: 39,
+  left: 37,
+  space: 32,
+  p: 80,
+  o: 79,
+}
+
+const toggleMode = key => state => ({
+  mode: state.mode === key ? NORMAL : key,
+})
+
 export class MDXDeck extends React.Component {
   constructor(props) {
     super(props)
@@ -84,15 +122,36 @@ export class MDXDeck extends React.Component {
     }
   }
 
-  handleKeyDown = ({ key }) => {
-    switch (key) {
-      case 'ArrowLeft':
-        this.previous()
-        break
-      case 'ArrowRight':
-      case ' ':
-        this.next()
-        break
+  handleKeyDown = e => {
+    const { key, keyCode, metaKey, ctrlKey, altKey, shiftKey } = e
+    const { activeElement } = document
+    if (activeElement.tagName !== 'BODY' && activeElement.tagName !== 'DIV')
+      return
+    if (metaKey || ctrlKey) return
+    const alt = altKey && !shiftKey
+    const shift = shiftKey && !altKey
+
+    if (alt) {
+      switch (keyCode) {
+        case keys.p:
+          this.setState(toggleMode(PRESENTER))
+          break
+        case keys.o:
+          this.setState(toggleMode(OVERVIEW))
+          break
+      }
+    } else {
+      switch (keyCode) {
+        case keys.left:
+          e.preventDefault()
+          this.previous()
+          break
+        case keys.right:
+        case keys.space:
+          e.preventDefault()
+          this.next()
+          break
+      }
     }
   }
 
@@ -163,27 +222,44 @@ export class MDXDeck extends React.Component {
   }
 
   render() {
-    const { headTags, theme } = this.props
+    const { headTags, theme, components } = this.props
     const { slides } = this.state
+    const index = this.getIndex()
+    const { meta = {} } = slides[index]
     const context = {
       ...this.state,
       register: this.register,
     }
+    const {
+      Provider = DefaultProvider,
+      components: themeComponents = {},
+    } = theme
 
     const [FirstSlide] = slides
 
+    const mdxComponents = {
+      ...components,
+      ...themeComponents,
+    }
+
     return (
       <HeadProvider tags={headTags}>
-        <Router>
-          <Slide path="/" index={0} {...context}>
-            <FirstSlide path="/" />
-          </Slide>
-          {slides.map((Component, i) => (
-            <Slide key={i} path={i + '/*'} index={i} {...context}>
-              <Component path={i + '/*'} />
-            </Slide>
-          ))}
-        </Router>
+        <ThemeProvider theme={theme}>
+          <MDXProvider components={mdxComponents}>
+            <Provider {...this.state} index={index}>
+              <Router>
+                <Slide path="/" index={0} {...context}>
+                  <FirstSlide path="/" />
+                </Slide>
+                {slides.map((Component, i) => (
+                  <Slide key={i} path={i + '/*'} index={i} {...context}>
+                    <Component path={i + '/*'} />
+                  </Slide>
+                ))}
+              </Router>
+            </Provider>
+          </MDXProvider>
+        </ThemeProvider>
       </HeadProvider>
     )
   }
@@ -200,6 +276,7 @@ MDXDeck.defaultProps = {
   slides: [],
   theme: {},
   headTags: [],
+  components,
 }
 
 const HeadContext = React.createContext({
