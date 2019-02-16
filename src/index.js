@@ -18,6 +18,7 @@ export * as constants from './constants'
 */
 
 import React from 'react'
+import { createPortal } from 'react-dom'
 import PropTypes from 'prop-types'
 import { Router, globalHistory, navigate } from '@reach/router'
 import styled, { ThemeProvider } from 'styled-components'
@@ -54,7 +55,6 @@ const Slide = ({ children, ...props }) => (
 export class MDXDeck extends React.Component {
   constructor(props) {
     super(props)
-    console.log(props.slides)
 
     this.state = {
       slides: props.slides,
@@ -167,10 +167,76 @@ MDXDeck.propTypes = {
   theme: PropTypes.object.isRequired,
   components: PropTypes.object,
   Provider: PropTypes.func,
+  headTags: PropTypes.array.isRequired,
 }
 MDXDeck.defaultProps = {
   slides: [],
   theme: {},
+  headTags: [],
+}
+
+const HeadContext = React.createContext({
+  tags: [],
+  push: () => {
+    console.warn('Missing HeadProvider')
+  },
+})
+
+const HeadProvider = ({ tags = [], children }) => {
+  const push = elements => {
+    tags.push(...elements)
+  }
+  const context = { push }
+  return (
+    <HeadContext.Provider value={context}>
+      {props.children}
+    </HeadContext.Provider>
+  )
+}
+
+export class Head extends React.Component {
+  didMount = false
+  rehydrate = () => {
+    const children = React.Children.toArray(this.props.children)
+    const nodes = [...document.head.querySelectorAll('[data-head]')]
+    nodes.forEach(node => {
+      node.remove()
+    })
+    children.forEach(child => {
+      if (child.type === 'title') {
+        const title = document.head.querySelector('title')
+        if (title) title.remove()
+      }
+      if (child.type === 'meta') {
+        const { name } = child.props
+        let meta
+        if (name) meta = document.head.querySelector(`meta[name="${name}"]`)
+        if (meta) meta.remove()
+      }
+    })
+    this.didMount = true
+  }
+  componentDidMount() {
+    this.rehydrate()
+  }
+  render() {
+    const children = React.Children.toArray(this.props.children).map(child =>
+      React.cloneElement(child, {
+        'data-head': true,
+      })
+    )
+    if (!this.didMount) {
+      return (
+        <HeadContext.Consumer
+          children={({ push }) => {
+            push(children)
+            return false
+          }}
+        />
+      )
+    }
+    return createPortal(children, document.head)
+  }
 }
 
 // Additional API
