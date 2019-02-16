@@ -25,7 +25,7 @@ export * as constants from './constants'
  *  - [x] Notes
  *  - [x] Appear
  *  - [ ] Code
- *    - [ ] notes code fence
+ *    - [x] notes code fence
  *    - [ ] syntax highlighting
  *  - [ ] mdx components
  *  - [ ] themes
@@ -47,6 +47,7 @@ import { Router, globalHistory, navigate } from '@reach/router'
 import styled, { ThemeProvider, withTheme } from 'styled-components'
 import { MDXProvider } from '@mdx-js/tag'
 import { width, height } from 'styled-system'
+import HighlightCode from './HighlightCode'
 
 const NORMAL = 'NORMAL'
 const PRESENTER = 'PRESENTER'
@@ -130,7 +131,7 @@ const code = withTheme(props => {
       )
     default:
       if (props.theme.prism && props.theme.prism.style) {
-        console.log('todo syntax highlighting')
+        return <HighlightCode {...props} />
       }
       return <Pre {...props} />
   }
@@ -494,6 +495,3 @@ export const Appear = withContext(
     }
   }
 )
-
-// Additional API
-// export const Appear
