@@ -17,11 +17,32 @@ export * as updaters from './updaters'
 export * as constants from './constants'
 */
 
+/*
+ *
+ *  todo:
+ *  - [x] Head
+ *  - [x] Image
+ *  - [ ] Notes
+ *  - [ ] Appear
+ *  - [ ] Code
+ *  - [ ] themes
+ *  - [ ] layouts
+ *  - [ ] presenter mode
+ *  - [ ] overview mode
+ *  - [ ] localStorage
+ *  - [ ] keyboard shortcuts
+ */
+
 import React from 'react'
 import { createPortal } from 'react-dom'
 import PropTypes from 'prop-types'
 import { Router, globalHistory, navigate } from '@reach/router'
 import styled, { ThemeProvider } from 'styled-components'
+import { width, height } from 'styled-system'
+
+const NORMAL = 'NORMAL'
+const PRESENTER = 'PRESENTER'
+const OVERVIEW = 'OVERVIEW'
 
 export const Context = React.createContext(null)
 
@@ -59,6 +80,7 @@ export class MDXDeck extends React.Component {
     this.state = {
       slides: props.slides,
       step: 0,
+      mode: NORMAL,
     }
   }
 
@@ -68,6 +90,7 @@ export class MDXDeck extends React.Component {
         this.previous()
         break
       case 'ArrowRight':
+      case ' ':
         this.next()
         break
     }
@@ -126,7 +149,8 @@ export class MDXDeck extends React.Component {
 
   register = (index, meta) => {
     const { slides } = this.state
-    slides[index].meta = meta
+    const initialMeta = slides[index].meta || {}
+    slides[index].meta = { ...initialMeta, ...meta }
     this.setState({ slides })
   }
 
@@ -139,6 +163,7 @@ export class MDXDeck extends React.Component {
   }
 
   render() {
+    const { headTags, theme } = this.props
     const { slides } = this.state
     const context = {
       ...this.state,
@@ -148,16 +173,18 @@ export class MDXDeck extends React.Component {
     const [FirstSlide] = slides
 
     return (
-      <Router>
-        <Slide path="/" index={0} {...context}>
-          <FirstSlide path="/" />
-        </Slide>
-        {slides.map((Component, i) => (
-          <Slide key={i} path={i + '/*'} index={i} {...context}>
-            <Component path={i + '/*'} />
+      <HeadProvider tags={headTags}>
+        <Router>
+          <Slide path="/" index={0} {...context}>
+            <FirstSlide path="/" />
           </Slide>
-        ))}
-      </Router>
+          {slides.map((Component, i) => (
+            <Slide key={i} path={i + '/*'} index={i} {...context}>
+              <Component path={i + '/*'} />
+            </Slide>
+          ))}
+        </Router>
+      </HeadProvider>
     )
   }
 }
@@ -166,7 +193,7 @@ MDXDeck.propTypes = {
   slides: PropTypes.array.isRequired,
   theme: PropTypes.object.isRequired,
   components: PropTypes.object,
-  Provider: PropTypes.func,
+  // Provider: PropTypes.func,
   headTags: PropTypes.array.isRequired,
 }
 MDXDeck.defaultProps = {
@@ -187,15 +214,13 @@ const HeadProvider = ({ tags = [], children }) => {
     tags.push(...elements)
   }
   const context = { push }
-  return (
-    <HeadContext.Provider value={context}>
-      {props.children}
-    </HeadContext.Provider>
-  )
+  return <HeadContext.Provider value={context}>{children}</HeadContext.Provider>
 }
 
 export class Head extends React.Component {
-  didMount = false
+  state = {
+    didMount: false,
+  }
   rehydrate = () => {
     const children = React.Children.toArray(this.props.children)
     const nodes = [...document.head.querySelectorAll('[data-head]')]
@@ -214,18 +239,20 @@ export class Head extends React.Component {
         if (meta) meta.remove()
       }
     })
-    this.didMount = true
+    this.setState({ didMount: true })
   }
+
   componentDidMount() {
     this.rehydrate()
   }
+
   render() {
     const children = React.Children.toArray(this.props.children).map(child =>
       React.cloneElement(child, {
         'data-head': true,
       })
     )
-    if (!this.didMount) {
+    if (!this.state.didMount) {
       return (
         <HeadContext.Consumer
           children={({ push }) => {
@@ -238,6 +265,57 @@ export class Head extends React.Component {
     return createPortal(children, document.head)
   }
 }
+
+export const Image = styled.div(
+  {
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+  },
+  props => ({
+    backgroundSize: props.size,
+    backgroundImage: `url(${props.src})`,
+  }),
+  width,
+  height
+)
+
+Image.defaultProps = {
+  size: 'cover',
+  width: '100vw',
+  height: '100vh',
+}
+
+export const Notes = withContext(
+  class extends React.Component {
+    constructor(props) {
+      super(props)
+      const { context, children } = props
+      if (!context || typeof context.index === 'undefined') return
+      context.register(context.index, { notes: children })
+    }
+
+    render() {
+      return false
+    }
+  }
+)
+
+export const Appear = withContext(
+  class extends React.Component {
+    constructor(props) {
+      super(props)
+      const { register, index } = props.context
+      const { length } = props.children
+      register(index, { steps: length })
+    }
+    render() {
+      const { step } = this.props.context
+      const arr = React.Children.toArray(this.props.children)
+      const children = arr.slice(0, step)
+      return <>{children}</>
+    }
+  }
+)
 
 // Additional API
 // export const Appear
