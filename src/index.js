@@ -38,6 +38,7 @@ export * as constants from './constants'
  *  - [ ] Print view
  *  - [ ] PDF export?
  *  - [ ] dots??
+ *  - [ ] swipeable
  */
 
 import React from 'react'
@@ -48,6 +49,7 @@ import styled, { ThemeProvider, withTheme } from 'styled-components'
 import { MDXProvider } from '@mdx-js/tag'
 import { width, height } from 'styled-system'
 import HighlightCode from './HighlightCode'
+import { default as defaultTheme } from './themes'
 
 const NORMAL = 'NORMAL'
 const PRESENTER = 'PRESENTER'
@@ -204,6 +206,96 @@ const toggleMode = key => state => ({
   mode: state.mode === key ? NORMAL : key,
 })
 
+const ZoomOuter = styled.div(props => ({
+  backgroundColor: props.theme.colors.background,
+  width: 100 * props.zoom + 'vw',
+  height: 100 * props.zoom + 'vh',
+}))
+const ZoomInner = styled.div(props => ({
+  transformOrigin: '0 0',
+  transform: `scale(${props.zoom})`,
+}))
+const Zoom = props => (
+  <ZoomOuter zoom={props.zoom}>
+    <ZoomInner {...props} />
+  </ZoomOuter>
+)
+Zoom.defaultProps = {
+  zoom: 1,
+}
+
+const noop = () => {}
+
+const Presenter = props => {
+  const { slides, index } = props
+  const Current = slides[index]
+  const Next = slides[index + 1]
+  const { notes } = Current.meta || {}
+
+  return (
+    <div
+      style={{
+        backgroundColor: 'black',
+        display: 'flex',
+        flexDirection: 'column',
+        height: '100vh',
+      }}>
+      <div
+        style={{
+          marginBottom: 'auto',
+          display: 'flex',
+        }}>
+        <div>
+          <Zoom zoom={5 / 8}>
+            <Root children={props.children} />
+          </Zoom>
+        </div>
+        <div>
+          <Zoom zoom={1 / 4}>
+            <Root>
+              {Next && (
+                <Slide register={noop}>
+                  <Next />
+                </Slide>
+              )}
+            </Root>
+          </Zoom>
+          {notes}
+        </div>
+      </div>
+      <div
+        style={{
+          color: 'white',
+        }}>
+        <pre>
+          {index + 1} of {slides.length}
+        </pre>
+      </div>
+    </div>
+  )
+}
+
+const Overview = props => {
+  const { index, slides } = props
+
+  return (
+    <div
+      style={{
+        backgroundColor: 'black',
+      }}>
+      <pre>
+        OVERVIEW {index + 1} of {slides.length}
+      </pre>
+      {props.children}
+    </div>
+  )
+}
+
+const Root = styled.div(props => ({
+  color: props.theme.colors.text,
+  backgroundColor: props.theme.colors.background,
+}))
+
 export class MDXDeck extends React.Component {
   constructor(props) {
     super(props)
@@ -316,7 +408,7 @@ export class MDXDeck extends React.Component {
 
   render() {
     const { headTags, theme, components } = this.props
-    const { slides } = this.state
+    const { slides, mode } = this.state
     const index = this.getIndex()
     const { meta = {} } = slides[index]
     const context = {
@@ -335,21 +427,33 @@ export class MDXDeck extends React.Component {
       ...themeComponents,
     }
 
+    let Wrapper = Root
+    switch (mode) {
+      case PRESENTER:
+        Wrapper = Presenter
+        break
+      case OVERVIEW:
+        Wrapper = Overview
+        break
+    }
+
     return (
       <HeadProvider tags={headTags}>
         <ThemeProvider theme={theme}>
           <MDXProvider components={mdxComponents}>
             <Provider {...this.state} index={index}>
-              <Router>
-                <Slide path="/" index={0} {...context}>
-                  <FirstSlide path="/" />
-                </Slide>
-                {slides.map((Component, i) => (
-                  <Slide key={i} path={i + '/*'} index={i} {...context}>
-                    <Component path={i + '/*'} />
+              <Wrapper {...this.state} index={index}>
+                <Router>
+                  <Slide path="/" index={0} {...context}>
+                    <FirstSlide path="/" />
                   </Slide>
-                ))}
-              </Router>
+                  {slides.map((Component, i) => (
+                    <Slide key={i} path={i + '/*'} index={i} {...context}>
+                      <Component path={i + '/*'} />
+                    </Slide>
+                  ))}
+                </Router>
+              </Wrapper>
             </Provider>
           </MDXProvider>
         </ThemeProvider>
@@ -367,7 +471,7 @@ MDXDeck.propTypes = {
 }
 MDXDeck.defaultProps = {
   slides: [],
-  theme: {},
+  theme: defaultTheme,
   headTags: [],
   components,
 }
