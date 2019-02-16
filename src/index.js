@@ -34,6 +34,10 @@ export * as constants from './constants'
  *  - [ ] overview mode
  *  - [ ] localStorage
  *  - [ ] keyboard shortcuts
+ *
+ *  - [ ] Print view
+ *  - [ ] PDF export?
+ *  - [ ] dots??
  */
 
 import React from 'react'
@@ -47,6 +51,7 @@ import { width, height } from 'styled-system'
 const NORMAL = 'NORMAL'
 const PRESENTER = 'PRESENTER'
 const OVERVIEW = 'OVERVIEW'
+const PRINT = 'PRINT'
 
 export const Context = React.createContext(null)
 
@@ -79,24 +84,111 @@ const Slide = ({ children, ...props }) => (
 
 const DefaultProvider = props => <>{props.children}</>
 
+// MDX components
+const Heading = styled.h1({}, themed('Heading'))
+const h1 = styled(Heading)(themed('h1'))
+h1.defaultProps = { as: 'h1' }
+const h2 = styled(Heading)(themed('h2'))
+h2.defaultProps = { as: 'h2' }
+const h3 = styled(Heading)(themed('h3'))
+h3.defaultProps = { as: 'h3' }
+const h4 = styled(Heading)(themed('h4'))
+h4.defaultProps = { as: 'h4' }
+const h5 = styled(Heading)(themed('h5'))
+h5.defaultProps = { as: 'h5' }
+const h6 = styled(Heading)(themed('h6'))
+h6.defaultProps = { as: 'h6' }
+
+const a = styled.a(themed('a'), themed('link'))
+const p = styled.p(themed('p'), themed('paragraph'))
+const blockquote = styled.blockquote(themed('blockquote'))
+const ul = styled.ul(themed('ul'))
+const ol = styled.ol(themed('ol'))
+const li = styled.li(themed('li'))
+
+const inlineCode = styled.code(
+  props => ({
+    fontFamily: props.theme.monospace,
+  }),
+  themed('code')
+)
+
+const Pre = styled.pre(
+  props => ({
+    fontFamily: props.theme.monospace,
+  }),
+  themed('pre')
+)
+
+const code = withTheme(props => {
+  switch (props.className) {
+    case 'language-notes':
+      return (
+        <Notes>
+          <Pre {...props} />
+        </Notes>
+      )
+    default:
+      if (props.theme.prism && props.theme.prism.style) {
+        console.log('todo syntax highlighting')
+      }
+      return <Pre {...props} />
+  }
+})
+
+const img = styled.img(
+  {
+    maxWidth: '100%',
+    height: 'auto',
+    objectFit: 'cover',
+  },
+  themed('img'),
+  themed('image')
+)
+
+const TableWrap = styled.div({
+  overflowX: 'auto',
+})
+const Table = styled.table(
+  {
+    width: '100%',
+    borderCollapse: 'separate',
+    borderSpacing: 0,
+    '& td, & th': {
+      textAlign: 'left',
+      paddingRight: '.5em',
+      paddingTop: '.25em',
+      paddingBottom: '.25em',
+      borderBottom: '1px solid',
+      verticalAlign: 'top',
+    },
+  },
+  themed('table')
+)
+const table = props => (
+  <TableWrap>
+    <Table {...props} />
+  </TableWrap>
+)
+
 const components = {
-  // h1,
-  // h2,
-  // h3,
-  // h4,
-  // h5,
-  // h6,
-  // a,
-  // p,
-  // blockquote,
-  // ul,
-  // ol,
-  // li,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  a,
+  p,
+  blockquote,
+  ul,
+  ol,
+  li,
   pre: props => props.children,
-  // code,
-  // inlineCode,
-  // img,
-  // table,
+  code,
+  inlineCode,
+  img,
+  table,
 }
 
 const keys = {
@@ -388,7 +480,16 @@ export const Appear = withContext(
     render() {
       const { step } = this.props.context
       const arr = React.Children.toArray(this.props.children)
-      const children = arr.slice(0, step)
+      const children = arr.map((child, i) =>
+        i < step
+          ? child
+          : React.cloneElement(child, {
+              style: {
+                ...child.props.style,
+                visibility: 'hidden',
+              },
+            })
+      )
       return <>{children}</>
     }
   }
