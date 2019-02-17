@@ -7,6 +7,8 @@ export default {
   font: '"Roboto Condensed", system-ui, sans-serif',
   weights: [400, 700],
   monospace: '"Roboto Mono", monospace',
+  googleFont:
+    'https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700|Roboto+Mono',
   colors: {
     text: '#000',
     background: yellow,
@@ -14,16 +16,16 @@ export default {
     pre: yellow,
     preBackground: '#000',
     code: yellow,
-    codeBackground: '#000'
+    codeBackground: '#000',
   },
   heading: {
     textTransform: 'uppercase',
-    fontWeight: 700
+    fontWeight: 700,
   },
   blockquote: {
-    fontWeight: 700
+    fontWeight: 700,
   },
   pre: {
-    textAlign: 'left'
-  }
+    textAlign: 'left',
+  },
 }

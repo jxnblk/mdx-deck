@@ -8,11 +8,12 @@ export default {
   ...base,
   font: '"Source Code Pro", monospace',
   monospace: '"Source Code Pro", monospace',
+  googleFont: 'https://fonts.googleapis.com/css?family=Source+Code+Pro',
   colors: {
     text: black,
     background: blue,
     link: link,
     pre: blue,
     preBackground: black,
-  }
+  },
 }

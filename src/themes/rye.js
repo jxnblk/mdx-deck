@@ -6,6 +6,7 @@ export default {
   ...base,
   font: '"Rye", serif',
   monospace: '"Roboto Mono", monospace',
+  googleFont: 'https://fonts.googleapis.com/css?family=Rye|Roboto+Mono',
   colors: {
     text: white,
     background: 'black',
@@ -13,5 +14,5 @@ export default {
   },
   h1: {
     textTransform: 'uppercase',
-  }
+  },
 }

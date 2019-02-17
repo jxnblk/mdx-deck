@@ -5,6 +5,7 @@ const blue = '#0af'
 export default {
   ...theme,
   font: '"Bowlby One SC", sans-serif',
+  googleFont: 'https://fonts.googleapis.com/css?family=Bowlby+One+SC',
   colors: {
     text: '#dff',
     background: '#011',
@@ -15,9 +16,9 @@ export default {
     code: blue,
   },
   heading: {
-    fontWeight: 600
+    fontWeight: 600,
   },
   quote: {
-    fontWeight: 600
-  }
+    fontWeight: 600,
+  },
 }

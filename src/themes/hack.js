@@ -6,6 +6,7 @@ export default {
   ...base,
   font: '"IBM Plex Mono", monospace',
   monospace: '"IBM Plex Mono", monospace',
+  googleFont: 'https://fonts.googleapis.com/css?family=IBM+Plex+Mono',
   colors: {
     text: green,
     background: '#000',
@@ -23,7 +24,7 @@ export default {
     },
     '& .Slide > div': {
       minWidth: '80vw',
-      minHeight: '60vh'
-    }
-  }
+      minHeight: '60vh',
+    },
+  },
 }

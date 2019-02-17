@@ -7,6 +7,7 @@ export default {
   ...theme,
   font: '"Yellowtail", cursive',
   monospace: '"Roboto Mono", Menlo, monospace',
+  googleFont: 'https://fonts.googleapis.com/css?family=Yellowtail|Roboto+Mono',
   colors: {
     text: black,
     background: cream,
@@ -17,6 +18,6 @@ export default {
     textAlign: 'center',
     '@media screen and (min-width:64em)': {
       fontSize: '48px',
-    }
+    },
   },
 }

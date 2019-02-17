@@ -27,7 +27,7 @@ export * as constants from './constants'
  *  - [ ] Code
  *    - [x] notes code fence
  *    - [ ] syntax highlighting
- *  - [ ] history api fallback
+ *  - [x] history api fallback
  *  - [ ] mdx components
  *  - [ ] themes
  *  - [ ] layouts
@@ -36,6 +36,7 @@ export * as constants from './constants'
  *  - [ ] localStorage
  *  - [ ] keyboard shortcuts
  *
+ *  extras
  *  - [ ] Print view
  *  - [ ] PDF export?
  *  - [ ] dots??
@@ -248,18 +249,18 @@ const Presenter = props => {
         }}>
         <div>
           <Zoom zoom={5 / 8}>
-            <Root children={props.children} />
+            <RootStyles children={props.children} />
           </Zoom>
         </div>
         <div>
           <Zoom zoom={1 / 4}>
-            <Root>
+            <RootStyles>
               {Next && (
                 <Slide register={noop}>
                   <Next />
                 </Slide>
               )}
-            </Root>
+            </RootStyles>
           </Zoom>
           {notes}
         </div>
@@ -292,10 +293,20 @@ const Overview = props => {
   )
 }
 
-const Root = styled.div(props => ({
+const Root = props => <>{props.children}</>
+
+const RootStyles = styled.div(props => ({
+  fontFamily: props.theme.font,
   color: props.theme.colors.text,
   backgroundColor: props.theme.colors.background,
 }))
+
+const GoogleFonts = withTheme(
+  props =>
+    !!props.theme.googleFont && (
+      <link href={props.theme.googleFont} rel="stylesheet" />
+    )
+)
 
 export class MDXDeck extends React.Component {
   constructor(props) {
@@ -444,16 +455,19 @@ export class MDXDeck extends React.Component {
           <MDXProvider components={mdxComponents}>
             <Provider {...this.state} index={index}>
               <Wrapper {...this.state} index={index}>
-                <Router>
-                  <Slide path="/" index={0} {...context}>
-                    <FirstSlide path="/" />
-                  </Slide>
-                  {slides.map((Component, i) => (
-                    <Slide key={i} path={i + '/*'} index={i} {...context}>
-                      <Component path={i + '/*'} />
+                <RootStyles>
+                  <GoogleFonts />
+                  <Router>
+                    <Slide path="/" index={0} {...context}>
+                      <FirstSlide path="/" />
                     </Slide>
-                  ))}
-                </Router>
+                    {slides.map((Component, i) => (
+                      <Slide key={i} path={i + '/*'} index={i} {...context}>
+                        <Component path={i + '/*'} />
+                      </Slide>
+                    ))}
+                  </Router>
+                </RootStyles>
               </Wrapper>
             </Provider>
           </MDXProvider>
