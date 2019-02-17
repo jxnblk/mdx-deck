@@ -31,7 +31,6 @@ import PropTypes from 'prop-types'
 import { Router, globalHistory, navigate } from '@reach/router'
 import styled, { ThemeProvider, withTheme } from 'styled-components'
 import { MDXProvider } from '@mdx-js/tag'
-import { width, height } from 'styled-system'
 import { Swipeable } from 'react-swipeable'
 import { default as defaultTheme } from './themes'
 
@@ -516,10 +515,10 @@ export const Image = styled.div(
   },
   props => ({
     backgroundSize: props.size,
+    width: props.width,
+    height: props.height,
     backgroundImage: `url(${props.src})`,
-  }),
-  width,
-  height
+  })
 )
 
 Image.defaultProps = {
