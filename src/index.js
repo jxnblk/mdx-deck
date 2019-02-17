@@ -1,23 +1,5 @@
-/* v1 API
-export { withDeck, withSlide } from './context'
-export { Head } from './Head'
-export { default as SlideDeck } from './SlideDeck'
-export { default as Image } from './Image'
-export { default as Notes } from './Notes'
-export { default as Appear } from './Appear'
-export { default as Code } from './Code'
-export { default as components } from './components'
-
-// themes
-export { default as theme } from './themes'
-export * as themes from './themes'
-
-// internals for third-party components
-export * as updaters from './updaters'
-export * as constants from './constants'
-*/
-
 /*
+ *  mdx-deck v2 prototype
  *
  *  todo:
  *  - [x] Head
@@ -28,8 +10,8 @@ export * as constants from './constants'
  *    - [x] notes code fence
  *    - [ ] syntax highlighting
  *  - [x] history api fallback
- *  - [ ] mdx components
- *  - [ ] themes
+ *  - [x] mdx components
+ *  - [x] themes
  *  - [ ] layouts
  *  - [ ] presenter mode
  *  - [ ] overview mode
@@ -50,7 +32,7 @@ import { Router, globalHistory, navigate } from '@reach/router'
 import styled, { ThemeProvider, withTheme } from 'styled-components'
 import { MDXProvider } from '@mdx-js/tag'
 import { width, height } from 'styled-system'
-import HighlightCode from './HighlightCode'
+import { Swipeable } from 'react-swipeable'
 import { default as defaultTheme } from './themes'
 
 const NORMAL = 'NORMAL'
@@ -66,8 +48,6 @@ export const withContext = Component => props => (
   />
 )
 
-const themed = key => props => props.theme[key]
-
 // TODO check against v1 styles
 const SlideRoot = styled.div(
   {
@@ -78,7 +58,7 @@ const SlideRoot = styled.div(
     alignItems: 'center',
     justifyContent: 'center',
   },
-  themed('Slide')
+  props => props.theme.Slide
 )
 
 const Slide = ({ children, ...props }) => (
@@ -90,86 +70,45 @@ const Slide = ({ children, ...props }) => (
 const DefaultProvider = props => <>{props.children}</>
 
 // MDX components
-const Heading = styled.h1({}, themed('Heading'))
-const h1 = styled(Heading)(themed('h1'))
-h1.defaultProps = { as: 'h1' }
-const h2 = styled(Heading)(themed('h2'))
-h2.defaultProps = { as: 'h2' }
-const h3 = styled(Heading)(themed('h3'))
-h3.defaultProps = { as: 'h3' }
-const h4 = styled(Heading)(themed('h4'))
-h4.defaultProps = { as: 'h4' }
-const h5 = styled(Heading)(themed('h5'))
-h5.defaultProps = { as: 'h5' }
-const h6 = styled(Heading)(themed('h6'))
-h6.defaultProps = { as: 'h6' }
-
-const a = styled.a(themed('a'), themed('link'))
-const p = styled.p(themed('p'), themed('paragraph'))
-const blockquote = styled.blockquote(themed('blockquote'))
-const ul = styled.ul(themed('ul'))
-const ol = styled.ol(themed('ol'))
-const li = styled.li(themed('li'))
+const Heading = styled.h1({ margin: 0 })
 
 const inlineCode = styled.code(
   props => ({
     fontFamily: props.theme.monospace,
   }),
-  themed('code')
+  props => props.theme.code
 )
 
-const Pre = styled.pre(
+const code = styled.pre(
   props => ({
     fontFamily: props.theme.monospace,
+    fontSize: '.75em',
   }),
-  themed('pre')
+  props => props.theme.pre
 )
 
-const code = withTheme(props => {
-  switch (props.className) {
-    case 'language-notes':
-      return (
-        <Notes>
-          <Pre {...props} />
-        </Notes>
-      )
-    default:
-      if (props.theme.prism && props.theme.prism.style) {
-        return <HighlightCode {...props} />
-      }
-      return <Pre {...props} />
-  }
+const img = styled.img({
+  maxWidth: '100%',
+  height: 'auto',
+  objectFit: 'cover',
 })
-
-const img = styled.img(
-  {
-    maxWidth: '100%',
-    height: 'auto',
-    objectFit: 'cover',
-  },
-  themed('img'),
-  themed('image')
-)
 
 const TableWrap = styled.div({
   overflowX: 'auto',
 })
-const Table = styled.table(
-  {
-    width: '100%',
-    borderCollapse: 'separate',
-    borderSpacing: 0,
-    '& td, & th': {
-      textAlign: 'left',
-      paddingRight: '.5em',
-      paddingTop: '.25em',
-      paddingBottom: '.25em',
-      borderBottom: '1px solid',
-      verticalAlign: 'top',
-    },
+const Table = styled.table({
+  width: '100%',
+  borderCollapse: 'separate',
+  borderSpacing: 0,
+  '& td, & th': {
+    textAlign: 'left',
+    paddingRight: '.5em',
+    paddingTop: '.25em',
+    paddingBottom: '.25em',
+    borderBottom: '1px solid',
+    verticalAlign: 'top',
   },
-  themed('table')
-)
+})
 const table = props => (
   <TableWrap>
     <Table {...props} />
@@ -177,18 +116,6 @@ const table = props => (
 )
 
 const components = {
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  a,
-  p,
-  blockquote,
-  ul,
-  ol,
-  li,
   pre: props => props.children,
   code,
   inlineCode,
@@ -295,11 +222,33 @@ const Overview = props => {
 
 const Root = props => <>{props.children}</>
 
-const RootStyles = styled.div(props => ({
-  fontFamily: props.theme.font,
-  color: props.theme.colors.text,
-  backgroundColor: props.theme.colors.background,
-}))
+const themed = (...tags) => props =>
+  tags.map(tag => props.theme[tag] && { ['& ' + tag]: props.theme[tag] })
+
+const RootStyles = styled.div(
+  props => ({
+    fontFamily: props.theme.font,
+    color: props.theme.colors.text,
+    backgroundColor: props.theme.colors.background,
+  }),
+  props => props.theme.css,
+  themed(
+    'h1',
+    'h2',
+    'h3',
+    'h4',
+    'h5',
+    'h6',
+    'a',
+    'ul',
+    'ol',
+    'li',
+    'p',
+    'blockquote',
+    'img',
+    'table'
+  )
+)
 
 const GoogleFonts = withTheme(
   props =>
@@ -374,6 +323,7 @@ export class MDXDeck extends React.Component {
   }
 
   previous = () => {
+    console.log('previous')
     const { slides, step } = this.state
     const index = this.getIndex()
     const meta = this.getMeta(index)
@@ -455,19 +405,23 @@ export class MDXDeck extends React.Component {
           <MDXProvider components={mdxComponents}>
             <Provider {...this.state} index={index}>
               <Wrapper {...this.state} index={index}>
-                <RootStyles>
-                  <GoogleFonts />
-                  <Router>
-                    <Slide path="/" index={0} {...context}>
-                      <FirstSlide path="/" />
-                    </Slide>
-                    {slides.map((Component, i) => (
-                      <Slide key={i} path={i + '/*'} index={i} {...context}>
-                        <Component path={i + '/*'} />
+                <Swipeable
+                  onSwipedRight={this.previous}
+                  onSwipedLeft={this.next}>
+                  <RootStyles>
+                    <GoogleFonts />
+                    <Router>
+                      <Slide path="/" index={0} {...context}>
+                        <FirstSlide path="/" />
                       </Slide>
-                    ))}
-                  </Router>
-                </RootStyles>
+                      {slides.map((Component, i) => (
+                        <Slide key={i} path={i + '/*'} index={i} {...context}>
+                          <Component path={i + '/*'} />
+                        </Slide>
+                      ))}
+                    </Router>
+                  </RootStyles>
+                </Swipeable>
               </Wrapper>
             </Provider>
           </MDXProvider>

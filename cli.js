@@ -112,9 +112,7 @@ switch (cmd) {
     dev = require('./lib/dev')
     dev(opts)
       .then(server => {
-        console.log(server.address())
         const { address, port } = server.address()
-        // const url = 'http://' + address + ':' + port
         const url = `http://localhost:${port}`
         if (opts.open) open(url)
         log('listening on', chalk.green(url))

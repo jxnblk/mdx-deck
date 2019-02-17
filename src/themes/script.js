@@ -14,10 +14,10 @@ export default {
     link: black,
   },
   css: {
-    fontSize: '16px',
+    fontSize: '1.5em',
     textAlign: 'center',
     '@media screen and (min-width:64em)': {
-      fontSize: '48px',
+      fontSize: '4em',
     },
   },
 }

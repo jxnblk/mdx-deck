@@ -6,10 +6,10 @@ export default {
   googleFont:
     'https://fonts.googleapis.com/css?family=Annie+Use+Your+Telescope',
   css: {
-    fontSize: '16px',
+    fontSize: '1.5em',
     textAlign: 'center',
     '@media screen and (min-width:64em)': {
-      fontSize: '40px',
+      fontSize: '4em',
     },
   },
 }

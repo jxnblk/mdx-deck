@@ -15,9 +15,9 @@ export default {
   },
   css: {
     textAlign: 'left',
-    fontSize: '16px',
+    fontSize: '1.5em',
     '@media screen and (min-width:64em)': {
-      fontSize: '32px',
+      fontSize: '3em',
     },
     '& .Slide > div': {
       minWidth: '80vw',
