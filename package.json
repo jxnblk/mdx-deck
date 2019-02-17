@@ -2,12 +2,11 @@
   "name": "mdx-deck",
   "version": "1.8.2",
   "description": "MDX-based presentation decks",
-  "main": "dist/index.js",
+  "main": "src/index.js",
   "bin": {
     "mdx-deck": "./cli.js"
   },
   "scripts": {
-    "prepare": "babel src -d dist",
     "watch": "babel src -d dist --watch",
     "start": "./cli.js docs/index.mdx -p 8080",
     "build": "./cli.js build docs/index.mdx -d site",
