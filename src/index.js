@@ -27,6 +27,7 @@ export * as constants from './constants'
  *  - [ ] Code
  *    - [x] notes code fence
  *    - [ ] syntax highlighting
+ *  - [ ] history api fallback
  *  - [ ] mdx components
  *  - [ ] themes
  *  - [ ] layouts
