@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const FullCode = styled.div([], {
+const FullCode = styled.div({
   width: '100vw',
   height: '100vh',
   textAlign: 'left',
@@ -14,4 +14,4 @@ const FullCode = styled.div([], {
   },
 })
 
-export default FullCode
+export default props => <FullCode {...props} />

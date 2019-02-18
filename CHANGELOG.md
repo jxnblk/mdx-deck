@@ -13,6 +13,10 @@
 - Removed `notes` language attribute for fenced code blocks
 - Refactored dev server
 
+## v1.10.0 2019-02-18
+
+- Update to Babel 7
+
 ## v1.9.0 2019-02-18
 
 - Fix for font size in nested lists #204
