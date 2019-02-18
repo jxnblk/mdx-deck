@@ -229,7 +229,7 @@ mdx-deck includes a built-in presenter mode, with a preview of the next slide an
 To use presenter mode:
 
 - Open two windows in the same browser, with the same URL on two different screens. (this should work in both development and exported presentations)
-- In your window, press the `Option/Alt + P` keys to enter presenter mode.
+- In your window, press the `Option/Alt + P` keys (or add `?mode=presenter` to the URL) to enter presenter mode.
 - Display the other window on the screen for the audience to see.
 - Control the presentation from your window by using the left and right arrow keys; the other window should stay in sync
 
@@ -264,7 +264,7 @@ import { Notes } from 'mdx-deck'
 
 ![Overview Mode](docs/images/overview-mode.png)
 
-When editing a slide deck, toggle overview mode with `Option + O`.
+When editing a slide deck, toggle overview mode with `Option + O` or add `?mode=overview` to the URL.
 This shows a list of all slides on the left and a preview of the current slide on the right.
 
 ## Keyboard Shortcuts
