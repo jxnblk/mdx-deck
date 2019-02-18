@@ -236,7 +236,8 @@ export class SlideDeck extends React.Component {
             }}>
             <Provider {...this.state} update={this.update}>
               {mode === modes.grid ? (
-                <Grid {...context} />
+                <Grid {...context} slides={slides} update={this.update} />
+
               ) : (
                 <Swipeable
                   onSwipedLeft={() => this.update(next)}

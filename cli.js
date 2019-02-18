@@ -6,14 +6,15 @@ const open = require('react-dev-utils/openBrowser')
 const chalk = require('chalk')
 const remark = {
   emoji: require('remark-emoji'),
-  unwrapImages: require('remark-unwrap-images')
+  unwrapImages: require('remark-unwrap-images'),
 }
 const pkg = require('./package.json')
 
 const config = require('pkg-conf').sync('mdx-deck')
 const log = require('./lib/log')
 
-const cli = meow(`
+const cli = meow(
+  `
   ${chalk.gray('Usage')}
 
     $ ${chalk.magenta('mdx-deck deck.mdx')}
@@ -46,56 +47,70 @@ const cli = meow(`
       --width       Width in pixels
       --height      Height in pixels
 
-`, {
-  description: chalk.magenta('[mdx-deck] ') + chalk.gray(pkg.description),
-  flags: {
-    port: {
-      type: 'string',
-      alias: 'p'
-    },
-    hotPort: {
-      type: 'string',
-    },
-    host: {
-      type: 'string',
-      alias: 'h'
-    },
-    open: {
-      type: 'boolean',
-      alias: 'o',
-      default: true
-    },
-    outDir: {
-      type: 'string',
-      alias: 'd'
-    },
-    outFile: {
-      type: 'string',
-    },
-    html: {
-      type: 'boolean',
-      default: true
-    },
-    webpack: {
-      type: 'string',
-    }
-  }
-})
+    ${chalk.gray('PDF options')}
 
-const [ cmd, file ] = cli.input
+      --no-sandbox  Disable Puppeteer sandbox
+
+`,
+  {
+    description: chalk.magenta('[mdx-deck] ') + chalk.gray(pkg.description),
+    flags: {
+      port: {
+        type: 'string',
+        alias: 'p',
+      },
+      host: {
+        type: 'string',
+        alias: 'h',
+      },
+      hotPort: {
+        type: 'string',
+      },
+      open: {
+        type: 'boolean',
+        alias: 'o',
+        default: true,
+      },
+      outDir: {
+        type: 'string',
+        alias: 'd',
+      },
+      outFile: {
+        type: 'string',
+      },
+      html: {
+        type: 'boolean',
+        default: true,
+      },
+      webpack: {
+        type: 'string',
+      },
+      sandbox: {
+        type: 'boolean',
+        default: true,
+      },
+    },
+  }
+)
+
+const [cmd, file] = cli.input
 const doc = file || cmd
 
 if (!doc) cli.showHelp(0)
 
-const opts = Object.assign({
-  dirname: path.dirname(path.resolve(doc)),
-  globals: {
-    FILENAME: JSON.stringify(path.resolve(doc))
+const opts = Object.assign(
+  {
+    dirname: path.dirname(path.resolve(doc)),
+    globals: {
+      FILENAME: JSON.stringify(path.resolve(doc)),
+    },
+    host: 'localhost',
+    port: 8080,
+    outDir: 'dist',
   },
-  host: 'localhost',
-  port: 8080,
-  outDir: 'dist',
-}, config, cli.flags)
+  config,
+  cli.flags
+)
 
 opts.outDir = path.resolve(opts.outDir)
 if (opts.webpack) {

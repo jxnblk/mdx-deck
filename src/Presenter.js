@@ -31,14 +31,14 @@ export const Presenter = ({
       bg="black"
       css={{
         flexDirection: 'column',
-        height: '100vh'
+        height: '100vh',
       }}>
       <Flex my="auto">
         <Box
           mx="auto"
           width={5 / 8}
           css={{
-            border: '1px solid rgba(128, 128, 128, 0.25)'
+            border: '1px solid rgba(128, 128, 128, 0.25)',
           }}>
           <Zoom zoom={5 / 8}>
             <Root {...props}>{props.children}</Root>
@@ -49,12 +49,12 @@ export const Presenter = ({
           mx="auto"
           css={{
             flex: 'none',
-            flexDirection: 'column'
+            flexDirection: 'column',
           }}>
           <Box
             mx="auto"
             css={{
-              border: '1px solid rgba(128, 128, 128, 0.25)'
+              border: '1px solid rgba(128, 128, 128, 0.25)',
             }}>
             <Zoom zoom={1 / 4}>
               <Root {...props}>
@@ -69,7 +69,7 @@ export const Presenter = ({
           <Box
             py={3}
             css={{
-              flex: 'auto'
+              flex: 'auto',
             }}>
             {notes}
           </Box>
@@ -100,7 +100,7 @@ Presenter.propTypes = {
   step: PropTypes.number.isRequired,
   slides: PropTypes.array,
   mode: PropTypes.string,
-  metadata: PropTypes.object
+  metadata: PropTypes.object,
 }
 
 export default Presenter

@@ -10,7 +10,7 @@ const Button = styled.button(
     fontSize: '12px',
     fontWeight: 'bold',
     borderRadius: '4px',
-    border: 'none'
+    border: 'none',
   },
   space,
   color
@@ -18,7 +18,7 @@ const Button = styled.button(
 
 Button.propTypes = {
   ...space.propTypes,
-  ...color.propTypes
+  ...color.propTypes,
 }
 
 Button.defaultProps = {
@@ -26,7 +26,7 @@ Button.defaultProps = {
   px: 2,
   py: 1,
   color: 'white',
-  bg: '#333'
+  bg: '#333',
 }
 
 export default Button

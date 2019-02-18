@@ -8,7 +8,7 @@ class Timer extends React.Component {
   state = {
     on: false,
     time: new Date().toLocaleTimeString(),
-    seconds: 0
+    seconds: 0,
   }
 
   toggle = () => {
@@ -23,7 +23,7 @@ class Timer extends React.Component {
     const now = new Date()
     this.setState(state => ({
       time: now.toLocaleTimeString(),
-      seconds: state.on ? state.seconds + 1 : state.seconds
+      seconds: state.on ? state.seconds + 1 : state.seconds,
     }))
   }
 
