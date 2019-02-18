@@ -335,6 +335,16 @@ Array [
   background-color: white;
 }
 
+.c0 li > ul,
+.c0 li > ol {
+  font-size: inherit;
+}
+
+.c0 li > p {
+  font-size: inherit;
+  margin: 0;
+}
+
 @media print {
   .c1 {
     height: auto;
