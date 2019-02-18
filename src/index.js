@@ -322,7 +322,6 @@ export class MDXDeck extends React.Component {
   }
 
   previous = () => {
-    console.log('previous')
     const { slides, step } = this.state
     const index = this.getIndex()
     const meta = this.getMeta(index)
@@ -542,32 +541,6 @@ export const Notes = withContext(
   }
 )
 
-export const Appear = withContext(
-  class extends React.Component {
-    constructor(props) {
-      super(props)
-      const { register, index } = props.context
-      const { length } = props.children
-      register(index, { steps: length })
-    }
-    render() {
-      const { step } = this.props.context
-      const arr = React.Children.toArray(this.props.children)
-      const children = arr.map((child, i) =>
-        i < step
-          ? child
-          : React.cloneElement(child, {
-              style: {
-                ...child.props.style,
-                visibility: 'hidden',
-              },
-            })
-      )
-      return <>{children}</>
-    }
-  }
-)
-
 export const Steps = withContext(
   class extends React.Component {
     constructor(props) {
@@ -583,3 +556,25 @@ export const Steps = withContext(
     }
   }
 )
+
+export const Appear = props => {
+  const arr = React.Children.toArray(props.children)
+  return (
+    <Steps
+      length={arr.length}
+      render={({ step }) => {
+        const children = arr.map((child, i) =>
+          i < step
+            ? child
+            : React.cloneElement(child, {
+                style: {
+                  ...child.props.style,
+                  visibility: 'hidden',
+                },
+              })
+        )
+        return <>{children}</>
+      }}
+    />
+  )
+}
