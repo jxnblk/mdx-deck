@@ -1,4 +1,4 @@
-import { Head, Image, Notes, Appear } from '..'
+import { Head, Image, Notes, Appear, Steps } from '..'
 
 <Head>
   <title>MDX Deck Demo</title>
@@ -58,4 +58,19 @@ const codeExample = require('./code-example')
 
 ---
 
+## Steps Components
+
+<Steps
+  length={3}
+  render={({ step }) => (
+    <pre>
+      Step: {step}
+    </pre>
+  )}
+/>
+
+---
+
 ## Last Slide
+
+
