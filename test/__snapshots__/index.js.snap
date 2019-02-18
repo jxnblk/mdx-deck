@@ -1,254 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`components Carousel renders 1`] = `
-.c0 {
-  overflow-x: hidden;
-  width: 100%;
-  height: 100%;
-}
-
+exports[`MDXDeck renders 1`] = `
 .c1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  width: 100%;
-  height: 100%;
-  -webkit-transition-property: -webkit-transform;
-  -webkit-transition-property: transform;
-  transition-property: transform;
-  -webkit-transition-timing-function: ease-out;
-  transition-timing-function: ease-out;
-  -webkit-transition-duration: .3s;
-  transition-duration: .3s;
-  -webkit-transform: translate3d(-100%,0,0);
-  -ms-transform: translate3d(-100%,0,0);
-  transform: translate3d(-100%,0,0);
-}
-
-@media print {
-  .c0 {
-    height: auto;
-    overflow-x: visible;
-  }
-}
-
-@media print {
-  .c1 {
-    height: auto;
-    display: block;
-  }
-}
-
-<div
-  className="c0"
->
-  <div
-    className="c1"
-  >
-    Hi
-  </div>
-</div>
-`;
-
-exports[`components Dots renders 1`] = `
-.c0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-}
-
-.c1 {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  border: 4px solid transparent;
-  background-clip: padding-box;
-  border-radius: 9999px;
-  width: 8px;
-  height: 8px;
-  color: inherit;
-  opacity: 0.5;
-  margin: 0px;
-  padding: 4px;
-  color: text;
-  background-color: text;
-}
-
-.c1:focus {
-  outline: none;
-  box-shadow: 0 0 0 1px;
-}
-
-@media print {
-  .c0 {
-    display: none;
-  }
-}
-
-<div
-  className="c0"
->
-  <button
-    className="c1"
-    color="text"
-    onClick={[Function]}
-    title="go to: 0"
-  />
-</div>
-`;
-
-exports[`components Dots renders with index 1`] = `
-.c0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-}
-
-.c1 {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  border: 4px solid transparent;
-  background-clip: padding-box;
-  border-radius: 9999px;
-  width: 8px;
-  height: 8px;
-  color: inherit;
-  opacity: 0.5;
-  margin: 0px;
-  padding: 4px;
-  color: text;
-  background-color: text;
-}
-
-.c1:focus {
-  outline: none;
-  box-shadow: 0 0 0 1px;
-}
-
-.c2 {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  border: 4px solid transparent;
-  background-clip: padding-box;
-  border-radius: 9999px;
-  width: 8px;
-  height: 8px;
-  color: inherit;
-  opacity: 0.125;
-  margin: 0px;
-  padding: 4px;
-  color: text;
-  background-color: text;
-}
-
-.c2:focus {
-  outline: none;
-  box-shadow: 0 0 0 1px;
-}
-
-@media print {
-  .c0 {
-    display: none;
-  }
-}
-
-<div
-  className="c0"
->
-  <button
-    className="c1"
-    color="text"
-    onClick={[Function]}
-    title="go to: 0"
-  />
-  <button
-    className="c1"
-    color="text"
-    onClick={[Function]}
-    title="go to: 1"
-  />
-  <button
-    className="c1"
-    color="text"
-    onClick={[Function]}
-    title="go to: 2"
-  />
-  <button
-    className="c1"
-    color="text"
-    onClick={[Function]}
-    title="go to: 3"
-  />
-  <button
-    className="c2"
-    color="text"
-    onClick={[Function]}
-    title="go to: 4"
-  />
-  <button
-    className="c2"
-    color="text"
-    onClick={[Function]}
-    title="go to: 5"
-  />
-  <button
-    className="c2"
-    color="text"
-    onClick={[Function]}
-    title="go to: 6"
-  />
-  <button
-    className="c2"
-    color="text"
-    onClick={[Function]}
-    title="go to: 7"
-  />
-</div>
-`;
-
-exports[`components Root renders 1`] = `
-.c0 {
-  color: text;
-  background-color: background;
-}
-
-@media print {
-  .c0 {
-    font-size: 24px;
-    height: auto;
-  }
-}
-
-<div
-  className="c0"
-  color="text"
->
-  Hi
-</div>
-`;
-
-exports[`components Slide renders 1`] = `
-.c0 {
-  -webkit-flex: none;
-  -ms-flex: none;
-  flex: none;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -257,82 +19,14 @@ exports[`components Slide renders 1`] = `
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  overflow: hidden;
-  width: 100%;
-  height: 100%;
-  padding-left: 32px;
-  padding-right: 32px;
-}
-
-@media print {
-  .c0 {
-    width: 100vw;
-    height: 100vh;
-    page-break-after: always;
-    page-break-inside: avoid;
-    -webkit-print-color-adjust: exact;
-  }
-}
-
-@media screen and (min-width:40em) {
-  .c0 {
-    padding-left: 64px;
-    padding-right: 64px;
-  }
-}
-
-@media screen and (min-width:52em) {
-  .c0 {
-    padding-left: 128px;
-    padding-right: 128px;
-  }
-}
-
-<div
-  className="c0"
->
-  Hi
-</div>
-`;
-
-exports[`components SlideDeck renders 1`] = `
-Array [
-  .c1 {
-  overflow-x: hidden;
-  width: 100%;
-  height: 100%;
-}
-
-.c2 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
-  height: 100%;
-  -webkit-transition-property: -webkit-transform;
-  -webkit-transition-property: transform;
-  transition-property: transform;
-  -webkit-transition-timing-function: ease-out;
-  transition-timing-function: ease-out;
-  -webkit-transition-duration: .3s;
-  transition-duration: .3s;
-  -webkit-transform: translate3d(0%,0,0);
-  -ms-transform: translate3d(0%,0,0);
-  transform: translate3d(0%,0,0);
 }
 
 .c0 {
   font-family: system-ui,sans-serif;
-  font-size: 16px;
-  text-align: center;
-  width: 100vw;
-  height: 100vh;
   color: #000;
   background-color: white;
+  font-size: 1.5em;
+  text-align: center;
 }
 
 .c0 li > ul,
@@ -345,121 +39,53 @@ Array [
   margin: 0;
 }
 
-@media print {
-  .c1 {
-    height: auto;
-    overflow-x: visible;
-  }
+.c0 ul {
+  text-align: left;
 }
 
-@media print {
-  .c2 {
-    height: auto;
-    display: block;
-  }
-}
-
-@media print {
-  .c0 {
-    font-size: 24px;
-    height: auto;
-  }
+.c0 ol {
+  text-align: left;
 }
 
 @media screen and (min-width:64em) {
   .c0 {
-    font-size: 32px;
+    font-size: 3em;
   }
 }
 
 <div
-    onMouseDown={[Function]}
-    onTouchEnd={[Function]}
-    onTouchMove={[Function]}
-    onTouchStart={[Function]}
+  onTouchStart={[Function]}
+>
+  <div
+    className="c0"
   >
     <div
-      className="c0"
-      color="text"
-      height="100vh"
-      mode="NORMAL"
-      step={0}
-      width="100vw"
+      role="group"
+      style={
+        Object {
+          "outline": "none",
+        }
+      }
+      tabIndex="-1"
     >
       <div
         className="c1"
       >
         <div
-          className="c2"
-        />
+          role="group"
+          style={
+            Object {
+              "outline": "none",
+            }
+          }
+          tabIndex="-1"
+        >
+          <h1>
+            hi
+          </h1>
+        </div>
       </div>
     </div>
-  </div>,
-  .c1 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  margin-bottom: 8px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.c0 {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-}
-
-@media print {
-  .c1 {
-    display: none;
-  }
-}
-
-<div
-    className="c0"
-  >
-    <div
-      className="c1"
-    />
-  </div>,
-  .c0 {
-  cursor: pointer;
-  width: 64px;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-}
-
-<div
-    className="c0"
-    onClick={[Function]}
-    role="button"
-    title="Previous Slide"
-  />,
-  .c0 {
-  cursor: pointer;
-  width: 64px;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-}
-
-<div
-    className="c0"
-    onClick={[Function]}
-    role="button"
-    title="Next Slide"
-  />,
-]
+  </div>
+</div>
 `;

@@ -370,7 +370,7 @@ export class MDXDeck extends React.Component {
     const { headTags, theme, components } = this.props
     const { slides, mode } = this.state
     const index = this.getIndex()
-    const { meta = {} } = slides[index]
+    const meta = this.getMeta(index)
     const context = {
       ...this.state,
       register: this.register,

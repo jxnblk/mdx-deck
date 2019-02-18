@@ -64,6 +64,7 @@
   },
   "devDependencies": {
     "@rebass/grid": "^6.0.0-7",
+    "babel-jest": "^24.1.0",
     "husky": "^1.3.1",
     "jest": "^24.1.0",
     "jest-styled-components": "^6.3.1",
