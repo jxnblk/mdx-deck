@@ -33,17 +33,23 @@ Create an [MDX][] file and separate each slide with `---`.
 
 ````mdx
 # This is the title of my deck
+
 ---
+
 # About Me
+
 ---
+
 ```jsx
 <CodeSnippet />
 ```
+
 ---
+
 import Demo from './components/Demo'
 
-<Demo />
----
+## <Demo />
+
 # The end
 ````
 
@@ -71,14 +77,14 @@ npm start
 - [Build a Custom Provider Component for MDX-Deck](ks-egghead) by [Kyle Shevlin][]
 
 [egghead]: https://egghead.io/lessons/react-build-a-slide-deck-with-mdx-deck-using-markdown-react
-[Kent C. Dodds]: https://mobile.twitter.com/kentcdodds
+[kent c. dodds]: https://mobile.twitter.com/kentcdodds
 [kcd-video]: http://youtu.be/d2sQiI5NFAM?a
 [kcd-medium]: https://blog.kentcdodds.com/mdx-deck-slide-decks-powered-by-markdown-and-react-bfc6d6af20da
 [hw-video]: https://www.youtube.com/watch?v=LvP2EqCiQMg&feature=youtu.be
 [hw-demo]: https://github.com/hswolff/mdx-deck-demo
-[Harry Wolff]: https://mobile.twitter.com/hswolff
+[harry wolff]: https://mobile.twitter.com/hswolff
 [ks-egghead]: https://egghead.io/lessons/javascript-build-a-custom-provider-component-for-mdx-deck
-[Kyle Shevlin]: https://twitter.com/kyleshevlin
+[kyle shevlin]: https://twitter.com/kyleshevlin
 
 ## Quick Start
 
@@ -99,12 +105,10 @@ To import components, use ES import syntax separated with empty lines from any m
 ```mdx
 import { Box } from 'grid-styled'
 
-<Box color='tomato'>
-  Hello
-</Box>
+<Box color="tomato">Hello</Box>
 ```
 
-Read more about MDX syntax in the [MDX Docs][MDX].
+Read more about MDX syntax in the [MDX Docs][mdx].
 
 ## Theming
 
@@ -157,7 +161,7 @@ export default {
     text: '#f0f',
     background: 'black',
     link: '#0ff',
-  }
+  },
 }
 ```
 
@@ -195,7 +199,7 @@ export default ({ children }) => (
     style={{
       width: '100vw',
       height: '100vw',
-      backgroundColor: 'tomato'
+      backgroundColor: 'tomato',
     }}>
     {children}
   </div>
@@ -208,6 +212,7 @@ import Layout from './Layout'
 # No Layout
 
 ---
+
 export default Layout
 
 # Custom Layout
@@ -229,7 +234,7 @@ mdx-deck includes a built-in presenter mode, with a preview of the next slide an
 To use presenter mode:
 
 - Open two windows in the same browser, with the same URL on two different screens. (this should work in both development and exported presentations)
-- In your window, press the `Option/Alt + P` keys to enter presenter mode.
+- In your window, press the `Option/Alt + P` keys (or add `?mode=presenter` to the URL) to enter presenter mode.
 - Display the other window on the screen for the audience to see.
 - Control the presentation from your window by using the left and right arrow keys; the other window should stay in sync
 
@@ -255,32 +260,30 @@ import { Notes } from 'mdx-deck'
 
 # Slide Content
 
-<Notes>
-  Only visible in presenter mode
-</Notes>
+<Notes>Only visible in presenter mode</Notes>
 ```
 
 ## Overview Mode
 
 ![Overview Mode](docs/images/overview-mode.png)
 
-When editing a slide deck, toggle overview mode with `Option + O`.
+When editing a slide deck, toggle overview mode with `Option + O` or add `?mode=overview` to the URL.
 This shows a list of all slides on the left and a preview of the current slide on the right.
 
 ## Keyboard Shortcuts
 
-Key         | Description
------------ | -----------
-Left Arrow  | Go to previous slide (or step in [Appear][])
-Right Arrow | Go to next slide (or step in [Appear][])
-Space       | Go to next slide (or step in [Appear][])
-Up Arrow    | Hide current step in [Appear][] component without navigating slides
-Down Arrow  | Show next step in [Appear][] component without navigating slides
-Option + P  | Toggle [Presenter Mode](#presenter-mode)
-Option + O  | Toggle [Overview Mode](#overview-mode)
-Option + G  | Toggle grid view mode
+| Key         | Description                                                         |
+| ----------- | ------------------------------------------------------------------- |
+| Left Arrow  | Go to previous slide (or step in [Appear][])                        |
+| Right Arrow | Go to next slide (or step in [Appear][])                            |
+| Space       | Go to next slide (or step in [Appear][])                            |
+| Up Arrow    | Hide current step in [Appear][] component without navigating slides |
+| Down Arrow  | Show next step in [Appear][] component without navigating slides    |
+| Option + P  | Toggle [Presenter Mode](#presenter-mode)                            |
+| Option + O  | Toggle [Overview Mode](#overview-mode)                              |
+| Option + G  | Toggle grid view mode                                               |
 
-[Appear]: docs/components.md#appear
+[appear]: docs/components.md#appear
 
 ## Exporting
 
@@ -298,6 +301,7 @@ See more exporting options in the [Exporting Documentation](docs/exporting.md)
 
 ```
 -p --port     Dev server port
+--hot-port    Dev server hot reload port
 -h --host     Host the dev server listens to
 --no-open     Prevent from opening in default browser
 -d --out-dir  Output directory for exporting
@@ -340,12 +344,12 @@ See more exporting options in the [Exporting Documentation](docs/exporting.md)
 
 [MIT License](LICENSE.md)
 
-[MDX]: https://github.com/mdx-js/mdx
+[mdx]: https://github.com/mdx-js/mdx
 [ok-mdx]: https://github.com/jxnblk/ok-mdx
-[Compositor x0]: https://github.com/c8r/x0
+[compositor x0]: https://github.com/c8r/x0
 [styled-system]: https://github.com/jxnblk/styled-system
 [styled-components]: https://github.com/styled-components/styled-components
-[Spectacle]: https://github.com/FormidableLabs/spectacle
+[spectacle]: https://github.com/FormidableLabs/spectacle
 [mdx-go]: https://github.com/jxnblk/mdx-go
 
 <!-- examples -->

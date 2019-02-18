@@ -13,6 +13,16 @@
 - Removed `notes` language attribute for fenced code blocks
 - Refactored dev server
 
+## v1.9.0 2019-02-18
+
+- Fix for font size in nested lists #204
+- Add `--hot-port` option to CLI #206
+- Add support for `.jsx` file extensions #239
+- Fix typos in syntax highlighting component #250
+- Add context to grid view #187
+- Add `--no-sandbox` option to CLI #200
+- Surface compilation errors from webpack #252
+
 ## v1.8.2 2018-12-04
 
 - Bugfix for window check

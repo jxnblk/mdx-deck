@@ -16,6 +16,13 @@ export default {
     '@media screen and (min-width:64em)': {
       fontSize: '3em',
     },
+    'li > ul, li > ol': {
+      fontSize: 'inherit',
+    },
+    'li > p': {
+      fontSize: 'inherit',
+      margin: 0,
+    },
   },
   ol: {
     textAlign: 'left',

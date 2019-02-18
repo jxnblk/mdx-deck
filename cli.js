@@ -29,6 +29,7 @@ const cli = meow(
 
       -h --host     Dev server host
       -p --port     Dev server port
+      --hot-port    Dev server hot reload port
       --no-open     Prevent from opening in default browser
 
     ${chalk.gray('Build options')}

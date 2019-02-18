@@ -8,7 +8,7 @@ class Timer extends React.Component {
   state = {
     on: false,
     time: new Date().toLocaleTimeString(),
-    seconds: 0
+    seconds: 0,
   }
 
   toggle = () => {
@@ -23,7 +23,7 @@ class Timer extends React.Component {
     const now = new Date()
     this.setState(state => ({
       time: now.toLocaleTimeString(),
-      seconds: state.on ? state.seconds + 1 : state.seconds
+      seconds: state.on ? state.seconds + 1 : state.seconds,
     }))
   }
 
@@ -42,12 +42,11 @@ class Timer extends React.Component {
 
     return (
       <Flex css={{ alignItems: 'center' }}>
-        {!on &&
-          seconds > 0 && (
-            <Button mr={1} onClick={this.reset}>
-              reset
-            </Button>
-          )}
+        {!on && seconds > 0 && (
+          <Button mr={1} onClick={this.reset}>
+            reset
+          </Button>
+        )}
         <Button bg={on ? '#600' : '#060'} onClick={this.toggle}>
           {on ? 'stop' : 'start'}
         </Button>
