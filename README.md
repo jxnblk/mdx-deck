@@ -68,6 +68,7 @@ npm start
 - [mdx-deck: slide decks powered by markdown and react][kcd-medium] by [Kent C. Dodds][]
 - [Make Fast & Beautiful Presentations with MDX-Deck][hw-video] by [Harry Wolff][] ([Demo][hw-demo])
 - [What is MDX][kcd-video] by [Kent C. Dodds][]
+- [Build a Custom Provider Component for MDX-Deck](ks-egghead) by [Kyle Shevlin][]
 
 [egghead]: https://egghead.io/lessons/react-build-a-slide-deck-with-mdx-deck-using-markdown-react
 [Kent C. Dodds]: https://mobile.twitter.com/kentcdodds
@@ -76,6 +77,8 @@ npm start
 [hw-video]: https://www.youtube.com/watch?v=LvP2EqCiQMg&feature=youtu.be
 [hw-demo]: https://github.com/hswolff/mdx-deck-demo
 [Harry Wolff]: https://mobile.twitter.com/hswolff
+[ks-egghead]: https://egghead.io/lessons/javascript-build-a-custom-provider-component-for-mdx-deck
+[Kyle Shevlin]: https://twitter.com/kyleshevlin
 
 ## Quick Start
 
@@ -171,8 +174,12 @@ Read more in the [components docs](docs/components.md).
 These third-party libraries are great for use with mdx-deck.
 
 - [CodeSurfer][]: React component for scrolling, zooming and highlighting code.
+- [mdx-code][]: Runnable code playgrounds for MDX Deck.
+- [mdx-deck-live-code][]: Live React and JS coding in slides.
 
 [codesurfer]: https://github.com/pomber/code-surfer
+[mdx-code]: https://github.com/pranaygp/mdx-code
+[mdx-deck-live-code]: https://github.com/JReinhold/mdx-deck-live-code
 
 ### Layouts
 
@@ -222,7 +229,7 @@ mdx-deck includes a built-in presenter mode, with a preview of the next slide an
 To use presenter mode:
 
 - Open two windows in the same browser, with the same URL on two different screens. (this should work in both development and exported presentations)
-- In your window press the `Option + P` (`Alt + P`) key to enter presenter mode.
+- In your window, press the `Option/Alt + P` keys to enter presenter mode.
 - Display the other window on the screen for the audience to see.
 - Control the presentation from your window by using the left and right arrow keys; the other window should stay in sync
 
@@ -291,6 +298,8 @@ See more exporting options in the [Exporting Documentation](docs/exporting.md)
 
 ```
 -p --port     Dev server port
+--hot-port    Dev server hot reload port
+-h --host     Host the dev server listens to
 --no-open     Prevent from opening in default browser
 -d --out-dir  Output directory for exporting
 --no-html     Disable static HTML rendering

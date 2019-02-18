@@ -3,6 +3,54 @@
 
 ## Unreleased
 
+- Fix for font size in nested lists #204
+- Add `--hot-port` option to CLI #206
+- Add support for `.jsx` file extensions #239
+- Fix typos in syntax highlighting component #250
+
+## v1.8.2 2018-12-04
+
+- Bugfix for window check
+
+## v1.8.1 2018-11-27
+
+- Show Appear children in PDF export
+
+## v1.8.0 2018-11-27
+
+- Adds button to open new window for presenting in presenter mode
+
+## v1.7.14 2018-11-18
+
+- Fix typo in SlideDeck
+
+## v1.7.13 2018-11-18
+
+- Add overflow auto to FullScreenCode
+
+## v1.7.12 2018-11-18
+
+- Keep styles intact for Appear children
+- Fix prop types for Appear component
+- Add missing CLI option to docs
+
+## v1.7.11 2018-11-18
+
+- Update remark-unwrap-images
+
+## v1.7.10 2018-11-12
+
+- Update dependencies
+
+## v1.7.9 2018-11-12
+
+- Update dependencies
+
+## v1.7.8 2018-11-12
+
+- Fix typo in Root prop types
+- Edit docs
+
 ## v1.7.7 2018-09-22
 
 - Remove overflow hidden styles from body

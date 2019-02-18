@@ -1,19 +1,20 @@
 import styled from 'styled-components'
-import {
-  width,
-  height,
-  color
-} from 'styled-system'
+import { width, height, color } from 'styled-system'
 
-export const Root = styled.div([], {
-  '@media print': {
-    fontSize: '24px',
-    height: 'auto'
+export const Root = styled.div(
+  [],
+  {
+    '@media print': {
+      fontSize: '24px',
+      height: 'auto',
+    },
   },
-},
-  props => props.theme.font ? ({
-    fontFamily: props.theme.font
-  }) : null,
+  props =>
+    props.theme.font
+      ? {
+          fontFamily: props.theme.font,
+        }
+      : null,
   props => props.theme.css,
   width,
   height,
@@ -23,12 +24,12 @@ export const Root = styled.div([], {
 Root.propTypes = {
   ...width.propTypes,
   ...height.propTypes,
-  ...color.propTypess
+  ...color.propTypes,
 }
 
 Root.defaultProps = {
   color: 'text',
-  bg: 'background'
+  bg: 'background',
 }
 
 export default Root
