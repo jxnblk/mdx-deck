@@ -6,29 +6,27 @@ import Zoom from './Zoom'
 import Root from './Root'
 import { modes } from './constants'
 
-export default ({
-  slides = [],
-  update
-}) => (
-  <Box bg='black' css={{ minHeight: '100vh' }}>
+export default ({ slides = [], update, ...props }) => (
+  <Box bg="black" css={{ minHeight: '100vh' }}>
     <Flex
       css={{
         justifyContent: 'flex-start',
-        flexWrap: 'wrap'
+        flexWrap: 'wrap',
       }}>
       {slides.map((Component, i) => (
         <Box key={i} css={{ cursor: 'pointer' }}>
-          <div role='link'
+          <div
+            role="link"
             href={'#' + i}
             onClick={e => {
               update({
                 index: i,
-                mode: modes.normal
+                mode: modes.normal,
               })
             }}>
-            <Zoom zoom={1/4}>
-              <Root width='100vw' height='100vh'>
-                <Slide index={i}>
+            <Zoom zoom={1 / 4}>
+              <Root width="100vw" height="100vh">
+                <Slide index={i} {...props} update={update} slides={slides}>
                   <Component />
                 </Slide>
               </Root>

@@ -175,9 +175,11 @@ These third-party libraries are great for use with mdx-deck.
 
 - [CodeSurfer][]: React component for scrolling, zooming and highlighting code.
 - [mdx-code][]: Runnable code playgrounds for MDX Deck.
+- [mdx-deck-live-code][]: Live React and JS coding in slides.
 
 [codesurfer]: https://github.com/pomber/code-surfer
 [mdx-code]: https://github.com/pranaygp/mdx-code
+[mdx-deck-live-code]: https://github.com/JReinhold/mdx-deck-live-code
 
 ### Layouts
 
@@ -296,6 +298,7 @@ See more exporting options in the [Exporting Documentation](docs/exporting.md)
 
 ```
 -p --port     Dev server port
+--hot-port    Dev server hot reload port
 -h --host     Host the dev server listens to
 --no-open     Prevent from opening in default browser
 -d --out-dir  Output directory for exporting
