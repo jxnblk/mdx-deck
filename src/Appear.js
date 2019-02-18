@@ -6,7 +6,7 @@ import { modes } from './constants'
 
 export default withDeck(class Appear extends React.Component {
   static propTypes = {
-    children: PropTypes.array.isRequired,
+    children: PropTypes.node.isRequired,
     deck: PropTypes.object.isRequired
   }
 
@@ -29,12 +29,17 @@ export default withDeck(class Appear extends React.Component {
       return children
     }
 
+    if (typeof window !== 'undefined' && window.navigator.userAgent.includes('Print/PDF')) {
+      return children;
+    }
+
     return (
       <React.Fragment>
         {children.map((child, i) => (
           React.cloneElement(child, {
             key: i,
             style: {
+              ...((child.props || {}).style || {}),
               visibility: (step >= i + 1) ? 'visible' : 'hidden'
             }
           })
