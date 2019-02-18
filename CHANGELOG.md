@@ -5,7 +5,8 @@
 
 - Fix for font size in nested lists #204
 - Add `--hot-port` option to CLI #206
-- Add support for `.jsx` file extensions
+- Add support for `.jsx` file extensions #239
+- Fix typos in syntax highlighting component #250
 
 ## v1.8.2 2018-12-04
 
