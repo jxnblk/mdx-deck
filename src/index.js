@@ -170,23 +170,30 @@ const Presenter = props => {
       }}>
       <div
         style={{
+          marginTop: 'auto',
           marginBottom: 'auto',
           display: 'flex',
         }}>
-        <div>
-          <Zoom zoom={5 / 8}>
-            <RootStyles children={props.children} />
-          </Zoom>
+        <div
+          style={{
+            width: 500 / 8 + '%',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+          }}>
+          <Zoom zoom={5 / 8}>{props.children}</Zoom>
         </div>
-        <div>
+        <div
+          style={{
+            width: 100 / 4 + '%',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+          }}>
           <Zoom zoom={1 / 4}>
-            <RootStyles>
-              {Next && (
-                <Slide register={noop}>
-                  <Next />
-                </Slide>
-              )}
-            </RootStyles>
+            {Next && (
+              <Slide register={noop}>
+                <Next />
+              </Slide>
+            )}
           </Zoom>
           {notes}
         </div>
@@ -194,8 +201,10 @@ const Presenter = props => {
       <div
         style={{
           color: 'white',
+          padding: 16,
+          fontSize: 20,
         }}>
-        <pre>
+        <pre style={{ fontFamily: 'Menlo, monospace' }}>
           {index + 1} of {slides.length}
         </pre>
       </div>
