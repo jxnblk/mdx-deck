@@ -19,8 +19,8 @@ export default withDeck(
     }
 
     render() {
-      const children = React.Children.toArray(this.props.children).map(
-        child => (typeof child === 'string' ? <div>{child}</div> : child)
+      const children = React.Children.toArray(this.props.children).map(child =>
+        typeof child === 'string' ? <div>{child}</div> : child
       )
       const { step, mode } = this.props.deck
 
