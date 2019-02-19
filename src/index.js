@@ -28,7 +28,7 @@
 import React from 'react'
 import { createPortal } from 'react-dom'
 import PropTypes from 'prop-types'
-import { Router, globalHistory, navigate } from '@reach/router'
+import { Router, globalHistory, navigate, Link } from '@reach/router'
 import styled, { ThemeProvider, withTheme } from 'styled-components'
 import { MDXProvider } from '@mdx-js/tag'
 import { Swipeable } from 'react-swipeable'
@@ -218,12 +218,49 @@ const Overview = props => {
   return (
     <div
       style={{
+        display: 'flex',
+        alignItems: 'flex-start',
+        height: '100vh',
         backgroundColor: 'black',
       }}>
-      <pre>
-        OVERVIEW {index + 1} of {slides.length}
-      </pre>
-      {props.children}
+      <div
+        style={{
+          flex: 'none',
+          height: '100vh',
+          paddingLeft: 4,
+          paddingRight: 4,
+          overflowY: 'auto',
+          marginRight: 'auto',
+        }}>
+        {slides.map((Component, i) => (
+          <Link
+            key={i}
+            to={'/' + i}
+            style={{
+              display: 'block',
+              color: 'inherit',
+              textDecoration: 'none',
+              padding: 0,
+              marginTop: 4,
+              marginBottom: 4,
+              cursor: 'pointer',
+              outline: i === index ? '4px solid #0cf' : null,
+            }}>
+            <Zoom zoom={1 / 6}>
+              <Slide register={noop}>
+                <Component />
+              </Slide>
+            </Zoom>
+          </Link>
+        ))}
+      </div>
+      <div
+        style={{
+          width: 200 / 3 + '%',
+          margin: 'auto',
+        }}>
+        <Zoom zoom={2 / 3}>{props.children}</Zoom>
+      </div>
     </div>
   )
 }
