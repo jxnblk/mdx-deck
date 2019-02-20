@@ -49,6 +49,26 @@ which can be used to show custom page numbers or add other elements to the UI.
 - `notes`: (object) custom [speaker notes](#speaker-notes) for all slides
 - `step`: (number) the current visible step in an Appear component
 
+## withSlide
+When including custom React components in a presentation, it can be useful to read the current active state of a slide. For these cases, a higher-order component is available to allow your components to hook into the global mdx-deck state.
+
+`withSlide` injects the current state of the slide on which the current React Component has been rendered, into the props of your custom component.
+
+```jsx
+import React from 'react'
+import { withSlide } from 'mdx-deck'
+
+class CustomComponent extends React.Component{
+  render(){
+    const { slide } = this.props;
+    return (
+      <div>The current slide is: {slide.active ? 'active' : 'inactive'}</div>
+    )
+  }
+}
+
+export default withSlide(CustomComponent)
+```
 
 ## Combining multiple mdx files
 
