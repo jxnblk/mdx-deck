@@ -7,7 +7,8 @@
     "mdx-deck": "./cli.js"
   },
   "scripts": {
-    "start": "./cli.js docs/index.mdx -p 8080",
+    "_start": "./cli.js docs/index.mdx -p 8080",
+    "start": "./cli.js docs/test.mdx -p 8080",
     "build": "./cli.js build docs/index.mdx -d site",
     "help": "./cli.js",
     "test": "jest"
@@ -17,12 +18,12 @@
   "license": "MIT",
   "repository": "github:jxnblk/mdx-deck",
   "dependencies": {
-    "@babel/core": "^7.2.2",
-    "@babel/plugin-proposal-class-properties": "^7.3.0",
+    "@babel/core": "^7.3.4",
+    "@babel/plugin-proposal-class-properties": "^7.3.4",
     "@babel/plugin-proposal-export-default-from": "^7.0.0",
     "@babel/plugin-proposal-export-namespace-from": "^7.2.0",
     "@babel/plugin-syntax-dynamic-import": "^7.0.0",
-    "@babel/preset-env": "^7.3.1",
+    "@babel/preset-env": "^7.3.4",
     "@babel/preset-react": "^7.0.0",
     "@mdx-js/mdx": "^0.15.7",
     "@mdx-js/tag": "^0.15.6",
@@ -44,17 +45,17 @@
     "pkg-conf": "^2.1.0",
     "prop-types": "^15.7.2",
     "querystring": "^0.2.0",
-    "react": "^16.8.2",
+    "react": "^16.8.3",
     "react-dev-utils": "^7.0.3",
-    "react-dom": "^16.8.2",
+    "react-dom": "^16.8.3",
     "react-swipeable": "^5.0.1",
     "remark-emoji": "^2.0.2",
     "remark-unwrap-images": "^0.1.0",
     "rimraf": "^2.6.3",
     "serve-static": "^1.13.2",
     "styled-components": "^4.1.3",
-    "webpack": "^4.29.4",
-    "webpack-dev-middleware": "^3.5.2",
+    "webpack": "^4.29.6",
+    "webpack-dev-middleware": "^3.6.0",
     "webpack-hot-client": "^4.1.1",
     "webpack-hot-middleware": "^2.24.3",
     "webpack-merge": "^4.2.1",
@@ -68,10 +69,10 @@
     "husky": "^1.3.1",
     "jest": "^24.1.0",
     "jest-styled-components": "^6.3.1",
-    "lint-staged": "^8.1.4",
+    "lint-staged": "^8.1.5",
     "mdx-deck-code-surfer": "^0.5.5",
     "prettier": "^1.16.4",
-    "react-test-renderer": "^16.8.2"
+    "react-test-renderer": "^16.8.3"
   },
   "jest": {
     "roots": [

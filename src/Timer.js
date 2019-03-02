@@ -4,6 +4,7 @@ import Flex from './Flex'
 import Box from './Box'
 import Mono from './Mono'
 import Button from './Button'
+
 class Timer extends React.Component {
   state = {
     on: false,

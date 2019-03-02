@@ -5,7 +5,7 @@
 - Simplified custom mdx loader, removing unused front-matter support
 - Simplified theming and default styles
 - Removes default Provider component with dot indicator
-- Removes timers from presentation mode
+- Removes timers from presentation mode (maybe)
 - Uses Reach Router
   - Fix for focus trap
 - Removed PDF export and screenshots from core CLI
