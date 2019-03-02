@@ -17,9 +17,9 @@ export default {
   heading: {
     textTransform: 'uppercase',
     letterSpacing: '0.1em',
-    fontWeight: 600
+    fontWeight: 600,
   },
   quote: {
-    fontWeight: 600
-  }
+    fontWeight: 600,
+  },
 }

@@ -22,36 +22,39 @@ export const Overview = ({
 
   return (
     <Flex
-      color='white'
-      bg='black'
+      color="white"
+      bg="black"
       css={{
         alignItems: 'flex-start',
-        height: '100vh'
-      }}>
+        height: '100vh',
+      }}
+    >
       <Box
-        mr='auto'
+        mr="auto"
         px={2}
         py={3}
         css={{
           flex: 'none',
           height: '100vh',
-          overflowY: 'auto'
-        }}>
+          overflowY: 'auto',
+        }}
+      >
         {slides.map((Component, i) => (
           <Box
             key={i}
-            role='link'
+            role="link"
             p={1}
             style={{
-              outline: i === index ? '1px solid #07c' : null
+              outline: i === index ? '1px solid #07c' : null,
             }}
             css={{
-              cursor: 'pointer'
+              cursor: 'pointer',
             }}
             onClick={e => {
               update({ index: i })
-            }}>
-            <Zoom zoom={1/6}>
+            }}
+          >
+            <Zoom zoom={1 / 6}>
               <Root {...props}>
                 <Slide>
                   <Component />
@@ -61,20 +64,16 @@ export const Overview = ({
           </Box>
         ))}
       </Box>
-      <Box mx='auto' py={4} width={2/3}>
-        <Zoom zoom={2/3}>
-          <Root {...props}>
-            {props.children}
-          </Root>
+      <Box mx="auto" py={4} width={2 / 3}>
+        <Zoom zoom={2 / 3}>
+          <Root {...props}>{props.children}</Root>
         </Zoom>
         <Flex>
-          <Box ml='auto' py={2}>
+          <Box ml="auto" py={2}>
             {index + 1}/{length}
           </Box>
         </Flex>
-        <Box mt={3}>
-          {notes}
-        </Box>
+        <Box mt={3}>{notes}</Box>
       </Box>
     </Flex>
   )
@@ -87,7 +86,7 @@ Overview.propTypes = {
   step: PropTypes.number.isRequired,
   slides: PropTypes.array,
   mode: PropTypes.string,
-  notes: PropTypes.object
+  notes: PropTypes.object,
 }
 
 export default Overview

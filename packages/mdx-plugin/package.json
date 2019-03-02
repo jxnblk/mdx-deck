@@ -1,0 +1,21 @@
+{
+  "name": "mdx-plugin-split",
+  "version": "0.0.2",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "nyc ava"
+  },
+  "keywords": [],
+  "author": "Brent Jackson <jxnblk@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@mdx-js/mdx": "^0.20.0",
+    "ava": "^1.2.1",
+    "nyc": "^13.3.0"
+  },
+  "dependencies": {
+    "unist-util-is": "^2.1.2",
+    "unist-util-visit": "^1.4.0"
+  }
+}

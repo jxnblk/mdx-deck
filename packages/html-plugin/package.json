@@ -1,0 +1,7 @@
+{
+  "name": "@mdx-deck/webpack-html-plugin",
+  "version": "2.0.0-0",
+  "author": "Brent Jackson <jxnblk@gmail.com>",
+  "license": "MIT",
+  "repository": "github:jxnblk/mdx-deck"
+}

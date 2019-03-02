@@ -16,14 +16,11 @@ const Split = ({ children }) => {
       <Flex
         css={{
           alignItems: 'center',
-          height: '100%'
-        }}>
-        <Box width={1 / 2}>
-          {a}
-        </Box>
-        <Box width={1 / 2}>
-          {rest}
-        </Box>
+          height: '100%',
+        }}
+      >
+        <Box width={1 / 2}>{a}</Box>
+        <Box width={1 / 2}>{rest}</Box>
       </Flex>
     </Root>
   )

@@ -32,14 +32,16 @@ export const Presenter = ({
       css={{
         flexDirection: 'column',
         height: '100vh',
-      }}>
+      }}
+    >
       <Flex my="auto">
         <Box
           mx="auto"
           width={5 / 8}
           css={{
             border: '1px solid rgba(128, 128, 128, 0.25)',
-          }}>
+          }}
+        >
           <Zoom zoom={5 / 8}>
             <Root {...props}>{props.children}</Root>
           </Zoom>
@@ -50,12 +52,14 @@ export const Presenter = ({
           css={{
             flex: 'none',
             flexDirection: 'column',
-          }}>
+          }}
+        >
           <Box
             mx="auto"
             css={{
               border: '1px solid rgba(128, 128, 128, 0.25)',
-            }}>
+            }}
+          >
             <Zoom zoom={1 / 4}>
               <Root {...props}>
                 {Next && (
@@ -70,7 +74,8 @@ export const Presenter = ({
             py={3}
             css={{
               flex: 'auto',
-            }}>
+            }}
+          >
             {notes}
           </Box>
         </Flex>
@@ -83,7 +88,8 @@ export const Presenter = ({
         <Anchor
           target="_blank"
           rel="noopener noreferrer"
-          href={`${window.location.origin}/${window.location.hash}`}>
+          href={`${window.location.origin}/${window.location.hash}`}
+        >
           Open in Normal mode
         </Anchor>
         <Box mx="auto" />

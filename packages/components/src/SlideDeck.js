@@ -233,20 +233,23 @@ export class SlideDeck extends React.Component {
             components={{
               ...defaultComponents,
               ...components,
-            }}>
+            }}
+          >
             <Provider {...this.state} update={this.update}>
               {mode === modes.grid ? (
                 <Grid {...context} slides={slides} update={this.update} />
               ) : (
                 <Swipeable
                   onSwipedLeft={() => this.update(next)}
-                  onSwipedRight={() => this.update(previous)}>
+                  onSwipedRight={() => this.update(previous)}
+                >
                   <Wrapper
                     {...this.state}
                     slides={slides}
                     width={width}
                     height={height}
-                    update={this.update}>
+                    update={this.update}
+                  >
                     <GoogleFonts />
                     <Carousel index={index}>
                       {slides.map((Component, i) => (
@@ -257,7 +260,8 @@ export class SlideDeck extends React.Component {
                           index={i}
                           className="Slide"
                           active={i === index}
-                          metadata={metadata[i]}>
+                          metadata={metadata[i]}
+                        >
                           <Component />
                         </Slide>
                       ))}

@@ -15,28 +15,31 @@ log.error = (...args) => {
 
 const template = 'jxnblk/mdx-deck/templates/basic'
 
-const cli = meow(`
+const cli = meow(
+  `
   Usage
 
     $ npm init deck my-presentation
 
     $ npx create-deck my-presentation
 
-`, {
-  booleanDefault: undefined,
-  flags: {
-    help: {
-      type: 'boolean',
-      alias: 'h'
+`,
+  {
+    booleanDefault: undefined,
+    flags: {
+      help: {
+        type: 'boolean',
+        alias: 'h',
+      },
+      version: {
+        type: 'boolean',
+        alias: 'v',
+      },
     },
-    version: {
-      type: 'boolean',
-      alias: 'v'
-    }
   }
-})
+)
 
-const [ name ] = cli.input
+const [name] = cli.input
 
 if (!name) {
   cli.showHelp(0)

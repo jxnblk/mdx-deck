@@ -1,4 +1,3 @@
-
 # npm init deck
 
 Create mdx-deck presentations

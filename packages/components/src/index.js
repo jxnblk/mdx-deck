@@ -172,19 +172,22 @@ const Presenter = props => {
         display: 'flex',
         flexDirection: 'column',
         height: '100vh',
-      }}>
+      }}
+    >
       <div
         style={{
           marginTop: 'auto',
           marginBottom: 'auto',
           display: 'flex',
-        }}>
+        }}
+      >
         <div
           style={{
             width: 500 / 8 + '%',
             marginLeft: 'auto',
             marginRight: 'auto',
-          }}>
+          }}
+        >
           <Zoom zoom={5 / 8}>{props.children}</Zoom>
         </div>
         <div
@@ -192,7 +195,8 @@ const Presenter = props => {
             width: 100 / 4 + '%',
             marginLeft: 'auto',
             marginRight: 'auto',
-          }}>
+          }}
+        >
           <Zoom zoom={1 / 4}>
             {Next && (
               <Slide register={noop}>
@@ -208,7 +212,8 @@ const Presenter = props => {
           color: 'white',
           padding: 16,
           fontSize: 20,
-        }}>
+        }}
+      >
         <pre style={{ fontFamily: 'Menlo, monospace' }}>
           {index + 1} of {slides.length}
         </pre>
@@ -227,7 +232,8 @@ const Overview = props => {
         alignItems: 'flex-start',
         height: '100vh',
         backgroundColor: 'black',
-      }}>
+      }}
+    >
       <div
         style={{
           flex: 'none',
@@ -236,7 +242,8 @@ const Overview = props => {
           paddingRight: 4,
           overflowY: 'auto',
           marginRight: 'auto',
-        }}>
+        }}
+      >
         {slides.map((Component, i) => (
           <Link
             key={i}
@@ -250,7 +257,8 @@ const Overview = props => {
               marginBottom: 4,
               cursor: 'pointer',
               outline: i === index ? '4px solid #0cf' : null,
-            }}>
+            }}
+          >
             <Zoom zoom={1 / 6}>
               <Slide register={noop}>
                 <Component />
@@ -263,7 +271,8 @@ const Overview = props => {
         style={{
           width: 200 / 3 + '%',
           margin: 'auto',
-        }}>
+        }}
+      >
         <Zoom zoom={2 / 3}>{props.children}</Zoom>
       </div>
     </div>
@@ -456,7 +465,8 @@ export class MDXDeck extends React.Component {
               <Wrapper {...this.state} index={index}>
                 <Swipeable
                   onSwipedRight={this.previous}
-                  onSwipedLeft={this.next}>
+                  onSwipedLeft={this.next}
+                >
                   <RootStyles>
                     <GoogleFonts />
                     <Router>
