@@ -71,6 +71,24 @@ const codeExample = require('./code-example')
 
 ---
 
+export default props =>
+  <div
+    style={{
+      width: '100vw',
+      height: '100vh',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
+      backgroundColor: 'tomato'
+    }}>
+    {props.children}
+  </div>
+
+## With a (tomato) layout
+
+---
+
 ## Last Slide
 
 

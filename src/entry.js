@@ -3,8 +3,10 @@ import { render } from 'react-dom'
 import { MDXDeck } from './index'
 
 const mod = require(FILENAME)
-const slides = mod.default
+const { slides } = mod
 const { theme, components, Provider } = mod
+
+console.log(slides)
 
 export default class App extends React.Component {
   render() {
