@@ -1,6 +1,6 @@
 {
-  "name": "mdx-plugin-split",
-  "version": "0.0.2",
+  "name": "@mdx-deck/mdx-plugin",
+  "version": "2.0.0-0",
   "description": "",
   "main": "index.js",
   "scripts": {

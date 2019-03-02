@@ -5362,6 +5362,14 @@ mdx-deck-code-surfer@^0.5.5:
     code-surfer "^0.5.5"
     memoize-one "^4.0.2"
 
+mdx-plugin-split@0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/mdx-plugin-split/-/mdx-plugin-split-0.0.2.tgz#608d90f12108593badfc54ce24533ef82fd41d47"
+  integrity sha512-Kl8H0CVO4QPJ1AZ+Weaf7uHMB+px4uffZ2h3tl7ItcvU4VJkASRjeFYJN5GtQbmM8RpXTgxyp+xfaQqHOClNXQ==
+  dependencies:
+    unist-util-is "^2.1.2"
+    unist-util-visit "^1.4.0"
+
 mem@^4.0.0:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/mem/-/mem-4.1.0.tgz#aeb9be2d21f47e78af29e4ac5978e8afa2ca5b8a"

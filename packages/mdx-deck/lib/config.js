@@ -9,7 +9,7 @@ const remark = {
   emoji: require('remark-emoji'),
   unwrapImages: require('remark-unwrap-images'),
 }
-const HTMLPlugin = require('./html-plugin')
+const HTMLPlugin = require('@mdx-deck/webpack-html-plugin')
 const babel = require('../babel.config')
 
 const rules = [
@@ -35,7 +35,7 @@ const rules = [
         options: babel,
       },
       {
-        loader: require.resolve('./loader.js'),
+        loader: require.resolve('@mdx-deck/loader'),
         options: {
           mdPlugins: [remark.emoji, remark.unwrapImages],
         },
@@ -80,7 +80,7 @@ const createConfig = (opts = {}) => {
     path.join(opts.dirname, 'node_modules')
   )
 
-  config.entry = [path.join(__dirname, '../src/entry.js')]
+  config.entry = [path.join(__dirname, './entry.js')]
 
   const defs = Object.assign({}, opts.globals, {
     OPTIONS: JSON.stringify(opts),

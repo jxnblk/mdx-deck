@@ -2,13 +2,12 @@
   "name": "mdx-deck",
   "version": "1.10.0",
   "description": "MDX-based presentation decks",
-  "main": "src/index.js",
   "bin": {
     "mdx-deck": "./cli.js"
   },
   "scripts": {
-    "start": "./cli.js docs/index.mdx -p 8080",
-    "build": "./cli.js build docs/index.mdx -d site",
+    "start": "./cli.js demo.mdx -p 8080",
+    "build": "./cli.js build demo.mdx -d public",
     "help": "./cli.js",
     "test": "jest"
   },
@@ -24,6 +23,9 @@
     "@babel/plugin-syntax-dynamic-import": "^7.0.0",
     "@babel/preset-env": "^7.3.4",
     "@babel/preset-react": "^7.0.0",
+    "@mdx-deck/components": "^2.0.0-0",
+    "@mdx-deck/loader": "^2.0.0-0",
+    "@mdx-deck/webpack-html-plugin": "^2.0.0-0",
     "@mdx-js/mdx": "^0.20.0",
     "@mdx-js/tag": "^0.18.0",
     "@reach/router": "^1.2.1",
@@ -60,7 +62,6 @@
     "webpack-hot-middleware": "^2.24.3",
     "webpack-merge": "^4.2.1",
     "webpack-node-externals": "^1.7.2",
-    "webpack-sources": "^1.3.0",
     "webpackbar": "^3.1.5"
   },
   "devDependencies": {
