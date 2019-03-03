@@ -4,17 +4,22 @@ mdx-deck v2 prototype
 
 todo:
 
-- [x] BUG: import/export statements in code blocks
-- [ ] mdx-plugin: fix markdown table whitespace warnings
-- [ ] test with v1 demo deck & multiple elements per slide
-- [ ] normalize slide styles with v1
-- [ ] layouts
+- [ ] WIP PR
+- [ ] Publish beta
+- [ ] Add issues
+
 - [ ] presenter mode
   - [ ] timer/clock
   - [ ] open new tab button
-  - [ ] look at google slides behavior
 - [ ] overview highlighted state bug - MDXDeck doesn't render on link navigation
+- [ ] set url query
+
 - [ ] docs for customizing any component
+- [x] BUG: import/export statements in code blocks
+- [x] mdx-plugin: fix markdown table whitespace warnings
+- [x] test with v1 demo deck & multiple elements per slide
+- [-] normalize slide styles with v1
+- [x] layouts
 - [x] overview mode
 - [x] Code (to be handled with theming)
 - [x] keyboard shortcuts

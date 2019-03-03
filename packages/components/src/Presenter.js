@@ -4,6 +4,17 @@ import Slide from './Slide'
 
 const noop = () => {}
 
+const SpeakerNotes = props => (
+  <pre
+    {...props}
+    style={{
+      fontSize: 20,
+      textAlign: 'left',
+      whiteSpace: 'pre-wrap',
+    }}
+  />
+)
+
 export const Presenter = props => {
   const { slides, index } = props
   const Current = slides[index]
@@ -29,6 +40,7 @@ export const Presenter = props => {
         <div
           style={{
             width: 500 / 8 + '%',
+            minWidth: 0,
             marginLeft: 'auto',
             marginRight: 'auto',
           }}
@@ -38,6 +50,7 @@ export const Presenter = props => {
         <div
           style={{
             width: 100 / 4 + '%',
+            minWidth: 0,
             marginLeft: 'auto',
             marginRight: 'auto',
           }}
@@ -49,7 +62,7 @@ export const Presenter = props => {
               </Slide>
             )}
           </Zoom>
-          {notes}
+          <SpeakerNotes>{notes}</SpeakerNotes>
         </div>
       </div>
       <div

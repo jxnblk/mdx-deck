@@ -29,7 +29,7 @@ export const Provider = props => {
     ...themeComponents,
   }
   const style =
-    props.mode !== 'PRINT' ? (
+    props.mode !== 'print' ? (
       <Global
         styles={{
           body: {

@@ -15,7 +15,7 @@ import { default as defaultTheme } from '@mdx-deck/themes'
 const NORMAL = 'normal'
 const PRESENTER = 'presenter'
 const OVERVIEW = 'overview'
-const PRINT = 'PRINT'
+const PRINT = 'print'
 
 const STORAGE_INDEX = 'mdx-slide'
 const STORAGE_STEP = 'mdx-step'
@@ -58,6 +58,10 @@ export class MDXDeck extends React.Component {
     const shift = shiftKey && !altKey
 
     const { pathname } = globalHistory.location
+    if (keyCode === keys.p && shiftKey && altKey) {
+      navigate('/print')
+      this.setState({ mode: 'print' })
+    }
     if (pathname === '/print') return
 
     if (alt) {
@@ -176,9 +180,15 @@ export class MDXDeck extends React.Component {
 
   componentDidUpdate() {
     const index = this.getIndex()
-    const { step } = this.state
+    const { step, mode } = this.state
     localStorage.setItem(STORAGE_INDEX, index)
     localStorage.setItem(STORAGE_STEP, step)
+    if (mode !== NORMAL && mode !== PRINT) {
+      const query = '?' + querystring.stringify({ mode })
+      navigate(query)
+    } else {
+      navigate('?')
+    }
   }
 
   render() {

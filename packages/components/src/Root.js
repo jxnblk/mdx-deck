@@ -18,6 +18,13 @@ const themedQuote = props => ({
   '& blockquote': props.theme.quote,
 })
 
+const themedCode = props => ({
+  '& code, & pre': {
+    fontFamily: props.theme.monospace,
+    color: props.theme.colors.code,
+  },
+})
+
 export const Root = styled.div(
   props => ({
     fontFamily: props.theme.font,
@@ -27,6 +34,7 @@ export const Root = styled.div(
   props => props.theme.css,
   themedLinks,
   themedHeadings,
+  themedCode,
   themedQuote,
   themed(
     'h1',
