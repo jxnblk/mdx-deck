@@ -2,6 +2,9 @@
 
 export const magenta = {
   name: 'magenta',
+  colors: {
+    background: '#335',
+  },
   pre: {
     color: 'magenta',
   },
