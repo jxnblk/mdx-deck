@@ -5,7 +5,6 @@ mdx-deck v2 prototype
 todo:
 
 - [ ] composable themes
-- [ ] URL params
 - [ ] test with v1 demo deck & multiple elements per slide
 - [ ] normalize slide styles with v1
 - [ ] Code (to be handled with theming)
@@ -17,9 +16,10 @@ todo:
 - [ ] overview mode
   - [ ] highlighted state bug
     - MDXDeck doesn't render on link navigation
-  - [ ] slide numbers
+  - [x] slide numbers
 - [ ] keyboard shortcuts
 - [ ] docs for customizing any component
+- [x] URL params
 - [x] localStorage
 - [x] Emotion
 - [x] Head

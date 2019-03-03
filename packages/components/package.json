@@ -9,6 +9,7 @@
     "@emotion/styled": "^10.0.7",
     "@reach/router": "^1.2.1",
     "emotion-theming": "^10.0.7",
+    "lodash.merge": "^4.6.1",
     "react-swipeable": "^5.0.1"
   },
   "peerDependencies": {
