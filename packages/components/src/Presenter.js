@@ -66,3 +66,5 @@ export const Presenter = props => {
     </div>
   )
 }
+
+export default Presenter

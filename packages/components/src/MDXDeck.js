@@ -2,14 +2,18 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Router, globalHistory, navigate, Link } from '@reach/router'
 import { Swipeable } from 'react-swipeable'
+import querystring from 'querystring'
 import Provider from './Provider'
 import Root from './Root'
 import Slide from './Slide'
+import Presenter from './Presenter'
+import Overview from './Overview'
+import Catch from './Catch'
 import { default as defaultTheme } from '@mdx-deck/themes'
 
-const NORMAL = 'NORMAL'
-const PRESENTER = 'PRESENTER'
-const OVERVIEW = 'OVERVIEW'
+const NORMAL = 'normal'
+const PRESENTER = 'presenter'
+const OVERVIEW = 'overview'
 const PRINT = 'PRINT'
 
 const STORAGE_INDEX = 'mdx-slide'
@@ -29,6 +33,8 @@ const toggleMode = key => state => ({
 
 const BaseWrapper = props => <>{props.children}</>
 
+const inputElements = ['INPUT', 'TEXTAREA']
+
 export class MDXDeck extends React.Component {
   constructor(props) {
     super(props)
@@ -43,8 +49,9 @@ export class MDXDeck extends React.Component {
   handleKeyDown = e => {
     const { key, keyCode, metaKey, ctrlKey, altKey, shiftKey } = e
     const { activeElement } = document
-    if (activeElement.tagName !== 'BODY' && activeElement.tagName !== 'DIV')
+    if (inputElements.includes(activeElement.tagName)) {
       return
+    }
     if (metaKey || ctrlKey) return
     const alt = altKey && !shiftKey
     const shift = shiftKey && !altKey
@@ -146,12 +153,16 @@ export class MDXDeck extends React.Component {
   }
 
   getMode = () => {
-    // todo parse query params
+    const query = querystring.parse(
+      globalHistory.location.search.replace(/^\?/, '')
+    )
+    this.setState(query)
   }
 
   componentDidMount() {
     document.body.addEventListener('keydown', this.handleKeyDown)
     window.addEventListener('storage', this.handleStorageChange)
+    this.getMode()
   }
 
   componentWillUnmount() {
@@ -169,6 +180,7 @@ export class MDXDeck extends React.Component {
   render() {
     const { slides, mode } = this.state
     const index = this.getIndex()
+    console.log('MDXDeck', index)
     const meta = this.getMeta(index)
     const context = {
       ...this.state,
@@ -189,23 +201,25 @@ export class MDXDeck extends React.Component {
 
     return (
       <Provider {...this.props} {...this.state} index={index}>
-        <Wrapper {...this.state} index={index}>
-          <Swipeable onSwipedRight={this.previous} onSwipedLeft={this.next}>
-            <Root>
-              {/*<GoogleFonts />*/}
-              <Router>
-                <Slide path="/" index={0} {...context}>
-                  <FirstSlide path="/" />
-                </Slide>
-                {slides.map((Component, i) => (
-                  <Slide key={i} path={i + '/*'} index={i} {...context}>
-                    <Component path={i + '/*'} />
+        <Root>
+          <Catch>
+            <Wrapper {...this.state} index={index}>
+              <Swipeable onSwipedRight={this.previous} onSwipedLeft={this.next}>
+                {/*<GoogleFonts />*/}
+                <Router>
+                  <Slide path="/" index={0} {...context}>
+                    <FirstSlide path="/" />
                   </Slide>
-                ))}
-              </Router>
-            </Root>
-          </Swipeable>
-        </Wrapper>
+                  {slides.map((Component, i) => (
+                    <Slide key={i} path={i + '/*'} index={i} {...context}>
+                      <Component path={i + '/*'} />
+                    </Slide>
+                  ))}
+                </Router>
+              </Swipeable>
+            </Wrapper>
+          </Catch>
+        </Root>
       </Provider>
     )
   }

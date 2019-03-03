@@ -57,6 +57,9 @@ export const Overview = props => {
         }}
       >
         <Zoom zoom={2 / 3}>{props.children}</Zoom>
+        <pre style={{ color: 'white' }}>
+          {index}/{slides.length}
+        </pre>
       </div>
     </div>
   )
