@@ -2,10 +2,11 @@
   "private": true,
   "version": "2.0.0-0",
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "docs"
   ],
   "scripts": {
-    "start": "yarn workspace mdx-deck start"
+    "start": "yarn workspace @mdx-deck/docs start"
   },
   "husky": {
     "hooks": {

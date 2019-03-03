@@ -13,13 +13,16 @@ const mdxAstToMdxHast = require('@mdx-js/mdx/mdx-ast-to-mdx-hast')
 const toTemplateLiteral = text =>
   '{`' + text.replace(/\\/g, '\\\\').replace(/`/g, '\\`') + '`}'
 
-const toJSX = (node, parent) => {
+const toJSX = (node, parent, opts = {}) => {
+  const { preserveNewlines = false } = opts
   let children = ''
+
   if (node.type === 'root') {
     const jsxNodes = []
     let layout = ''
 
     for (const child of node.children) {
+      // imports/exports should already be handled for the root mdx component
       if (child.type === 'import') continue
       if (child.type === 'export') {
         if (!child.default) continue
@@ -48,7 +51,9 @@ const toJSX = (node, parent) => {
   if (node.children) {
     children = node.children
       .map(child => {
-        return toJSX(child, node)
+        return toJSX(child, node, {
+          preserveNewlines: preserveNewlines || node.tagName === 'pre',
+        })
       })
       .join('')
   }
@@ -73,6 +78,10 @@ const toJSX = (node, parent) => {
   }
 
   if (node.type === 'text') {
+    const shouldPreserveNewlines = preserveNewlines || parent.tagName === 'p'
+    if (node.value === '\n' && !shouldPreserveNewlines) {
+      return node.value
+    }
     return toTemplateLiteral(node.value)
   }
 

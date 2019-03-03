@@ -1,5 +1,4 @@
-import React from 'react'
-import styled from 'styled-components'
+import styled from '@emotion/styled'
 import { color } from 'styled-system'
 
 const Invert = styled.div(
@@ -21,4 +20,4 @@ Invert.defaultProps = {
   bg: 'text',
 }
 
-export default props => <Invert {...props} />
+export default Invert

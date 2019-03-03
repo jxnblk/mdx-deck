@@ -1,7 +1,7 @@
 export default {
   font: 'system-ui, sans-serif',
   monospace: 'Menlo, monospace',
-  fontSizes: ['0.75em', '1em', '1.5em', '2em', '3em'],
+
   colors: {
     text: '#000',
     background: 'white',
@@ -11,18 +11,20 @@ export default {
     code: '#f0f',
   },
   css: {
-    fontSize: '1.5em',
+    fontSize: '16px',
     textAlign: 'center',
-    '@media screen and (min-width:64em)': {
-      fontSize: '3em',
+    '@media screen and (min-width:56em)': {
+      fontSize: '32px',
     },
-    'li > ul, li > ol': {
-      fontSize: 'inherit',
+    '@media screen and (min-width:64em)': {
+      fontSize: '48px',
     },
     'li > p': {
-      fontSize: 'inherit',
       margin: 0,
     },
+  },
+  pre: {
+    textAlign: 'left',
   },
   ol: {
     textAlign: 'left',
@@ -30,4 +32,7 @@ export default {
   ul: {
     textAlign: 'left',
   },
+
+  // from v1
+  // fontSizes: ['0.75em', '1em', '1.5em', '2em', '3em'],
 }

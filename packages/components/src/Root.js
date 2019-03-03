@@ -3,6 +3,21 @@ import styled from '@emotion/styled'
 const themed = (...tags) => props =>
   tags.map(tag => props.theme[tag] && { ['& ' + tag]: props.theme[tag] })
 
+const themedHeadings = props => ({
+  '& h1, & h2, & h3, & h4, & h5, & h6': props.theme.heading,
+})
+
+const themedLinks = props => ({
+  '& a': {
+    color: props.theme.colors.link,
+  },
+})
+
+// backwards compatibility
+const themedQuote = props => ({
+  '& blockquote': props.theme.quote,
+})
+
 export const Root = styled.div(
   props => ({
     fontFamily: props.theme.font,
@@ -10,6 +25,9 @@ export const Root = styled.div(
     backgroundColor: props.theme.colors.background,
   }),
   props => props.theme.css,
+  themedLinks,
+  themedHeadings,
+  themedQuote,
   themed(
     'h1',
     'h2',

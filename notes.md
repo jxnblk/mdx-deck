@@ -4,7 +4,8 @@ mdx-deck v2 prototype
 
 todo:
 
-- [ ] BUG: import/export statements in code blocks
+- [x] BUG: import/export statements in code blocks
+- [ ] mdx-plugin: fix markdown table whitespace warnings
 - [ ] test with v1 demo deck & multiple elements per slide
 - [ ] normalize slide styles with v1
 - [ ] layouts
@@ -45,10 +46,14 @@ extras
 - Composable themes
 - Refactored internal MDX parsing for better interoperability
 - Split functionality into separate npm packages
-  - mdx-deck
-  - @mdx-deck/components
-  - @mdx-deck/layouts
-  - @mdx-deck/themes
+  - `mdx-deck`
+  - `@mdx-deck/components`
+  - `@mdx-deck/layouts`
+  - `@mdx-deck/themes`
+  - `@mdx-deck/loader`
+  - `@mdx-deck/webpack-html-plugin`
+  - `@mdx-deck/mdx-plugin`
+- Simplified theming and base styles
 
 ### Breaking
 
@@ -61,6 +66,9 @@ extras
 - Removes static HTML export
 - Refactored internal state and React context
   - If you've built a third-party component to work with MDX Deck, this will require a major version update
+- `---` placed directly below a line of text is now recognized as a markdown heading and will not split into a new slide. To separate slides, ensure there is an empty line above and below the `---`
+- `colors.pre`, `colors.preBackground`, `colors.code`
+- The `notes` language attribute in fenced code blocks is no longer supported. Use the `<Notes />` component instead
 
 ### Create Issues
 
