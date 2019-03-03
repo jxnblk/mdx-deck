@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from '@emotion/styled'
 
 const themed = (...tags) => props =>
   tags.map(tag => props.theme[tag] && { ['& ' + tag]: props.theme[tag] })

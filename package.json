@@ -4,6 +4,9 @@
   "workspaces": [
     "packages/*"
   ],
+  "scripts": {
+    "start": "yarn workspace mdx-deck start"
+  },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"

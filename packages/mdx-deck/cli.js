@@ -11,7 +11,13 @@ const remark = {
 const pkg = require('./package.json')
 
 const config = require('pkg-conf').sync('mdx-deck')
-const log = require('./lib/log')
+
+const log = (...args) => {
+  console.log(chalk.green('[mdx-deck]'), ...args)
+}
+log.error = (...args) => {
+  console.log(chalk.red('[err]'), ...args)
+}
 
 const cli = meow(
   `

@@ -5,6 +5,6 @@ module.exports = {
     '@babel/plugin-proposal-export-default-from',
     '@babel/plugin-proposal-export-namespace-from',
     '@babel/plugin-syntax-dynamic-import',
-    'babel-plugin-styled-components',
+    'babel-plugin-emotion',
   ].map(require.resolve),
 }

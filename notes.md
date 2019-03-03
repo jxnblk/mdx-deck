@@ -4,12 +4,17 @@ mdx-deck v2 prototype
 
 todo:
 
+- [ ] Emotion
+- [ ] composable themes
+- [ ] hooks
+- [ ] URL params
+- [ ] localStorage
 - [x] Head
 - [x] Image
 - [x] Notes
 - [x] Appear
-- [ ] Code (may handle this with theming)
 - [ ] normalize slide styles with v1
+- [ ] Code (to be handled with theming)
 - [x] history api fallback
 - [x] mdx components
 - [x] themes
@@ -21,7 +26,6 @@ todo:
 - [ ] overview mode
   - [ ] highlighted state bug
   - [ ] slide numbers
-- [ ] localStorage
 - [ ] keyboard shortcuts
 - [ ] docs for customizing any component
 - [x] swipeable

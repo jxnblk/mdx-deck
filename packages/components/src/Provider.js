@@ -1,6 +1,6 @@
 import React from 'react'
+import { ThemeProvider } from 'emotion-theming'
 import { HeadProvider } from './Head'
-import { ThemeProvider } from 'styled-components'
 import { MDXProvider } from '@mdx-js/tag'
 import mdxComponents from './mdx-components'
 

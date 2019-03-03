@@ -3,5 +3,20 @@
   "version": "2.0.0-0",
   "main": "src/index.js",
   "author": "Brent Jackson <jxnblk@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@emotion/core": "^10.0.7",
+    "@emotion/styled": "^10.0.7",
+    "@reach/router": "^1.2.1",
+    "emotion-theming": "^10.0.7",
+    "react-swipeable": "^5.0.1"
+  },
+  "peerDependencies": {
+    "@mdx-deck/thems": "^2.0.0-0",
+    "@mdx-js/tag": "^0.18.0"
+  },
+  "devDependencies": {
+    "react": "^16.8.3",
+    "react-dom": "^16.8.3"
+  }
 }
