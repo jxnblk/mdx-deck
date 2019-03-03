@@ -4,6 +4,7 @@ mdx-deck v2 prototype
 
 todo:
 
+- [ ] BUG: import/export statements in code blocks
 - [ ] test with v1 demo deck & multiple elements per slide
 - [ ] normalize slide styles with v1
 - [ ] layouts

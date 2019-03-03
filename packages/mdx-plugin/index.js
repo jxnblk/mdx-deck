@@ -10,6 +10,9 @@ const mdxAstToMdxHast = require('@mdx-js/mdx/mdx-ast-to-mdx-hast')
 // const { toJSX } = require('@mdx-js/mdx/mdx-hast-to-jsx')
 
 // custom implementation
+const toTemplateLiteral = text =>
+  '{`' + text.replace(/\\/g, '\\\\').replace(/`/g, '\\`') + '`}'
+
 const toJSX = (node, parent) => {
   let children = ''
   if (node.type === 'root') {
@@ -67,6 +70,10 @@ const toJSX = (node, parent) => {
     ]
       .filter(Boolean)
       .join('')
+  }
+
+  if (node.type === 'text') {
+    return toTemplateLiteral(node.value)
   }
 
   if (node.type === 'comment') {

@@ -15,7 +15,18 @@ export const themes = [
 ---
 
 ```jsx
-const foo = require('foo')
+import React from 'react'
+
+export default props =>
+  <div style={{ color: 'red' }}>
+    {props.children}
+  </div>
+
+export const Beep = props =>
+  <Hello>
+    {props.children}
+  </Hello>
+
 ```
 
 ## This is v2
