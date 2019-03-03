@@ -12,6 +12,9 @@ const PRESENTER = 'PRESENTER'
 const OVERVIEW = 'OVERVIEW'
 const PRINT = 'PRINT'
 
+const STORAGE_INDEX = 'mdx-slide'
+const STORAGE_STEP = 'mdx-step'
+
 const keys = {
   right: 39,
   left: 37,
@@ -128,12 +131,39 @@ export class MDXDeck extends React.Component {
     this.setState({ slides })
   }
 
+  handleStorageChange = e => {
+    const { key } = e
+    switch (key) {
+      case STORAGE_INDEX:
+        const index = parseInt(e.newValue, 10)
+        this.goto(index)
+        break
+      case STORAGE_STEP:
+        const step = parseInt(e.newValue, 10)
+        this.setState({ step })
+        break
+    }
+  }
+
+  getMode = () => {
+    // todo parse query params
+  }
+
   componentDidMount() {
     document.body.addEventListener('keydown', this.handleKeyDown)
+    window.addEventListener('storage', this.handleStorageChange)
   }
 
   componentWillUnmount() {
     document.body.removeEventListener('keydown', this.handleKeyDown)
+    window.removeEventListener('storage', this.handleStorageChange)
+  }
+
+  componentDidUpdate() {
+    const index = this.getIndex()
+    const { step } = this.state
+    localStorage.setItem(STORAGE_INDEX, index)
+    localStorage.setItem(STORAGE_STEP, step)
   }
 
   render() {

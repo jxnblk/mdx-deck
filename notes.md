@@ -4,11 +4,12 @@ mdx-deck v2 prototype
 
 todo:
 
-- [ ] Emotion
 - [ ] composable themes
 - [ ] hooks
 - [ ] URL params
-- [ ] localStorage
+- [ ] test with v1 demo deck & multiple elements per slide
+- [x] localStorage
+- [x] Emotion
 - [x] Head
 - [x] Image
 - [x] Notes
