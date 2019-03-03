@@ -42,6 +42,10 @@ const rules = [
       },
     ],
   },
+  {
+    test: /\.css$/,
+    use: ['style-loader', 'css-loader'].map(require.resolve),
+  },
 ]
 
 const baseConfig = {
