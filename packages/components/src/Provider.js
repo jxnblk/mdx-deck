@@ -1,4 +1,6 @@
 import React from 'react'
+import { globalHistory } from '@reach/router'
+import { Global } from '@emotion/core'
 import { ThemeProvider } from 'emotion-theming'
 import merge from 'lodash.merge'
 import { HeadProvider } from './Head'
@@ -26,9 +28,20 @@ export const Provider = props => {
     ...mdxComponents,
     ...themeComponents,
   }
+  const style =
+    props.mode !== 'PRINT' ? (
+      <Global
+        styles={{
+          body: {
+            overflow: 'hidden',
+          },
+        }}
+      />
+    ) : null
 
   return (
     <HeadProvider tags={headTags}>
+      {style}
       <ThemeProvider theme={theme}>
         <MDXProvider components={allComponents}>
           <UserProvider {...props} />

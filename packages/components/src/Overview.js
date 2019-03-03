@@ -43,7 +43,7 @@ export const Overview = props => {
             }}
           >
             <Zoom zoom={1 / 6}>
-              <Slide register={noop}>
+              <Slide>
                 <Component />
               </Slide>
             </Zoom>

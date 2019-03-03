@@ -7,6 +7,7 @@ export const Steps = withContext(
       super(props)
       const { register, index } = props.context
       const { length } = props
+      if (typeof register !== 'function') return
       register(index, { steps: length })
     }
     render() {

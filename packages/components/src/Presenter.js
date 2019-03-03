@@ -44,7 +44,7 @@ export const Presenter = props => {
         >
           <Zoom zoom={1 / 4}>
             {Next && (
-              <Slide register={noop}>
+              <Slide>
                 <Next />
               </Slide>
             )}

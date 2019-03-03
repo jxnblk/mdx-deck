@@ -6,7 +6,13 @@ export const Notes = withContext(
     constructor(props) {
       super(props)
       const { context, children } = props
-      if (!context || typeof context.index === 'undefined') return
+      if (
+        !context ||
+        typeof context.index === 'undefined' ||
+        typeof context.register !== 'function'
+      ) {
+        return
+      }
       context.register(context.index, { notes: children })
     }
 

@@ -8,6 +8,7 @@ import Root from './Root'
 import Slide from './Slide'
 import Presenter from './Presenter'
 import Overview from './Overview'
+import Print from './Print'
 import Catch from './Catch'
 import { default as defaultTheme } from '@mdx-deck/themes'
 
@@ -55,6 +56,9 @@ export class MDXDeck extends React.Component {
     if (metaKey || ctrlKey) return
     const alt = altKey && !shiftKey
     const shift = shiftKey && !altKey
+
+    const { pathname } = globalHistory.location
+    if (pathname === '/print') return
 
     if (alt) {
       switch (keyCode) {
@@ -178,9 +182,12 @@ export class MDXDeck extends React.Component {
   }
 
   render() {
-    const { slides, mode } = this.state
+    const { pathname } = globalHistory.location
+    const { slides } = this.state
+    const mode = pathname === '/print' ? PRINT : this.state.mode
     const index = this.getIndex()
-    console.log('MDXDeck', index)
+    // todo figure out how to rerender on location change
+    // console.log('MDXDeck', index)
     const meta = this.getMeta(index)
     const context = {
       ...this.state,
@@ -200,7 +207,7 @@ export class MDXDeck extends React.Component {
     }
 
     return (
-      <Provider {...this.props} {...this.state} index={index}>
+      <Provider {...this.props} {...this.state} mode={mode} index={index}>
         <Root>
           <Catch>
             <Wrapper {...this.state} index={index}>
@@ -215,6 +222,7 @@ export class MDXDeck extends React.Component {
                       <Component path={i + '/*'} />
                     </Slide>
                   ))}
+                  <Print path="/print" {...this.props} />
                 </Router>
               </Swipeable>
             </Wrapper>
