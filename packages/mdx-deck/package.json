@@ -5,6 +5,7 @@
   "bin": {
     "mdx-deck": "./cli.js"
   },
+  "main": "index.js",
   "scripts": {
     "start": "./cli.js demo.mdx -p 8080",
     "build": "./cli.js build demo.mdx -d public",

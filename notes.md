@@ -12,9 +12,9 @@ todo:
   - [ ] timer/clock
   - [ ] open new tab button
 - [ ] overview highlighted state bug - MDXDeck doesn't render on link navigation
-- [ ] set url query
-
 - [ ] docs for customizing any component
+
+- [x] set url query
 - [x] BUG: import/export statements in code blocks
 - [x] mdx-plugin: fix markdown table whitespace warnings
 - [x] test with v1 demo deck & multiple elements per slide
@@ -64,7 +64,7 @@ extras
 
 - Removed PDF export from core
 - Removed default Provider component with dot indicator
-- Removes react-syntax-highlighter
+- Removes react-syntax-highlighter from the core
   - Syntax highlighting can now be completely controlled via themes
 - Changes to print styles
 - Removed Grid mode
