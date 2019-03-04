@@ -13,6 +13,7 @@ todo:
   - [ ] open new tab button
 - [ ] overview highlighted state bug - MDXDeck doesn't render on link navigation
 - [ ] docs for customizing any component
+- [ ] automatic dark/light mode in syntax highlighter theme
 
 - [x] set url query
 - [x] BUG: import/export statements in code blocks
