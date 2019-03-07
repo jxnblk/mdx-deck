@@ -40,6 +40,7 @@
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
     "@compositor/webfont": "^1.0.39",
+    "@mdx-js/loader": "^0.20.3",
     "@mdx-js/mdx": "^0.15.7",
     "@mdx-js/tag": "^0.15.6",
     "ansi-html": "0.0.7",

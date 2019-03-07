@@ -1,0 +1,160 @@
+export { future as theme } from '../themes'
+import { Head, Image, Notes, Appear } from '../dist'
+import { Invert, Split, FullScreenCode, Horizontal} from '../layouts'
+import Counter from './Counter'
+import code from './code'
+
+<Head>
+  <title>mdx-deck</title>
+  <meta name='twitter:card' content='summary_large_image' />
+  <meta name='twitter:site' content='@jxnblk' />
+  <meta name='twitter:title' content='mdx-deck' />
+  <meta name='twitter:description' content='MDX-based presentation decks' />
+  <meta name='twitter:image' content='https://jxnblk.com/mdx-deck/card.png' />
+</Head>
+
+# mdx-deck
+
+MDX-based presention decks
+---
+# Presentation decks
+---
+# Built with [MDX][]
+[MDX]: https://github.com/mdx-js/mdx
+---
+import Box from 'superbox'
+
+<Box
+  fontSize={3}
+  p={4}
+  bg='magenta'>
+  Import React components
+</Box>
+---
+
+- Make bulleted lists
+- To help make your point
+
+---
+
+## Getting Started
+
+1. `npm i -D mdx-deck`
+2. Write some markdown and JSX
+3. Present
+
+---
+
+```jsx
+<button>code example</button>
+```
+
+```notes
+- These are speaker notes
+- And they won't be rendered in your slide
+```
+---
+
+```jsx
+class extends React.Component {
+  render () {
+    return (
+      <React.Fragment>
+        <h1>Indented code</h1>
+      </React.Fragment>
+    )
+  }
+}
+```
+---
+> “Blockquotes are essential to any good presentation”
+
+– Anonymous
+
+<Notes>
+  <ul>
+    <li>Speaker notes can also be</li>
+    <li>Written in JSX</li>
+  </ul>
+</Notes>
+
+---
+### Appear
+
+<ul>
+  <Appear>
+    <li>One</li>
+    <li>Two</li>
+    <li>Three</li>
+    <li>Four</li>
+  </Appear>
+</ul>
+---
+
+<Image
+  src='https://source.unsplash.com/random/768x2048'
+  size='contain'
+/>
+
+```notes
+Testing object fit
+```
+---
+
+### Real React Components
+
+<Counter />
+
+---
+
+<Image src='https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=2048&q=20' />
+
+---
+export default Split
+
+![](https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=2048&q=20)
+
+## Split Layout
+
+---
+export default Horizontal
+
+![](https://source.unsplash.com/random/1024x768')
+
+![](https://source.unsplash.com/random/1024x768')
+
+### Horizontal Layout
+
+---
+export default Invert
+
+# Invert Layout
+
+---
+export default FullScreenCode
+
+```
+<Button>
+  Beep
+</Button>
+```
+
+---
+
+![](https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=2048&h=1024&q=20&fit=crop)
+
+Inline image
+
+---
+
+Prop | Type | Description
+---|---|---
+`width` | number, string, or array | sets element width
+`color` | string | sets foreground color
+`bg` | string | sets background color
+
+---
+export default Invert
+
+# Get started :sunglasses:
+[GitHub](https://github.com/jxnblk/mdx-deck)
