@@ -1,0 +1,17 @@
+{
+  "private": true,
+  "name": "gatsby-mdx-deck-demo",
+  "version": "2.0.0-0",
+  "main": "index.js",
+  "author": "Brent Jackson <jxnblk@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "gatsby develop"
+  },
+  "dependencies": {
+    "gatsby": "^2.1.24",
+    "gatsby-theme-mdx-deck": "^2.0.0-0",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4"
+  }
+}
