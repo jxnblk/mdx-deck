@@ -30,6 +30,7 @@
     "@mdx-deck/components": "^2.0.0-0",
     "@mdx-deck/loader": "^2.0.0-0",
     "@mdx-deck/webpack-html-plugin": "^2.0.0-0",
+    "@mdx-js/loader": "^0.20.3",
     "@mdx-js/mdx": "^0.20.0",
     "@mdx-js/tag": "^0.18.0",
     "babel-loader": "^8.0.5",

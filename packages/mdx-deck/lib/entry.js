@@ -7,7 +7,7 @@ const { slides, theme, themes } = mod
 
 export default class App extends React.Component {
   render() {
-    return <MDXDeck slides={slides} theme={theme} themes={themes} />
+    return <MDXDeck Component={mod.default} theme={theme} themes={themes} />
   }
 }
 
