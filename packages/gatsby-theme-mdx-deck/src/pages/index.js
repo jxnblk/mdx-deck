@@ -1,3 +1,13 @@
 import React from 'react'
+import Deck, {
+  slides,
+  theme,
+  themes,
+} from '!babel-loader!@mdx-deck/loader!../deck.mdx'
 
-export default props => <h1>gatsby-theme-mdx-deck</h1>
+export default props => (
+  <div>
+    <pre>gatsby-theme-mdx-deck</pre>
+    {typeof slides}
+  </div>
+)
