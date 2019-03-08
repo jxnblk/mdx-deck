@@ -1,14 +1,3 @@
 language: node_js
 node_js:
   - 10
-before_deploy:
-  - npm install
-  - npm run build
-  - cp docs/card.png site
-deploy:
-  provider: pages
-  skip_cleanup: true
-  github_token: $GH_TOKEN
-  local_dir: site
-  on:
-    branch: master
