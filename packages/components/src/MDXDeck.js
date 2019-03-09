@@ -187,7 +187,8 @@ export class MDXDeck extends React.Component {
       const query = '?' + querystring.stringify({ mode })
       navigate(query)
     } else {
-      navigate('?')
+      const { pathname } = globalHistory.location
+      navigate(pathname)
     }
   }
 
