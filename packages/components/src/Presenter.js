@@ -1,8 +1,7 @@
 import React from 'react'
 import Zoom from './Zoom'
 import Slide from './Slide'
-
-const noop = () => {}
+import Pre from './Pre'
 
 const SpeakerNotes = props => (
   <pre
@@ -24,6 +23,7 @@ export const Presenter = props => {
   return (
     <div
       style={{
+        color: 'white',
         backgroundColor: 'black',
         display: 'flex',
         flexDirection: 'column',
@@ -67,14 +67,13 @@ export const Presenter = props => {
       </div>
       <div
         style={{
-          color: 'white',
           padding: 16,
-          fontSize: 20,
+          fontSize: 18,
         }}
       >
-        <pre style={{ fontFamily: 'Menlo, monospace' }}>
-          {index + 1} of {slides.length}
-        </pre>
+        <Pre>
+          {index} of {slides.length - 1}
+        </Pre>
       </div>
     </div>
   )

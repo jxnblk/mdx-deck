@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
+import Root from './Root'
 import { Context } from './context'
 
 const SlideRoot = styled.div(
@@ -10,13 +11,16 @@ const SlideRoot = styled.div(
     height: '100vh',
     alignItems: 'center',
     justifyContent: 'center',
+    overflow: 'hidden',
   },
   props => props.theme.Slide
 )
 
 export const Slide = ({ children, ...props }) => (
   <Context.Provider value={props}>
-    <SlideRoot>{children}</SlideRoot>
+    <Root>
+      <SlideRoot>{children}</SlideRoot>
+    </Root>
   </Context.Provider>
 )
 

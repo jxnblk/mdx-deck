@@ -1,9 +1,8 @@
-import React from 'react'
-import { Location, Link } from '@reach/router'
+import React, { useEffect } from 'react'
+import { Location, navigate } from '@reach/router'
 import Zoom from './Zoom'
 import Slide from './Slide'
-
-const noop = () => {}
+import Pre from './Pre'
 
 const getIndex = ({ pathname }) => {
   return Number(pathname.split('/')[1] || 0)
@@ -19,6 +18,15 @@ const withLocation = Component => props => (
 
 export const Overview = withLocation(props => {
   const { index, slides } = props
+  const activeThumb = React.createRef()
+
+  useEffect(() => {
+    const el = activeThumb.current
+    if (!el) return
+    if (typeof el.scrollIntoViewIfNeeded === 'function') {
+      el.scrollIntoViewIfNeeded()
+    }
+  })
 
   return (
     <div
@@ -26,6 +34,7 @@ export const Overview = withLocation(props => {
         display: 'flex',
         alignItems: 'flex-start',
         height: '100vh',
+        color: 'white',
         backgroundColor: 'black',
       }}
     >
@@ -40,9 +49,12 @@ export const Overview = withLocation(props => {
         }}
       >
         {slides.map((Component, i) => (
-          <Link
+          <div
+            ref={i === index ? activeThumb : null}
             key={i}
-            to={'/' + i}
+            onClick={e => {
+              navigate('/' + i)
+            }}
             style={{
               display: 'block',
               color: 'inherit',
@@ -59,7 +71,7 @@ export const Overview = withLocation(props => {
                 <Component />
               </Slide>
             </Zoom>
-          </Link>
+          </div>
         ))}
       </div>
       <div
@@ -69,9 +81,9 @@ export const Overview = withLocation(props => {
         }}
       >
         <Zoom zoom={2 / 3}>{props.children}</Zoom>
-        <pre style={{ color: 'white' }}>
-          {index}/{slides.length}
-        </pre>
+        <Pre>
+          {index} of {slides.length - 1}
+        </Pre>
       </div>
     </div>
   )

@@ -4,7 +4,6 @@ import { Router, globalHistory, navigate, Link } from '@reach/router'
 import { Swipeable } from 'react-swipeable'
 import querystring from 'querystring'
 import Provider from './Provider'
-import Root from './Root'
 import Slide from './Slide'
 import Presenter from './Presenter'
 import Overview from './Overview'
@@ -192,6 +191,11 @@ export class MDXDeck extends React.Component {
     }
   }
 
+  componentDidCatch(err) {
+    console.error('componentDidCatch')
+    console.error(err)
+  }
+
   render() {
     const { pathname } = globalHistory.location
     const { slides } = this.state
@@ -219,26 +223,23 @@ export class MDXDeck extends React.Component {
 
     return (
       <Provider {...this.props} {...this.state} mode={mode} index={index}>
-        <Root>
-          <Catch>
-            <Wrapper {...this.state} index={index}>
-              <Swipeable onSwipedRight={this.previous} onSwipedLeft={this.next}>
-                {/*<GoogleFonts />*/}
-                <Router>
-                  <Slide path="/" index={0} {...context}>
-                    <FirstSlide path="/" />
+        <Catch>
+          <Wrapper {...this.state} index={index}>
+            <Swipeable onSwipedRight={this.previous} onSwipedLeft={this.next}>
+              <Router>
+                <Slide path="/" index={0} {...context}>
+                  <FirstSlide path="/" />
+                </Slide>
+                {slides.map((Component, i) => (
+                  <Slide key={i} path={i + '/*'} index={i} {...context}>
+                    <Component path={i + '/*'} />
                   </Slide>
-                  {slides.map((Component, i) => (
-                    <Slide key={i} path={i + '/*'} index={i} {...context}>
-                      <Component path={i + '/*'} />
-                    </Slide>
-                  ))}
-                  <Print path="/print" {...this.props} />
-                </Router>
-              </Swipeable>
-            </Wrapper>
-          </Catch>
-        </Root>
+                ))}
+                <Print path="/print" {...this.props} />
+              </Router>
+            </Swipeable>
+          </Wrapper>
+        </Catch>
       </Provider>
     )
   }
