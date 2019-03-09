@@ -34,7 +34,7 @@ const toggleMode = key => state => ({
 
 const BaseWrapper = props => <>{props.children}</>
 
-const inputElements = ['INPUT', 'TEXTAREA']
+const inputElements = ['INPUT', 'TEXTAREA', 'A', 'BUTTON']
 
 export class MDXDeck extends React.Component {
   constructor(props) {
