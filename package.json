@@ -7,6 +7,7 @@
   ],
   "scripts": {
     "start": "yarn workspace @mdx-deck/docs start",
+    "build": "yarn workspace @mdx-deck/docs build",
     "test": "jest"
   },
   "devDependencies": {

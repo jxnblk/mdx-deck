@@ -1,3 +1,12 @@
 language: node_js
 node_js:
   - 10
+beforeDeploy:
+  - yarn build
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GH_TOKEN
+  local_dir: docs/dist
+  on:
+    branch: master
