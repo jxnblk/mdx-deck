@@ -6,7 +6,7 @@
   "license": "MIT",
   "dependencies": {
     "@mdx-deck/mdx-plugin": "^2.0.0-0",
-    "@mdx-js/mdx": "^0.20.0",
+    "@mdx-js/mdx": "^1.0.0-alpha.5",
     "loader-utils": "^1.2.3"
   }
 }

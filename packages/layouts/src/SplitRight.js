@@ -3,7 +3,7 @@ import Flex from './Flex'
 import Box from './Box'
 
 const SplitRight = ({ children }) => {
-  const [a, ...rest] = React.Children.toArray(children.props.children)
+  const [a, ...rest] = React.Children.toArray(children)
 
   return (
     <Flex

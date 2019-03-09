@@ -3,7 +3,7 @@ import Flex from './Flex'
 import Box from './Box'
 
 const Horizontal = ({ children }) => {
-  const kids = React.Children.toArray(children.props.children)
+  const kids = React.Children.toArray(children)
 
   return (
     <Flex

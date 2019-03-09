@@ -1,15 +1,9 @@
 const visit = require('unist-util-visit')
 const is = require('unist-util-is')
-
-// do i need this?
 const mdxAstToMdxHast = require('@mdx-js/mdx/mdx-ast-to-mdx-hast')
-// const mdx = require('@mdx-js/mdx')
-// removes html comments
-// const toMDXAST = require('@mdx-js/mdx/md-ast-to-mdx-ast')
-// const mdxHastToJsx = require('@mdx-js/mdx/mdx-hast-to-jsx')
-// const { toJSX } = require('@mdx-js/mdx/mdx-hast-to-jsx')
 
 // custom implementation
+// this can be removed in favor of https://github.com/mdx-js/mdx/issues/454
 const toTemplateLiteral = text =>
   '{`' + text.replace(/\\/g, '\\\\').replace(/`/g, '\\`') + '`}'
 
@@ -35,14 +29,14 @@ const toJSX = (node, parent, opts = {}) => {
     }
 
     return [
-      '(props => (',
-      '  <MDXTag',
+      '(props => {',
+      `  const Layout = ${layout ? layout : '"div"'}`,
+      '  return <Layout',
       '    name="wrapper"',
-      layout && `    Layout={${layout}}`,
       '    components={props.components}>',
       '    ' + jsxNodes.map(child => toJSX(child, node)).join('\n    '),
-      '  </MDXTag>',
-      '))',
+      '  </Layout>',
+      '})',
     ]
       .filter(Boolean)
       .join('\n')
@@ -64,14 +58,13 @@ const toJSX = (node, parent, opts = {}) => {
       props = JSON.stringify(node.properties)
     }
     return [
-      '<MDXTag',
-      ` name="${node.tagName}"`,
-      ' components={props.components}',
+      `<${node.tagName}`,
+      ` data-name="${node.tagName}"`,
       parent.tagName && ` parentName="${parent.tagName}"`,
-      props && ` props={${props}}`,
+      props && ` {...${props}}`,
       '>',
       children,
-      '</MDXTag>',
+      `</${node.tagName}>`,
     ]
       .filter(Boolean)
       .join('')
@@ -118,22 +111,12 @@ module.exports = (opts = {}) => {
     slides.push(children.slice(previousSplit))
 
     const jsx = slides.map(slide => {
-      // no idea what I'm doing
-      // not sure how to convert ast to jsx here...
       const hast = mdxAstToMdxHast()({
         type: 'root',
         children: slide,
       })
-      const code = toJSX(
-        hast,
-        {},
-        {
-          skipExport: true,
-        }
-      )
+      const code = toJSX(hast, {}, { skipExport: true })
       return code
-      // const wrapped = `(() => ${code})()`
-      // return wrapped
     })
 
     tree.children.push({
@@ -141,6 +124,5 @@ module.exports = (opts = {}) => {
       default: false,
       value: `export const slides = [${jsx.join(',\n')}]`,
     })
-    // console.log(tree)
   }
 }
