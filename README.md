@@ -100,7 +100,7 @@ MDX can use Markdown syntax and render React components with JSX.
 
 ### Imports
 
-To import components, use ES import syntax separated with empty lines from any markdown or JSX syntax.
+To import components, use ES import syntax separated with empty lines between any markdown or JSX syntax.
 
 ```mdx
 import { Box } from 'grid-styled'
@@ -112,7 +112,7 @@ Read more about MDX syntax in the [MDX Docs][mdx].
 
 ## Theming
 
-mdx-deck uses [styled-components][] for styling, making practically any part of the presentation themeable.
+mdx-deck uses [emotion][] for styling, making practically any part of the presentation themeable.
 
 ### Built-in Themes
 
@@ -200,7 +200,8 @@ export default ({ children }) => (
       width: '100vw',
       height: '100vw',
       backgroundColor: 'tomato',
-    }}>
+    }}
+  >
     {children}
   </div>
 )
@@ -335,22 +336,14 @@ See more exporting options in the [Exporting Documentation](docs/exporting.md)
 ### Related
 
 - [MDX][]
-- [mdx-go][]
-- [ok-mdx][]
-- [Compositor x0][]
-- [styled-components][]
-- [styled-system][]
+- [emotion][]
 - [Spectacle][]
 
 [MIT License](LICENSE.md)
 
-[mdx]: https://github.com/mdx-js/mdx
-[ok-mdx]: https://github.com/jxnblk/ok-mdx
-[compositor x0]: https://github.com/c8r/x0
-[styled-system]: https://github.com/jxnblk/styled-system
-[styled-components]: https://github.com/styled-components/styled-components
+[mdx]: https://mdxjs.com/
 [spectacle]: https://github.com/FormidableLabs/spectacle
-[mdx-go]: https://github.com/jxnblk/mdx-go
+[emotion]: https://emotion.sh
 
 <!-- examples -->
 
