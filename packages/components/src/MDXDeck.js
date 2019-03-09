@@ -8,6 +8,7 @@ import Slide from './Slide'
 import Presenter from './Presenter'
 import Overview from './Overview'
 import Print from './Print'
+import GoogleFonts from './GoogleFonts'
 import Catch from './Catch'
 import { default as defaultTheme } from '@mdx-deck/themes'
 
@@ -224,6 +225,7 @@ export class MDXDeck extends React.Component {
     return (
       <Provider {...this.props} {...this.state} mode={mode} index={index}>
         <Catch>
+          <GoogleFonts />
           <Wrapper {...this.state} index={index}>
             <Swipeable onSwipedRight={this.previous} onSwipedLeft={this.next}>
               <Router>

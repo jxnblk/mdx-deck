@@ -12,7 +12,6 @@
 - Removed built-in syntax highlighting
 - Removed `notes` language attribute for fenced code blocks
 - Refactored dev server
-- Removes automatic Google Fonts linking
 
 ## v1.10.0 2019-02-18
 
