@@ -1,11 +1,23 @@
 import React from 'react'
-import { Link } from '@reach/router'
+import { Location, Link } from '@reach/router'
 import Zoom from './Zoom'
 import Slide from './Slide'
 
 const noop = () => {}
 
-export const Overview = props => {
+const getIndex = ({ pathname }) => {
+  return Number(pathname.split('/')[1] || 0)
+}
+
+const withLocation = Component => props => (
+  <Location
+    children={({ location }) => (
+      <Component {...props} location={location} index={getIndex(location)} />
+    )}
+  />
+)
+
+export const Overview = withLocation(props => {
   const { index, slides } = props
 
   return (
@@ -63,6 +75,6 @@ export const Overview = props => {
       </div>
     </div>
   )
-}
+})
 
 export default Overview

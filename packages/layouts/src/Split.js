@@ -4,7 +4,6 @@ import Box from './Box'
 
 const Split = ({ children }) => {
   const [a, ...rest] = React.Children.toArray(children)
-  console.log(children, a, rest)
   return (
     <Flex
       css={{
