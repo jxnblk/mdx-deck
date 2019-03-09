@@ -4,6 +4,7 @@ export { default as future } from './future'
 export { default as condensed } from './condensed'
 export { default as yellow } from './yellow'
 export { default as swiss } from './swiss'
+export { default as poppins } from './poppins'
 
 // serif
 export { default as book } from './book'

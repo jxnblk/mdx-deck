@@ -10,7 +10,6 @@ import Overview from './Overview'
 import Print from './Print'
 import GoogleFonts from './GoogleFonts'
 import Catch from './Catch'
-import { default as defaultTheme } from '@mdx-deck/themes'
 
 const NORMAL = 'normal'
 const PRESENTER = 'presenter'
@@ -249,13 +248,11 @@ export class MDXDeck extends React.Component {
 
 MDXDeck.propTypes = {
   slides: PropTypes.array.isRequired,
-  theme: PropTypes.object.isRequired,
   headTags: PropTypes.array.isRequired,
 }
 
 MDXDeck.defaultProps = {
   slides: [],
-  theme: defaultTheme,
   headTags: [],
 }
 

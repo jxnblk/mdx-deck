@@ -5,6 +5,7 @@ import { ThemeProvider } from 'emotion-theming'
 import merge from 'lodash.merge'
 import { HeadProvider } from './Head'
 import { MDXProvider } from '@mdx-js/tag'
+import defaultTheme from '@mdx-deck/themes'
 import mdxComponents from './mdx-components'
 
 const DefaultProvider = props => <>{props.children}</>
@@ -18,7 +19,7 @@ const mergeThemes = themes =>
 
 export const Provider = props => {
   const { headTags, theme: baseTheme, themes = [] } = props
-  const theme = mergeThemes([baseTheme, ...themes])
+  const theme = mergeThemes([defaultTheme, baseTheme, ...themes])
   const {
     Provider: UserProvider = DefaultProvider,
     components: themeComponents = {},

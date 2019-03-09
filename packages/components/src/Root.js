@@ -22,6 +22,7 @@ const themedCode = props => ({
   '& code, & pre': {
     fontFamily: props.theme.monospace,
     color: props.theme.colors.code,
+    background: props.theme.colors.codeBackground,
   },
 })
 
