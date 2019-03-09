@@ -1,4 +1,3 @@
-import test from 'ava'
 import mdx from '@mdx-js/mdx'
 import plugin from '.'
 
@@ -15,10 +14,10 @@ export default props =>
 ## Three
 `
 
-test('adds an export', t => {
+test('adds an export', () => {
   const code = mdx.sync(src, {
     mdPlugins: [plugin],
   })
-  t.is(typeof code, 'string')
-  t.snapshot(code)
+  expect(typeof code).toBe('string')
+  expect(code).toMatchSnapshot()
 })

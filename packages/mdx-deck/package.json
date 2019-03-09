@@ -9,8 +9,7 @@
   "scripts": {
     "start": "./cli.js demo.mdx -p 8080",
     "build": "./cli.js build demo.mdx -d public",
-    "help": "./cli.js",
-    "test": "jest"
+    "help": "./cli.js"
   },
   "keywords": [],
   "author": "Brent Jackson",
@@ -63,25 +62,11 @@
   "devDependencies": {
     "@mdx-deck/themes": "^2.0.0-0",
     "@rebass/grid": "^6.0.0-7",
-    "babel-jest": "^24.1.0",
     "husky": "^1.3.1",
-    "jest": "^24.1.0",
     "lint-staged": "^8.1.5",
     "mdx-deck-code-surfer": "^0.5.5",
     "prettier": "^1.16.4",
     "react-test-renderer": "^16.8.3"
-  },
-  "jest": {
-    "roots": [
-      "<rootDir>/test/"
-    ],
-    "testMatch": [
-      "**/test/**/*.js"
-    ],
-    "testURL": "http://localhost/",
-    "coverageReporters": [
-      "html"
-    ]
   },
   "husky": {
     "hooks": {

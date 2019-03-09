@@ -3,16 +3,11 @@
   "version": "2.0.0-0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "test": "nyc ava"
-  },
   "keywords": [],
   "author": "Brent Jackson <jxnblk@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "@mdx-js/mdx": "^1.0.0-alpha.5",
-    "ava": "^1.2.1",
-    "nyc": "^13.3.0"
+    "@mdx-js/mdx": "^1.0.0-alpha.5"
   },
   "dependencies": {
     "unist-util-is": "^2.1.2",

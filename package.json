@@ -6,7 +6,23 @@
     "docs"
   ],
   "scripts": {
-    "start": "yarn workspace @mdx-deck/docs start"
+    "start": "yarn workspace @mdx-deck/docs start",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.3.4",
+    "@babel/preset-env": "^7.3.4",
+    "@babel/preset-react": "^7.0.0",
+    "husky": "^1.3.1",
+    "jest": "^24.3.1",
+    "lint-staged": "^8.1.5",
+    "prettier": "^1.16.4"
+  },
+  "jest": {
+    "coverageReporters": [
+      "lcov",
+      "html"
+    ]
   },
   "husky": {
     "hooks": {
@@ -18,10 +34,5 @@
       "prettier --write",
       "git add"
     ]
-  },
-  "devDependencies": {
-    "husky": "^1.3.1",
-    "lint-staged": "^8.1.5",
-    "prettier": "^1.16.4"
   }
 }

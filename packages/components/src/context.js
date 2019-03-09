@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 
-export const Context = React.createContext(null)
+export const Context = React.createContext({})
 
 export const withContext = Component => props => (
   <Context.Consumer
