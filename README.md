@@ -145,15 +145,10 @@ export { default as theme } from './theme'
 ```
 
 The theme should be an object with fields for fonts, colors, and CSS for individual components.
-It's recommended that all custom themes extend the default theme as a base.
 
 ```js
 // example theme.js
-import theme from 'mdx-deck/themes'
-
 export default {
-  // extends the default theme
-  ...theme,
   // add a custom font
   font: 'Roboto, sans-serif',
   // custom colors
@@ -180,6 +175,8 @@ These third-party libraries are great for use with mdx-deck.
 - [CodeSurfer][]: React component for scrolling, zooming and highlighting code.
 - [mdx-code][]: Runnable code playgrounds for MDX Deck.
 - [mdx-deck-live-code][]: Live React and JS coding in slides.
+
+_Note: please check with version compatibility when using these libraries._
 
 [codesurfer]: https://github.com/pomber/code-surfer
 [mdx-code]: https://github.com/pranaygp/mdx-code
@@ -224,37 +221,27 @@ which means you can use a nested ThemeProvider or target elements with CSS-in-JS
 
 ### Built-in Layouts
 
-mdx-deck includes some built-in layouts for inverting theme colors and changing the layout of a slide. Read more about [built-in layouts](docs/components.md#layouts).
+mdx-deck includes some built-in layouts for inverting theme colors and changing the layout of a slide.
+Read more about [built-in layouts](docs/components.md#layouts).
 
 ## Presenter Mode
 
-mdx-deck includes a built-in presenter mode, with a preview of the next slide and a timer.
+mdx-deck includes a built-in _Presenter Mode_, with a preview of the next slide and a timer.
 
 ![presenter mode screenshot](docs/images/presenter-mode.png)
 
 To use presenter mode:
 
-- Open two windows in the same browser, with the same URL on two different screens. (this should work in both development and exported presentations)
-- In your window, press the `Option/Alt + P` keys (or add `?mode=presenter` to the URL) to enter presenter mode.
-- Display the other window on the screen for the audience to see.
-- Control the presentation from your window by using the left and right arrow keys; the other window should stay in sync
+1. Open your presentation and enter _Presenter Mode_
+2. Click on the link in the bottom to open the presentation in another tab
+3. Move the other window to the screen for the audience to see
+4. Control the presentation from your window using the left and right arrow keys – the other window should stay in sync
+5. Be sure to move your cursor so that it doesn't drive anyone in the audience crazy
 
 ### Speaker Notes
 
 Notes that only show in presenter mode can be added to any slide.
-Speaker notes can be added in one of the following two ways:
-
-**Markdown:** Use the `notes` language attribute in a fenced code block to add speaker notes.
-
-````mdx
-# Slide Content
-
-```notes
-These are only visible in presenter mode
-```
-````
-
-**Notes Component:** Use the `Notes` component to create more complex speaker notes.
+Speaker notes can be added using the `<Notes />` component.
 
 ```mdx
 import { Notes } from 'mdx-deck'
@@ -268,21 +255,22 @@ import { Notes } from 'mdx-deck'
 
 ![Overview Mode](docs/images/overview-mode.png)
 
-When editing a slide deck, toggle overview mode with `Option + O` or add `?mode=overview` to the URL.
+When editing a slide deck, toggle overview mode with `Option + O`.
 This shows a list of all slides on the left and a preview of the current slide on the right.
 
 ## Keyboard Shortcuts
 
-| Key         | Description                                                         |
-| ----------- | ------------------------------------------------------------------- |
-| Left Arrow  | Go to previous slide (or step in [Appear][])                        |
-| Right Arrow | Go to next slide (or step in [Appear][])                            |
-| Space       | Go to next slide (or step in [Appear][])                            |
-| Up Arrow    | Hide current step in [Appear][] component without navigating slides |
-| Down Arrow  | Show next step in [Appear][] component without navigating slides    |
-| Option + P  | Toggle [Presenter Mode](#presenter-mode)                            |
-| Option + O  | Toggle [Overview Mode](#overview-mode)                              |
-| Option + G  | Toggle grid view mode                                               |
+| Key         | Description                                  |
+| ----------- | -------------------------------------------- |
+| Left Arrow  | Go to previous slide (or step in [Appear][]) |
+| Right Arrow | Go to next slide (or step in [Appear][])     |
+| Space       | Go to next slide (or step in [Appear][])     |
+| Option + P  | Toggle [Presenter Mode](#presenter-mode)     |
+| Option + O  | Toggle [Overview Mode](#overview-mode)       |
+
+### URL Query String
+
+The alternative modes in MDX Deck can also be set with query strings: `?mode=presenter` or `?mode=overview`
 
 [appear]: docs/components.md#appear
 
@@ -302,15 +290,10 @@ See more exporting options in the [Exporting Documentation](docs/exporting.md)
 
 ```
 -p --port     Dev server port
---hot-port    Dev server hot reload port
 -h --host     Host the dev server listens to
 --no-open     Prevent from opening in default browser
 -d --out-dir  Output directory for exporting
---no-html     Disable static HTML rendering
---out-file    Filename for screenshot or PDF export
---width       Width in pixels
---height      Height in pixels
---webpack     Path to webpack config file
+--webpack     Path to custom webpack config file
 ```
 
 ## Docs
