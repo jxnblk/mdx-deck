@@ -1,8 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
 
-export const Heading = styled.h1({ margin: 0 })
-
 export const inlineCode = styled.code(
   props => ({
     fontFamily: props.theme.monospace,

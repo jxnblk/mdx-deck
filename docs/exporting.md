@@ -1,4 +1,3 @@
-
 # Exporting
 
 ## Static Bundle
@@ -12,6 +11,12 @@ add a `build` script to your `package.json` file.
 }
 ```
 
+### PDF & Screenshots
+
+Version 2 will support exporting to PDF or screenshot with a separate CLI.
+This has not been released yet.
+
+<!-- TK
 ## PDF Export
 
 Presentations can be exported as PDF using the CLI.
@@ -46,4 +51,4 @@ import { Head } from 'mdx-deck'
   <meta name='og:image' content='https://example.com/card.png' />
 </Head>
 ```
-
+-->

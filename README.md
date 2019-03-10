@@ -1,4 +1,4 @@
-# mdx-deck
+# MDX Deck
 
 ![](https://s3.amazonaws.com/jxnblk/mdx-deck.gif)
 
@@ -53,7 +53,7 @@ import Demo from './components/Demo'
 # The end
 ````
 
-Add a run script to your `package.json` with the mdx-deck CLI
+Add a run script to your `package.json` with the MDX Deck CLI
 pointing to the `.mdx` file to start the dev server:
 
 ```json
@@ -112,7 +112,7 @@ Read more about MDX syntax in the [MDX Docs][mdx].
 
 ## Theming
 
-mdx-deck uses [emotion][] for styling, making practically any part of the presentation themeable.
+MDX Deck uses [emotion][] for styling, making practically any part of the presentation themeable.
 
 ### Built-in Themes
 
@@ -122,7 +122,7 @@ mdx-deck uses [emotion][] for styling, making practically any part of the presen
   <img src='docs/images/yellow.png' width='256' />
 </div>
 
-mdx-deck includes several built-in themes to change the look and feel of the presentation.
+MDX Deck includes several built-in themes to change the look and feel of the presentation.
 Export `theme` from your MDX file to enable a theme.
 
 ```mdx
@@ -164,13 +164,13 @@ Read more about theming in the [Theming docs](docs/theming.md)
 
 ### Components
 
-mdx-deck includes built-in components to help with creating presentations, including a full screen Image component, the Appear component that allows stepping through parts of a single slide, and the Notes component for adding speaker notes.
+MDX Deck includes built-in components to help with creating presentations, including a full screen Image component, the Appear component that allows stepping through parts of a single slide, and the Notes component for adding speaker notes.
 
 Read more in the [components docs](docs/components.md).
 
 ### Libraries
 
-These third-party libraries are great for use with mdx-deck.
+These third-party libraries are great for use with MDX Deck.
 
 - [CodeSurfer][]: React component for scrolling, zooming and highlighting code.
 - [mdx-code][]: Runnable code playgrounds for MDX Deck.
@@ -221,12 +221,12 @@ which means you can use a nested ThemeProvider or target elements with CSS-in-JS
 
 ### Built-in Layouts
 
-mdx-deck includes some built-in layouts for inverting theme colors and changing the layout of a slide.
+MDX Deck includes some built-in layouts for inverting theme colors and changing the layout of a slide.
 Read more about [built-in layouts](docs/components.md#layouts).
 
 ## Presenter Mode
 
-mdx-deck includes a built-in _Presenter Mode_, with a preview of the next slide and a timer.
+MDX Deck includes a built-in _Presenter Mode_, with a preview of the next slide and a timer.
 
 ![presenter mode screenshot](docs/images/presenter-mode.png)
 
@@ -304,7 +304,6 @@ See more exporting options in the [Exporting Documentation](docs/exporting.md)
 - [Components](docs/components.md)
 - [Exporting](docs/exporting.md)
 - [Advanced Usage](docs/advanced.md)
-- [React API](docs/react.md)
 
 ## Examples
 

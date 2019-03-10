@@ -51,7 +51,9 @@ export const Root = styled.div(
     'p',
     'blockquote',
     'img',
-    'table'
+    'table',
+    'pre',
+    'code'
   )
 )
 

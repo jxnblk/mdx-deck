@@ -201,8 +201,6 @@ export class MDXDeck extends React.Component {
     const { slides } = this.state
     const mode = pathname === '/print' ? PRINT : this.state.mode
     const index = this.getIndex()
-    // todo figure out how to rerender on location change
-    // console.log('MDXDeck', index)
     const meta = this.getMeta(index)
     const context = {
       ...this.state,
