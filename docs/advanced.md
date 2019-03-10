@@ -116,6 +116,6 @@ such as [create-react-app][] or [next.js][].
 See the [`@mdx-deck/components`](../packages/components) package for more.
 
 [mdx]: https://mdxjs.com
-[mdxprovider]: https://github.com/mdx-js/mdx#mdxprovider
+[mdxprovider]: https://github.com/mdx-js/mdx/blob/master/docs/getting-started/index.md#mdxprovider
 [create-react-app]: https://github.com/facebook/create-react-app
 [next.js]: https://github.com/zeit/next.js/

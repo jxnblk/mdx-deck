@@ -13,6 +13,14 @@
 - Removed `notes` language attribute for fenced code blocks
 - Refactored dev server
 
+## v1.10.2 2019-03-10
+
+- Fix bad release
+
+## v1.10.1 2019-03-10
+
+- Prevent Appear children from disappearing during slide transition #253
+
 ## v1.10.0 2019-02-18
 
 - Update to Babel 7
