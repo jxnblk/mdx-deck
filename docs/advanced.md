@@ -3,7 +3,7 @@
 
 ## Custom MDX components
 
-mdx-deck includes default components for MDX, but to provide custom components to the [MDXProvider][], add a `components` object to the `theme`.
+mdx-deck includes default components for MDX, but to provide custom components to the [MDXProvider][],add a `components` object to the `theme`.
 
 ```js
 // example theme
@@ -126,6 +126,6 @@ such as [create-react-app][] or [next.js][].
 See the [React API](react.md) docs for more.
 
 [MDX]: https://github.com/mdx-js/mdx
-[MDXProvider]: https://github.com/mdx-js/mdx#mdxprovider
+[MDXProvider]: https://github.com/mdx-js/mdx/blob/master/docs/getting-started/index.md#mdxprovider
 [create-react-app]: https://github.com/facebook/create-react-app
 [next.js]: https://github.com/zeit/next.js/
