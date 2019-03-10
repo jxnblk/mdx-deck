@@ -3,6 +3,10 @@
 
 ## Unreleased
 
+## v1.10.2 2019-03-10
+
+- Fix bad release
+
 ## v1.10.1 2019-03-10
 
 - Prevent Appear children from disappearing during slide transition #253
