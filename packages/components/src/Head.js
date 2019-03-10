@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { createPortal } from 'react-dom'
 
 export const HeadContext = React.createContext({

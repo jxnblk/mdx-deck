@@ -57,7 +57,7 @@ const baseConfig = {
   resolve: {
     extensions: ['.js', '.jsx'],
     alias: {
-      'mdx-deck': path.resolve(__dirname, '..'),
+      // 'mdx-deck': path.resolve(__dirname, '..'),
       'webpack-hot-middleware/client': path.resolve(
         require.resolve('webpack-hot-middleware/client')
       ),
@@ -88,8 +88,6 @@ const createConfig = (opts = {}) => {
 
   const defs = Object.assign({}, opts.globals, {
     OPTIONS: JSON.stringify(opts),
-    HOT_PORT: JSON.stringify(opts.hotPort),
-    HOT_HOST: JSON.stringify(opts.host),
   })
 
   config.plugins.push(
