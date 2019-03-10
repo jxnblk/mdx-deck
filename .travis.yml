@@ -1,7 +1,7 @@
 language: node_js
 node_js:
   - 10
-beforeDeploy:
+before_deploy:
   - yarn build
 deploy:
   provider: pages
