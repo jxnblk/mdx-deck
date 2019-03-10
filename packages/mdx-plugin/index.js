@@ -59,7 +59,6 @@ const toJSX = (node, parent, opts = {}) => {
     }
     return [
       `<${node.tagName}`,
-      ` data-name="${node.tagName}"`,
       parent.tagName && ` parentName="${parent.tagName}"`,
       props && ` {...${props}}`,
       '>',
