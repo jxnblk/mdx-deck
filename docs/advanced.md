@@ -75,7 +75,7 @@ Next, create a `.js` file to import and combine the two `.mdx` files.
 import { slides as one } from './one.mdx'
 import { slides as two } from './two.mdx'
 
-export default [...one, ...two]
+export const slides = [...one, ...two]
 ```
 
 Then, point the MDX Deck CLI comment in your `package.json` to the `deck.js` file.
