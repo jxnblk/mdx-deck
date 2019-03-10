@@ -3,7 +3,7 @@
 
 ## Custom MDX components
 
-mdx-deck includes default components for MDX, but to provide custom components to the [MDXProvider][],add a `components` object to the `theme`.
+mdx-deck includes default components for MDX, but to provide custom components to the [MDXProvider][], add a `components` object to the `theme`.
 
 ```js
 // example theme
@@ -104,8 +104,8 @@ Webpack configuration files named `webpack.config.js` will automatically be merg
 module.exports = {
   module: {
     rules: [
-      { 
-        test: /\.svg$/, 
+      {
+        test: /\.svg$/,
         use: [
           { loader: 'babel-loader' },
           { loader: 'react-svg-loader' }
