@@ -4,8 +4,16 @@
 npm i -D @mdx-deck/export
 ```
 
+Export as PDF
+
 ```sh
-mdx-deck-export deck.mdx
+mdx-deck-export pdf deck.mdx
+```
+
+Export as PNG
+
+```sh
+mdx-deck-export png deck.mdx
 ```
 
 ## Options

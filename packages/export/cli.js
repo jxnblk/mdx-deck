@@ -7,7 +7,8 @@ const cli = meow(
 
   Usage:
 
-    $ mdx-deck-export deck.mdx
+    $ mdx-deck-export pdf deck.mdx
+    $ mdx-deck-export png deck.mdx
 
   Options:
 
@@ -54,9 +55,9 @@ const cli = meow(
   }
 )
 
-const [input] = cli.input
+const [cmd, input] = cli.input
 
-if (!input) {
+if (!input || !cmd) {
   cli.showHelp(0)
 }
 
@@ -67,11 +68,12 @@ const opts = Object.assign({}, cli.flags, {
     FILENAME: JSON.stringify(path.resolve(input)),
   },
   host: 'localhost',
+  type: cmd,
 })
 
 require('./index')(opts)
   .then(filename => {
-    console.log('saved PDF to', filename)
+    console.log(`saved ${cmd} to`, filename)
     process.exit(0)
   })
   .catch(err => {
