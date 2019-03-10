@@ -8,7 +8,7 @@
 - Removes timers from presentation mode (maybe)
 - Uses Reach Router
   - Fix for focus trap
-- Removed PDF export and screenshots from core CLI
+- Removed PDF export and screenshots from core CLI - now available with the `@mdx-deck/export` package
 - Removed built-in syntax highlighting
 - Removed `notes` language attribute for fenced code blocks
 - Refactored dev server
