@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "@mdx-deck/docs",
-  "version": "2.0.0-6",
+  "version": "2.0.0-7",
   "main": "index.js",
   "author": "Brent Jackson <jxnblk@gmail.com>",
   "license": "MIT",
@@ -12,11 +12,11 @@
   "dependencies": {
     "@emotion/core": "^10.0.7",
     "@emotion/styled": "^10.0.7",
-    "@mdx-deck/components": "^2.0.0-6",
-    "@mdx-deck/layouts": "^2.0.0-1",
-    "@mdx-deck/themes": "^2.0.0-5",
+    "@mdx-deck/components": "^2.0.0-7",
+    "@mdx-deck/layouts": "^2.0.0-7",
+    "@mdx-deck/themes": "^2.0.0-7",
     "@rebass/emotion": "^3.0.0",
-    "mdx-deck": "^2.0.0-6",
+    "mdx-deck": "^2.0.0-7",
     "rebass": "^3.0.1"
   }
 }
