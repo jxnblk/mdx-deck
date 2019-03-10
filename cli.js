@@ -28,6 +28,7 @@ const cli = meow(
   ${chalk.gray('Options')}
 
       --webpack     Path to webpack config file
+      --version     Print version number
 
     ${chalk.gray('Dev server options')}
 
