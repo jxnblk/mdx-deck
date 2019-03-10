@@ -1,6 +1,6 @@
 {
   "name": "create-deck",
-  "version": "2.0.0-1",
+  "version": "2.0.0-9",
   "description": "Create mdx-deck presentations",
   "bin": {
     "create-deck": "cli.js"
