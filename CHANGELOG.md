@@ -1,7 +1,17 @@
-
 # Changelog
 
 ## Unreleased
+
+- Simplified custom mdx loader, removing unused front-matter support
+- Simplified theming and default styles
+- Removes default Provider component with dot indicator
+- Removes timers from presentation mode (maybe)
+- Uses Reach Router
+  - Fix for focus trap
+- Removed PDF export and screenshots from core CLI - now available with the `@mdx-deck/export` package
+- Removed built-in syntax highlighting
+- Removed `notes` language attribute for fenced code blocks
+- Refactored dev server
 
 ## v1.10.2 2019-03-10
 

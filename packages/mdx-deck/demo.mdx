@@ -1,0 +1,111 @@
+import { Head, Image, Notes, Appear, Steps } from '@mdx-deck/components'
+
+export const themes = []
+
+<Head>
+  <title>MDX Deck Demo</title>
+</Head>
+
+# Hello MDX Deck
+
+---
+
+```jsx
+import React from 'react'
+
+export default props =>
+  <div style={{ color: 'red' }}>
+    {props.children}
+  </div>
+
+export const Beep = props =>
+  <Hello>
+    {props.children}
+  </Hello>
+
+```
+
+## This is v2
+
+---
+
+## What's New
+
+<ul>
+  <Appear>
+    <li>Reach Router</li>
+    <li>Less opinionated styles</li>
+    <li>more stuff</li>
+  </Appear>
+</ul>
+
+---
+
+<Image
+  src='https://source.unsplash.com/random/1024x768'
+  size='contain'
+/>
+
+---
+
+## This slide has notes
+
+<Notes>
+  Hello, secret speaker notes
+</Notes>
+
+---
+
+```js
+const codeExample = require('./code-example')
+```
+
+---
+
+## More Appear
+
+<Appear>
+  <div>One</div>
+  <div>Two</div>
+  <div>Three</div>
+  <div>Four</div>
+  <div>Five</div>
+  <div>Six</div>
+</Appear>
+
+---
+
+## Steps Components
+
+<Steps
+  length={3}
+  render={({ step }) => (
+    <pre>
+      Step: {step}
+    </pre>
+  )}
+/>
+
+---
+
+export default props =>
+  <div
+    style={{
+      width: '100vw',
+      height: '100vh',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
+      backgroundColor: 'tomato'
+    }}>
+    {props.children}
+  </div>
+
+## With a (tomato) layout
+
+---
+
+## Last Slide
+
+

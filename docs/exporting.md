@@ -1,4 +1,3 @@
-
 # Exporting
 
 ## Static Bundle
@@ -12,26 +11,24 @@ add a `build` script to your `package.json` file.
 }
 ```
 
-## PDF Export
+### PDF & Screenshots
 
-Presentations can be exported as PDF using the CLI.
-This works well as a backup option for any unforeseen technical difficulties.
+To export a deck as PDF or create a PNG screenshot, install the export CLI package:
 
-```json
-"script": {
-  "pdf": "mdx-deck pdf deck.mdx"
-}
+```sh
+npm i @mdx-deck/export
 ```
 
-## Screenshots
+Then run the following command to create a PDF:
 
-A PNG image of the first slide can be exported with the `screenshot` command.
-This is useful for creating open graph images for Twitter, Facebook, or Slack.
+```sh
+mdx-deck-export pdf deck.mdx
+```
 
-```json
-"script": {
-  "screenshot": "mdx-deck screenshot deck.mdx"
-}
+Or export the first slide as a PNG:
+
+```sh
+mdx-deck-export png deck.mdx
 ```
 
 ### OG Image
@@ -43,7 +40,6 @@ Note that the meta tag should point to a full URL, including schema and domain n
 import { Head } from 'mdx-deck'
 
 <Head>
-  <meta name='og:image' content='https://example.com/card.png' />
+  <meta name="og:image" content="https://example.com/card.png" />
 </Head>
 ```
-

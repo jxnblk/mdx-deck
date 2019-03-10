@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`adds an export 1`] = `
+"/* @jsx mdx */
+
+export const slides = [(props => {
+  const Layout = props =>
+  <section>
+    {props.children}
+  </section>
+  return <Layout
+    name=\\"wrapper\\"
+    components={props.components}>
+    
+
+    <h1>{\`Hello\`}</h1>
+  </Layout>
+}),
+(props => {
+  const Layout = \\"div\\"
+  return <Layout
+    name=\\"wrapper\\"
+    components={props.components}>
+    <h2>{\`Two\`}</h2>
+  </Layout>
+}),
+(props => {
+  const Layout = \\"div\\"
+  return <Layout
+    name=\\"wrapper\\"
+    components={props.components}>
+    <h2>{\`Three\`}</h2>
+  </Layout>
+})]
+const layoutProps = {
+  slides
+};
+const MDXLayout = props =>
+  <section>
+    {props.children}
+  </section>
+export default function MDXContent({ components, ...props }) {
+  return (
+    <div
+      name=\\"wrapper\\"
+      components={components}>
+      <MDXLayout {...layoutProps} {...props}>
+      
+<h1 >{\`Hello\`}</h1>
+<hr ></hr>
+<h2 >{\`Two\`}</h2>
+<hr ></hr>
+<h2 >{\`Three\`}</h2>
+
+      </MDXLayout>
+    </div>
+  )
+}
+MDXContent.isMDXComponent = true"
+`;

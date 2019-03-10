@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Appear renders 1`] = `
+<h1
+  style={
+    Object {
+      "visibility": "hidden",
+    }
+  }
+>
+  Hello
+</h1>
+`;

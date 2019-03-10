@@ -1,110 +1,29 @@
 {
-  "name": "mdx-deck",
-  "version": "1.10.2",
-  "description": "MDX-based presentation decks",
-  "main": "dist/index.js",
-  "bin": {
-    "mdx-deck": "./cli.js"
-  },
+  "private": true,
+  "version": "2.0.0-0",
+  "workspaces": [
+    "packages/*",
+    "templates/*",
+    "docs"
+  ],
   "scripts": {
-    "prepare": "npm run babel",
-    "babel": "babel src -d dist",
-    "watch": "babel src -d dist --watch",
-    "start": "./cli.js docs/index.mdx -p 8080",
-    "build": "./cli.js build docs/index.mdx -d site",
-    "pdf": "./cli.js pdf docs/index.mdx -d site",
-    "screenshot": "./cli.js screenshot docs/index.mdx -d docs",
-    "help": "./cli.js",
+    "start": "yarn workspace @mdx-deck/docs start",
+    "build": "yarn workspace @mdx-deck/docs build",
     "test": "jest"
   },
-  "keywords": [],
-  "author": "Brent Jackson",
-  "license": "MIT",
-  "repository": "github:jxnblk/mdx-deck",
-  "dependencies": {
-    "@babel/core": "^7.0.0",
-    "@babel/plugin-proposal-class-properties": "^7.0.0",
-    "@babel/plugin-proposal-do-expressions": "^7.0.0",
-    "@babel/plugin-proposal-export-default-from": "^7.0.0",
-    "@babel/plugin-proposal-export-namespace-from": "^7.0.0",
-    "@babel/plugin-proposal-function-bind": "^7.0.0",
-    "@babel/plugin-proposal-function-sent": "^7.0.0",
-    "@babel/plugin-proposal-json-strings": "^7.0.0",
-    "@babel/plugin-proposal-logical-assignment-operators": "^7.0.0",
-    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.0.0",
-    "@babel/plugin-proposal-numeric-separator": "^7.0.0",
-    "@babel/plugin-proposal-optional-chaining": "^7.0.0",
-    "@babel/plugin-proposal-throw-expressions": "^7.0.0",
-    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
-    "@babel/plugin-syntax-import-meta": "^7.0.0",
-    "@babel/preset-env": "^7.0.0",
-    "@babel/preset-react": "^7.0.0",
-    "@compositor/webfont": "^1.0.39",
-    "@mdx-js/mdx": "^0.15.7",
-    "@mdx-js/tag": "^0.15.6",
-    "ansi-html": "0.0.7",
-    "babel-loader": "^8.0.0",
-    "babel-plugin-styled-components": "^1.10.0",
-    "chalk": "^2.4.2",
-    "clipboardy": "^1.2.3",
-    "find-up": "^3.0.0",
-    "get-port": "^4.1.0",
-    "gray-matter": "^4.0.2",
-    "hhmmss": "^1.0.0",
-    "html-entities": "^1.2.1",
-    "koa": "^2.7.0",
-    "koa-static": "^5.0.0",
-    "koa-webpack": "^5.2.1",
-    "loader-utils": "^1.2.3",
-    "lodash.debounce": "^4.0.8",
-    "lodash.get": "^4.4.2",
-    "meow": "^5.0.0",
-    "mini-html-webpack-plugin": "^0.2.3",
-    "mkdirp": "^0.5.1",
-    "normalize-newline": "^3.0.0",
-    "pkg-conf": "^2.1.0",
-    "progress-bar-webpack-plugin": "^1.12.1",
-    "prop-types": "^15.7.2",
-    "puppeteer": "^1.12.2",
-    "querystring": "^0.2.0",
-    "react": "^16.8.2",
-    "react-dev-utils": "^7.0.3",
-    "react-dom": "^16.8.2",
-    "react-swipeable": "^4.3.2",
-    "react-syntax-highlighter": "^8.1.0",
-    "remark-emoji": "^2.0.2",
-    "remark-unwrap-images": "^0.1.0",
-    "rimraf": "^2.6.3",
-    "stringify-object": "^3.3.0",
-    "styled-components": "^4.1.3",
-    "styled-system": "^3.2.1",
-    "superbox": "^2.1.0",
-    "webpack": "^4.29.5",
-    "webpack-hot-client": "^4.1.1",
-    "webpack-merge": "^4.2.1",
-    "webpack-node-externals": "^1.7.2"
-  },
-  "peerDependencies": {},
   "devDependencies": {
-    "@babel/cli": "^7.0.0",
-    "babel-jest": "^24.1.0",
+    "@babel/core": "^7.3.4",
+    "@babel/preset-env": "^7.3.4",
+    "@babel/preset-react": "^7.0.0",
     "husky": "^1.3.1",
-    "jest": "^24.1.0",
-    "jest-styled-components": "^6.3.1",
-    "lint-staged": "^7.3.0",
-    "mdx-deck-code-surfer": "^0.5.5",
-    "prettier": "^1.16.4",
-    "react-test-renderer": "^16.8.2"
+    "jest": "^24.3.1",
+    "lerna": "^3.13.1",
+    "lint-staged": "^8.1.5",
+    "prettier": "^1.16.4"
   },
   "jest": {
-    "roots": [
-      "<rootDir>/test/"
-    ],
-    "testMatch": [
-      "**/test/**/*.js"
-    ],
-    "testURL": "http://localhost/",
     "coverageReporters": [
+      "lcov",
       "html"
     ]
   },
@@ -114,15 +33,9 @@
     }
   },
   "lint-staged": {
-    "*.{js,json}": [
+    "*.{md,js,json}": [
       "prettier --write",
       "git add"
     ]
-  },
-  "prettier": {
-    "semi": false,
-    "singleQuote": true,
-    "trailingComma": "es5",
-    "jsxBracketSameLine": true
   }
 }

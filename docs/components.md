@@ -1,7 +1,6 @@
-
 # Components
 
-mdx-deck includes a few built-in components to help with creating presentations.
+MDX Deck includes a few built-in components to help with creating presentations.
 
 ## Head
 
@@ -13,11 +12,11 @@ import { Head } from 'mdx-deck'
 
 <Head>
   <title>My Presentation</title>
-  <meta name='twitter:card' content='summary_large_image' />
-  <meta name='twitter:site' content='@jxnblk' />
-  <meta name='twitter:title' content='My Presentation' />
-  <meta name='twitter:description' content='A really great presentation' />
-  <meta name='twitter:image' content='https://example.com/card.png' />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@jxnblk" />
+  <meta name="twitter:title" content="My Presentation" />
+  <meta name="twitter:description" content="A really great presentation" />
+  <meta name="twitter:image" content="https://example.com/card.png" />
 </Head>
 ```
 
@@ -28,10 +27,11 @@ Use the `<Image />` component to render a fullscreen image (using the CSS `backg
 ```mdx
 import { Image } from 'mdx-deck'
 
-<Image src='kitten.png' />
+<Image src="kitten.png" />
 ```
 
 ### Props
+
 - `src` (string) image URL
 - `size` (string) CSS background-size
 
@@ -52,31 +52,23 @@ import { Appear } from 'mdx-deck'
 </ul>
 ```
 
+Internally, the `<Appear />` component uses the `<Step />` component, which can be used to build custom components with similar behavior.
+
 ## Speaker Notes
 
-Speaker notes that only show in presenter mode can be added to any slide with either markdown syntax or with the Notes component.
-
-````mdx
-# Markdown speaker notes
-
-```notes
-These are only visible in presenter mode
-```
-````
+Speaker notes that only show in presenter mode can be added to any slide with the Notes component.
 
 ```mdx
 import { Notes } from 'mdx-deck'
 
 # Slide Content
 
-<Notes>
-  Only visible in presenter mode
-</Notes>
+<Notes>Only visible in presenter mode</Notes>
 ```
 
 ## Layouts
 
-mdx-deck includes a few built-in layouts for common slide variations.
+MDX Deck includes a few built-in layouts for common slide variations.
 Export a layout as the `default` within a slide to wrap the contents.
 
 ### Invert
@@ -123,6 +115,10 @@ export default SplitRight
 ## Meow
 ```
 
+### Horizontal
+
+Similar to the Split components, but renders all children side-by-side
+
 ### FullScreenCode
 
 Render fenced code blocks fullscreen.
@@ -136,4 +132,3 @@ export default FullScreenCode
 <Button>Beep</Button>
 ```
 ````
-

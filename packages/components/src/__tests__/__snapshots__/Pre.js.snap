@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pre renders 1`] = `
+<pre
+  style={
+    Object {
+      "fontFamily": "Menlo, monospace",
+      "fontSize": 18,
+      "whiteSpace": "pre-wrap",
+    }
+  }
+>
+  hi
+</pre>
+`;
