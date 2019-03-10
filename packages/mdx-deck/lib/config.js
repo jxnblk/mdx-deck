@@ -22,7 +22,7 @@ const rules = [
   {
     test: /\.js$/,
     exclude: path.resolve(__dirname, '../node_modules'),
-    include: [path.resolve(__dirname, '..'), /^@mdx-deck/],
+    include: [path.resolve(__dirname, '..'), /mdx-deck/],
     loader: require.resolve('babel-loader'),
     options: babel,
   },
