@@ -3,6 +3,8 @@
 
 ## Unreleased
 
+- Prevent Appear children from disappearing during slide transition #253
+
 ## v1.10.0 2019-02-18
 
 - Update to Babel 7
