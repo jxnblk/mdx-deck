@@ -15,7 +15,7 @@
 [npm]: https://npmjs.com/package/mdx-deck
 
 ```sh
-npm i -D mdx-deck
+npm i -D mdx-deck@next
 ```
 
 - :memo: Write presentations in markdown
