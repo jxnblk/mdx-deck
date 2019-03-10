@@ -4,10 +4,6 @@ const meow = require('meow')
 const findup = require('find-up')
 const open = require('react-dev-utils/openBrowser')
 const chalk = require('chalk')
-const remark = {
-  emoji: require('remark-emoji'),
-  unwrapImages: require('remark-unwrap-images'),
-}
 const pkg = require('./package.json')
 
 const config = require('pkg-conf').sync('mdx-deck')
