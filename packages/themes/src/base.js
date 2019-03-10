@@ -19,6 +19,9 @@ export default {
     '@media screen and (min-width:64em)': {
       fontSize: '48px',
     },
+    '@media print': {
+      fontSize: '40px',
+    },
     'li > p': {
       margin: 0,
     },
@@ -32,7 +35,4 @@ export default {
   ul: {
     textAlign: 'left',
   },
-
-  // from v1
-  // fontSizes: ['0.75em', '1em', '1.5em', '2em', '3em'],
 }

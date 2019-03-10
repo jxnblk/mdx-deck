@@ -11,23 +11,21 @@ add a `build` script to your `package.json` file.
 }
 ```
 
-### PDF & Screenshots
+### PDF
 
-Version 2 will support exporting to PDF or screenshot with a separate CLI.
-This has not been released yet.
+To export a deck as PDF, install the export CLI package:
 
-<!-- TK
-## PDF Export
-
-Presentations can be exported as PDF using the CLI.
-This works well as a backup option for any unforeseen technical difficulties.
-
-```json
-"script": {
-  "pdf": "mdx-deck pdf deck.mdx"
-}
+```sh
+npm i @mdx-deck/export
 ```
 
+Then run the following command to create a PDF:
+
+```sh
+mdx-deck-export deck.mdx
+```
+
+<!-- TK
 ## Screenshots
 
 A PNG image of the first slide can be exported with the `screenshot` command.
