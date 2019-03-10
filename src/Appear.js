@@ -11,18 +11,29 @@ export default withDeck(
       deck: PropTypes.object.isRequired,
     }
 
+    static getDerivedStateFromProps(props) {
+      const { deck } = props
+      if (!deck.active) return null
+      return {
+        step: deck.step,
+      }
+    }
+
     constructor(props) {
       super(props)
       const { update, index } = props.deck
       const steps = React.Children.toArray(props.children).length
+      this.state = {
+        step: 0,
+      }
       update(setSteps(index, steps))
     }
 
     render() {
-      const children = React.Children.toArray(this.props.children).map(
-        child => (typeof child === 'string' ? <div>{child}</div> : child)
+      const children = React.Children.toArray(this.props.children).map(child =>
+        typeof child === 'string' ? <div>{child}</div> : child
       )
-      const { step, mode } = this.props.deck
+      const { mode } = this.props.deck
 
       if (mode === modes.grid) {
         return children
@@ -34,6 +45,8 @@ export default withDeck(
       ) {
         return children
       }
+
+      const { step } = this.state
 
       return (
         <React.Fragment>
