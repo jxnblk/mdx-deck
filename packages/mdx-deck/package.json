@@ -1,6 +1,6 @@
 {
   "name": "mdx-deck",
-  "version": "2.0.0-5",
+  "version": "2.0.0-6",
   "description": "MDX-based presentation decks",
   "bin": {
     "mdx-deck": "./cli.js"
@@ -26,7 +26,7 @@
     "@emotion/babel-preset-css-prop": "^10.0.7",
     "@emotion/core": "^10.0.7",
     "@emotion/styled": "^10.0.7",
-    "@mdx-deck/components": "^2.0.0-1",
+    "@mdx-deck/components": "^2.0.0-6",
     "@mdx-deck/layouts": "^2.0.0-1",
     "@mdx-deck/loader": "^2.0.0-1",
     "@mdx-deck/themes": "^2.0.0-5",
