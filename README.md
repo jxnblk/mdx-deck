@@ -25,7 +25,7 @@ npm i -D mdx-deck@next
 - :tipping_hand_woman: [Presenter mode](#presenter-mode)
 - :notebook: [Speaker notes](#speaker-notes)
 
-[View demo](https://jxnblk.com/mdx-deck)
+[View demo](https://mdx-deck.jxnblk.com)
 
 ## Getting Started
 
