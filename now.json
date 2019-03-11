@@ -1,0 +1,21 @@
+{
+  "version": 2,
+  "public": true,
+  "name": "mdx-deck",
+  "alias": "mdx-deck.jxnblk.com",
+  "builds": [
+    {
+      "src": "docs/package.json",
+      "use": "@now/static-build",
+      "config": {
+        "distDir": "dist"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/docs/$1"
+    }
+  ]
+}
