@@ -53,7 +53,7 @@ const build = async (opts = {}) => {
   const config = createConfig(opts)
 
   const App = await getApp(config, opts)
-  const { head } = await renderHTML(App)
+  const { body, head } = await renderHTML(App)
 
   config.mode = 'production'
   config.output = {
@@ -62,6 +62,10 @@ const build = async (opts = {}) => {
 
   config.plugins.push(
     new HTMLPlugin({
+      context: { head },
+    }),
+    new HTMLPlugin({
+      filename: '404.html',
       context: { head },
     })
   )
