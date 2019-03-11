@@ -5,13 +5,13 @@
 [MDX][]-based presentation decks
 
 [![Build Status][badge]][travis]
-[![Version][version-badge]][npm]
-[![Downloads][downloads-badge]][npm]
+[![Version][]][npm]
+[![Downloads][]][npm]
 
-[badge]: https://img.shields.io/travis/jxnblk/mdx-deck.svg?style=flat-square
+[badge]: https://flat.badgen.net/travis/jxnblk/mdx-deck
 [travis]: https://travis-ci.org/jxnblk/mdx-deck
-[version-badge]: https://img.shields.io/npm/v/mdx-deck.svg?style=flat-square
-[downloads-badge]: https://img.shields.io/npm/dw/mdx-deck.svg?style=flat-square
+[version]: https://flat.badgen.net/npm/v/mdx-deck/next
+[downloads]: https://flat.badgen.net/npm/dw/mdx-deck
 [npm]: https://npmjs.com/package/mdx-deck
 
 ```sh
