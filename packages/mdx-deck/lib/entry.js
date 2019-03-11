@@ -1,5 +1,5 @@
 import React from 'react'
-import { render, hydrate } from 'react-dom'
+import { render } from 'react-dom'
 import { MDXDeck } from '@mdx-deck/components'
 
 const mod = require(FILENAME)
@@ -15,8 +15,7 @@ export default class App extends React.Component {
 
 if (typeof document !== 'undefined') {
   const div = document.getElementById('root')
-  const mount = div.innerHTML ? hydrate : render
-  mount(<App />, div)
+  render(<App />, div)
 }
 
 if (module.hot) module.hot.accept()

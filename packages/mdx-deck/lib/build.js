@@ -3,6 +3,7 @@ const webpack = require('webpack')
 const React = require('react')
 const { renderToString, renderToStaticMarkup } = require('react-dom/server')
 const HTMLPlugin = require('@mdx-deck/webpack-html-plugin')
+const rimraf = require('rimraf')
 const createConfig = require('./config')
 
 const getApp = async (config, opts) => {
@@ -29,6 +30,7 @@ const getApp = async (config, opts) => {
 
       const filename = path.resolve(opts.outDir, './__app.js')
       const App = require(filename).default
+      rimraf.sync(filename)
       resolve(App)
     })
   })
@@ -51,7 +53,7 @@ const build = async (opts = {}) => {
   const config = createConfig(opts)
 
   const App = await getApp(config, opts)
-  const { body, head } = await renderHTML(App)
+  const { head } = await renderHTML(App)
 
   config.mode = 'production'
   config.output = {
@@ -60,10 +62,7 @@ const build = async (opts = {}) => {
 
   config.plugins.push(
     new HTMLPlugin({
-      context: {
-        head,
-        body,
-      },
+      context: { head },
     })
   )
 
