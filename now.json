@@ -14,8 +14,12 @@
   ],
   "routes": [
     {
+      "src": "/main.js",
+      "dest": "/docs/main.js"
+    },
+    {
       "src": "/(.*)",
-      "dest": "/docs/$1"
+      "dest": "/docs/index.html"
     }
   ]
 }
