@@ -36,6 +36,9 @@
     "*.{md,js,json}": [
       "prettier --write",
       "git add"
+    ],
+    "ignore": [
+      "**/MIGRATION.md"
     ]
   }
 }

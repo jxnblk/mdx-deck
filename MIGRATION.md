@@ -11,10 +11,8 @@ With v2, MDX Deck now splits slides based on the Remark AST's `thematicBreak` no
 For example, the following **will not** be split into a new slide, but instead will be treated as a Setext-style heading:
 
 ```md
-<!-- prettier-ignore -->
 Hello
 ---
-
 Not another slide
 ```
 
