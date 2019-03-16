@@ -33,9 +33,14 @@
     }
   },
   "lint-staged": {
-    "*.{md,js,json}": [
-      "prettier --write",
-      "git add"
+    "linters": {
+      "*.{md,js,json}": [
+        "prettier --write",
+        "git add"
+      ]
+    },
+    "ignore": [
+      "**/MIGRATION.md"
     ]
   }
 }
