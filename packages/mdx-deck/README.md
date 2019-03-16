@@ -10,12 +10,12 @@
 
 [badge]: https://flat.badgen.net/travis/jxnblk/mdx-deck
 [travis]: https://travis-ci.org/jxnblk/mdx-deck
-[version]: https://flat.badgen.net/npm/v/mdx-deck/next
+[version]: https://flat.badgen.net/npm/v/mdx-deck
 [downloads]: https://flat.badgen.net/npm/dw/mdx-deck
 [npm]: https://npmjs.com/package/mdx-deck
 
 ```sh
-npm i -D mdx-deck@next
+npm i -D mdx-deck
 ```
 
 - :memo: Write presentations in markdown
