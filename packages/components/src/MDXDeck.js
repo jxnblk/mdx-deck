@@ -7,6 +7,7 @@ import Provider from './Provider'
 import Slide from './Slide'
 import Presenter from './Presenter'
 import Overview from './Overview'
+import Grid from './Grid'
 import Print from './Print'
 import GoogleFonts from './GoogleFonts'
 import Catch from './Catch'
@@ -14,7 +15,15 @@ import Catch from './Catch'
 const NORMAL = 'normal'
 const PRESENTER = 'presenter'
 const OVERVIEW = 'overview'
+const GRID = 'grid'
 const PRINT = 'print'
+const modes = {
+  NORMAL,
+  PRESENTER,
+  OVERVIEW,
+  GRID,
+  PRINT,
+}
 
 const STORAGE_INDEX = 'mdx-slide'
 const STORAGE_STEP = 'mdx-step'
@@ -25,6 +34,7 @@ const keys = {
   space: 32,
   p: 80,
   o: 79,
+  g: 71,
 }
 
 const toggleMode = key => state => ({
@@ -43,6 +53,7 @@ export class MDXDeck extends React.Component {
       slides: props.slides,
       step: 0,
       mode: NORMAL,
+      update: fn => this.setState(fn),
     }
   }
 
@@ -70,6 +81,9 @@ export class MDXDeck extends React.Component {
           break
         case keys.o:
           this.setState(toggleMode(OVERVIEW))
+          break
+        case keys.g:
+          this.setState(toggleMode(GRID))
           break
       }
     } else {
@@ -217,13 +231,16 @@ export class MDXDeck extends React.Component {
       case OVERVIEW:
         Wrapper = Overview
         break
+      case GRID:
+        Wrapper = Grid
+        break
     }
 
     return (
       <Provider {...this.props} {...this.state} mode={mode} index={index}>
         <Catch>
           <GoogleFonts />
-          <Wrapper {...this.state} index={index}>
+          <Wrapper {...this.state} modes={modes} index={index}>
             <Swipeable onSwipedRight={this.previous} onSwipedLeft={this.next}>
               <Router>
                 <Slide path="/" index={0} {...context}>
