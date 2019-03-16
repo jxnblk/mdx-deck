@@ -3,8 +3,8 @@ import styled from '@emotion/styled'
 
 const ZoomRoot = styled.div(props => ({
   backgroundColor: props.theme.colors.background,
-  width: 100 * props.zoom + 'vw',
-  height: 100 * props.zoom + 'vh',
+  width: `calc(${100 * props.zoom}vw)`,
+  height: `calc(${100 * props.zoom}vh)`,
 }))
 
 const ZoomInner = styled.div([], props => ({

@@ -2,7 +2,6 @@ import React, { useEffect } from 'react'
 import { Location, navigate } from '@reach/router'
 import Zoom from './Zoom'
 import Slide from './Slide'
-import Pre from './Pre'
 
 const getIndex = ({ pathname }) => {
   return Number(pathname.split('/')[1] || 0)
@@ -16,8 +15,8 @@ const withLocation = Component => props => (
   />
 )
 
-export const Overview = withLocation(props => {
-  const { index, slides } = props
+export const Grid = withLocation(props => {
+  const { index, slides, modes, update } = props
   const activeThumb = React.createRef()
 
   useEffect(() => {
@@ -31,21 +30,17 @@ export const Overview = withLocation(props => {
   return (
     <div
       style={{
-        display: 'flex',
-        alignItems: 'flex-start',
         height: '100vh',
+        overflowY: 'auto',
         color: 'white',
         backgroundColor: 'black',
       }}
     >
       <div
         style={{
-          flex: 'none',
-          height: '100vh',
-          paddingLeft: 4,
-          paddingRight: 4,
-          overflowY: 'auto',
-          marginRight: 'auto',
+          display: 'flex',
+          justifyContent: 'flex-start',
+          flexWrap: 'wrap',
         }}
       >
         {slides.map((Component, i) => (
@@ -55,19 +50,20 @@ export const Overview = withLocation(props => {
             role="link"
             onClick={e => {
               navigate('/' + i)
+              update({ mode: modes.NORMAL })
             }}
             style={{
               display: 'block',
+              width: '25vw',
+              height: '25vh',
+              padding: '2px',
+              overflow: 'hidden',
               color: 'inherit',
               textDecoration: 'none',
-              padding: 0,
-              marginTop: 4,
-              marginBottom: 4,
               cursor: 'pointer',
-              outline: i === index ? '4px solid #0cf' : null,
             }}
           >
-            <Zoom zoom={1 / 6}>
+            <Zoom zoom={1 / 4}>
               <Slide>
                 <Component />
               </Slide>
@@ -75,19 +71,8 @@ export const Overview = withLocation(props => {
           </div>
         ))}
       </div>
-      <div
-        style={{
-          width: 200 / 3 + '%',
-          margin: 'auto',
-        }}
-      >
-        <Zoom zoom={2 / 3}>{props.children}</Zoom>
-        <Pre>
-          {index} of {slides.length - 1}
-        </Pre>
-      </div>
     </div>
   )
 })
 
-export default Overview
+export default Grid
