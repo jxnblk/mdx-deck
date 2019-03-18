@@ -122,7 +122,7 @@ The following keys are available for theming:
 - `table`: CSS for `<table>`
 - `pre`: CSS for `<pre>`
 - `code`: CSS for `<code>`
-- `Slides`: CSS to apply to the wrapping Slide component
+- `Slide`: CSS to apply to the wrapping Slide component
 - `components`: object of MDX components to render markdown
 - `Provider`: component for wrapping the entire app
 - `googleFont`: CSS HREF for adding a Google Font `<link>` tag
