@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.0.2 2019-03-23
+
+- Fix syntax error in theme #286
+
 ## v2.0.1 2019-03-23
 
 - Add language support to syntax highlighter themes #278
