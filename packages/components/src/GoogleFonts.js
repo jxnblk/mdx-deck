@@ -1,12 +1,13 @@
 import React from 'react'
-import { createPortal } from 'react-dom'
 import { withTheme } from 'emotion-theming'
+import { Head } from './Head'
 
 const GoogleFonts = withTheme(({ theme }) => {
   if (!theme.googleFont) return false
-  return createPortal(
-    <link rel="stylesheet" href={theme.googleFont} />,
-    document.head
+  return (
+    <Head>
+      <link rel="stylesheet" href={theme.googleFont} />
+    </Head>
   )
 })
 
