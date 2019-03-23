@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.0.1 2019-03-23
+
+- Add language support to syntax highlighter themes #278
+
 ## v2.0.0 2019-03-16
 
 - Simplified custom mdx loader, removing unused front-matter support
