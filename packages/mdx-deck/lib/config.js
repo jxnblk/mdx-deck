@@ -76,7 +76,7 @@ const baseConfig = {
 }
 
 const createConfig = (opts = {}) => {
-  const config = merge(baseConfig, opts.webpack)
+  const config = merge.smart(baseConfig, opts.webpack)
   config.context = opts.dirname
 
   config.resolve.modules.push(
