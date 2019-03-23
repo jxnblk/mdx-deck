@@ -3,6 +3,7 @@ const path = require('path')
 const webpack = require('webpack')
 const WebpackBar = require('webpackbar')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
+const MiniCSSExtractPlugin = require('mini-css-extract-plugin')
 const merge = require('webpack-merge')
 const chalk = require('chalk')
 const remark = {
@@ -44,7 +45,7 @@ const rules = [
   },
   {
     test: /\.css$/,
-    use: ['style-loader', 'css-loader'].map(require.resolve),
+    use: [MiniCSSExtractPlugin.loader, require.resolve('css-loader')],
   },
 ]
 
@@ -72,6 +73,10 @@ const baseConfig = {
       name: '[mdx-deck]',
     }),
     new FriendlyErrorsPlugin(),
+    new MiniCSSExtractPlugin({
+      filename: '[name].css',
+      chunkFilename: '[id].css',
+    }),
   ],
 }
 
