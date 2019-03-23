@@ -1,5 +1,10 @@
 # Changelog
 
+## v2.0.5 2019-03-23
+
+- Update remark-unwrap-images #289
+- Update webpack config merging #290
+
 ## v2.0.4 2019-03-23
 
 - Fix for css-loader #288
