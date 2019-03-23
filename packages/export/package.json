@@ -1,6 +1,6 @@
 {
   "name": "@mdx-deck/export",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "main": "index.js",
   "author": "Brent Jackson <jxnblk@gmail.com>",
   "license": "MIT",
@@ -12,7 +12,7 @@
     "png": "./cli.js png ../../docs/demo.mdx"
   },
   "dependencies": {
-    "mdx-deck": "^2.0.1",
+    "mdx-deck": "^2.0.2",
     "meow": "^5.0.0",
     "mkdirp": "^0.5.1",
     "puppeteer": "^1.13.0"
