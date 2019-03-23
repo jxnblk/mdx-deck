@@ -1,6 +1,6 @@
 {
   "name": "mdx-deck",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "MDX-based presentation decks",
   "bin": {
     "mdx-deck": "./cli.js"
@@ -30,7 +30,7 @@
     "@mdx-deck/layouts": "^2.0.0",
     "@mdx-deck/loader": "^2.0.0",
     "@mdx-deck/themes": "^2.0.2",
-    "@mdx-deck/webpack-html-plugin": "^2.0.0",
+    "@mdx-deck/webpack-html-plugin": "^2.0.4",
     "@mdx-js/mdx": "^1.0.0-alpha.5",
     "@mdx-js/tag": "^1.0.0-alpha.5",
     "babel-loader": "^8.0.5",
