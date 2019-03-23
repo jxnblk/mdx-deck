@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.0.3 2019-03-23
+
+- Fix for building decks with Google Fonts #287
+
 ## v2.0.2 2019-03-23
 
 - Fix syntax error in theme #286
