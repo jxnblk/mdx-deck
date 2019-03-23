@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.0.4 2019-03-23
+
+- Fix for css-loader #288
+
 ## v2.0.3 2019-03-23
 
 - Fix for building decks with Google Fonts #287
