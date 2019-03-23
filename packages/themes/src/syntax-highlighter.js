@@ -13,8 +13,8 @@ export const getLanguage = className => {
 export const pre = props => props.children
 
 export const code = props => {
-  const lang = getLanguage(props.className)
-  return <SyntaxHighlighter language={lang} {...props} />
+  const language = getLanguage(props.className)
+  return <SyntaxHighlighter language={language} {...props} />
 }
 
 export default {

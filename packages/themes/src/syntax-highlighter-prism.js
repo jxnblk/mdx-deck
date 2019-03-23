@@ -7,7 +7,7 @@ import { getLanguage } from './syntax-highlighter'
 export const pre = props => props.children
 
 export const createCode = (opts = {}) => props => {
-  language = getLanguage(props.className)
+  const language = getLanguage(props.className)
   return <Prism {...opts} language={language} {...props} />
 }
 
