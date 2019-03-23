@@ -1,6 +1,6 @@
 # Changelog
 
-## v2.0.0-11 2019-03-11
+## v2.0.0 2019-03-16
 
 - Simplified custom mdx loader, removing unused front-matter support
 - Simplified theming and default styles
