@@ -47,7 +47,7 @@
     "react-dev-utils": "^7.0.3",
     "react-dom": "^16.8.3",
     "remark-emoji": "^2.0.2",
-    "remark-unwrap-images": "^0.1.0",
+    "remark-unwrap-images": "^0.2.0",
     "rimraf": "^2.6.3",
     "serve-static": "^1.13.2",
     "style-loader": "^0.23.1",
