@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "@mdx-deck/docs",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "main": "index.js",
   "author": "Brent Jackson <jxnblk@gmail.com>",
   "license": "MIT",
@@ -17,7 +17,7 @@
     "@mdx-deck/layouts": "^2.0.0",
     "@mdx-deck/themes": "^2.0.2",
     "@rebass/emotion": "^3.0.0",
-    "mdx-deck": "^2.0.4",
+    "mdx-deck": "^2.0.5",
     "rebass": "^3.0.1"
   }
 }
