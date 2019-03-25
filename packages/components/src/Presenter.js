@@ -6,10 +6,13 @@ import Pre from './Pre'
 import Clock from './Clock'
 
 export const Presenter = props => {
-  const { slides, index } = props
+  const { slides, index, step } = props
   const Current = slides[index]
-  const Next = slides[index + 1]
-  const { notes } = Current.meta || {}
+  const { notes, steps } = Current.meta || {}
+  // "next" slide in Presenter includes all the animations
+  const nextStep = step < steps ? step + 1 : 0
+  // nextStep==0 means we are out of steps and/or the current slide has no steps
+  const Next = nextStep == 0 ? slides[index + 1] : Current
 
   return (
     <div
@@ -48,7 +51,7 @@ export const Presenter = props => {
         >
           <Zoom zoom={1 / 4}>
             {Next && (
-              <Slide>
+              <Slide step={nextStep}>
                 <Next />
               </Slide>
             )}
