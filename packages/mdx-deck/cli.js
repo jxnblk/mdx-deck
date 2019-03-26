@@ -102,6 +102,19 @@ switch (cmd) {
         process.exit(1)
       })
     break
+  case 'build-browser':
+    log('building browser mode')
+    const buildBrowser = require('./lib/build.browser')
+    buildBrowser(opts)
+      .then(res => {
+        log('done')
+        process.exit(0)
+      })
+      .catch(err => {
+        log.error(err)
+        process.exit(1)
+      })
+    break
   case 'dev':
   default:
     log('starting dev server')
