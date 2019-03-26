@@ -20,8 +20,9 @@ at the [default set of components](../packages/components/src/mdx-components.js)
 
 ## Custom Provider component
 
-A custom Provider component can be added to the theme to wrap the entire application.
-This is useful for adding custom context providers in React or adding persistent UI elements to the entire deck.
+A custom Provider component is useful for adding custom context providers in React or adding persistent UI elements to the entire deck.
+
+To define a custom Provider component, you'll need to import it into your custom theme and set it using the key `Provider` like shown below: 
 
 ```js
 // example theme.js
@@ -43,6 +44,48 @@ which can be used to show custom page numbers or add other elements to the UI.
 - `mode`: (string) the current mode (one of `'normal'`, `'presenter'`, or `'overview'`)
 - `step`: (number) the current visible step in an Appear or Step component
 - Each slide includes a `meta` object with a `notes` field when the Notes component is used within a slide
+
+#### Example
+
+The example below will display the current slide out of the total amount of slides.
+
+```js
+import React, { useEffect, useRef, useState } from 'react'
+import { css } from '@emotion/core'
+
+function AtTheBottomCenter ({ children }) {
+  const ref = useRef();
+  const [left, setLeft] = useState(0)
+
+  useEffect(function WindowSize () {
+    const bodyWidth = document.body.clientWidth
+    const width = ref.current.clientWidth
+
+    setLeft((bodyWidth / 2) - (width / 2))
+  })
+
+  const css = css`
+    position: absolute;
+    bottom: 0;
+    color: #ffffff;
+  `
+
+  return <div
+    ref={ref}
+    css={ css }
+    style={{ left }}
+    >
+    { children }
+  </div>
+}
+
+export function Provider ({ children, ...props }) {
+  return <>
+    { children }
+    <AtTheBottomCenter>{ props.index }/{ props.slides.length }</AtTheBottomCenter>
+  </>
+}
+```
 
 ## Combining multiple mdx files
 
