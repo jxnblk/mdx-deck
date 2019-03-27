@@ -54,6 +54,8 @@ const build = async (opts = {}) => {
 
   config.mode = 'production'
   config.output = {
+    // Allow user to override this in his custom webpack config
+    ...config.output,
     path: opts.outDir,
   }
 
