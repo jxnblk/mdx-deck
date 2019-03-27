@@ -72,6 +72,9 @@ Next, create a `.js` file to import and combine the two `.mdx` files.
 
 ```js
 // deck.js
+// if you want to include a theme, you would export here:
+// export { dark as theme } from 'mdx-deck/themes';
+
 import { slides as one } from './one.mdx'
 import { slides as two } from './two.mdx'
 
