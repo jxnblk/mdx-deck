@@ -8,7 +8,6 @@
   "scripts": {
     "start": "mdx-deck demo.mdx",
     "build": "mdx-deck build demo.mdx",
-    "build-browser": "mdx-deck build-browser demo.mdx",
     "now-build": "yarn build"
   },
   "dependencies": {
