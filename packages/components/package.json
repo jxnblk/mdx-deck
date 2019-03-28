@@ -21,6 +21,8 @@
   "devDependencies": {
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
-    "react-test-renderer": "^16.8.4"
+    "react-hooks-testing-library": "^0.3.8",
+    "react-test-renderer": "^16.8.4",
+    "sinon": "^7.3.1"
   }
 }

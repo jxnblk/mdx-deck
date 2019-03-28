@@ -1,13 +1,16 @@
-import { useContext, useMemo } from 'react'
-import { Context } from './context'
+import { useContext, useEffect } from 'react'
+import { Context as C } from './context'
 
-export default length => {
+export const useStepsFactory = Context => length => {
   const context = useContext(Context)
   const { register, index, step } = context
-  useMemo(() => {
+
+  useEffect(() => {
     if (typeof register !== 'function') return
     register(index, { steps: length })
   }, [length])
 
   return step
 }
+
+export default useStepsFactory(C)
