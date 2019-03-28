@@ -6,7 +6,7 @@ import Pre from './Pre'
 import Clock from './Clock'
 
 export const Presenter = props => {
-  const { slides, index } = props
+  const { slides, index, modes } = props
   const Current = slides[index]
   const Next = slides[index + 1]
   const { notes } = Current.meta || {}
@@ -48,7 +48,12 @@ export const Presenter = props => {
         >
           <Zoom zoom={1 / 4}>
             {Next && (
-              <Slide>
+              <Slide
+                index={index}
+                path={`/${index}`}
+                step={0}
+                mode={modes.PRESENTER}
+              >
                 <Next />
               </Slide>
             )}

@@ -8259,10 +8259,10 @@ remark-squeeze-paragraphs@^3.0.1:
   dependencies:
     mdast-squeeze-paragraphs "^3.0.0"
 
-remark-unwrap-images@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/remark-unwrap-images/-/remark-unwrap-images-0.1.0.tgz#b5487b2af9544cb72ff080bc092b37778a9dd671"
-  integrity sha512-70j4Qy6Mj2+0MmQOmSES40+hO4BQGm2hhb5qNq8LwTlGrmyE4VWsKPIryELiBK0TZP57crOkSOD/AFqPjxvekQ==
+remark-unwrap-images@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/remark-unwrap-images/-/remark-unwrap-images-0.2.0.tgz#d2480a849d824b25d3b693944b4d4d2bbe03f887"
+  integrity sha512-4BLvJgT46ZNAJYr2Ibg37HjSESb/iHdUz/ms25psZu7ta/GDyk/5bXR+9w/YFx9phSpNduP+mb+QE0VDExlHnA==
   dependencies:
     unist-util-visit-parents "^2.0.1"
 

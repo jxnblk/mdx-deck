@@ -64,7 +64,7 @@ export const Grid = withLocation(props => {
             }}
           >
             <Zoom zoom={1 / 4}>
-              <Slide>
+              <Slide index={i} path={`/${i}`} step={0} mode={modes.GRID}>
                 <Component />
               </Slide>
             </Zoom>

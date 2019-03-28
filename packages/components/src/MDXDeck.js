@@ -11,19 +11,7 @@ import Grid from './Grid'
 import Print from './Print'
 import GoogleFonts from './GoogleFonts'
 import Catch from './Catch'
-
-const NORMAL = 'normal'
-const PRESENTER = 'presenter'
-const OVERVIEW = 'overview'
-const GRID = 'grid'
-const PRINT = 'print'
-const modes = {
-  NORMAL,
-  PRESENTER,
-  OVERVIEW,
-  GRID,
-  PRINT,
-}
+import modes from './modes'
 
 const STORAGE_INDEX = 'mdx-slide'
 const STORAGE_STEP = 'mdx-step'
@@ -38,7 +26,7 @@ const keys = {
 }
 
 const toggleMode = key => state => ({
-  mode: state.mode === key ? NORMAL : key,
+  mode: state.mode === key ? modes.NORMAL : key,
 })
 
 const BaseWrapper = props => <>{props.children}</>
@@ -52,7 +40,7 @@ export class MDXDeck extends React.Component {
     this.state = {
       slides: props.slides,
       step: 0,
-      mode: NORMAL,
+      mode: modes.NORMAL,
       update: fn => this.setState(fn),
     }
   }
@@ -77,13 +65,13 @@ export class MDXDeck extends React.Component {
     if (alt) {
       switch (keyCode) {
         case keys.p:
-          this.setState(toggleMode(PRESENTER))
+          this.setState(toggleMode(modes.PRESENTER))
           break
         case keys.o:
-          this.setState(toggleMode(OVERVIEW))
+          this.setState(toggleMode(modes.OVERVIEW))
           break
         case keys.g:
-          this.setState(toggleMode(GRID))
+          this.setState(toggleMode(modes.GRID))
           break
       }
     } else {
@@ -196,7 +184,7 @@ export class MDXDeck extends React.Component {
     const { step, mode } = this.state
     localStorage.setItem(STORAGE_INDEX, index)
     localStorage.setItem(STORAGE_STEP, step)
-    if (mode !== NORMAL && mode !== PRINT) {
+    if (mode !== modes.NORMAL && mode !== modes.PRINT) {
       const query = '?' + querystring.stringify({ mode })
       navigate(query)
     } else {
@@ -213,7 +201,7 @@ export class MDXDeck extends React.Component {
   render() {
     const { pathname } = globalHistory.location
     const { slides } = this.state
-    const mode = pathname === '/print' ? PRINT : this.state.mode
+    const mode = pathname === '/print' ? modes.PRINT : this.state.mode
     const index = this.getIndex()
     const meta = this.getMeta(index)
     const context = {
@@ -225,13 +213,13 @@ export class MDXDeck extends React.Component {
 
     let Wrapper = BaseWrapper
     switch (mode) {
-      case PRESENTER:
+      case modes.PRESENTER:
         Wrapper = Presenter
         break
-      case OVERVIEW:
+      case modes.OVERVIEW:
         Wrapper = Overview
         break
-      case GRID:
+      case modes.GRID:
         Wrapper = Grid
         break
     }

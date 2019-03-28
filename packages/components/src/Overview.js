@@ -17,7 +17,7 @@ const withLocation = Component => props => (
 )
 
 export const Overview = withLocation(props => {
-  const { index, slides } = props
+  const { index, slides, modes } = props
   const activeThumb = React.createRef()
 
   useEffect(() => {
@@ -68,7 +68,7 @@ export const Overview = withLocation(props => {
             }}
           >
             <Zoom zoom={1 / 6}>
-              <Slide>
+              <Slide index={i} path={`/${i}`} step={0} mode={modes.OVERVIEW}>
                 <Component />
               </Slide>
             </Zoom>
