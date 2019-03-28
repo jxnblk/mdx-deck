@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.0.6 2019-03-28
+
+- Pin alpha version of MDX #302
+
 ## v2.0.5 2019-03-23
 
 - Update remark-unwrap-images #289
