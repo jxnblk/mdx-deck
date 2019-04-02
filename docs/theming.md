@@ -71,6 +71,15 @@ Themes can provide a set of custom MDX components, including a replacement for t
 
 MDX Deck includes two themes for adding syntax highlighting with [react-syntax-highlighter][]: `syntaxHighlighter` and `syntaxHighlighterPrism`.
 
+```js
+import { future } from "mdx-deck/themes";
+import { syntaxHighlighterPrism } from "mdx-deck/themes";
+
+export default syntaxHighlighterPrism({
+  ...future
+});
+```
+
 Since MDX supports using React components inline, you can also import a syntax highlighting component directly, if you prefer.
 
 ### Styling Elements
