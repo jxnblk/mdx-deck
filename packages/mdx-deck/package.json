@@ -1,6 +1,6 @@
 {
   "name": "mdx-deck",
-  "version": "2.0.6",
+  "version": "2.0.7",
   "description": "MDX-based presentation decks",
   "bin": {
     "mdx-deck": "./cli.js"
