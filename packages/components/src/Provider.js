@@ -4,7 +4,7 @@ import { Global } from '@emotion/core'
 import { ThemeProvider } from 'emotion-theming'
 import merge from 'lodash.merge'
 import { HeadProvider } from './Head'
-import { MDXProvider } from '@mdx-js/tag'
+import { MDXProvider } from '@mdx-js/react'
 import defaultTheme from '@mdx-deck/themes'
 import mdxComponents from './mdx-components'
 

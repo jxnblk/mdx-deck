@@ -11,7 +11,7 @@ module.exports = async function(src) {
   const result = mdx.sync(src, options)
 
   const code = `/** @jsx mdx */
-  import mdx from '@mdx-js/mdx/create-element'
+  import { mdx } from '@mdx-js/react'
   ${result}`
 
   return callback(null, code)
