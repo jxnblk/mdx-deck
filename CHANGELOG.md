@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.0.7 2019-04-05
+
+- Add `--no-html` flag back #295
+
 ## v2.0.6 2019-03-28
 
 - Pin alpha version of MDX #302
