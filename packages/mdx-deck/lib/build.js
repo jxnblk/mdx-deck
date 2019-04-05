@@ -52,23 +52,27 @@ const renderHTML = async App => {
 const build = async (opts = {}) => {
   const config = createConfig(opts)
 
-  const App = await getApp(config, opts)
-  const { body, head } = await renderHTML(App)
-
   config.mode = 'production'
   config.output = {
+    // Allow user to override this in his custom webpack config
+    ...config.output,
     path: opts.outDir,
   }
 
-  config.plugins.push(
-    new HTMLPlugin({
-      context: { head },
-    }),
-    new HTMLPlugin({
-      filename: '404.html',
-      context: { head },
-    })
-  )
+  if (opts.html) {
+    const App = await getApp(config, opts)
+    const { body, head } = await renderHTML(App)
+
+    config.plugins.push(
+      new HTMLPlugin({
+        context: { head },
+      }),
+      new HTMLPlugin({
+        filename: '404.html',
+        context: { head },
+      })
+    )
+  }
 
   const compiler = webpack(config)
 

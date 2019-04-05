@@ -22,7 +22,7 @@ const cli = meow(
     $ ${chalk.green('mdx-deck deck.mdx')}
 
     $ ${chalk.green('mdx-deck build deck.mdx')}
-
+  
   ${chalk.gray('Options')}
 
       -h --host     Dev server host
@@ -30,6 +30,7 @@ const cli = meow(
       --no-open     Prevent from opening in default browser
       --webpack     Path to webpack config file
       -d --out-dir  Output directory for exporting
+      --no-html     Disable static HTML rendering for build
 
 `,
   {
@@ -54,6 +55,10 @@ const cli = meow(
       },
       webpack: {
         type: 'string',
+      },
+      html: {
+        type: 'boolean',
+        default: true,
       },
     },
   }
