@@ -38,7 +38,7 @@ const rules = [
       {
         loader: require.resolve('@mdx-deck/loader'),
         options: {
-          mdPlugins: [remark.emoji, remark.unwrapImages],
+          remarkPlugins: [remark.emoji, remark.unwrapImages],
         },
       },
     ],

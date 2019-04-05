@@ -16,7 +16,7 @@ export default props =>
 
 test('adds an export', () => {
   const code = mdx.sync(src, {
-    mdPlugins: [plugin],
+    remarkPlugins: [plugin],
   })
   expect(typeof code).toBe('string')
   expect(code).toMatchSnapshot()
