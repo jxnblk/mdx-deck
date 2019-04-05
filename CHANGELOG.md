@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.0.8 2019-04-05
+
+- Update MDX #311
+
 ## v2.0.7 2019-04-05
 
 - Add `--no-html` flag back #295
