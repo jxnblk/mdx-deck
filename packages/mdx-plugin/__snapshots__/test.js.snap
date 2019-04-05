@@ -41,19 +41,18 @@ const MDXLayout = props =>
   </section>
 export default function MDXContent({ components, ...props }) {
   return (
-    <div
-      name=\\"wrapper\\"
+    <MDXLayout
+      {...layoutProps}
+      {...props}
       components={components}>
-      <MDXLayout {...layoutProps} {...props}>
-      
-<h1 >{\`Hello\`}</h1>
-<hr ></hr>
-<h2 >{\`Two\`}</h2>
-<hr ></hr>
-<h2 >{\`Three\`}</h2>
 
-      </MDXLayout>
-    </div>
+<h1>{\`Hello\`}</h1>
+<hr></hr>
+<h2>{\`Two\`}</h2>
+<hr></hr>
+<h2>{\`Three\`}</h2>
+
+    </MDXLayout>
   )
 }
 MDXContent.isMDXComponent = true"

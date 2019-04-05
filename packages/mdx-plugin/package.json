@@ -7,7 +7,7 @@
   "author": "Brent Jackson <jxnblk@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "@mdx-js/mdx": "1.0.0-alpha.5"
+    "@mdx-js/mdx": "^1.0.0-rc.0"
   },
   "dependencies": {
     "unist-util-is": "^2.1.2",
