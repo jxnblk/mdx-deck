@@ -4,33 +4,33 @@ exports[`adds an export 1`] = `
 "/* @jsx mdx */
 
 export const slides = [(props => {
-  const Layout = props =>
+  const __MDXDECK_LAYOUT__ = props =>
   <section>
     {props.children}
   </section>
-  return <Layout
+  return <__MDXDECK_LAYOUT__
     name=\\"wrapper\\"
     components={props.components}>
     
 
     <h1>{\`Hello\`}</h1>
-  </Layout>
+  </__MDXDECK_LAYOUT__>
 }),
 (props => {
-  const Layout = \\"div\\"
-  return <Layout
+  const __MDXDECK_LAYOUT__ = \\"div\\"
+  return <__MDXDECK_LAYOUT__
     name=\\"wrapper\\"
     components={props.components}>
     <h2>{\`Two\`}</h2>
-  </Layout>
+  </__MDXDECK_LAYOUT__>
 }),
 (props => {
-  const Layout = \\"div\\"
-  return <Layout
+  const __MDXDECK_LAYOUT__ = \\"div\\"
+  return <__MDXDECK_LAYOUT__
     name=\\"wrapper\\"
     components={props.components}>
     <h2>{\`Three\`}</h2>
-  </Layout>
+  </__MDXDECK_LAYOUT__>
 })]
 const layoutProps = {
   slides
