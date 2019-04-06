@@ -30,12 +30,12 @@ const toJSX = (node, parent, opts = {}) => {
 
     return [
       '(props => {',
-      `  const Layout = ${layout ? layout : '"div"'}`,
-      '  return <Layout',
+      `  const __MDXDECK_LAYOUT__ = ${layout ? layout : '"div"'}`,
+      '  return <__MDXDECK_LAYOUT__',
       '    name="wrapper"',
       '    components={props.components}>',
       '    ' + jsxNodes.map(child => toJSX(child, node)).join('\n    '),
-      '  </Layout>',
+      '  </__MDXDECK_LAYOUT__>',
       '})',
     ]
       .filter(Boolean)
