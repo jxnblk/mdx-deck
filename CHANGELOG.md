@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.0.9 2019-04-05
+
+- Rename internal const #312
+
 ## v2.0.8 2019-04-05
 
 - Update MDX #311
