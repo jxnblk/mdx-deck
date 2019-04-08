@@ -22,7 +22,7 @@ at the [default set of components](../packages/components/src/mdx-components.js)
 
 A custom Provider component is useful for adding custom context providers in React or adding persistent UI elements to the entire deck.
 
-To define a custom Provider component, you'll need to import it into your custom theme and set it using the key `Provider` like shown below: 
+To define a custom Provider component, you'll need to import it into your custom theme and set it using the key `Provider` like shown below:
 
 ```js
 // example theme.js
@@ -50,31 +50,20 @@ which can be used to show custom page numbers or add other elements to the UI.
 The example below will display the current slide out of the total amount of slides.
 
 ```js
-import React, { useEffect, useRef, useState } from 'react'
+import React from 'react'
 import { css } from '@emotion/core'
 
 function AtTheBottomCenter ({ children }) {
-  const ref = useRef();
-  const [left, setLeft] = useState(0)
-
-  useEffect(function WindowSize () {
-    const bodyWidth = document.body.clientWidth
-    const width = ref.current.clientWidth
-
-    setLeft((bodyWidth / 2) - (width / 2))
-  })
-
-  const css = css`
-    position: absolute;
-    bottom: 0;
+  const css = {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    bottom: 0,
     color: #ffffff;
-  `
+    textAlign: 'center',
+  }
 
-  return <div
-    ref={ref}
-    css={ css }
-    style={{ left }}
-    >
+  return <div css={ css }>
     { children }
   </div>
 }
