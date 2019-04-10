@@ -210,9 +210,11 @@ import Layout from './Layout'
 
 ---
 
-export default Layout
+<Layout>
 
 # Custom Layout
+
+</Layout>
 ```
 
 The layout component will wrap the MDX elements within that slide,
