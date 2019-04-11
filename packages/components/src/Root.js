@@ -31,6 +31,9 @@ export const Root = styled.div(
     fontFamily: props.theme.font,
     color: props.theme.colors.text,
     backgroundColor: props.theme.colors.background,
+    // testing
+    width: '100vw',
+    height: '100vh',
   }),
   props => props.theme.css,
   themedLinks,

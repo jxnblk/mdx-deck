@@ -7,18 +7,18 @@ const SlideRoot = styled.div(
   {
     display: 'flex',
     flexDirection: 'column',
-    width: '100vw',
-    height: '100vh',
     alignItems: 'center',
     justifyContent: 'center',
     overflow: 'hidden',
+    width: '100%',
+    height: '100%',
   },
   props => props.theme.Slide
 )
 
-export const Slide = ({ children, ...props }) => (
+export const Slide = ({ children, style, ...props }) => (
   <Context.Provider value={props}>
-    <Root>
+    <Root style={style}>
       <SlideRoot>{children}</SlideRoot>
     </Root>
   </Context.Provider>

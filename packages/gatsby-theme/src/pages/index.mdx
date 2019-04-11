@@ -1,4 +1,7 @@
 import { Link } from 'gatsby'
+import { Embed } from '@mdx-deck/components'
+
+import deck from '../decks/beep.mdx'
 
 # @mdx-deck/gatsby-theme
 
@@ -6,3 +9,8 @@ A Gatsby theme for creating presentation decks with MDX
 
 <Link to='/decks'>View decks</Link>
 
+## Embed Component
+
+<div style={{ maxWidth: 768 }}>
+  <Embed src={deck} slide={1} zoom={1} />
+</div>
