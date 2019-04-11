@@ -4,6 +4,8 @@ import Zoom from './Zoom'
 import Slide from './Slide'
 import Pre from './Pre'
 
+const query = '?mode=overview'
+
 export const Overview = props => {
   const { index, slides, basepath } = props
   const activeThumb = React.createRef()
@@ -42,7 +44,7 @@ export const Overview = props => {
             key={i}
             role="link"
             onClick={e => {
-              navigate(basepath + '/' + i)
+              navigate(basepath + '/' + i + query)
             }}
             style={{
               display: 'block',

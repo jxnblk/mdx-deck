@@ -6,12 +6,10 @@ const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin')
 const merge = require('webpack-merge')
 const chalk = require('chalk')
-const remark = {
-  emoji: require('remark-emoji'),
-  unwrapImages: require('remark-unwrap-images'),
-}
 const HTMLPlugin = require('@mdx-deck/webpack-html-plugin')
 const babel = require('../babel.config')
+
+const remarkPlugins = [require('remark-emoji'), require('remark-unwrap-images')]
 
 const rules = [
   {
@@ -38,7 +36,7 @@ const rules = [
       {
         loader: require.resolve('@mdx-deck/loader'),
         options: {
-          remarkPlugins: [remark.emoji, remark.unwrapImages],
+          remarkPlugins,
         },
       },
     ],

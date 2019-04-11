@@ -13,6 +13,11 @@ export default class App extends React.Component {
   }
 }
 
+const { basepath } = OPTIONS
+App.defaultProps = {
+  basepath,
+}
+
 if (typeof document !== 'undefined') {
   const div = document.getElementById('root')
   render(<App />, div)

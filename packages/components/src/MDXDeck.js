@@ -58,6 +58,7 @@ export class MDXDeck extends React.Component {
   }
 
   handleKeyDown = e => {
+    const { basepath } = this.props
     const { keyCode, metaKey, ctrlKey, altKey, shiftKey } = e
     const { activeElement } = document
     if (inputElements.includes(activeElement.tagName)) {
@@ -68,7 +69,7 @@ export class MDXDeck extends React.Component {
 
     const { pathname } = globalHistory.location
     if (keyCode === keys.p && shiftKey && altKey) {
-      navigate('/print')
+      navigate(basepath + '/print')
       this.setState({ mode: 'print' })
     }
     if (pathname === '/print') return
@@ -108,7 +109,9 @@ export class MDXDeck extends React.Component {
     const { basepath } = this.props
     const { pathname } = globalHistory.location
     const pagepath = pathname.replace(basepath, '')
-    return Number(pagepath.split('/')[1] || 0)
+    const n = Number(pagepath.split('/')[1])
+    const index = isNaN(n) ? -1 : n
+    return index
   }
 
   getMeta = i => {
@@ -225,7 +228,8 @@ export class MDXDeck extends React.Component {
     const { basepath } = this.props
     const { pathname } = globalHistory.location
     const { slides } = this.state
-    const mode = pathname === '/print' ? PRINT : this.state.mode
+    const pagepath = pathname.replace(basepath, '')
+    const mode = pagepath === '/print' ? PRINT : this.state.mode
     const index = this.getIndex()
     const context = {
       ...this.state,
@@ -256,16 +260,15 @@ export class MDXDeck extends React.Component {
           <Wrapper {...this.props} {...this.state} modes={modes} index={index}>
             <Swipeable onSwipedRight={this.previous} onSwipedLeft={this.next}>
               <Router basepath={basepath}>
-                <FirstSlide path={basepath + '/'} />
-                <Slide path={'/'} index={0} {...context}>
-                  <FirstSlide path={'/'} />
+                <Slide path="/" index={0} {...context}>
+                  <FirstSlide path="/" />
                 </Slide>
                 {slides.map((Component, i) => (
                   <Slide key={i} path={i + '/*'} index={i} {...context}>
                     <Component path={i + '/*'} />
                   </Slide>
                 ))}
-                <Print path={'/print'} {...this.props} />
+                <Print path="print" {...this.props} />
               </Router>
             </Swipeable>
           </Wrapper>

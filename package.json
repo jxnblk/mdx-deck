@@ -25,6 +25,11 @@
     "coverageReporters": [
       "lcov",
       "html"
+    ],
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/.cache/",
+      "/public/"
     ]
   },
   "husky": {

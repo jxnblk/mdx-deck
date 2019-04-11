@@ -1,5 +1,4 @@
 import React from 'react'
-import { Global } from '@emotion/core'
 import { MDXProvider } from '@mdx-js/react'
 import { MDXDeck } from '@mdx-deck/components'
 import Root from './root'
