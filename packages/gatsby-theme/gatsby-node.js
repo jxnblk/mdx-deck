@@ -24,7 +24,6 @@ exports.onCreateNode = ({ node, actions, getNode }, opts = {}) => {
     name: 'deck',
     node,
     value,
-    plugin: pkg.name,
   })
 }
 
