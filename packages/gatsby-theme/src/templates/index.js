@@ -12,6 +12,7 @@ export default props => {
   return <Layout {...props} decks={decks} />
 }
 
+// todo: filter??
 export const query = graphql`
   {
     allMdx {
