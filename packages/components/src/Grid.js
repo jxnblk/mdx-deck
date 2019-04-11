@@ -16,7 +16,7 @@ const withLocation = Component => props => (
 )
 
 export const Grid = withLocation(props => {
-  const { index, slides, modes, update } = props
+  const { index, slides, modes, update, basepath } = props
   const activeThumb = React.createRef()
 
   useEffect(() => {
@@ -49,7 +49,7 @@ export const Grid = withLocation(props => {
             key={i}
             role="link"
             onClick={e => {
-              navigate('/' + i)
+              navigate(basepath + '/' + i)
               update({ mode: modes.NORMAL })
             }}
             style={{
