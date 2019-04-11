@@ -21,7 +21,6 @@ import { jsx } from '@emotion/core'
 import React from 'react'
 import { MDXProvider } from '@mdx-js/react'
 import Provider from './Provider'
-import Zoom from './Zoom'
 import Slide from './Slide'
 import GoogleFonts from './GoogleFonts'
 
