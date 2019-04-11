@@ -13,7 +13,7 @@ export default props => {
   const decks = props.data.allMdx.edges
     .map(({ node }) => ({
       ...node,
-      slug: node.fields.slug,
+      slug: node.fields.deck,
       title: getTitle(node),
       children: <MDXRenderer children={node.code.body} />,
     }))
@@ -28,7 +28,7 @@ export const query = graphql`
         node {
           id
           fields {
-            slug
+            deck
           }
           code {
             body

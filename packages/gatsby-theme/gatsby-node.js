@@ -2,6 +2,7 @@ const path = require('path')
 const { createFilePath } = require('gatsby-source-filesystem')
 const Debug = require('debug')
 const mkdirp = require('mkdirp')
+const pkg = require('./package.json')
 
 const debug = Debug('@mdx-deck/gatsby-theme')
 
@@ -17,14 +18,13 @@ exports.onPreBootstrap = ({ store }) => {
 exports.onCreateNode = ({ node, actions, getNode }, opts = {}) => {
   const { name = 'decks' } = opts
   if (node.internal.type !== 'Mdx') return
-  const parent = getNode(node.parent)
-  if (parent && parent.sourceInstanceName !== 'decks') return
 
   const value = path.join('/', name, createFilePath({ node, getNode }))
   actions.createNodeField({
-    name: 'slug',
+    name: 'deck',
     node,
     value,
+    plugin: pkg.name,
   })
 }
 
@@ -40,7 +40,7 @@ exports.createPages = async ({ graphql, actions }, opts = {}) => {
           node {
             id
             fields {
-              slug
+              deck
             }
             parent {
               ... on File {
@@ -71,14 +71,14 @@ exports.createPages = async ({ graphql, actions }, opts = {}) => {
   })
 
   decks.forEach(deck => {
-    const matchPath = path.join(deck.fields.slug, '*')
+    const matchPath = path.join(deck.fields.deck, '*')
     actions.createPage({
-      path: deck.fields.slug,
-      matchPath: path.join(deck.fields.slug, '*'),
+      path: deck.fields.deck,
+      matchPath: path.join(deck.fields.deck, '*'),
       component: require.resolve('./src/templates/deck.js'),
       context: {
         id: deck.id,
-        basepath: stripSlash(deck.fields.slug),
+        basepath: stripSlash(deck.fields.deck),
       },
     })
   })
