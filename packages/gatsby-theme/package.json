@@ -1,6 +1,6 @@
 {
   "name": "@mdx-deck/gatsby-theme",
-  "version": "2.0.9-alpha.3",
+  "version": "2.0.9",
   "main": "index.js",
   "author": "Brent Jackson <jxnblk@gmail.com>",
   "license": "MIT",
