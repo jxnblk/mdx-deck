@@ -26,6 +26,8 @@ exports.onCreateNode = ({ node, actions, getNode }, opts = {}) => {
   })
 }
 
+const stripSlash = str => str.replace(/\/$/, '')
+
 exports.createPages = async ({ graphql, actions }, opts = {}) => {
   const { name = 'decks' } = opts
 
@@ -74,6 +76,7 @@ exports.createPages = async ({ graphql, actions }, opts = {}) => {
       component: require.resolve('./src/template.js'),
       context: {
         id: deck.id,
+        basepath: stripSlash(deck.fields.slug),
       },
     })
   })

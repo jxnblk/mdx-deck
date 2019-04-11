@@ -1,6 +1,8 @@
 const path = require('path')
 const pkg = require('./package.json')
 
+const remarkPlugins = [require('remark-emoji'), require('remark-unwrap-images')]
+
 module.exports = {
   plugins: [
     {
@@ -13,10 +15,8 @@ module.exports = {
     {
       resolve: 'gatsby-mdx',
       options: {
-        extensions: [
-          '.mdx',
-          '.md', // '.mdxs',
-        ],
+        extensions: ['.mdx', '.md'],
+        remarkPlugins,
       },
     },
     {

@@ -4,6 +4,7 @@ import { MDXProvider } from '@mdx-js/react'
 import { MDXDeck } from '@mdx-deck/components'
 
 const wrapper = page => props => {
+  const { basepath } = page.pageContext
   const { theme, themes } = props
   const arr = React.Children.toArray(props.children)
   const splits = []
@@ -23,7 +24,7 @@ const wrapper = page => props => {
 
   return (
     <MDXDeck
-      basepath="/decks/hello"
+      basepath={basepath}
       slides={slides}
       theme={theme}
       themes={themes}
