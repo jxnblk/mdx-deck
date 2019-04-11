@@ -17,6 +17,8 @@ exports.onPreBootstrap = ({ store }) => {
 exports.onCreateNode = ({ node, actions, getNode }, opts = {}) => {
   const { name = 'decks' } = opts
   if (node.internal.type !== 'Mdx') return
+  const parent = getNode(node.parent)
+  if (parent && parent.sourceInstanceName !== 'decks') return
 
   const value = path.join('/', name, createFilePath({ node, getNode }))
   actions.createNodeField({
