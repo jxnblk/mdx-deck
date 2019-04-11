@@ -1,4 +1,3 @@
-
 # Layouts
 
 Each slide can include a custom layout around its content.
@@ -8,15 +7,17 @@ This can be used as a substitute for slide templates found in other presentation
 // example Layout.js
 import React from 'react'
 
-export default ({ children }) =>
+export default ({ children }) => (
   <div
     style={{
       width: '100vw',
       height: '100vw',
-      backgroundColor: 'tomato'
-    }}>
+      backgroundColor: 'tomato',
+    }}
+  >
     {children}
   </div>
+)
 ```
 
 ```mdx
@@ -25,13 +26,18 @@ import Layout from './Layout'
 # No Layout
 
 ---
-export default Layout
+
+<Layout>
 
 # Custom Layout
+
+</Layout>
 ```
 
 The layout component will wrap the MDX elements within that slide,
 which means you can use a nested ThemeProvider or target elements with CSS-in-JS.
+
+**NOTE:** The newlines around child content in the layout component is **required** to use markdown syntax in a layout. Otherwise the content will be parsed as raw text.
 
 ## Built-in Layouts
 

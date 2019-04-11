@@ -82,9 +82,11 @@ import { Invert } from 'mdx-deck/layouts'
 
 ---
 
-export default Invert
+<Invert>
 
 # Inverted
+
+</Invert>
 ```
 
 ### Split
@@ -94,11 +96,13 @@ Creates a horizontal layout with the first child on the left and all other child
 ```mdx
 import { Split } from 'mdx-deck/layouts'
 
-export default Split
+<Split>
 
 ![](kitten.png)
 
 ## Meow
+
+</Split>
 ```
 
 ### SplitRight
@@ -108,11 +112,13 @@ Same as the Split component, but renders the first child on the right.
 ```mdx
 import { SplitRight } from 'mdx-deck/layouts'
 
-export default SplitRight
+<SplitRight>
 
 ![](kitten.png)
 
 ## Meow
+
+</SplitRight>
 ```
 
 ### Horizontal
@@ -126,9 +132,11 @@ Render fenced code blocks fullscreen.
 ````mdx
 import { FullScreenCode } from 'mdx-deck/layouts'
 
-export default FullScreenCode
+<FullScreenCode>
 
 ```jsx
 <Button>Beep</Button>
 ```
+
+</FullScreenCode>
 ````
