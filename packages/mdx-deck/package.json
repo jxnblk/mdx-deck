@@ -1,6 +1,6 @@
 {
   "name": "mdx-deck",
-  "version": "2.0.10-alpha.0",
+  "version": "2.0.10-alpha.1",
   "description": "MDX-based presentation decks",
   "bin": {
     "mdx-deck": "./cli.js"
@@ -26,11 +26,11 @@
     "@emotion/babel-preset-css-prop": "^10.0.7",
     "@emotion/core": "^10.0.7",
     "@emotion/styled": "^10.0.7",
-    "@mdx-deck/components": "^2.0.10-alpha.0",
-    "@mdx-deck/layouts": "^2.0.10-alpha.0",
-    "@mdx-deck/loader": "^2.0.10-alpha.0",
-    "@mdx-deck/themes": "^2.0.10-alpha.0",
-    "@mdx-deck/webpack-html-plugin": "^2.0.10-alpha.0",
+    "@mdx-deck/components": "^2.0.10-alpha.1",
+    "@mdx-deck/layouts": "^2.0.10-alpha.1",
+    "@mdx-deck/loader": "^2.0.10-alpha.1",
+    "@mdx-deck/themes": "^2.0.10-alpha.1",
+    "@mdx-deck/webpack-html-plugin": "^2.0.10-alpha.1",
     "@mdx-js/mdx": "^1.0.0-rc.0",
     "@mdx-js/react": "^1.0.0-rc.0",
     "babel-loader": "^8.0.5",
