@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Router, globalHistory, navigate, Link } from '@reach/router'
+import { Router, globalHistory, navigate } from '@reach/router'
 import { Swipeable } from 'react-swipeable'
 import querystring from 'querystring'
 import Provider from './Provider'
@@ -58,14 +58,13 @@ export class MDXDeck extends React.Component {
   }
 
   handleKeyDown = e => {
-    const { key, keyCode, metaKey, ctrlKey, altKey, shiftKey } = e
+    const { keyCode, metaKey, ctrlKey, altKey, shiftKey } = e
     const { activeElement } = document
     if (inputElements.includes(activeElement.tagName)) {
       return
     }
     if (metaKey || ctrlKey) return
     const alt = altKey && !shiftKey
-    const shift = shiftKey && !altKey
 
     const { pathname } = globalHistory.location
     if (keyCode === keys.p && shiftKey && altKey) {
@@ -85,6 +84,8 @@ export class MDXDeck extends React.Component {
         case keys.g:
           this.setState(toggleMode(GRID))
           break
+        default:
+          break
       }
     } else {
       switch (keyCode) {
@@ -96,6 +97,8 @@ export class MDXDeck extends React.Component {
         case keys.space:
           e.preventDefault()
           this.next()
+          break
+        default:
           break
       }
     }
@@ -126,7 +129,7 @@ export class MDXDeck extends React.Component {
   }
 
   previous = () => {
-    const { slides, step } = this.state
+    const { step } = this.state
     const index = this.getIndex()
     const meta = this.getMeta(index)
     if (meta.steps && step > 0) {
@@ -172,6 +175,8 @@ export class MDXDeck extends React.Component {
       case STORAGE_STEP:
         const step = parseInt(e.newValue, 10)
         this.setState({ step })
+        break
+      default:
         break
     }
   }
@@ -222,7 +227,6 @@ export class MDXDeck extends React.Component {
     const { slides } = this.state
     const mode = pathname === '/print' ? PRINT : this.state.mode
     const index = this.getIndex()
-    const meta = this.getMeta(index)
     const context = {
       ...this.state,
       register: this.register,
@@ -240,6 +244,8 @@ export class MDXDeck extends React.Component {
         break
       case GRID:
         Wrapper = Grid
+        break
+      default:
         break
     }
 

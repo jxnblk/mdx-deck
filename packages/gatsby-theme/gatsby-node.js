@@ -65,7 +65,7 @@ exports.createPages = async ({ graphql, actions }, opts = {}) => {
   // index page
   actions.createPage({
     path: path.join('/', name),
-    component: require.resolve('./src/decks.js'),
+    component: require.resolve('./src/templates/index.js'),
   })
 
   decks.forEach(deck => {
@@ -73,7 +73,7 @@ exports.createPages = async ({ graphql, actions }, opts = {}) => {
     actions.createPage({
       path: deck.fields.slug,
       matchPath: path.join(deck.fields.slug, '*'),
-      component: require.resolve('./src/template.js'),
+      component: require.resolve('./src/templates/deck.js'),
       context: {
         id: deck.id,
         basepath: stripSlash(deck.fields.slug),

@@ -5,6 +5,7 @@ const remarkPlugins = [require('remark-emoji'), require('remark-unwrap-images')]
 
 module.exports = {
   plugins: [
+    'gatsby-plugin-emotion',
     {
       resolve: 'gatsby-source-filesystem',
       options: {

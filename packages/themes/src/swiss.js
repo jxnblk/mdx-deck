@@ -2,7 +2,6 @@ import base from './base'
 
 const white = '#fff'
 const black = '#000'
-const blue = '#2d5dd7'
 const red = '#f00'
 
 export default {

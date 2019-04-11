@@ -24,6 +24,7 @@ export class Head extends React.Component {
     const children = React.Children.toArray(this.props.children)
     const nodes = [...document.head.querySelectorAll('[data-head]')]
     nodes.forEach(node => {
+      if (typeof node.remove !== 'function') return
       node.remove()
     })
     children.forEach(child => {

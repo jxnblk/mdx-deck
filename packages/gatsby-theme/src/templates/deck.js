@@ -1,7 +1,7 @@
 import React from 'react'
 import MDXRenderer from 'gatsby-mdx/mdx-renderer'
 import { graphql } from 'gatsby'
-import Layout from './layout'
+import Layout from '../layouts/deck'
 
 export default props => {
   const { mdx } = props.data

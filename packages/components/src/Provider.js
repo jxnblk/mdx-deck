@@ -1,5 +1,4 @@
 import React from 'react'
-import { globalHistory } from '@reach/router'
 import { Global } from '@emotion/core'
 import { ThemeProvider } from 'emotion-theming'
 import merge from 'lodash.merge'
