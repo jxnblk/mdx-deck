@@ -1,0 +1,84 @@
+{
+  "expireTime": 9007200809682330000,
+  "key": "gatsby-mdx-entire-payload-baeb8a140a332d9bf75f44c55c64cb65-",
+  "val": {
+    "mdast": {
+      "type": "root",
+      "children": [
+        {
+          "type": "import",
+          "value": "import { Link } from 'gatsby'",
+          "position": {
+            "start": { "line": 1, "column": 1, "offset": 0 },
+            "end": { "line": 1, "column": 30, "offset": 29 },
+            "indent": []
+          }
+        },
+        {
+          "type": "heading",
+          "depth": 1,
+          "children": [
+            {
+              "type": "text",
+              "value": "@mdx-deck/gatsby-theme",
+              "position": {
+                "start": { "line": 3, "column": 3, "offset": 33 },
+                "end": { "line": 3, "column": 25, "offset": 55 },
+                "indent": []
+              }
+            }
+          ],
+          "position": {
+            "start": { "line": 3, "column": 1, "offset": 31 },
+            "end": { "line": 3, "column": 25, "offset": 55 },
+            "indent": []
+          }
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value": "A Gatsby theme for creating presentation decks with MDX",
+              "position": {
+                "start": { "line": 5, "column": 1, "offset": 57 },
+                "end": { "line": 5, "column": 56, "offset": 112 },
+                "indent": []
+              }
+            }
+          ],
+          "position": {
+            "start": { "line": 5, "column": 1, "offset": 57 },
+            "end": { "line": 5, "column": 56, "offset": 112 },
+            "indent": []
+          }
+        },
+        {
+          "type": "jsx",
+          "value": "<Link to='/decks'>View decks</Link>",
+          "position": {
+            "start": { "line": 7, "column": 1, "offset": 114 },
+            "end": { "line": 7, "column": 36, "offset": 149 },
+            "indent": []
+          }
+        },
+        {
+          "type": "export",
+          "value": "export const _frontmatter = {}",
+          "position": {
+            "start": { "line": 11, "column": 1, "offset": 153 },
+            "end": { "line": 11, "column": 31, "offset": 183 },
+            "indent": []
+          }
+        }
+      ],
+      "position": {
+        "start": { "line": 1, "column": 1, "offset": 0 },
+        "end": { "line": 11, "column": 31, "offset": 183 }
+      }
+    },
+    "scopeImports": [],
+    "scopeIdentifiers": [],
+    "rawMDXOutput": "/* @jsx mdx */\nimport { mdx } from '@mdx-js/react';\n/* @jsx mdx */\nimport { Link } from 'gatsby'\nexport const _frontmatter = {}\nconst layoutProps = {\n  _frontmatter\n};\nconst MDXLayout = \"wrapper\"\nexport default function MDXContent({ components, ...props }) {\n  return (\n    <MDXLayout\n      {...layoutProps}\n      {...props}\n      components={components}>\n\n<h1>{`@mdx-deck/gatsby-theme`}</h1>\n<p>{`A Gatsby theme for creating presentation decks with MDX`}</p>\n<Link to='/decks'>View decks</Link>\n\n    </MDXLayout>\n  )\n}\nMDXContent.isMDXComponent = true"
+  }
+}

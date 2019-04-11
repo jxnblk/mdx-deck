@@ -1,0 +1,34 @@
+{
+  "name": "@mdx-deck/gatsby-theme",
+  "version": "2.0.9",
+  "main": "index.js",
+  "author": "Brent Jackson <jxnblk@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "gatsby develop",
+    "build": "gatsby build"
+  },
+  "peerDependencies": {
+    "@mdx-js/mdx": "^1.0.0-rc.0",
+    "@mdx-js/react": "^1.0.0-rc.0",
+    "gatsby": "^2.3.17",
+    "gatsby-mdx": "^0.5.6",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "devDependencies": {
+    "@mdx-js/mdx": "^1.0.0-rc.0",
+    "@mdx-js/react": "^1.0.0-rc.0",
+    "gatsby": "^2.3.17",
+    "gatsby-mdx": "^0.5.6",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "dependencies": {
+    "@mdx-deck/components": "^2.0.8",
+    "debug": "^4.1.1",
+    "gatsby-plugin-compile-es6-packages": "^1.1.0",
+    "gatsby-source-filesystem": "^2.0.29",
+    "mkdirp": "^0.5.1"
+  }
+}

@@ -1,0 +1,1038 @@
+{
+  "nodes": {
+    "SitePage /dev-404-page/": {
+      "jsonName": "dev-404-page-5f9",
+      "internalComponentName": "ComponentDev404Page",
+      "path": "/dev-404-page/",
+      "component": "/Users/jxnblk/repos/mdx-deck/packages/gatsby-theme/.cache/dev-404-page.js",
+      "componentChunkName": "component---cache-dev-404-page-js",
+      "isCreatedByStatefulCreatePages": true,
+      "context": {},
+      "pluginCreator___NODE": "d48d1c52-fe48-53cb-8f08-aa4b47dde5a5",
+      "pluginCreatorId": "d48d1c52-fe48-53cb-8f08-aa4b47dde5a5",
+      "componentPath": "/Users/jxnblk/repos/mdx-deck/packages/gatsby-theme/.cache/dev-404-page.js",
+      "id": "SitePage /dev-404-page/",
+      "parent": null,
+      "children": [],
+      "internal": {
+        "type": "SitePage",
+        "contentDigest": "137ad0c923c16b679e0a9f814375097b",
+        "description": "d48d1c52-fe48-53cb-8f08-aa4b47dde5a5",
+        "owner": "internal-data-bridge"
+      }
+    },
+    "d48d1c52-fe48-53cb-8f08-aa4b47dde5a5": {
+      "resolve": "/Users/jxnblk/repos/mdx-deck/node_modules/gatsby/dist/internal-plugins/dev-404-page",
+      "id": "d48d1c52-fe48-53cb-8f08-aa4b47dde5a5",
+      "name": "dev-404-page",
+      "version": "1.0.0",
+      "pluginOptions": {
+        "plugins": []
+      },
+      "nodeAPIs": [
+        "createPagesStatefully"
+      ],
+      "browserAPIs": [],
+      "ssrAPIs": [],
+      "pluginFilepath": "/Users/jxnblk/repos/mdx-deck/node_modules/gatsby/dist/internal-plugins/dev-404-page",
+      "packageJson": {
+        "name": "dev-404-page",
+        "description": "Internal plugin to add a 404 page in development with helpful information",
+        "version": "1.0.0",
+        "main": "index.js",
+        "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+        "license": "MIT",
+        "dependencies": [],
+        "devDependencies": [],
+        "peerDependencies": [],
+        "optionalDependecies": [],
+        "bundledDependecies": []
+      },
+      "parent": null,
+      "children": [],
+      "internal": {
+        "contentDigest": "91388bf9883acac6aade6625cbd536f9",
+        "type": "SitePlugin",
+        "owner": "internal-data-bridge"
+      }
+    },
+    "1fc32581-893a-55e8-8927-bcd667e2b700": {
+      "resolve": "/Users/jxnblk/repos/mdx-deck/node_modules/gatsby/dist/internal-plugins/load-babel-config",
+      "id": "1fc32581-893a-55e8-8927-bcd667e2b700",
+      "name": "load-babel-config",
+      "version": "1.0.0",
+      "pluginOptions": {
+        "plugins": []
+      },
+      "nodeAPIs": [
+        "onPreBootstrap"
+      ],
+      "browserAPIs": [],
+      "ssrAPIs": [],
+      "pluginFilepath": "/Users/jxnblk/repos/mdx-deck/node_modules/gatsby/dist/internal-plugins/load-babel-config",
+      "packageJson": {
+        "name": "load-babel-config",
+        "description": "Internal plugin that handles loading Babel configs",
+        "version": "1.0.0",
+        "main": "index.js",
+        "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+        "license": "MIT",
+        "dependencies": [],
+        "devDependencies": [],
+        "peerDependencies": [],
+        "optionalDependecies": [],
+        "bundledDependecies": []
+      },
+      "parent": null,
+      "children": [],
+      "internal": {
+        "contentDigest": "f818f2348626f28e73d8ea42cce0dec4",
+        "type": "SitePlugin",
+        "owner": "internal-data-bridge"
+      }
+    },
+    "a5079d69-ba80-53dc-82f9-0f440bd5448c": {
+      "resolve": "/Users/jxnblk/repos/mdx-deck/node_modules/gatsby/dist/internal-plugins/internal-data-bridge",
+      "id": "a5079d69-ba80-53dc-82f9-0f440bd5448c",
+      "name": "internal-data-bridge",
+      "version": "1.0.0",
+      "pluginOptions": {
+        "plugins": []
+      },
+      "nodeAPIs": [
+        "sourceNodes",
+        "onCreatePage"
+      ],
+      "browserAPIs": [],
+      "ssrAPIs": [],
+      "pluginFilepath": "/Users/jxnblk/repos/mdx-deck/node_modules/gatsby/dist/internal-plugins/internal-data-bridge",
+      "packageJson": {
+        "name": "internal-data-bridge",
+        "description": "An internal Gatsby plugin which creates data nodes from internal data",
+        "version": "1.0.0",
+        "main": "index.js",
+        "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+        "license": "MIT",
+        "dependencies": [],
+        "devDependencies": [],
+        "peerDependencies": [],
+        "optionalDependecies": [],
+        "bundledDependecies": []
+      },
+      "parent": null,
+      "children": [],
+      "internal": {
+        "contentDigest": "7df0d8b1cf0a3bc575e82042138032fd",
+        "type": "SitePlugin",
+        "owner": "internal-data-bridge"
+      }
+    },
+    "f795702c-a3b8-5a88-88ee-5d06019d44fa": {
+      "resolve": "/Users/jxnblk/repos/mdx-deck/node_modules/gatsby/dist/internal-plugins/prod-404",
+      "id": "f795702c-a3b8-5a88-88ee-5d06019d44fa",
+      "name": "prod-404",
+      "version": "1.0.0",
+      "pluginOptions": {
+        "plugins": []
+      },
+      "nodeAPIs": [
+        "onCreatePage"
+      ],
+      "browserAPIs": [],
+      "ssrAPIs": [],
+      "pluginFilepath": "/Users/jxnblk/repos/mdx-deck/node_modules/gatsby/dist/internal-plugins/prod-404",
+      "packageJson": {
+        "name": "prod-404",
+        "description": "Internal plugin to detect various flavors of 404 pages and ensure there's a 404.html path created as well to ensure compatability with static hosts",
+        "version": "1.0.0",
+        "main": "index.js",
+        "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+        "license": "MIT",
+        "dependencies": [],
+        "devDependencies": [],
+        "peerDependencies": [],
+        "optionalDependecies": [],
+        "bundledDependecies": []
+      },
+      "parent": null,
+      "children": [],
+      "internal": {
+        "contentDigest": "2701554628ab10a7a4e769f50d8ad852",
+        "type": "SitePlugin",
+        "owner": "internal-data-bridge"
+      }
+    },
+    "6f4b2fa9-66b5-5205-a03f-140005a2cfe5": {
+      "resolve": "/Users/jxnblk/repos/mdx-deck/node_modules/gatsby/dist/internal-plugins/webpack-theme-component-shadowing",
+      "id": "6f4b2fa9-66b5-5205-a03f-140005a2cfe5",
+      "name": "webpack-theme-component-shadowing",
+      "version": "1.0.0",
+      "pluginOptions": {
+        "plugins": []
+      },
+      "nodeAPIs": [
+        "onCreateWebpackConfig"
+      ],
+      "browserAPIs": [],
+      "ssrAPIs": [],
+      "pluginFilepath": "/Users/jxnblk/repos/mdx-deck/node_modules/gatsby/dist/internal-plugins/webpack-theme-component-shadowing",
+      "packageJson": {
+        "name": "webpack-theme-component-shadowing",
+        "description": "An internal Gatsby plugin which handles configuring webpack to ensure theme components fall back from the user's site to theme modules.",
+        "version": "1.0.0",
+        "main": "index.js",
+        "author": "Chris Biscardi <chris@christopherbiscardi.com>",
+        "license": "MIT",
+        "dependencies": [],
+        "devDependencies": [],
+        "peerDependencies": [],
+        "optionalDependecies": [],
+        "bundledDependecies": []
+      },
+      "parent": null,
+      "children": [],
+      "internal": {
+        "contentDigest": "49d65b9734c3c056caa2e0d8d1971a6d",
+        "type": "SitePlugin",
+        "owner": "internal-data-bridge"
+      }
+    },
+    "4f8f34ce-9718-5138-863e-9325c01ca061": {
+      "resolve": "/Users/jxnblk/repos/mdx-deck/node_modules/gatsby-source-filesystem",
+      "id": "4f8f34ce-9718-5138-863e-9325c01ca061",
+      "name": "gatsby-source-filesystem",
+      "version": "2.0.29",
+      "pluginOptions": {
+        "plugins": [],
+        "name": "decks",
+        "path": "/Users/jxnblk/repos/mdx-deck/packages/gatsby-theme/src/decks"
+      },
+      "nodeAPIs": [
+        "sourceNodes",
+        "setFieldsOnGraphQLNodeType"
+      ],
+      "browserAPIs": [],
+      "ssrAPIs": [],
+      "pluginFilepath": "/Users/jxnblk/repos/mdx-deck/node_modules/gatsby-source-filesystem",
+      "packageJson": {
+        "name": "gatsby-source-filesystem",
+        "description": "Gatsby plugin which parses files within a directory for further parsing by other plugins",
+        "version": "2.0.29",
+        "keywords": [
+          "gatsby",
+          "gatsby-plugin"
+        ],
+        "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+        "license": "MIT",
+        "dependencies": [
+          {
+            "name": "@babel/runtime",
+            "version": "^7.0.0"
+          },
+          {
+            "name": "better-queue",
+            "version": "^3.8.7"
+          },
+          {
+            "name": "bluebird",
+            "version": "^3.5.0"
+          },
+          {
+            "name": "chokidar",
+            "version": "2.1.2"
+          },
+          {
+            "name": "file-type",
+            "version": "^10.2.0"
+          },
+          {
+            "name": "fs-extra",
+            "version": "^5.0.0"
+          },
+          {
+            "name": "got",
+            "version": "^7.1.0"
+          },
+          {
+            "name": "md5-file",
+            "version": "^3.1.1"
+          },
+          {
+            "name": "mime",
+            "version": "^2.2.0"
+          },
+          {
+            "name": "pretty-bytes",
+            "version": "^4.0.2"
+          },
+          {
+            "name": "progress",
+            "version": "^1.1.8"
+          },
+          {
+            "name": "read-chunk",
+            "version": "^3.0.0"
+          },
+          {
+            "name": "slash",
+            "version": "^1.0.0"
+          },
+          {
+            "name": "valid-url",
+            "version": "^1.0.9"
+          },
+          {
+            "name": "xstate",
+            "version": "^3.1.0"
+          }
+        ],
+        "devDependencies": [
+          {
+            "name": "@babel/cli",
+            "version": "^7.0.0"
+          },
+          {
+            "name": "@babel/core",
+            "version": "^7.0.0"
+          },
+          {
+            "name": "babel-preset-gatsby-package",
+            "version": "^0.1.4"
+          },
+          {
+            "name": "cross-env",
+            "version": "^5.1.4"
+          }
+        ],
+        "peerDependencies": [
+          {
+            "name": "gatsby",
+            "version": "^2.0.0"
+          }
+        ],
+        "optionalDependecies": [],
+        "bundledDependecies": []
+      },
+      "parent": null,
+      "children": [],
+      "internal": {
+        "contentDigest": "3d42b81bcefa842642b67b340280f259",
+        "type": "SitePlugin",
+        "owner": "internal-data-bridge"
+      }
+    },
+    "3c58431d-10e7-5ee3-90e4-fb9bc1e2d9c1": {
+      "resolve": "/Users/jxnblk/repos/mdx-deck/node_modules/gatsby-mdx",
+      "id": "3c58431d-10e7-5ee3-90e4-fb9bc1e2d9c1",
+      "name": "gatsby-mdx",
+      "version": "0.5.6",
+      "pluginOptions": {
+        "plugins": [],
+        "extensions": [
+          ".mdx",
+          ".md"
+        ]
+      },
+      "nodeAPIs": [
+        "onCreateNode",
+        "setFieldsOnGraphQLNodeType",
+        "onCreatePage",
+        "onCreateWebpackConfig",
+        "resolvableExtensions",
+        "preprocessSource",
+        "onCreateBabelConfig",
+        "onPreBootstrap",
+        "onPostBootstrap"
+      ],
+      "browserAPIs": [
+        "wrapRootElement"
+      ],
+      "ssrAPIs": [
+        "wrapRootElement"
+      ],
+      "pluginFilepath": "/Users/jxnblk/repos/mdx-deck/node_modules/gatsby-mdx",
+      "packageJson": {
+        "name": "gatsby-mdx",
+        "description": "mdx integration for gatsby",
+        "version": "0.5.6",
+        "main": "index.js",
+        "keywords": [
+          "gatsby",
+          "gatsby-plugin",
+          "gatsby-transformer-plugin",
+          "mdx",
+          "markdown",
+          "remark",
+          "rehype"
+        ],
+        "license": "MIT",
+        "dependencies": [
+          {
+            "name": "@babel/core",
+            "version": "^7.4.0"
+          },
+          {
+            "name": "@babel/plugin-proposal-object-rest-spread",
+            "version": "^7.0.0"
+          },
+          {
+            "name": "@babel/preset-env",
+            "version": "^7.4.2"
+          },
+          {
+            "name": "@babel/preset-react",
+            "version": "^7.0.0"
+          },
+          {
+            "name": "core-js",
+            "version": "2"
+          },
+          {
+            "name": "debug",
+            "version": "^4.0.1"
+          },
+          {
+            "name": "escape-string-regexp",
+            "version": "^1.0.5"
+          },
+          {
+            "name": "fs-extra",
+            "version": "^7.0.0"
+          },
+          {
+            "name": "gray-matter",
+            "version": "^4.0.1"
+          },
+          {
+            "name": "loader-utils",
+            "version": "^1.2.3"
+          },
+          {
+            "name": "lodash",
+            "version": "^4.17.10"
+          },
+          {
+            "name": "mdast-util-to-string",
+            "version": "^1.0.4"
+          },
+          {
+            "name": "mdast-util-toc",
+            "version": "^3.0.0"
+          },
+          {
+            "name": "mime",
+            "version": "^2.3.1"
+          },
+          {
+            "name": "pretty-bytes",
+            "version": "^5.1.0"
+          },
+          {
+            "name": "remark",
+            "version": "^10.0.0"
+          },
+          {
+            "name": "retext",
+            "version": "^6.0.0"
+          },
+          {
+            "name": "slash",
+            "version": "^2.0.0"
+          },
+          {
+            "name": "static-site-generator-webpack-plugin",
+            "version": "^3.4.2"
+          },
+          {
+            "name": "strip-markdown",
+            "version": "^3.0.1"
+          },
+          {
+            "name": "underscore.string",
+            "version": "^3.3.4"
+          },
+          {
+            "name": "unist-util-map",
+            "version": "^1.0.4"
+          },
+          {
+            "name": "unist-util-remove",
+            "version": "^1.0.1"
+          },
+          {
+            "name": "unist-util-visit",
+            "version": "^1.4.0"
+          }
+        ],
+        "devDependencies": [
+          {
+            "name": "jest",
+            "version": "^24.0.0"
+          },
+          {
+            "name": "js-combinatorics",
+            "version": "^0.5.3"
+          }
+        ],
+        "peerDependencies": [
+          {
+            "name": "@mdx-js/mdx",
+            "version": "^1.0.0-alpha.17"
+          },
+          {
+            "name": "@mdx-js/react",
+            "version": "^1.0.0-alpha.17"
+          }
+        ],
+        "optionalDependecies": [],
+        "bundledDependecies": []
+      },
+      "parent": null,
+      "children": [],
+      "internal": {
+        "contentDigest": "aa4e5288467334900f25aa46e105ce9d",
+        "type": "SitePlugin",
+        "owner": "internal-data-bridge"
+      }
+    },
+    "ea0c95f1-7ca0-5d82-9a0f-329c23bf19fd": {
+      "resolve": "/Users/jxnblk/repos/mdx-deck/node_modules/gatsby-plugin-compile-es6-packages",
+      "id": "ea0c95f1-7ca0-5d82-9a0f-329c23bf19fd",
+      "name": "gatsby-plugin-compile-es6-packages",
+      "version": "1.1.0",
+      "pluginOptions": {
+        "plugins": [],
+        "modules": [
+          "@mdx-deck/gatsby-theme"
+        ]
+      },
+      "nodeAPIs": [
+        "onCreateWebpackConfig"
+      ],
+      "browserAPIs": [],
+      "ssrAPIs": [],
+      "pluginFilepath": "/Users/jxnblk/repos/mdx-deck/node_modules/gatsby-plugin-compile-es6-packages",
+      "packageJson": {
+        "name": "gatsby-plugin-compile-es6-packages",
+        "description": "Easily add support for compiling ES6 packages into Gasby projects",
+        "version": "1.1.0",
+        "main": "index.js",
+        "keywords": [
+          "gatsby",
+          "gatsby-plugin",
+          "es6",
+          "webpack"
+        ],
+        "author": "Rob Walker <hi@robwalker.co>",
+        "license": "MIT",
+        "dependencies": [
+          {
+            "name": "@babel/runtime",
+            "version": "^7.0.0"
+          },
+          {
+            "name": "regex-escape",
+            "version": "^3.4.8"
+          }
+        ],
+        "devDependencies": [
+          {
+            "name": "@babel/cli",
+            "version": "^7.1.0"
+          },
+          {
+            "name": "@babel/core",
+            "version": "^7.1.0"
+          },
+          {
+            "name": "@babel/preset-env",
+            "version": "^7.1.0"
+          },
+          {
+            "name": "cross-env",
+            "version": "^5.2.0"
+          }
+        ],
+        "peerDependencies": [
+          {
+            "name": "gatsby",
+            "version": ">2.0.0-alpha"
+          }
+        ],
+        "optionalDependecies": [],
+        "bundledDependecies": []
+      },
+      "parent": null,
+      "children": [],
+      "internal": {
+        "contentDigest": "3749d1922bd259198a8b35371c23a54c",
+        "type": "SitePlugin",
+        "owner": "internal-data-bridge"
+      }
+    },
+    "7374ebf2-d961-52ee-92a2-c25e7cb387a9": {
+      "resolve": "/Users/jxnblk/repos/mdx-deck/packages/gatsby-theme",
+      "id": "7374ebf2-d961-52ee-92a2-c25e7cb387a9",
+      "name": "default-site-plugin",
+      "version": "def86e876f3a08e2f6d3e1d10ac7e81a",
+      "pluginOptions": {
+        "plugins": []
+      },
+      "nodeAPIs": [
+        "onPreBootstrap",
+        "onCreateNode",
+        "createPages"
+      ],
+      "browserAPIs": [],
+      "ssrAPIs": [],
+      "pluginFilepath": "/Users/jxnblk/repos/mdx-deck/packages/gatsby-theme",
+      "packageJson": {
+        "name": "@mdx-deck/gatsby-theme",
+        "version": "2.0.9",
+        "main": "index.js",
+        "author": "Brent Jackson <jxnblk@gmail.com>",
+        "license": "MIT",
+        "dependencies": [
+          {
+            "name": "@mdx-deck/components",
+            "version": "^2.0.8"
+          },
+          {
+            "name": "debug",
+            "version": "^4.1.1"
+          },
+          {
+            "name": "gatsby-plugin-compile-es6-packages",
+            "version": "^1.1.0"
+          },
+          {
+            "name": "gatsby-source-filesystem",
+            "version": "^2.0.29"
+          },
+          {
+            "name": "mkdirp",
+            "version": "^0.5.1"
+          }
+        ],
+        "devDependencies": [
+          {
+            "name": "@mdx-js/mdx",
+            "version": "^1.0.0-rc.0"
+          },
+          {
+            "name": "@mdx-js/react",
+            "version": "^1.0.0-rc.0"
+          },
+          {
+            "name": "gatsby",
+            "version": "^2.3.17"
+          },
+          {
+            "name": "gatsby-mdx",
+            "version": "^0.5.6"
+          },
+          {
+            "name": "react",
+            "version": "^16.8.6"
+          },
+          {
+            "name": "react-dom",
+            "version": "^16.8.6"
+          }
+        ],
+        "peerDependencies": [
+          {
+            "name": "@mdx-js/mdx",
+            "version": "^1.0.0-rc.0"
+          },
+          {
+            "name": "@mdx-js/react",
+            "version": "^1.0.0-rc.0"
+          },
+          {
+            "name": "gatsby",
+            "version": "^2.3.17"
+          },
+          {
+            "name": "gatsby-mdx",
+            "version": "^0.5.6"
+          },
+          {
+            "name": "react",
+            "version": "^16.8.6"
+          },
+          {
+            "name": "react-dom",
+            "version": "^16.8.6"
+          }
+        ],
+        "optionalDependecies": [],
+        "bundledDependecies": []
+      },
+      "parent": null,
+      "children": [],
+      "internal": {
+        "contentDigest": "953d5f0ea995cbf42a1f76317b7826f6",
+        "type": "SitePlugin",
+        "owner": "internal-data-bridge"
+      }
+    },
+    "ec90ce06-88fb-5e11-a0be-177d08a94a4d": {
+      "resolve": "/Users/jxnblk/repos/mdx-deck/node_modules/gatsby-plugin-page-creator",
+      "id": "ec90ce06-88fb-5e11-a0be-177d08a94a4d",
+      "name": "gatsby-plugin-page-creator",
+      "version": "2.0.12",
+      "pluginOptions": {
+        "plugins": [],
+        "path": "/Users/jxnblk/repos/mdx-deck/packages/gatsby-theme/src/pages",
+        "pathCheck": false
+      },
+      "nodeAPIs": [
+        "createPagesStatefully"
+      ],
+      "browserAPIs": [],
+      "ssrAPIs": [],
+      "pluginFilepath": "/Users/jxnblk/repos/mdx-deck/node_modules/gatsby-plugin-page-creator",
+      "packageJson": {
+        "name": "gatsby-plugin-page-creator",
+        "description": "Gatsby plugin that automatically creates pages from React components in specified directories",
+        "version": "2.0.12",
+        "main": "index.js",
+        "keywords": [
+          "gatsby",
+          "gatsby-plugin"
+        ],
+        "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+        "license": "MIT",
+        "dependencies": [
+          {
+            "name": "@babel/runtime",
+            "version": "^7.0.0"
+          },
+          {
+            "name": "bluebird",
+            "version": "^3.5.0"
+          },
+          {
+            "name": "chokidar",
+            "version": "2.1.2"
+          },
+          {
+            "name": "fs-exists-cached",
+            "version": "^1.0.0"
+          },
+          {
+            "name": "glob",
+            "version": "^7.1.1"
+          },
+          {
+            "name": "lodash",
+            "version": "^4.17.10"
+          },
+          {
+            "name": "micromatch",
+            "version": "^3.1.10"
+          },
+          {
+            "name": "parse-filepath",
+            "version": "^1.0.1"
+          },
+          {
+            "name": "slash",
+            "version": "^1.0.0"
+          }
+        ],
+        "devDependencies": [
+          {
+            "name": "@babel/cli",
+            "version": "^7.0.0"
+          },
+          {
+            "name": "@babel/core",
+            "version": "^7.0.0"
+          },
+          {
+            "name": "babel-preset-gatsby-package",
+            "version": "^0.1.4"
+          },
+          {
+            "name": "cross-env",
+            "version": "^5.0.5"
+          }
+        ],
+        "peerDependencies": [
+          {
+            "name": "gatsby",
+            "version": "^2.0.0"
+          }
+        ],
+        "optionalDependecies": [],
+        "bundledDependecies": []
+      },
+      "parent": null,
+      "children": [],
+      "internal": {
+        "contentDigest": "5f2cb5527721fb462ac00016789d2d24",
+        "type": "SitePlugin",
+        "owner": "internal-data-bridge"
+      }
+    },
+    "Site": {
+      "siteMetadata": {},
+      "port": 8000,
+      "host": "localhost",
+      "buildTime": "2019-04-11T00:08:48.723Z",
+      "id": "Site",
+      "parent": null,
+      "children": [],
+      "internal": {
+        "contentDigest": "bb5cccf0392e4d1ca2b37518415b02dd",
+        "type": "Site",
+        "owner": "internal-data-bridge"
+      }
+    },
+    "86efd766-b4ee-54b0-8983-65294d1dfb6c": {
+      "id": "86efd766-b4ee-54b0-8983-65294d1dfb6c",
+      "children": [],
+      "parent": null,
+      "internal": {
+        "contentDigest": "1b50e5cac52268fe77cd975d8c6fedca",
+        "type": "Directory",
+        "description": "Directory \"src/decks\"",
+        "owner": "gatsby-source-filesystem"
+      },
+      "sourceInstanceName": "decks",
+      "absolutePath": "/Users/jxnblk/repos/mdx-deck/packages/gatsby-theme/src/decks",
+      "relativePath": "",
+      "extension": "",
+      "size": 96,
+      "prettySize": "96 B",
+      "modifiedTime": "2019-04-10T23:53:28.813Z",
+      "accessTime": "2019-04-11T00:08:55.025Z",
+      "changeTime": "2019-04-10T23:53:28.813Z",
+      "birthTime": "2019-04-10T21:31:58.502Z",
+      "root": "/",
+      "dir": "/Users/jxnblk/repos/mdx-deck/packages/gatsby-theme/src",
+      "base": "decks",
+      "ext": "",
+      "name": "decks",
+      "relativeDirectory": "..",
+      "dev": 16777220,
+      "mode": 16877,
+      "nlink": 3,
+      "uid": 501,
+      "gid": 20,
+      "rdev": 0,
+      "blksize": 4096,
+      "ino": 25546843,
+      "blocks": 0,
+      "atimeMs": 1554941335024.7036,
+      "mtimeMs": 1554940408813.0383,
+      "ctimeMs": 1554940408813.0383,
+      "birthtimeMs": 1554931918501.8347,
+      "atime": "2019-04-11T00:08:55.025Z",
+      "mtime": "2019-04-10T23:53:28.813Z",
+      "ctime": "2019-04-10T23:53:28.813Z",
+      "birthtime": "2019-04-10T21:31:58.502Z"
+    },
+    "b0cd5967-154a-5f71-af5e-94017c789ed3": {
+      "id": "b0cd5967-154a-5f71-af5e-94017c789ed3",
+      "children": [
+        "edf6e15c-2a75-57a2-8a19-1292135c4cd1"
+      ],
+      "parent": null,
+      "internal": {
+        "contentDigest": "b2284848b8bed8d7159d34ef62bac835",
+        "type": "File",
+        "mediaType": "application/octet-stream",
+        "description": "File \"src/decks/hello.mdx\"",
+        "owner": "gatsby-source-filesystem"
+      },
+      "sourceInstanceName": "decks",
+      "absolutePath": "/Users/jxnblk/repos/mdx-deck/packages/gatsby-theme/src/decks/hello.mdx",
+      "relativePath": "hello.mdx",
+      "extension": "mdx",
+      "size": 316,
+      "prettySize": "316 B",
+      "modifiedTime": "2019-04-11T00:17:41.502Z",
+      "accessTime": "2019-04-11T00:17:41.502Z",
+      "changeTime": "2019-04-11T00:17:41.502Z",
+      "birthTime": "2019-04-11T00:17:41.502Z",
+      "root": "/",
+      "dir": "/Users/jxnblk/repos/mdx-deck/packages/gatsby-theme/src/decks",
+      "base": "hello.mdx",
+      "ext": ".mdx",
+      "name": "hello",
+      "relativeDirectory": "",
+      "dev": 16777220,
+      "mode": 33188,
+      "nlink": 1,
+      "uid": 501,
+      "gid": 20,
+      "rdev": 0,
+      "blksize": 4096,
+      "ino": 25654617,
+      "blocks": 8,
+      "atimeMs": 1554941861501.5686,
+      "mtimeMs": 1554941861501.7178,
+      "ctimeMs": 1554941861502.0962,
+      "birthtimeMs": 1554941861501.5686,
+      "atime": "2019-04-11T00:17:41.502Z",
+      "mtime": "2019-04-11T00:17:41.502Z",
+      "ctime": "2019-04-11T00:17:41.502Z",
+      "birthtime": "2019-04-11T00:17:41.502Z"
+    },
+    "SitePage /decks": {
+      "jsonName": "decks-bb5",
+      "internalComponentName": "ComponentDecks",
+      "path": "/decks",
+      "component": "/Users/jxnblk/repos/mdx-deck/packages/gatsby-theme/src/decks.js",
+      "componentChunkName": "component---src-decks-js",
+      "isCreatedByStatefulCreatePages": false,
+      "context": {},
+      "pluginCreator___NODE": "7374ebf2-d961-52ee-92a2-c25e7cb387a9",
+      "pluginCreatorId": "7374ebf2-d961-52ee-92a2-c25e7cb387a9",
+      "componentPath": "/Users/jxnblk/repos/mdx-deck/packages/gatsby-theme/src/decks.js",
+      "id": "SitePage /decks",
+      "parent": null,
+      "children": [],
+      "internal": {
+        "type": "SitePage",
+        "contentDigest": "1a18c80dfcc2f3f7b46bb6073de1bae5",
+        "description": "7374ebf2-d961-52ee-92a2-c25e7cb387a9",
+        "owner": "internal-data-bridge"
+      }
+    },
+    "SitePage /decks/hello/": {
+      "jsonName": "decks-hello-c4c",
+      "internalComponentName": "ComponentDecksHello",
+      "path": "/decks/hello/",
+      "matchPath": "/decks/hello/*",
+      "component": "/Users/jxnblk/repos/mdx-deck/packages/gatsby-theme/src/template.js",
+      "componentChunkName": "component---src-template-js",
+      "isCreatedByStatefulCreatePages": false,
+      "context": {
+        "id": "edf6e15c-2a75-57a2-8a19-1292135c4cd1"
+      },
+      "pluginCreator___NODE": "7374ebf2-d961-52ee-92a2-c25e7cb387a9",
+      "pluginCreatorId": "7374ebf2-d961-52ee-92a2-c25e7cb387a9",
+      "componentPath": "/Users/jxnblk/repos/mdx-deck/packages/gatsby-theme/src/template.js",
+      "id": "SitePage /decks/hello/",
+      "parent": null,
+      "children": [],
+      "internal": {
+        "type": "SitePage",
+        "contentDigest": "cc39cc090a75d45fa5dd20f21b25abb0",
+        "description": "7374ebf2-d961-52ee-92a2-c25e7cb387a9",
+        "owner": "internal-data-bridge"
+      }
+    },
+    "SitePage /": {
+      "jsonName": "index",
+      "internalComponentName": "ComponentIndex",
+      "path": "/",
+      "component": "/Users/jxnblk/repos/mdx-deck/packages/gatsby-theme/src/pages/index.mdx",
+      "componentChunkName": "component---src-pages-index-mdx",
+      "isCreatedByStatefulCreatePages": true,
+      "context": {
+        "frontmatter": {}
+      },
+      "pluginCreator___NODE": "3c58431d-10e7-5ee3-90e4-fb9bc1e2d9c1",
+      "pluginCreatorId": "3c58431d-10e7-5ee3-90e4-fb9bc1e2d9c1",
+      "componentPath": "/Users/jxnblk/repos/mdx-deck/packages/gatsby-theme/src/pages/index.mdx",
+      "id": "SitePage /",
+      "parent": null,
+      "children": [],
+      "internal": {
+        "type": "SitePage",
+        "contentDigest": "e8118b3436d7f16b2bd2fafc4e090778",
+        "description": "3c58431d-10e7-5ee3-90e4-fb9bc1e2d9c1",
+        "owner": "internal-data-bridge"
+      }
+    },
+    "edf6e15c-2a75-57a2-8a19-1292135c4cd1": {
+      "id": "edf6e15c-2a75-57a2-8a19-1292135c4cd1",
+      "children": [],
+      "parent": "b0cd5967-154a-5f71-af5e-94017c789ed3",
+      "internal": {
+        "content": "\n# Hello\n\n---\n\nThis is the MDX Deck Gatsby theme\n\n---\n\n`npm i @mdx-deck/gatsby-theme`\n\n---\n\n```js\n// gatsby-config.js\nmodule.exports = {\n  __experimentalThemes: [\n    '@mdx-deck/gatsby-theme',\n  ]\n}\n```\n\n---\n\n`mkdir src src/decks`\n\n---\n\n1. Add an MDX deck to `src/decks`\n2. Navigate to `http://localhost.com/decks`\n\n",
+        "type": "Mdx",
+        "contentDigest": "fb7375c64a5b69bbc2f3ed91d99452df",
+        "owner": "gatsby-mdx",
+        "fieldOwners": {
+          "slug": "default-site-plugin"
+        }
+      },
+      "frontmatter": {
+        "title": "",
+        "_PARENT": "b0cd5967-154a-5f71-af5e-94017c789ed3"
+      },
+      "exports": {},
+      "rawBody": "\n# Hello\n\n---\n\nThis is the MDX Deck Gatsby theme\n\n---\n\n`npm i @mdx-deck/gatsby-theme`\n\n---\n\n```js\n// gatsby-config.js\nmodule.exports = {\n  __experimentalThemes: [\n    '@mdx-deck/gatsby-theme',\n  ]\n}\n```\n\n---\n\n`mkdir src src/decks`\n\n---\n\n1. Add an MDX deck to `src/decks`\n2. Navigate to `http://localhost.com/decks`\n\n",
+      "fileAbsolutePath": "/Users/jxnblk/repos/mdx-deck/packages/gatsby-theme/src/decks/hello.mdx",
+      "fields": {
+        "slug": "/decks/hello/"
+      }
+    }
+  },
+  "status": {
+    "plugins": {},
+    "PLUGINS_HASH": "2f5433ab0817917379f09b82209bba6f"
+  },
+  "componentDataDependencies": {
+    "nodes": {
+      "edf6e15c-2a75-57a2-8a19-1292135c4cd1": [
+        "/decks/hello/"
+      ]
+    },
+    "connections": {
+      "Mdx": [
+        "/decks"
+      ]
+    }
+  },
+  "jsonDataPaths": {
+    "dev-404-page-5f9": "386/path---dev-404-page-5-f-9-fab-0SUcWyAf8ecbYDsMhQkEfPzV8",
+    "index": "975/path---index-6a9-ZgNvD22DZ1bsaxJwqoEdjIBtusU",
+    "deck-hello-85f": "729/path---deck-hello-85-f-fbf-iXfq0S3mBfqVzRRZsqPIq1kGuqE",
+    "deck-hello-5ac": "233/path---deck-hello-5-ac-5e3-4VrNY4zMj0nvsOyT2Qe6jXNthM",
+    "decks-hello-c4c": "955/path---decks-hello-c-4-c-63e-eB7vYfchFj9kZfyhSpjPskadqxM",
+    "routes-8c1": "462/path---routes-8-c-1-f7b-0SUcWyAf8ecbYDsMhQkEfPzV8",
+    "decks-bb5": "726/path---decks-bb-5-389-3ffKgU15Gix8mC0QIE1rpBNzTI"
+  },
+  "components": {
+    "/Users/jxnblk/repos/mdx-deck/packages/gatsby-theme/src/decks.js": {
+      "componentPath": "/Users/jxnblk/repos/mdx-deck/packages/gatsby-theme/src/decks.js",
+      "query": "query usersJxnblkReposMdxDeckPackagesGatsbyThemeSrcDecksJs410413992 {\n  allMdx {\n    edges {\n      node {\n        id\n        fields {\n          slug\n        }\n      }\n    }\n  }\n}\n",
+      "pages": [
+        "/decks"
+      ],
+      "isInBootstrap": false
+    },
+    "/Users/jxnblk/repos/mdx-deck/packages/gatsby-theme/src/template.js": {
+      "componentPath": "/Users/jxnblk/repos/mdx-deck/packages/gatsby-theme/src/template.js",
+      "query": "query usersJxnblkReposMdxDeckPackagesGatsbyThemeSrcTemplateJs2750763803(\n  $id: String!\n) {\n  mdx(id: {eq: $id}) {\n    id\n    code {\n      body\n    }\n  }\n}\n",
+      "pages": [
+        "/decks/hello/"
+      ],
+      "isInBootstrap": false
+    },
+    "/Users/jxnblk/repos/mdx-deck/packages/gatsby-theme/.cache/dev-404-page.js": {
+      "componentPath": "/Users/jxnblk/repos/mdx-deck/packages/gatsby-theme/.cache/dev-404-page.js",
+      "query": "",
+      "pages": [
+        "/dev-404-page/"
+      ],
+      "isInBootstrap": false
+    },
+    "/Users/jxnblk/repos/mdx-deck/packages/gatsby-theme/src/pages/index.mdx": {
+      "componentPath": "/Users/jxnblk/repos/mdx-deck/packages/gatsby-theme/src/pages/index.mdx",
+      "query": "",
+      "pages": [
+        "/"
+      ],
+      "isInBootstrap": false
+    }
+  },
+  "staticQueryComponents": {}
+}

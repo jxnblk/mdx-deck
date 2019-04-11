@@ -1,23 +1,11 @@
 import React, { useEffect } from 'react'
-import { Location, navigate } from '@reach/router'
+import { navigate } from '@reach/router'
 import Zoom from './Zoom'
 import Slide from './Slide'
 import Pre from './Pre'
 
-const getIndex = ({ pathname }) => {
-  return Number(pathname.split('/')[1] || 0)
-}
-
-const withLocation = Component => props => (
-  <Location
-    children={({ location }) => (
-      <Component {...props} location={location} index={getIndex(location)} />
-    )}
-  />
-)
-
-export const Overview = withLocation(props => {
-  const { index, slides } = props
+export const Overview = props => {
+  const { index, slides, basepath } = props
   const activeThumb = React.createRef()
 
   useEffect(() => {
@@ -54,7 +42,7 @@ export const Overview = withLocation(props => {
             key={i}
             role="link"
             onClick={e => {
-              navigate('/' + i)
+              navigate(basepath + '/' + i)
             }}
             style={{
               display: 'block',
@@ -88,6 +76,6 @@ export const Overview = withLocation(props => {
       </div>
     </div>
   )
-})
+}
 
 export default Overview

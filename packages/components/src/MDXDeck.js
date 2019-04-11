@@ -102,8 +102,10 @@ export class MDXDeck extends React.Component {
   }
 
   getIndex = () => {
+    const { basepath } = this.props
     const { pathname } = globalHistory.location
-    return Number(pathname.split('/')[1] || 0)
+    const pagepath = pathname.replace(basepath, '')
+    return Number(pagepath.split('/')[1] || 0)
   }
 
   getMeta = i => {
@@ -113,9 +115,10 @@ export class MDXDeck extends React.Component {
   }
 
   goto = i => {
+    const { basepath } = this.props
     const current = this.getIndex()
     const reverse = i < current
-    navigate('/' + i)
+    navigate(basepath + '/' + i)
     const meta = this.getMeta(i)
     this.setState({
       step: reverse ? meta.steps || 0 : 0,
@@ -194,13 +197,16 @@ export class MDXDeck extends React.Component {
   componentDidUpdate() {
     const index = this.getIndex()
     const { step, mode } = this.state
+    const { pathname, search } = globalHistory.location
     localStorage.setItem(STORAGE_INDEX, index)
     localStorage.setItem(STORAGE_STEP, step)
+
     if (mode !== NORMAL && mode !== PRINT) {
       const query = '?' + querystring.stringify({ mode })
+      if (query === search) return
       navigate(query)
     } else {
-      const { pathname } = globalHistory.location
+      if (!search) return
       navigate(pathname)
     }
   }
@@ -211,6 +217,7 @@ export class MDXDeck extends React.Component {
   }
 
   render() {
+    const { basepath } = this.props
     const { pathname } = globalHistory.location
     const { slides } = this.state
     const mode = pathname === '/print' ? PRINT : this.state.mode
@@ -240,18 +247,19 @@ export class MDXDeck extends React.Component {
       <Provider {...this.props} {...this.state} mode={mode} index={index}>
         <Catch>
           <GoogleFonts />
-          <Wrapper {...this.state} modes={modes} index={index}>
+          <Wrapper {...this.props} {...this.state} modes={modes} index={index}>
             <Swipeable onSwipedRight={this.previous} onSwipedLeft={this.next}>
-              <Router>
-                <Slide path="/" index={0} {...context}>
-                  <FirstSlide path="/" />
+              <Router basepath={basepath}>
+                <FirstSlide path={basepath + '/'} />
+                <Slide path={'/'} index={0} {...context}>
+                  <FirstSlide path={'/'} />
                 </Slide>
                 {slides.map((Component, i) => (
                   <Slide key={i} path={i + '/*'} index={i} {...context}>
                     <Component path={i + '/*'} />
                   </Slide>
                 ))}
-                <Print path="/print" {...this.props} />
+                <Print path={'/print'} {...this.props} />
               </Router>
             </Swipeable>
           </Wrapper>
@@ -267,6 +275,7 @@ MDXDeck.propTypes = {
 }
 
 MDXDeck.defaultProps = {
+  basepath: '',
   slides: [],
   headTags: [],
 }
