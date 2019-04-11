@@ -1,6 +1,6 @@
 {
   "name": "@mdx-deck/mdx-plugin",
-  "version": "2.0.9",
+  "version": "2.0.10-alpha.0",
   "description": "",
   "main": "index.js",
   "keywords": [],

@@ -1,11 +1,11 @@
 {
   "name": "@mdx-deck/loader",
-  "version": "2.0.9",
+  "version": "2.0.10-alpha.0",
   "main": "index.js",
   "author": "Brent Jackson <jxnblk@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@mdx-deck/mdx-plugin": "^2.0.9",
+    "@mdx-deck/mdx-plugin": "^2.0.10-alpha.0",
     "@mdx-js/mdx": "^1.0.0-rc.0",
     "loader-utils": "^1.2.3"
   }
