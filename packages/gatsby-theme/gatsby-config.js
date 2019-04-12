@@ -6,7 +6,7 @@ const remarkPlugins = [require('remark-emoji'), require('remark-unwrap-images')]
 const IS_LOCAL = process.cwd() === __dirname
 
 const themeConfig = (opts = {}) => {
-  const { path: source = 'src/decks', name = 'decks' } = opts
+  const { path: source = 'src/decks', name = 'decks', mdx = true } = opts
 
   return {
     plugins: [
@@ -18,7 +18,7 @@ const themeConfig = (opts = {}) => {
           path: path.resolve(source),
         },
       },
-      {
+      mdx && {
         resolve: 'gatsby-mdx',
         options: {
           extensions: ['.mdx', '.md'],
@@ -36,7 +36,7 @@ const themeConfig = (opts = {}) => {
           ],
         },
       },
-    ],
+    ].filter(Boolean),
   }
 }
 
