@@ -110,7 +110,7 @@ export class MDXDeck extends React.Component {
     const { pathname } = globalHistory.location
     const pagepath = pathname.replace(basepath, '')
     const n = Number(pagepath.split('/')[1])
-    const index = isNaN(n) ? -1 : n
+    const index = isNaN(n) ? 0 : n
     return index
   }
 
