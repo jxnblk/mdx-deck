@@ -39,4 +39,27 @@ import Layout from './my-layout'
 </Layout>
 ```
 
+## Theme Config
+
+The following options can be passed to the gatsby theme.
+
+```js
+// gatsby-config.js
+module.exports = {
+  __experimentalThemes: [
+    {
+      resolve: '@mdx-deck/gatsby-theme',
+      options: {
+        // disable gatsby-mdx plugin – use this when your site already uses gatsby-mdx
+        mdx: false,
+        // source directory for decks
+        path: 'src/presentations',
+        // name routes' basepath
+        name: 'presentations',
+      },
+    },
+  ],
+}
+```
+
 MIT License
