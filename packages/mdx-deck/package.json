@@ -42,7 +42,7 @@
     "find-up": "^3.0.0",
     "friendly-errors-webpack-plugin": "^1.7.0",
     "meow": "^5.0.0",
-    "mini-css-extract-plugin": "^0.5.0",
+    "mini-css-extract-plugin": "^0.6.0",
     "pkg-conf": "^3.0.0",
     "react": "^16.8.3",
     "react-dev-utils": "^8.0.0",
