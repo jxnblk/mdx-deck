@@ -1,3 +1,4 @@
+const fs = require('fs')
 const path = require('path')
 const { createFilePath } = require('gatsby-source-filesystem')
 const Debug = require('debug')
@@ -6,10 +7,13 @@ const pkg = require('./package.json')
 
 const debug = Debug('@mdx-deck/gatsby-theme')
 
-exports.onPreBootstrap = ({ store }) => {
-  const { program } = store.getState()
+exports.onPreBootstrap = ({ store }, opts = {}) => {
+  const { path: source = 'src/decks' } = opts
 
-  const dir = path.join(program.directory, `src/decks`)
+  const isDir = fs.statSync(source).isDirectory()
+  const dirname = isDir ? source : path.dirname(source)
+  const { program } = store.getState()
+  const dir = path.join(program.directory, dirname)
 
   debug(`Initializing ${dir} directory`)
   mkdirp.sync(dir)
@@ -59,9 +63,26 @@ exports.createPages = async ({ graphql, actions }, opts = {}) => {
 
   const decks = result.data.allMdx.edges
     .filter(edge => {
-      return edge.node.parent.sourceInstanceName === 'decks'
+      return edge.node.parent.sourceInstanceName === name
     })
     .map(edge => edge.node)
+
+  // single deck mode
+  if (decks.length === 1) {
+    const [deck] = decks
+    const pathname = path.join('/', name)
+    const matchPath = path.join(pathname, '*')
+    actions.createPage({
+      path: pathname,
+      matchPath,
+      component: require.resolve('./src/templates/deck.js'),
+      context: {
+        id: deck.id,
+        basepath: stripSlash(pathname),
+      },
+    })
+    return
+  }
 
   // index page
   actions.createPage({
