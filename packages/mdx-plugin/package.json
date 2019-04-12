@@ -1,6 +1,6 @@
 {
   "name": "@mdx-deck/mdx-plugin",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "",
   "main": "index.js",
   "keywords": [],
@@ -10,6 +10,7 @@
     "@mdx-js/mdx": "1.0.0-rc.0"
   },
   "dependencies": {
+    "@mdx-js/mdx": "^1.0.1",
     "unist-util-is": "^2.1.2",
     "unist-util-visit": "^1.4.0"
   }
