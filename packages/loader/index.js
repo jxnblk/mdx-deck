@@ -5,7 +5,10 @@ const mdxPlugin = require('@mdx-deck/mdx-plugin')
 module.exports = async function(src) {
   const callback = this.async()
   const options = getOptions(this) || {}
-  options.remarkPlugins = options.mdPlugins || []
+  options.remarkPlugins = [
+    ...options.remarkPlugins,
+    ...(options.mdPlugins || []),
+  ]
   options.remarkPlugins.push(mdxPlugin)
 
   const result = mdx.sync(src, options)

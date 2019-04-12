@@ -46,6 +46,7 @@ export const table = props => (
 )
 
 export const components = {
+  wrapper: props => props.children,
   pre: props => props.children,
   code,
   inlineCode,

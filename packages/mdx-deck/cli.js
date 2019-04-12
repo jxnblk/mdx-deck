@@ -22,7 +22,7 @@ const cli = meow(
     $ ${chalk.green('mdx-deck deck.mdx')}
 
     $ ${chalk.green('mdx-deck build deck.mdx')}
-  
+
   ${chalk.gray('Options')}
 
       -h --host     Dev server host
@@ -59,6 +59,9 @@ const cli = meow(
       html: {
         type: 'boolean',
         default: true,
+      },
+      basepath: {
+        type: 'string',
       },
     },
   }
