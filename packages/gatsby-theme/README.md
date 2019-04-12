@@ -6,7 +6,7 @@
 npm i @mdx-deck/gatsby-theme
 ```
 
-_Note:_ This theme requires MDX v1, which is currently in beta, and will not work with previous versions of MDX
+_Note:_ This theme **requires MDX v1** and will not work with previous versions of MDX
 
 ```js
 // gatsby-config.js
