@@ -16,6 +16,7 @@ export default props => {
       slug: node.fields.deck,
       title: getTitle(node),
       children: <MDXRenderer children={node.code.body} />,
+      Component: props => <MDXRenderer {...props} children={node.code.body} />,
     }))
     .filter(node => node.parent.sourceInstanceName === 'decks')
   return <Layout {...props} decks={decks} />

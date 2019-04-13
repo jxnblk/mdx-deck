@@ -1,11 +1,13 @@
 import React from 'react'
 import { MDXProvider } from '@mdx-js/react'
-import { MDXDeck } from '@mdx-deck/components'
+import { MDXDeck, splitSlides } from '@mdx-deck/components'
 import Root from './root'
-import splitter from '../splitter'
 
 const wrapper = page => props => (
-  <MDXDeck {...splitter({ ...page, ...props })} />
+  <MDXDeck
+    {...splitSlides({ ...props })}
+    basepath={page.pageContext.basepath}
+  />
 )
 
 export default props => {

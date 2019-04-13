@@ -18,7 +18,6 @@
  */
 
 import { jsx } from '@emotion/core'
-import React from 'react'
 import { MDXProvider } from '@mdx-js/react'
 import Provider from './Provider'
 import Slide from './Slide'
@@ -43,8 +42,9 @@ const wrapper = props => {
             position: 'absolute',
             top: 0,
             bottom: 0,
-            width: '100%',
-            height: '100%',
+            width: 100 / zoom + '%',
+            height: 100 / zoom + '%',
+            transformOrigin: '0 0',
             transform: `scale(${zoom})`,
           }}
         >

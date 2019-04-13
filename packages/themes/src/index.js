@@ -26,7 +26,7 @@ export { default as rye } from './rye'
 export { default as big } from './big'
 
 // fixed aspect ratio
-export { default as ratio } from './ratio'
+export { default as aspect } from './aspect'
 
 // super
 // https://fonts.google.com/specimen/Creepster
