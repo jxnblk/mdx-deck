@@ -1,5 +1,33 @@
 # Changelog
 
+## v2.2.0 2019-04-13
+
+- Add Embed component #323
+- Adjust context passed to Slide component
+- Add default props to Slide to show all Appear steps
+- Adds header and footer components for shadowing in Gatsby theme
+- Refactor and clean up code
+
+## v2.1.4 2019-04-12
+
+- Add `mdx` option to Gatsby theme #325
+
+## v2.1.3 2019-04-12
+
+- Update docs for Gatsby theme #324
+
+## v2.1.2 2019-04-12
+
+- Bump dependencies to MDX 1.0.0 #322
+
+## v2.1.1 2019-04-11
+
+- Add support for single deck mode in Gatsby theme #320
+
+## v2.1.0 2019-04-11
+
+- Added Gatsby theme #318
+
 ## v2.0.9 2019-04-05
 
 - Rename internal const #312
