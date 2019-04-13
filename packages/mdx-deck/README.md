@@ -1,8 +1,8 @@
 # MDX Deck
 
-![](https://s3.amazonaws.com/jxnblk/mdx-deck.gif)
+![](https://s3.amazonaws.com/jxnblk/mdx-deck-2.gif)
 
-[MDX][]-based presentation decks
+Award-winning [MDX][]-based presentation decks
 
 [![Build Status][badge]][travis]
 [![Version][]][npm]
@@ -11,7 +11,7 @@
 [badge]: https://flat.badgen.net/travis/jxnblk/mdx-deck
 [travis]: https://travis-ci.org/jxnblk/mdx-deck
 [version]: https://flat.badgen.net/npm/v/mdx-deck
-[downloads]: https://flat.badgen.net/npm/dw/mdx-deck
+[downloads]: https://flat.badgen.net/npm/dm/mdx-deck
 [npm]: https://npmjs.com/package/mdx-deck
 
 ```sh
@@ -85,14 +85,6 @@ npm start
 [harry wolff]: https://mobile.twitter.com/hswolff
 [ks-egghead]: https://egghead.io/lessons/javascript-build-a-custom-provider-component-for-mdx-deck
 [kyle shevlin]: https://twitter.com/kyleshevlin
-
-## Quick Start
-
-To create a new presentation with zero-configuration, run the following command to generate a presentation deck in a new folder:
-
-```sh
-npm init deck my-presentation-name
-```
 
 ## Using MDX
 
@@ -233,7 +225,7 @@ MDX Deck includes a built-in _Presenter Mode_, with a preview of the next slide 
 
 To use presenter mode:
 
-1. Open your presentation and enter _Presenter Mode_
+1. Open your presentation and press `Option + P` to enter _Presenter Mode_
 2. Click on the link in the bottom to open the presentation in another tab
 3. Move the other window to the screen for the audience to see
 4. Control the presentation from your window using the left and right arrow keys – the other window should stay in sync
@@ -268,10 +260,6 @@ This shows a list of all slides on the left and a preview of the current slide o
 | Space       | Go to next slide (or step in [Appear][])     |
 | Option + P  | Toggle [Presenter Mode](#presenter-mode)     |
 | Option + O  | Toggle [Overview Mode](#overview-mode)       |
-
-### URL Query String
-
-The alternative modes in MDX Deck can also be set with query strings: `?mode=presenter` or `?mode=overview`
 
 [appear]: docs/components.md#appear
 
