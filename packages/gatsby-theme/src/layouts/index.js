@@ -1,7 +1,6 @@
 import React from 'react'
 import { navigate } from 'gatsby'
-import { MDXProvider } from '@mdx-js/react'
-import { Provider, Zoom, Slide, Embed, splitSlides } from '@mdx-deck/components'
+import { Embed } from '@mdx-deck/components'
 import Root from './root'
 import Header from './header'
 import Footer from './footer'

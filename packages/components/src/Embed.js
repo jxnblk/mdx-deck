@@ -18,7 +18,6 @@
  */
 
 import { jsx } from '@emotion/core'
-import { MDXProvider } from '@mdx-js/react'
 import Provider from './Provider'
 import Slide from './Slide'
 import GoogleFonts from './GoogleFonts'
@@ -56,13 +55,7 @@ const wrapper = props => {
 }
 
 export const Embed = ({ src: Deck, slide = 1, ratio = 9 / 16, zoom = 1 }) => (
-  <MDXProvider
-    components={{
-      wrapper,
-    }}
-  >
-    <Deck slide={slide} ratio={ratio} zoom={zoom} />
-  </MDXProvider>
+  <Deck components={{ wrapper }} slide={slide} ratio={ratio} zoom={zoom} />
 )
 
 export default Embed
