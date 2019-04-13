@@ -11,7 +11,7 @@ Award-winning [MDX][]-based presentation decks
 [badge]: https://flat.badgen.net/travis/jxnblk/mdx-deck
 [travis]: https://travis-ci.org/jxnblk/mdx-deck
 [version]: https://flat.badgen.net/npm/v/mdx-deck
-[downloads]: https://flat.badgen.net/npm/dw/mdx-deck
+[downloads]: https://flat.badgen.net/npm/dm/mdx-deck
 [npm]: https://npmjs.com/package/mdx-deck
 
 ```sh
