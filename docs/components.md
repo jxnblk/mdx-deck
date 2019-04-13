@@ -140,3 +140,23 @@ import { FullScreenCode } from 'mdx-deck/layouts'
 
 </FullScreenCode>
 ````
+
+## Embed
+
+**Experimental**
+
+The `Embed` component is intended for use **outside** of an MDX Deck to render a preview of a particular slide.
+This can be used to embed slide previews in other places, like a blog post write-up of a presentation.
+
+```jsx
+import React from 'react'
+import { Embed } from '@mdx-deck/components'
+import deck from './my-deck.mdx'
+
+export default props => (
+  <>
+    <h2>Second Slide</h2>
+    <Embed src={deck} slide={2} />
+  </>
+)
+```

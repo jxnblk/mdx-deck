@@ -1,27 +1,86 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import Root from './Root'
 import { Context } from './context'
 
-const SlideRoot = styled.div(
-  {
-    display: 'flex',
-    flexDirection: 'column',
+const themed = (...tags) => props =>
+  tags.map(tag => props.theme[tag] && { ['& ' + tag]: props.theme[tag] })
+
+const themedHeadings = props => ({
+  '& h1, & h2, & h3, & h4, & h5, & h6': props.theme.heading,
+})
+
+const themedLinks = props => ({
+  '& a': {
+    color: props.theme.colors.link,
+  },
+})
+
+// backwards compatibility
+const themedQuote = props => ({
+  '& blockquote': props.theme.quote,
+})
+
+const themedCode = props => ({
+  '& code, & pre': {
+    fontFamily: props.theme.monospace,
+    color: props.theme.colors.code,
+    background: props.theme.colors.codeBackground,
+  },
+})
+
+export const Root = styled.div(
+  props => ({
+    fontFamily: props.theme.font,
+    color: props.theme.colors.text,
+    backgroundColor: props.theme.colors.background,
     width: '100vw',
     height: '100vh',
+    display: 'flex',
+    flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
     overflow: 'hidden',
-  },
-  props => props.theme.Slide
+  }),
+  props => props.theme.css,
+  props => props.theme.Slide,
+  themedLinks,
+  themedHeadings,
+  themedCode,
+  themedQuote,
+  themed(
+    'h1',
+    'h2',
+    'h3',
+    'h4',
+    'h5',
+    'h6',
+    'a',
+    'ul',
+    'ol',
+    'li',
+    'p',
+    'blockquote',
+    'img',
+    'table',
+    'pre',
+    'code'
+  )
 )
 
-export const Slide = ({ children, ...props }) => (
-  <Context.Provider value={props}>
-    <Root>
-      <SlideRoot>{children}</SlideRoot>
-    </Root>
+export const Slide = ({ index, context, ...props }) => (
+  <Context.Provider
+    value={{
+      index,
+      ...context,
+      ...props,
+    }}
+  >
+    <Root {...props} />
   </Context.Provider>
 )
+
+Slide.defaultProps = {
+  step: Infinity,
+}
 
 export default Slide

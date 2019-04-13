@@ -260,7 +260,7 @@ export class MDXDeck extends React.Component {
           <Wrapper {...this.props} {...this.state} modes={modes} index={index}>
             <Swipeable onSwipedRight={this.previous} onSwipedLeft={this.next}>
               <Router basepath={basepath}>
-                <Slide path="/" index={0} {...context}>
+                <Slide path="/" index={0} context={context}>
                   <FirstSlide path="/" />
                 </Slide>
                 {slides.map((Component, i) => (

@@ -1,23 +1,9 @@
 import React from 'react'
 import { navigate } from 'gatsby'
-import { MDXProvider } from '@mdx-js/react'
-import { Provider, Zoom, Slide } from '@mdx-deck/components'
+import { Embed } from '@mdx-deck/components'
 import Root from './root'
-import splitter from '../splitter'
-
-const wrapper = props => {
-  const { slides, theme, themes } = splitter(props)
-  const [First] = slides
-  return (
-    <Provider theme={theme} themes={themes}>
-      <Zoom zoom={1 / 3}>
-        <Slide>
-          <First />
-        </Slide>
-      </Zoom>
-    </Provider>
-  )
-}
+import Header from './header'
+import Footer from './footer'
 
 const Thumb = props => (
   <div
@@ -30,7 +16,7 @@ const Thumb = props => (
       navigate(props.slug)
     }}
   >
-    <MDXProvider components={{ wrapper }}>{props.children}</MDXProvider>
+    <Embed src={props.Component} zoom={1 / 2} />
     <div
       css={{
         textAlign: 'center',
@@ -44,26 +30,33 @@ const Thumb = props => (
 
 export default props => (
   <Root>
-    <div
+    <Header {...props} />
+    <ul
       css={{
-        padding: 32,
+        listStyle: 'none',
+        padding: 0,
+        display: 'flex',
+        flexWrap: 'wrap',
       }}
     >
-      <h1>MDX Decks</h1>
-      <ul
-        css={{
-          listStyle: 'none',
-          padding: 0,
-          display: 'flex',
-          flexWrap: 'wrap',
-        }}
-      >
-        {props.decks.map(deck => (
-          <li key={deck.id} style={{ width: 100 / 3 + '%' }}>
-            <Thumb {...props} {...deck} />
-          </li>
-        ))}
-      </ul>
-    </div>
+      {props.decks.map(deck => (
+        <li
+          key={deck.id}
+          css={{
+            width: '100%',
+            padding: 32,
+            '@media screen and (min-width: 48em)': {
+              width: '50%',
+            },
+            '@media screen and (min-width: 56em)': {
+              width: '33.333%',
+            },
+          }}
+        >
+          <Thumb {...props} {...deck} />
+        </li>
+      ))}
+    </ul>
+    <Footer {...props} />
   </Root>
 )

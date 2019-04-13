@@ -8,10 +8,11 @@ otherwise we'd love to have your help!
 
 ## Development
 
+This project is set up as a monorepo using Yarn Workspaces.
+
 1. Clone the repo
-2. Install dependencies with `npm install`
-3. Build with `npm run prepare`
-4. Run `npm start` to see the demo `docs/index.mdx`
+2. Install dependencies with `yarn`
+3. Run `yarn start` to see the demo `docs/demo.mdx`
 
 ### Watch mode
 
@@ -19,12 +20,12 @@ To watch files for changes during development, run `npm run watch`
 
 ## Testing
 
-Tests are located in the [`test/`](test) directory.
+Tests are located in each package.
 
-Run `npm test`
+Run `yarn test`
 
-- Watch Mode: `npm test -- --watch`
-- Coverage: `npm test -- --coverage`
+- Watch Mode: `yarn test --watch`
+- Coverage: `yarn test --coverage`
 
 ---
 
