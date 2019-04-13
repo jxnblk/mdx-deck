@@ -12,3 +12,5 @@ export { Slide } from './Slide'
 export { Zoom } from './Zoom'
 
 export { Embed } from './Embed'
+export { Ratio } from './Ratio'
+export { splitSlides } from './splitSlides'

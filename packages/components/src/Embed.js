@@ -23,56 +23,15 @@ import { MDXProvider } from '@mdx-js/react'
 import Provider from './Provider'
 import Slide from './Slide'
 import GoogleFonts from './GoogleFonts'
-
-// from @mdx-deck/gatsby-theme
-// todo: reorganize things
-const splitter = props => {
-  const { theme, themes } = props
-  const arr = React.Children.toArray(props.children)
-  const splits = []
-  const slides = []
-
-  arr.forEach((child, i) => {
-    if (child.props.mdxType === 'hr') splits.push(i)
-  })
-
-  let previousSplit = 0
-  splits.forEach(i => {
-    const children = [...arr.slice(previousSplit, i)]
-    slides.push(() => children)
-    previousSplit = i + 1
-  })
-  slides.push(() => [...arr.slice(previousSplit)])
-
-  return {
-    ...props,
-    theme,
-    themes,
-    slides,
-  }
-}
-
-const Ratio = ({ ratio, children }) => (
-  <div
-    css={{
-      outline: '1px solid tomato',
-      width: '100%',
-      height: 0,
-      paddingBottom: ratio * 100 + '%',
-      overflow: 'hidden',
-      position: 'relative',
-    }}
-  >
-    {children}
-  </div>
-)
+import Ratio from './Ratio'
+import splitSlides from './splitSlides'
 
 const Placeholder = ({ index }) => (
   <pre style={{ fontSize: 16 }}>not found: slide {index}</pre>
 )
 
 const wrapper = props => {
-  const { slides, theme, themes, ratio, zoom } = splitter(props)
+  const { slides, theme, themes, ratio, zoom } = splitSlides(props)
   const Content = slides[props.slide - 1] || Placeholder
 
   return (

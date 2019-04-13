@@ -25,6 +25,9 @@ export { default as hack } from './hack'
 export { default as rye } from './rye'
 export { default as big } from './big'
 
+// fixed aspect ratio
+export { default as ratio } from './ratio'
+
 // super
 // https://fonts.google.com/specimen/Creepster
 // https://fonts.google.com/specimen/Pirata+One
