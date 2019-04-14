@@ -1,8 +1,9 @@
 import React from 'react'
+import { createPortal } from 'react-dom'
 import { Global } from '@emotion/core'
 import { ThemeProvider } from 'emotion-theming'
 import merge from 'lodash.merge'
-import { HeadProvider } from './Head'
+import { HeadProvider, UserHead } from './Head'
 import { MDXProvider } from '@mdx-js/react'
 import defaultTheme from '@mdx-deck/themes'
 import mdxComponents from './mdx-components'
@@ -17,7 +18,7 @@ const mergeThemes = themes =>
   )
 
 export const Provider = props => {
-  const { headTags, theme: baseTheme, themes = [] } = props
+  const { headTags, theme: baseTheme, themes = [], mdx } = props
   const theme = mergeThemes([defaultTheme, baseTheme, ...themes])
   const {
     Provider: UserProvider = DefaultProvider,
@@ -42,6 +43,7 @@ export const Provider = props => {
   return (
     <HeadProvider tags={headTags}>
       {style}
+      <UserHead mdx={mdx} />
       <ThemeProvider theme={theme}>
         <MDXProvider components={allComponents}>
           <UserProvider {...props} />

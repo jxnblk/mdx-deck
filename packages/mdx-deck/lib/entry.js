@@ -3,12 +3,18 @@ import { render } from 'react-dom'
 import { MDXDeck } from '@mdx-deck/components'
 
 const mod = require(FILENAME)
-const { slides, theme, themes } = mod
+const { default: mdx, slides, theme, themes } = mod
 
 export default class App extends React.Component {
   render() {
     return (
-      <MDXDeck {...this.props} slides={slides} theme={theme} themes={themes} />
+      <MDXDeck
+        {...this.props}
+        slides={slides}
+        theme={theme}
+        themes={themes}
+        mdx={mdx}
+      />
     )
   }
 }
