@@ -1,5 +1,7 @@
-import React from 'react'
+import React, { useEffect, useContext } from 'react'
 import { createPortal } from 'react-dom'
+
+let didMount = false
 
 export const HeadContext = React.createContext({
   tags: [],
@@ -16,54 +18,17 @@ export const HeadProvider = ({ tags = [], children }) => {
   return <HeadContext.Provider value={context}>{children}</HeadContext.Provider>
 }
 
-export class Head extends React.Component {
-  state = {
-    didMount: false,
-  }
-  rehydrate = () => {
-    const children = React.Children.toArray(this.props.children)
-    const nodes = [...document.head.querySelectorAll('[data-head]')]
-    nodes.forEach(node => {
-      if (typeof node.remove !== 'function') return
-      node.remove()
-    })
-    children.forEach(child => {
-      if (child.type === 'title') {
-        const title = document.head.querySelector('title')
-        if (title) title.remove()
-      }
-      if (child.type === 'meta') {
-        const { name } = child.props
-        let meta
-        if (name) meta = document.head.querySelector(`meta[name="${name}"]`)
-        if (meta) meta.remove()
-      }
-    })
-    this.setState({ didMount: true })
-  }
+export const Head = props => {
+  const { push } = useContext(HeadContext)
+  const children = React.Children.toArray(props.children)
 
-  componentDidMount() {
-    this.rehydrate()
+  useEffect(() => {
+    didMount = true
+  }, [])
+  if (!didMount) {
+    push(children)
   }
-
-  render() {
-    const children = React.Children.toArray(this.props.children).map(child =>
-      React.cloneElement(child, {
-        'data-head': true,
-      })
-    )
-    if (!this.state.didMount) {
-      return (
-        <HeadContext.Consumer
-          children={({ push }) => {
-            push(children)
-            return false
-          }}
-        />
-      )
-    }
-    return createPortal(children, document.head)
-  }
+  return createPortal(children, document.head)
 }
 
 export default Head
