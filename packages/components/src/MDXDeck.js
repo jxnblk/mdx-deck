@@ -93,12 +93,12 @@ export class MDXDeck extends React.Component {
       }
     } else {
       switch (keyCode) {
-        case keys.pgDown:
+        case keys.pgUp:
         case keys.left:
           e.preventDefault()
           this.previous()
           break
-        case keys.pgUp:
+        case keys.pgDown:
         case keys.right:
         case keys.space:
           e.preventDefault()
