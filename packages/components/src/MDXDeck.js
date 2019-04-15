@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Router, globalHistory, navigate } from '@reach/router'
+import { Global } from '@emotion/core'
 import { Swipeable } from 'react-swipeable'
 import querystring from 'querystring'
 import Provider from './Provider'
@@ -253,8 +254,20 @@ export class MDXDeck extends React.Component {
         break
     }
 
+    const style =
+      mode !== modes.PRINT ? (
+        <Global
+          styles={{
+            body: {
+              overflow: 'hidden',
+            },
+          }}
+        />
+      ) : null
+
     return (
       <Provider {...this.props} {...this.state} mode={mode} index={index}>
+        {style}
         <Catch>
           <GoogleFonts />
           <Wrapper {...this.props} {...this.state} modes={modes} index={index}>
