@@ -35,6 +35,8 @@ const keys = {
   p: 80,
   o: 79,
   g: 71,
+  pgUp: 33,
+  pgDown: 34,
 }
 
 const toggleMode = key => state => ({
@@ -61,6 +63,7 @@ export class MDXDeck extends React.Component {
     const { basepath } = this.props
     const { keyCode, metaKey, ctrlKey, altKey, shiftKey } = e
     const { activeElement } = document
+
     if (inputElements.includes(activeElement.tagName)) {
       return
     }
@@ -90,10 +93,12 @@ export class MDXDeck extends React.Component {
       }
     } else {
       switch (keyCode) {
+        case keys.pgUp:
         case keys.left:
           e.preventDefault()
           this.previous()
           break
+        case keys.pgDown:
         case keys.right:
         case keys.space:
           e.preventDefault()
