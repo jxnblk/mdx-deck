@@ -297,7 +297,7 @@ See more exporting options in the [Exporting Documentation](docs/exporting.md)
 
 ## Examples
 
-- [Design Systems & React][design-systems-react] by [Diana Mount](https://mobile.twitter.com/broccolini)
+- [Design Systems & React][design-systems-react] by [Diana Mounter](https://mobile.twitter.com/broccolini)
 - [Bringing Brazil to the Cloud, Now][brazil-now] by [Guillermo Rauch](https://mobile.twitter.com/rauchg/)
 - [Simplify React][simplify-react] by [Kent C. Dodds](https://mobile.twitter.com/kentcdodds)
 - [I Got 99 Problems but GraphQL Ain't One][99-problems] by [Sara Vieira](https://mobile.twitter.com/NikkitaFTW)
