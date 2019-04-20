@@ -1,6 +1,6 @@
 {
   "name": "@mdx-deck/gatsby-theme",
-  "version": "2.2.2",
+  "version": "2.2.3",
   "main": "index.js",
   "author": "Brent Jackson <jxnblk@gmail.com>",
   "license": "MIT",
@@ -19,8 +19,8 @@
     "react-dom": "^16.8.6"
   },
   "dependencies": {
-    "@mdx-deck/components": "^2.2.2",
-    "@mdx-deck/themes": "^2.2.2",
+    "@mdx-deck/components": "^2.2.3",
+    "@mdx-deck/themes": "^2.2.3",
     "@mdx-js/mdx": "^1.0.1",
     "@mdx-js/react": "^1.0.1",
     "debug": "^4.1.1",
