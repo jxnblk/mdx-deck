@@ -23,6 +23,7 @@ export default ({ mode, modes, update, index }) => {
       navigate(query)
     } else {
       if (!search) return
+      // clear search params
       navigate(pathname)
     }
   }, [index, mode])

@@ -1,22 +1,9 @@
 import React, { useEffect } from 'react'
-import { Location, navigate } from '@reach/router'
 import Zoom from './Zoom'
 import Slide from './Slide'
 
-const getIndex = ({ pathname }) => {
-  return Number(pathname.split('/')[1] || 0)
-}
-
-const withLocation = Component => props => (
-  <Location
-    children={({ location }) => (
-      <Component {...props} location={location} index={getIndex(location)} />
-    )}
-  />
-)
-
-export const Grid = withLocation(props => {
-  const { index, slides, modes, update, basepath } = props
+export const Grid = props => {
+  const { index, slides, modes, update, goto } = props
   const activeThumb = React.createRef()
 
   useEffect(() => {
@@ -49,18 +36,19 @@ export const Grid = withLocation(props => {
             key={i}
             role="link"
             onClick={e => {
-              navigate(basepath + '/' + i)
+              goto(i)
               update({ mode: modes.NORMAL })
             }}
             style={{
               display: 'block',
-              width: '25vw',
-              height: '25vh',
-              padding: '2px',
+              width: 'calc(25vw - 4px)',
+              height: 'calc(25vh - 4px)',
+              margin: '2px',
               overflow: 'hidden',
               color: 'inherit',
               textDecoration: 'none',
               cursor: 'pointer',
+              outline: i === index ? '4px solid #0cf' : null,
             }}
           >
             <Zoom zoom={1 / 4}>
@@ -73,6 +61,6 @@ export const Grid = withLocation(props => {
       </div>
     </div>
   )
-})
+}
 
 export default Grid

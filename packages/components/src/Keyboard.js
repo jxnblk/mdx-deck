@@ -19,7 +19,7 @@ const toggleMode = key => state => ({
 })
 
 const handleKeyDown = props => e => {
-  const { basepath, update, modes } = props
+  const { basepath, update, modes, goto } = props
   const { keyCode, metaKey, ctrlKey, altKey, shiftKey } = e
   const { activeElement } = document
 

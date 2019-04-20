@@ -10,7 +10,8 @@
     "start": "yarn workspace @mdx-deck/docs start",
     "analyze-bundle": "yarn workspace @mdx-deck/docs start --webpack bundle-analyzer.config.js",
     "build": "yarn workspace @mdx-deck/docs build",
-    "test": "jest"
+    "build-theme": "yarn workspace @mdx-deck/gatsby-theme build",
+    "test": "jest && yarn build-theme"
   },
   "devDependencies": {
     "@babel/core": "^7.3.4",

@@ -120,7 +120,9 @@ export class MDXDeck extends React.Component {
     const context = {
       ...this.state,
       register: this.register,
+      index,
       modes,
+      goto: this.goto,
       previous: this.previous,
       next: this.next,
     }
@@ -157,11 +159,11 @@ export class MDXDeck extends React.Component {
       <Provider {...this.props} {...this.state} mode={mode} index={index}>
         {style}
         <Catch>
-          <QueryString {...this.state} modes={modes} index={index} />
+          <QueryString {...context} />
           <Keyboard {...this.props} {...context} />
-          <Storage {...this.state} goto={this.goto} index={index} />
+          <Storage {...context} />
           <GoogleFonts />
-          <Wrapper {...this.props} {...this.state} modes={modes} index={index}>
+          <Wrapper {...this.props} {...context}>
             <Swipeable onSwipedRight={this.previous} onSwipedLeft={this.next}>
               <Router basepath={basepath}>
                 <Slide path="/" index={0} context={context}>
