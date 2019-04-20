@@ -12,6 +12,7 @@ import Grid from './Grid'
 import Print from './Print'
 import GoogleFonts from './GoogleFonts'
 import Catch from './Catch'
+import Keyboard from './Keyboard'
 import Storage from './Storage'
 
 const NORMAL = 'normal'
@@ -27,24 +28,7 @@ const modes = {
   PRINT,
 }
 
-const keys = {
-  right: 39,
-  left: 37,
-  space: 32,
-  p: 80,
-  o: 79,
-  g: 71,
-  pgUp: 33,
-  pgDown: 34,
-}
-
-const toggleMode = key => state => ({
-  mode: state.mode === key ? NORMAL : key,
-})
-
 const BaseWrapper = props => <>{props.children}</>
-
-const inputElements = ['INPUT', 'TEXTAREA', 'A', 'BUTTON']
 
 export class MDXDeck extends React.Component {
   constructor(props) {
@@ -55,57 +39,6 @@ export class MDXDeck extends React.Component {
       step: 0,
       mode: NORMAL,
       update: fn => this.setState(fn),
-    }
-  }
-
-  handleKeyDown = e => {
-    const { basepath } = this.props
-    const { keyCode, metaKey, ctrlKey, altKey, shiftKey } = e
-    const { activeElement } = document
-
-    if (inputElements.includes(activeElement.tagName)) {
-      return
-    }
-    if (metaKey || ctrlKey) return
-    const alt = altKey && !shiftKey
-
-    const { pathname } = globalHistory.location
-    if (keyCode === keys.p && shiftKey && altKey) {
-      navigate(basepath + '/print')
-      this.setState({ mode: 'print' })
-    }
-    if (pathname === '/print') return
-
-    if (alt) {
-      switch (keyCode) {
-        case keys.p:
-          this.setState(toggleMode(PRESENTER))
-          break
-        case keys.o:
-          this.setState(toggleMode(OVERVIEW))
-          break
-        case keys.g:
-          this.setState(toggleMode(GRID))
-          break
-        default:
-          break
-      }
-    } else {
-      switch (keyCode) {
-        case keys.pgUp:
-        case keys.left:
-          e.preventDefault()
-          this.previous()
-          break
-        case keys.pgDown:
-        case keys.right:
-        case keys.space:
-          e.preventDefault()
-          this.next()
-          break
-        default:
-          break
-      }
     }
   }
 
@@ -180,12 +113,7 @@ export class MDXDeck extends React.Component {
   }
 
   componentDidMount() {
-    document.body.addEventListener('keydown', this.handleKeyDown)
     this.getMode()
-  }
-
-  componentWillUnmount() {
-    document.body.removeEventListener('keydown', this.handleKeyDown)
   }
 
   componentDidUpdate() {
@@ -217,6 +145,9 @@ export class MDXDeck extends React.Component {
     const context = {
       ...this.state,
       register: this.register,
+      modes,
+      previous: this.previous,
+      next: this.next,
     }
 
     const [FirstSlide] = slides
@@ -251,6 +182,7 @@ export class MDXDeck extends React.Component {
       <Provider {...this.props} {...this.state} mode={mode} index={index}>
         {style}
         <Catch>
+          <Keyboard {...this.props} {...context} />
           <Storage {...this.state} goto={this.goto} index={index} />
           <GoogleFonts />
           <Wrapper {...this.props} {...this.state} modes={modes} index={index}>
