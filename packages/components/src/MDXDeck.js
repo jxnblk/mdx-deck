@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import { Router, globalHistory, navigate } from '@reach/router'
 import { Global } from '@emotion/core'
 import { Swipeable } from 'react-swipeable'
-import querystring from 'querystring'
 import Provider from './Provider'
 import Slide from './Slide'
 import Presenter from './Presenter'
@@ -12,6 +11,7 @@ import Grid from './Grid'
 import Print from './Print'
 import GoogleFonts from './GoogleFonts'
 import Catch from './Catch'
+import QueryString from './QueryString'
 import Keyboard from './Keyboard'
 import Storage from './Storage'
 
@@ -105,31 +105,6 @@ export class MDXDeck extends React.Component {
     this.setState({ slides })
   }
 
-  getMode = () => {
-    const query = querystring.parse(
-      globalHistory.location.search.replace(/^\?/, '')
-    )
-    this.setState(query)
-  }
-
-  componentDidMount() {
-    this.getMode()
-  }
-
-  componentDidUpdate() {
-    const { mode } = this.state
-    const { pathname, search } = globalHistory.location
-
-    if (mode !== NORMAL && mode !== PRINT) {
-      const query = '?' + querystring.stringify({ mode })
-      if (query === search) return
-      navigate(query)
-    } else {
-      if (!search) return
-      navigate(pathname)
-    }
-  }
-
   componentDidCatch(err) {
     console.error('componentDidCatch')
     console.error(err)
@@ -182,6 +157,7 @@ export class MDXDeck extends React.Component {
       <Provider {...this.props} {...this.state} mode={mode} index={index}>
         {style}
         <Catch>
+          <QueryString {...this.state} modes={modes} index={index} />
           <Keyboard {...this.props} {...context} />
           <Storage {...this.state} goto={this.goto} index={index} />
           <GoogleFonts />
