@@ -5,6 +5,11 @@
 - Refactor localStorage to use hooks #334
 - Refactor keyboard shortcuts #335
 - Refactor query string to use hooks #336
+- Refactor to use hooks #337
+  - Adds `MDXDeckState` provider component
+  - Fixes an issue with rerenders in Gatsby theme
+  - Adjusts styles in grid mode
+  - Refactors `useSteps` to use effect hook
 
 ## v2.2.3 2019-04-20
 

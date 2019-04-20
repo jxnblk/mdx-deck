@@ -15,6 +15,7 @@ import GoogleFonts from './GoogleFonts'
 import Catch from './Catch'
 import Keyboard from './Keyboard'
 import Storage from './Storage'
+import QueryString from './QueryString'
 import Style from './Style'
 
 const NORMAL = 'normal'
@@ -106,7 +107,8 @@ export const MDXDeck = props => {
   const goto = nextIndex => {
     const current = getIndex(props)
     const reverse = nextIndex < current
-    navigate(basepath + '/' + nextIndex)
+    const { search } = globalHistory.location
+    navigate(basepath + '/' + nextIndex + search)
     const meta = getMeta(nextIndex)
     setState({
       step: reverse ? meta.steps || 0 : 0,
@@ -157,6 +159,7 @@ export const MDXDeck = props => {
         <Style {...context} />
         <Keyboard {...props} {...context} />
         <Storage {...context} />
+        <QueryString {...context} />
         <GoogleFonts />
         <Wrapper {...props} {...context}>
           <Swipeable onSwipedRight={previous} onSwipedLeft={next}>
