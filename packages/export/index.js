@@ -23,7 +23,8 @@ module.exports = async opts => {
 
   switch (type) {
     case 'pdf':
-      await page.goto(`http://localhost:${port}/print`, {
+      const url = `http://localhost:${port}/print`
+      await page.goto(url, {
         waitUntil: 'networkidle2',
       })
       await page.pdf({

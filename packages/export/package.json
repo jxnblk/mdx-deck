@@ -8,8 +8,8 @@
     "mdx-deck-export": "./cli.js"
   },
   "scripts": {
-    "pdf": "./cli.js pdf ../../docs/demo.mdx",
-    "png": "./cli.js png ../../docs/demo.mdx"
+    "pdf": "./cli.js pdf ../../docs/demo.mdx -d ../../docs/dist",
+    "png": "./cli.js png ../../docs/demo.mdx -d ../../docs/dist"
   },
   "dependencies": {
     "mdx-deck": "^2.2.3",

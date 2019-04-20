@@ -12,6 +12,7 @@
     "build": "yarn workspace @mdx-deck/docs build",
     "start-theme": "yarn workspace @mdx-deck/gatsby-theme start",
     "build-theme": "yarn workspace @mdx-deck/gatsby-theme build",
+    "export": "yarn workspace @mdx-deck/export pdf",
     "test": "jest"
   },
   "devDependencies": {
