@@ -12,6 +12,7 @@ import Print from './Print'
 import GoogleFonts from './GoogleFonts'
 import Catch from './Catch'
 import QueryString from './QueryString'
+import Storage from './Storage'
 
 const NORMAL = 'normal'
 const PRESENTER = 'presenter'
@@ -25,9 +26,6 @@ const modes = {
   GRID,
   PRINT,
 }
-
-const STORAGE_INDEX = 'mdx-slide'
-const STORAGE_STEP = 'mdx-step'
 
 const keys = {
   right: 39,
@@ -174,37 +172,12 @@ export class MDXDeck extends React.Component {
     this.setState({ slides })
   }
 
-  handleStorageChange = e => {
-    const { key } = e
-    switch (key) {
-      case STORAGE_INDEX:
-        const index = parseInt(e.newValue, 10)
-        this.goto(index)
-        break
-      case STORAGE_STEP:
-        const step = parseInt(e.newValue, 10)
-        this.setState({ step })
-        break
-      default:
-        break
-    }
-  }
-
   componentDidMount() {
     document.body.addEventListener('keydown', this.handleKeyDown)
-    window.addEventListener('storage', this.handleStorageChange)
   }
 
   componentWillUnmount() {
     document.body.removeEventListener('keydown', this.handleKeyDown)
-    window.removeEventListener('storage', this.handleStorageChange)
-  }
-
-  componentDidUpdate() {
-    const index = this.getIndex()
-    const { step } = this.state
-    localStorage.setItem(STORAGE_INDEX, index)
-    localStorage.setItem(STORAGE_STEP, step)
   }
 
   componentDidCatch(err) {
@@ -257,6 +230,7 @@ export class MDXDeck extends React.Component {
         {style}
         <Catch>
           <QueryString {...this.state} modes={modes} index={index} />
+          <Storage {...this.state} goto={this.goto} index={index} />
           <GoogleFonts />
           <Wrapper {...this.props} {...this.state} modes={modes} index={index}>
             <Swipeable onSwipedRight={this.previous} onSwipedLeft={this.next}>

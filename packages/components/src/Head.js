@@ -1,5 +1,7 @@
-import React from 'react'
+import React, { useEffect, useContext } from 'react'
 import { createPortal } from 'react-dom'
+
+let didMount = false
 
 export const HeadContext = React.createContext({
   tags: [],
@@ -16,54 +18,36 @@ export const HeadProvider = ({ tags = [], children }) => {
   return <HeadContext.Provider value={context}>{children}</HeadContext.Provider>
 }
 
-export class Head extends React.Component {
-  state = {
-    didMount: false,
-  }
-  rehydrate = () => {
-    const children = React.Children.toArray(this.props.children)
-    const nodes = [...document.head.querySelectorAll('[data-head]')]
-    nodes.forEach(node => {
-      if (typeof node.remove !== 'function') return
-      node.remove()
-    })
-    children.forEach(child => {
-      if (child.type === 'title') {
-        const title = document.head.querySelector('title')
-        if (title) title.remove()
-      }
-      if (child.type === 'meta') {
-        const { name } = child.props
-        let meta
-        if (name) meta = document.head.querySelector(`meta[name="${name}"]`)
-        if (meta) meta.remove()
-      }
-    })
-    this.setState({ didMount: true })
-  }
+// get head for all slides
+export const UserHead = ({ mdx }) =>
+  React.createElement(mdx, {
+    components: {
+      wrapper: props => {
+        if (!didMount) return false
+        const heads = React.Children.toArray(props.children).filter(
+          child => child.props.originalType === Head
+        )
+        const head = React.Children.toArray(
+          heads.reduce((acc, head) => [...acc, ...head.props.children], [])
+        )
+        return createPortal(head, document.head)
+      },
+    },
+  })
 
-  componentDidMount() {
-    this.rehydrate()
-  }
+export const Head = props => {
+  const { push } = useContext(HeadContext)
+  const children = React.Children.toArray(props.children)
 
-  render() {
-    const children = React.Children.toArray(this.props.children).map(child =>
-      React.cloneElement(child, {
-        'data-head': true,
-      })
-    )
-    if (!this.state.didMount) {
-      return (
-        <HeadContext.Consumer
-          children={({ push }) => {
-            push(children)
-            return false
-          }}
-        />
-      )
-    }
-    return createPortal(children, document.head)
+  useEffect(() => {
+    didMount = true
+  }, [])
+  if (!didMount) {
+    push(children)
+    return false
   }
+  if (!props.portal) return false
+  return createPortal(children, document.head)
 }
 
 export default Head
