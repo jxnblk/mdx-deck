@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.2.3 2019-04-20
+
+- Refactor Head component #329
+
 ## v2.2.2 2019-04-20
 
 - Fix typos #333
