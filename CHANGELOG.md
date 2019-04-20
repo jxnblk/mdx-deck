@@ -1,5 +1,10 @@
 # Changelog
 
+# v2.2.1 2019-04-15
+
+- Add support for page up/down keys #319
+- Fix: remove global styles from Embed component #331
+
 ## v2.2.0 2019-04-13
 
 - Add Embed component #323

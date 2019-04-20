@@ -1,6 +1,4 @@
 import React from 'react'
-import { createPortal } from 'react-dom'
-import { Global } from '@emotion/core'
 import { ThemeProvider } from 'emotion-theming'
 import merge from 'lodash.merge'
 import { HeadProvider, UserHead } from './Head'
@@ -29,20 +27,9 @@ export const Provider = props => {
     ...mdxComponents,
     ...themeComponents,
   }
-  const style =
-    props.mode !== 'print' ? (
-      <Global
-        styles={{
-          body: {
-            overflow: 'hidden',
-          },
-        }}
-      />
-    ) : null
 
   return (
     <HeadProvider tags={headTags}>
-      {style}
       <UserHead mdx={mdx} />
       <ThemeProvider theme={theme}>
         <MDXProvider components={allComponents}>

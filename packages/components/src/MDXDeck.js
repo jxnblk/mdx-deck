@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Router, globalHistory, navigate } from '@reach/router'
+import { Global } from '@emotion/core'
 import { Swipeable } from 'react-swipeable'
 import querystring from 'querystring'
 import Provider from './Provider'
@@ -35,6 +36,8 @@ const keys = {
   p: 80,
   o: 79,
   g: 71,
+  pgUp: 33,
+  pgDown: 34,
 }
 
 const toggleMode = key => state => ({
@@ -61,6 +64,7 @@ export class MDXDeck extends React.Component {
     const { basepath } = this.props
     const { keyCode, metaKey, ctrlKey, altKey, shiftKey } = e
     const { activeElement } = document
+
     if (inputElements.includes(activeElement.tagName)) {
       return
     }
@@ -90,10 +94,12 @@ export class MDXDeck extends React.Component {
       }
     } else {
       switch (keyCode) {
+        case keys.pgUp:
         case keys.left:
           e.preventDefault()
           this.previous()
           break
+        case keys.pgDown:
         case keys.right:
         case keys.space:
           e.preventDefault()
@@ -253,8 +259,20 @@ export class MDXDeck extends React.Component {
         break
     }
 
+    const style =
+      mode !== modes.PRINT ? (
+        <Global
+          styles={{
+            body: {
+              overflow: 'hidden',
+            },
+          }}
+        />
+      ) : null
+
     return (
       <Provider {...this.props} {...this.state} mode={mode} index={index}>
+        {style}
         <Catch>
           <GoogleFonts />
           <Wrapper {...this.props} {...this.state} modes={modes} index={index}>
