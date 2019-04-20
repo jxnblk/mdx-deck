@@ -4,6 +4,7 @@
 
 - Refactor localStorage to use hooks #334
 - Refactor keyboard shortcuts #335
+- Refactor query string to use hooks #336
 
 ## v2.2.3 2019-04-20
 
