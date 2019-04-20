@@ -13,6 +13,7 @@ import GoogleFonts from './GoogleFonts'
 import Catch from './Catch'
 import Keyboard from './Keyboard'
 import Storage from './Storage'
+import Style from './Style'
 
 const NORMAL = 'normal'
 const PRESENTER = 'presenter'
@@ -106,11 +107,6 @@ export class MDXDeck extends React.Component {
     this.setState({ metadata })
   }
 
-  componentDidCatch(err) {
-    console.error('componentDidCatch')
-    console.error(err)
-  }
-
   render() {
     const { slides, basepath } = this.props
     const { pathname } = globalHistory.location
@@ -144,21 +140,10 @@ export class MDXDeck extends React.Component {
         break
     }
 
-    const style =
-      mode !== modes.PRINT ? (
-        <Global
-          styles={{
-            body: {
-              overflow: 'hidden',
-            },
-          }}
-        />
-      ) : null
-
     return (
-      <Provider {...this.props} {...this.state} mode={mode} index={index}>
-        {style}
+      <Provider {...this.props} {...context}>
         <Catch>
+          <Style {...context} />
           <Keyboard {...this.props} {...context} />
           <Storage {...context} />
           <GoogleFonts />
