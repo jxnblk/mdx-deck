@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## v2.3.0 2019-04-20
 
 - Refactor localStorage to use hooks #334
 - Refactor keyboard shortcuts #335
