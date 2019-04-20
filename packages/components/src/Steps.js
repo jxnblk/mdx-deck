@@ -1,21 +1,10 @@
 import React from 'react'
-import { withContext } from './context'
+import { useDeck } from './context'
+import useSteps from './useSteps'
 
-export const Steps = withContext(
-  class extends React.Component {
-    constructor(props) {
-      super(props)
-      const { register, index } = props.context
-      const { length } = props
-      if (typeof register !== 'function') return
-      register(index, { steps: length })
-    }
-    render() {
-      const { context, render } = this.props
-      const { step } = context
-      return render({ step })
-    }
-  }
-)
+export const Steps = props => {
+  const step = useSteps(props.length)
+  return props.render({ step })
+}
 
 export default Steps
