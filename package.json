@@ -8,6 +8,7 @@
   ],
   "scripts": {
     "start": "yarn workspace @mdx-deck/docs start",
+    "analyze-bundle": "yarn workspace @mdx-deck/docs start --webpack bundle-analyzer.config.js",
     "build": "yarn workspace @mdx-deck/docs build",
     "test": "jest"
   },

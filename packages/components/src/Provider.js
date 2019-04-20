@@ -3,7 +3,7 @@ import { ThemeProvider } from 'emotion-theming'
 import merge from 'lodash.merge'
 import { HeadProvider } from './Head'
 import { MDXProvider } from '@mdx-js/react'
-import defaultTheme from '@mdx-deck/themes'
+import defaultTheme from '@mdx-deck/themes/base'
 import mdxComponents from './mdx-components'
 
 const DefaultProvider = props => <>{props.children}</>

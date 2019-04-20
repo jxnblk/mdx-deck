@@ -19,5 +19,8 @@
     "@rebass/emotion": "^3.0.0",
     "mdx-deck": "^2.2.1",
     "rebass": "^3.0.1"
+  },
+  "devDependencies": {
+    "webpack-bundle-analyzer": "^3.3.2"
   }
 }
