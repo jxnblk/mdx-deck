@@ -72,7 +72,6 @@ export const Slide = ({ index, context, ...props }) => (
     value={{
       index,
       ...context,
-      ...props,
     }}
   >
     <Root {...props} />

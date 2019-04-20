@@ -124,6 +124,7 @@ export const MDXDeck = props => {
     update: setState,
     register,
     modes,
+    index,
     goto,
     previous,
     next,
@@ -146,7 +147,7 @@ export const MDXDeck = props => {
                 <First path="/" />
               </Slide>
               {slides.map((Component, i) => (
-                <Slide key={i} path={i + '/*'} index={i} {...context}>
+                <Slide key={i} path={i + '/*'} index={i} context={context}>
                   <Component path={i + '/*'} />
                 </Slide>
               ))}
