@@ -2,7 +2,16 @@
 
 ## Unreleased
 
+- Refactor localStorage to use hooks #334
+
+## v2.2.3 2019-04-20
+
+- Refactor Head component #329
+
+## v2.2.2 2019-04-20
+
 - Fix typos #333
+- Refactor themes for better bundle sizes #328
 
 ## v2.2.1 2019-04-15
 
