@@ -1,4 +1,4 @@
-import React, { useReducer, useMemo } from 'react'
+import React, { useContext, useReducer, useMemo } from 'react'
 import PropTypes from 'prop-types'
 import { Router, globalHistory, navigate } from '@reach/router'
 import { Global } from '@emotion/core'
@@ -58,14 +58,26 @@ const getWrapper = mode => {
   }
 }
 
-export const MDXDeck = props => {
-  const { slides, basepath } = props
+export const MDXDeckContext = React.createContext()
 
+export const State = ({ children }) => {
   const [state, setState] = useState({
     metadata: {},
     step: 0,
     mode: NORMAL,
   })
+
+  const context = {
+    state,
+    setState,
+  }
+
+  return <MDXDeckContext.Provider value={context} children={children} />
+}
+
+export const Deck = props => {
+  const { slides, basepath } = props
+  const { state, setState } = useContext(MDXDeckContext)
 
   const index = getIndex(props)
 
@@ -159,6 +171,12 @@ export const MDXDeck = props => {
     </Provider>
   )
 }
+
+export const MDXDeck = props => (
+  <State>
+    <Deck {...props} />
+  </State>
+)
 
 MDXDeck.propTypes = {
   slides: PropTypes.array.isRequired,
