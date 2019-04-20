@@ -79,7 +79,9 @@ export const Slide = ({ index, context, ...props }) => (
 )
 
 Slide.defaultProps = {
-  step: Infinity,
+  context: {
+    step: Infinity,
+  },
 }
 
 export default Slide
