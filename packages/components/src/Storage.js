@@ -4,7 +4,7 @@ const STORAGE_INDEX = 'mdx-slide'
 const STORAGE_STEP = 'mdx-step'
 
 export const useLocalStorage = (handler, args = []) => {
-  const [focused, setFocused] = useState(true)
+  const [focused, setFocused] = useState(false)
   const handleFocus = () => {
     setFocused(true)
   }
@@ -12,6 +12,7 @@ export const useLocalStorage = (handler, args = []) => {
     setFocused(false)
   }
   useEffect(() => {
+    setFocused(document.hasFocus())
     if (!focused) window.addEventListener('storage', handler)
     window.addEventListener('focus', handleFocus)
     window.addEventListener('blur', handleBlur)
