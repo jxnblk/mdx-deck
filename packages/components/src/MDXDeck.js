@@ -70,7 +70,6 @@ export const MDXDeck = props => {
   const index = getIndex(props)
 
   const getMeta = i => {
-    console.log('getMeta', i, state.metadata)
     return state.metadata[i] || {}
   }
 
@@ -80,7 +79,7 @@ export const MDXDeck = props => {
         ...state.metadata,
         [index]: {
           ...state.metadata[index],
-          meta,
+          ...meta,
         },
       },
     })
@@ -124,7 +123,6 @@ export const MDXDeck = props => {
     ...state,
     update: setState,
     register,
-    index,
     modes,
     goto,
     previous,

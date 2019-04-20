@@ -76,6 +76,6 @@ export default props => {
     return () => {
       window.removeEventListener('keydown', handler)
     }
-  }, [])
+  }, [props.metadata])
   return false
 }
