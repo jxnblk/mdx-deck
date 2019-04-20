@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useReducer, useMemo } from 'react'
 import PropTypes from 'prop-types'
 import { Router, globalHistory, navigate } from '@reach/router'
 import { Global } from '@emotion/core'
 import { Swipeable } from 'react-swipeable'
+import merge from 'lodash.merge'
+
 import Provider from './Provider'
 import Slide from './Slide'
 import Presenter from './Presenter'
@@ -38,134 +40,125 @@ const getIndex = ({ basepath }) => {
   return index
 }
 
-const createMetadata = length => Array.from({ length })
+const mergeState = (state, next) =>
+  merge({}, state, typeof next === 'function' ? next(state) : next)
+const useState = init => useReducer(mergeState, init)
 
-export class MDXDeck extends React.Component {
-  constructor(props) {
-    super(props)
+const getWrapper = mode => {
+  switch (mode) {
+    case PRESENTER:
+      return Presenter
+    case OVERVIEW:
+      return Overview
+    case GRID:
+      return Grid
+    default:
+      return BaseWrapper
+      break
+  }
+}
 
-    this.state = {
-      metadata: {},
-      // slides: props.slides,
-      step: 0,
-      mode: NORMAL,
-      update: fn => this.setState(fn),
-    }
+export const MDXDeck = props => {
+  const { slides, basepath } = props
+
+  const [state, setState] = useState({
+    metadata: {},
+    step: 0,
+    mode: NORMAL,
+  })
+
+  const index = getIndex(props)
+
+  const getMeta = i => {
+    console.log('getMeta', i, state.metadata)
+    return state.metadata[i] || {}
   }
 
-  getMeta = i => {
-    const { metadata } = this.state
-    return metadata[i] || {}
+  const register = (index, meta) => {
+    setState({
+      metadata: {
+        ...state.metadata,
+        [index]: {
+          ...state.metadata[index],
+          meta,
+        },
+      },
+    })
   }
 
-  goto = i => {
-    const { basepath } = this.props
-    const { search } = globalHistory.location
-    const current = getIndex(this.props)
-    const reverse = i < current
-    navigate(basepath + '/' + i)
-    const meta = this.getMeta(i)
-    this.setState({
+  const goto = nextIndex => {
+    const current = getIndex(props)
+    const reverse = nextIndex < current
+    navigate(basepath + '/' + nextIndex)
+    const meta = getMeta(nextIndex)
+    setState({
       step: reverse ? meta.steps || 0 : 0,
     })
   }
 
-  previous = () => {
-    const { step } = this.state
-    const index = getIndex(this.props)
-    const meta = this.getMeta(index)
-    if (meta.steps && step > 0) {
-      this.setState(state => ({
-        step: state.step - 1,
-      }))
+  const previous = () => {
+    const current = getIndex(props)
+    const meta = getMeta(current)
+    if (meta.steps && state.step > 0) {
+      setState({ step: state.step - 1 })
     } else {
-      const previous = index - 1
-      if (previous < 0) return
-      this.goto(previous)
+      const p = current - 1
+      if (p < 0) return
+      goto(p)
     }
   }
 
-  next = () => {
-    const { slides } = this.props
-    const { step } = this.state
-    const index = getIndex(this.props)
-    const meta = this.getMeta(index)
-    if (meta.steps && step < meta.steps) {
-      this.setState(state => ({
-        step: state.step + 1,
-      }))
+  const next = () => {
+    const current = getIndex(props)
+    const meta = getMeta(current)
+    if (meta.steps && state.step < meta.steps) {
+      setState({ step: state.step + 1 })
     } else {
-      const next = index + 1
-      if (next > slides.length - 1) return
-      this.goto(next)
+      const n = current + 1
+      if (n > slides.length - 1) return
+      goto(n)
     }
   }
 
-  register = (index, meta) => {
-    const { metadata } = this.state
-    metadata[index] = { ...metadata[index], ...meta }
-    this.setState({ metadata })
+  const context = {
+    ...state,
+    update: setState,
+    register,
+    index,
+    modes,
+    goto,
+    previous,
+    next,
   }
 
-  render() {
-    const { slides, basepath } = this.props
-    const { pathname } = globalHistory.location
-    const pagepath = pathname.replace(basepath, '')
-    const mode = pagepath === '/print' ? PRINT : this.state.mode
-    const index = getIndex(this.props)
-    const context = {
-      ...this.state,
-      register: this.register,
-      index,
-      modes,
-      goto: this.goto,
-      previous: this.previous,
-      next: this.next,
-    }
+  const [First] = slides
+  const Wrapper = getWrapper(state.mode)
 
-    const [FirstSlide] = slides
-
-    let Wrapper = BaseWrapper
-    switch (mode) {
-      case PRESENTER:
-        Wrapper = Presenter
-        break
-      case OVERVIEW:
-        Wrapper = Overview
-        break
-      case GRID:
-        Wrapper = Grid
-        break
-      default:
-        break
-    }
-
-    return (
-      <Provider {...this.props} {...context}>
-        <Catch>
-          <Style {...context} />
-          <Keyboard {...this.props} {...context} />
-          <Storage {...context} />
-          <GoogleFonts />
-          <Wrapper {...this.props} {...context}>
-            <Swipeable onSwipedRight={this.previous} onSwipedLeft={this.next}>
-              <Router basepath={basepath}>
-                <Slide path="/" index={0} context={context}>
-                  <FirstSlide path="/" />
+  return (
+    <Provider {...props} {...context}>
+      <Catch>
+        <Style {...context} />
+        <Keyboard {...props} {...context} />
+        <Storage {...context} />
+        <GoogleFonts />
+        <Wrapper {...props} {...context}>
+          <Swipeable onSwipedRight={previous} onSwipedLeft={next}>
+            <Router basepath={basepath}>
+              <Slide path="/" index={0} context={context}>
+                <First path="/" />
+              </Slide>
+              {slides.map((Component, i) => (
+                <Slide key={i} path={i + '/*'} index={i} {...context}>
+                  <Component path={i + '/*'} />
                 </Slide>
-                {slides.map((Component, i) => (
-                  <Slide key={i} path={i + '/*'} index={i} {...context}>
-                    <Component path={i + '/*'} />
-                  </Slide>
-                ))}
-                <Print path="print" {...this.props} />
-              </Router>
-            </Swipeable>
-          </Wrapper>
-        </Catch>
-      </Provider>
-    )
-  }
+              ))}
+              <Print path="print" {...props} />
+            </Router>
+          </Swipeable>
+        </Wrapper>
+      </Catch>
+    </Provider>
+  )
 }
 
 MDXDeck.propTypes = {
