@@ -74,7 +74,7 @@ npm start
 - [mdx-deck: slide decks powered by markdown and react][kcd-medium] by [Kent C. Dodds][]
 - [Make Fast & Beautiful Presentations with MDX-Deck][hw-video] by [Harry Wolff][] ([Demo][hw-demo])
 - [What is MDX][kcd-video] by [Kent C. Dodds][]
-- [Build a Custom Provider Component for MDX-Deck](ks-egghead) by [Kyle Shevlin][]
+- [Build a Custom Provider Component for MDX-Deck][ks-egghead] by [Kyle Shevlin][]
 
 [egghead]: https://egghead.io/lessons/react-build-a-slide-deck-with-mdx-deck-using-markdown-react
 [kent c. dodds]: https://mobile.twitter.com/kentcdodds
