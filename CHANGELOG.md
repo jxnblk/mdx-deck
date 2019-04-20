@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## v2.2.2 2019-04-20
 
 - Fix typos #333
 - Refactor themes for better bundle sizes #328
