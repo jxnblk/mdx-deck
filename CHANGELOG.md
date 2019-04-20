@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Refactor localStorage to use hooks #334
+
 ## v2.2.3 2019-04-20
 
 - Refactor Head component #329
