@@ -1,4 +1,4 @@
-export { MDXDeck } from './MDXDeck'
+export { MDXDeck, MDXDeckState } from './MDXDeck'
 export { Head } from './Head'
 export { Image } from './Image'
 export { Notes } from './Notes'

@@ -60,24 +60,30 @@ const getWrapper = mode => {
 
 export const MDXDeckContext = React.createContext()
 
-export const State = ({ children }) => {
+const useDeckState = () => {
+  const context = useContext(MDXDeckContext)
+  if (context) return context
+
   const [state, setState] = useState({
     metadata: {},
     step: 0,
     mode: NORMAL,
   })
 
-  const context = {
+  return {
     state,
     setState,
   }
+}
 
+export const MDXDeckState = ({ children }) => {
+  const context = useDeckState()
   return <MDXDeckContext.Provider value={context} children={children} />
 }
 
-export const Deck = props => {
+export const MDXDeck = props => {
   const { slides, basepath } = props
-  const { state, setState } = useContext(MDXDeckContext)
+  const { state, setState } = useDeckState(MDXDeckContext)
 
   const index = getIndex(props)
 
@@ -171,12 +177,6 @@ export const Deck = props => {
     </Provider>
   )
 }
-
-export const MDXDeck = props => (
-  <State>
-    <Deck {...props} />
-  </State>
-)
 
 MDXDeck.propTypes = {
   slides: PropTypes.array.isRequired,
