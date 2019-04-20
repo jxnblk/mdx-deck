@@ -29,37 +29,38 @@ const modes = {
 
 const BaseWrapper = props => <>{props.children}</>
 
+const getIndex = ({ basepath }) => {
+  const { pathname } = globalHistory.location
+  const root = pathname.replace(basepath, '')
+  const n = Number(root.split('/')[1])
+  const index = isNaN(n) ? 0 : n
+  return index
+}
+
+const createMetadata = length => Array.from({ length })
+
 export class MDXDeck extends React.Component {
   constructor(props) {
     super(props)
 
     this.state = {
-      slides: props.slides,
+      metadata: {},
+      // slides: props.slides,
       step: 0,
       mode: NORMAL,
       update: fn => this.setState(fn),
     }
   }
 
-  getIndex = () => {
-    const { basepath } = this.props
-    const { pathname } = globalHistory.location
-    const pagepath = pathname.replace(basepath, '')
-    const n = Number(pagepath.split('/')[1])
-    const index = isNaN(n) ? 0 : n
-    return index
-  }
-
   getMeta = i => {
-    const { slides } = this.state
-    const { meta = {} } = slides[i] || {}
-    return meta
+    const { metadata } = this.state
+    return metadata[i] || {}
   }
 
   goto = i => {
     const { basepath } = this.props
     const { search } = globalHistory.location
-    const current = this.getIndex()
+    const current = getIndex(this.props)
     const reverse = i < current
     navigate(basepath + '/' + i)
     const meta = this.getMeta(i)
@@ -70,7 +71,7 @@ export class MDXDeck extends React.Component {
 
   previous = () => {
     const { step } = this.state
-    const index = this.getIndex()
+    const index = getIndex(this.props)
     const meta = this.getMeta(index)
     if (meta.steps && step > 0) {
       this.setState(state => ({
@@ -84,8 +85,9 @@ export class MDXDeck extends React.Component {
   }
 
   next = () => {
-    const { slides, step } = this.state
-    const index = this.getIndex()
+    const { slides } = this.props
+    const { step } = this.state
+    const index = getIndex(this.props)
     const meta = this.getMeta(index)
     if (meta.steps && step < meta.steps) {
       this.setState(state => ({
@@ -99,10 +101,9 @@ export class MDXDeck extends React.Component {
   }
 
   register = (index, meta) => {
-    const { slides } = this.state
-    const initialMeta = slides[index].meta || {}
-    slides[index].meta = { ...initialMeta, ...meta }
-    this.setState({ slides })
+    const { metadata } = this.state
+    metadata[index] = { ...metadata[index], ...meta }
+    this.setState({ metadata })
   }
 
   componentDidCatch(err) {
@@ -111,12 +112,11 @@ export class MDXDeck extends React.Component {
   }
 
   render() {
-    const { basepath } = this.props
+    const { slides, basepath } = this.props
     const { pathname } = globalHistory.location
-    const { slides } = this.state
     const pagepath = pathname.replace(basepath, '')
     const mode = pagepath === '/print' ? PRINT : this.state.mode
-    const index = this.getIndex()
+    const index = getIndex(this.props)
     const context = {
       ...this.state,
       register: this.register,
