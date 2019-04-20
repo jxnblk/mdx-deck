@@ -10,6 +10,9 @@
     "start": "yarn workspace @mdx-deck/docs start",
     "analyze-bundle": "yarn workspace @mdx-deck/docs start --webpack bundle-analyzer.config.js",
     "build": "yarn workspace @mdx-deck/docs build",
+    "start-theme": "yarn workspace @mdx-deck/gatsby-theme start",
+    "build-theme": "yarn workspace @mdx-deck/gatsby-theme build",
+    "export": "yarn workspace @mdx-deck/export pdf",
     "test": "jest"
   },
   "devDependencies": {

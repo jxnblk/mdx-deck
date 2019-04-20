@@ -6,10 +6,10 @@ import Pre from './Pre'
 import Clock from './Clock'
 
 export const Presenter = props => {
-  const { slides, index } = props
+  const { slides, metadata, index } = props
   const Current = slides[index]
   const Next = slides[index + 1]
-  const { notes } = Current.meta || {}
+  const { notes } = metadata[index] || {}
 
   return (
     <div

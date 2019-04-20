@@ -25,7 +25,7 @@ export default ({ mode, modes, update, index }) => {
       if (!search) return
       navigate(pathname)
     }
-  }, [index, mode])
+  }, [mode])
 
   return false
 }

@@ -69,21 +69,13 @@ const handleKeyDown = props => e => {
   }
 }
 
-export const Keyboard = props => {
+export default props => {
   useEffect(() => {
     const handler = handleKeyDown(props)
     window.addEventListener('keydown', handler)
     return () => {
       window.removeEventListener('keydown', handler)
     }
-  }, [])
+  }, [props.metadata])
   return false
 }
-
-const noop = () => {}
-
-Keyboard.defaultProps = {
-  setState: noop,
-}
-
-export default Keyboard

@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useContext, useReducer, useMemo } from 'react'
 import PropTypes from 'prop-types'
 import { Router, globalHistory, navigate } from '@reach/router'
 import { Global } from '@emotion/core'
 import { Swipeable } from 'react-swipeable'
+import merge from 'lodash.merge'
+
 import Provider from './Provider'
 import Slide from './Slide'
 import Presenter from './Presenter'
@@ -11,9 +13,10 @@ import Grid from './Grid'
 import Print from './Print'
 import GoogleFonts from './GoogleFonts'
 import Catch from './Catch'
-import QueryString from './QueryString'
 import Keyboard from './Keyboard'
 import Storage from './Storage'
+import QueryString from './QueryString'
+import Style from './Style'
 
 const NORMAL = 'normal'
 const PRESENTER = 'presenter'
@@ -30,156 +33,152 @@ const modes = {
 
 const BaseWrapper = props => <>{props.children}</>
 
-export class MDXDeck extends React.Component {
-  constructor(props) {
-    super(props)
+const getIndex = ({ basepath }) => {
+  const { pathname } = globalHistory.location
+  const root = pathname.replace(basepath, '')
+  const n = Number(root.split('/')[1])
+  const index = isNaN(n) ? 0 : n
+  return index
+}
 
-    this.state = {
-      slides: props.slides,
-      step: 0,
-      mode: NORMAL,
-      update: fn => this.setState(fn),
-    }
+const mergeState = (state, next) =>
+  merge({}, state, typeof next === 'function' ? next(state) : next)
+const useState = init => useReducer(mergeState, init)
+
+const getWrapper = mode => {
+  switch (mode) {
+    case PRESENTER:
+      return Presenter
+    case OVERVIEW:
+      return Overview
+    case GRID:
+      return Grid
+    default:
+      return BaseWrapper
+      break
+  }
+}
+
+export const MDXDeckContext = React.createContext()
+
+const useDeckState = () => {
+  const context = useContext(MDXDeckContext)
+  if (context) return context
+
+  const [state, setState] = useState({
+    metadata: {},
+    step: 0,
+    mode: NORMAL,
+  })
+
+  return {
+    state,
+    setState,
+  }
+}
+
+export const MDXDeckState = ({ children }) => {
+  const context = useDeckState()
+  return <MDXDeckContext.Provider value={context} children={children} />
+}
+
+export const MDXDeck = props => {
+  const { slides, basepath } = props
+  const { state, setState } = useDeckState(MDXDeckContext)
+
+  const index = getIndex(props)
+
+  const getMeta = i => {
+    return state.metadata[i] || {}
   }
 
-  getIndex = () => {
-    const { basepath } = this.props
-    const { pathname } = globalHistory.location
-    const pagepath = pathname.replace(basepath, '')
-    const n = Number(pagepath.split('/')[1])
-    const index = isNaN(n) ? 0 : n
-    return index
+  const register = (index, meta) => {
+    setState({
+      metadata: {
+        ...state.metadata,
+        [index]: {
+          ...state.metadata[index],
+          ...meta,
+        },
+      },
+    })
   }
 
-  getMeta = i => {
-    const { slides } = this.state
-    const { meta = {} } = slides[i] || {}
-    return meta
-  }
-
-  goto = i => {
-    const { basepath } = this.props
-    const current = this.getIndex()
-    const reverse = i < current
-    navigate(basepath + '/' + i)
-    const meta = this.getMeta(i)
-    this.setState({
+  const goto = nextIndex => {
+    const current = getIndex(props)
+    const reverse = nextIndex < current
+    const { search } = globalHistory.location
+    navigate(basepath + '/' + nextIndex + search)
+    const meta = getMeta(nextIndex)
+    setState({
       step: reverse ? meta.steps || 0 : 0,
     })
   }
 
-  previous = () => {
-    const { step } = this.state
-    const index = this.getIndex()
-    const meta = this.getMeta(index)
-    if (meta.steps && step > 0) {
-      this.setState(state => ({
-        step: state.step - 1,
-      }))
+  const previous = () => {
+    const current = getIndex(props)
+    const meta = getMeta(current)
+    if (meta.steps && state.step > 0) {
+      setState({ step: state.step - 1 })
     } else {
-      const previous = index - 1
-      if (previous < 0) return
-      this.goto(previous)
+      const p = current - 1
+      if (p < 0) return
+      goto(p)
     }
   }
 
-  next = () => {
-    const { slides, step } = this.state
-    const index = this.getIndex()
-    const meta = this.getMeta(index)
-    if (meta.steps && step < meta.steps) {
-      this.setState(state => ({
-        step: state.step + 1,
-      }))
+  const next = () => {
+    const current = getIndex(props)
+    const meta = getMeta(current)
+    if (meta.steps && state.step < meta.steps) {
+      setState({ step: state.step + 1 })
     } else {
-      const next = index + 1
-      if (next > slides.length - 1) return
-      this.goto(next)
+      const n = current + 1
+      if (n > slides.length - 1) return
+      goto(n)
     }
   }
 
-  register = (index, meta) => {
-    const { slides } = this.state
-    const initialMeta = slides[index].meta || {}
-    slides[index].meta = { ...initialMeta, ...meta }
-    this.setState({ slides })
+  const context = {
+    ...state,
+    update: setState,
+    register,
+    modes,
+    index,
+    goto,
+    previous,
+    next,
   }
 
-  componentDidCatch(err) {
-    console.error('componentDidCatch')
-    console.error(err)
-  }
+  const [First] = slides
+  const Wrapper = getWrapper(state.mode)
 
-  render() {
-    const { basepath } = this.props
-    const { pathname } = globalHistory.location
-    const { slides } = this.state
-    const pagepath = pathname.replace(basepath, '')
-    const mode = pagepath === '/print' ? PRINT : this.state.mode
-    const index = this.getIndex()
-    const context = {
-      ...this.state,
-      register: this.register,
-      modes,
-      previous: this.previous,
-      next: this.next,
-    }
-
-    const [FirstSlide] = slides
-
-    let Wrapper = BaseWrapper
-    switch (mode) {
-      case PRESENTER:
-        Wrapper = Presenter
-        break
-      case OVERVIEW:
-        Wrapper = Overview
-        break
-      case GRID:
-        Wrapper = Grid
-        break
-      default:
-        break
-    }
-
-    const style =
-      mode !== modes.PRINT ? (
-        <Global
-          styles={{
-            body: {
-              overflow: 'hidden',
-            },
-          }}
-        />
-      ) : null
-
-    return (
-      <Provider {...this.props} {...this.state} mode={mode} index={index}>
-        {style}
-        <Catch>
-          <QueryString {...this.state} modes={modes} index={index} />
-          <Keyboard {...this.props} {...context} />
-          <Storage {...this.state} goto={this.goto} index={index} />
-          <GoogleFonts />
-          <Wrapper {...this.props} {...this.state} modes={modes} index={index}>
-            <Swipeable onSwipedRight={this.previous} onSwipedLeft={this.next}>
-              <Router basepath={basepath}>
-                <Slide path="/" index={0} context={context}>
-                  <FirstSlide path="/" />
+  return (
+    <Provider {...props} {...context}>
+      <Catch>
+        <Style {...context} />
+        <Keyboard {...props} {...context} />
+        <Storage {...context} />
+        <QueryString {...context} />
+        <GoogleFonts />
+        <Wrapper {...props} {...context}>
+          <Swipeable onSwipedRight={previous} onSwipedLeft={next}>
+            <Router basepath={basepath}>
+              <Slide path="/" index={0} context={context}>
+                <First path="/" />
+              </Slide>
+              {slides.map((Component, i) => (
+                <Slide key={i} path={i + '/*'} index={i} context={context}>
+                  <Component path={i + '/*'} />
                 </Slide>
-                {slides.map((Component, i) => (
-                  <Slide key={i} path={i + '/*'} index={i} {...context}>
-                    <Component path={i + '/*'} />
-                  </Slide>
-                ))}
-                <Print path="print" {...this.props} />
-              </Router>
-            </Swipeable>
-          </Wrapper>
-        </Catch>
-      </Provider>
-    )
-  }
+              ))}
+              <Print path="print" {...props} />
+            </Router>
+          </Swipeable>
+        </Wrapper>
+      </Catch>
+    </Provider>
+  )
 }
 
 MDXDeck.propTypes = {

@@ -72,7 +72,6 @@ export const Slide = ({ index, context, ...props }) => (
     value={{
       index,
       ...context,
-      ...props,
     }}
   >
     <Root {...props} />
@@ -80,7 +79,9 @@ export const Slide = ({ index, context, ...props }) => (
 )
 
 Slide.defaultProps = {
-  step: Infinity,
+  context: {
+    step: Infinity,
+  },
 }
 
 export default Slide

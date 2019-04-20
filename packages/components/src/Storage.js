@@ -1,15 +1,27 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 const STORAGE_INDEX = 'mdx-slide'
 const STORAGE_STEP = 'mdx-step'
 
 export const useLocalStorage = (handler, args = []) => {
+  const [focused, setFocused] = useState(false)
+  const handleFocus = () => {
+    setFocused(true)
+  }
+  const handleBlur = () => {
+    setFocused(false)
+  }
   useEffect(() => {
-    window.addEventListener('storage', handler)
+    setFocused(document.hasFocus())
+    if (!focused) window.addEventListener('storage', handler)
+    window.addEventListener('focus', handleFocus)
+    window.addEventListener('blur', handleBlur)
     return () => {
-      window.removeEventListener('storage', handler)
+      if (!focused) window.removeEventListener('storage', handler)
+      window.removeEventListener('focus', handleFocus)
+      window.removeEventListener('blur', handleBlur)
     }
-  }, [...args])
+  }, [focused, ...args])
 }
 
 export const useSetStorage = (key, value) => {

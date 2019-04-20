@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders 1`] = `
+<div>
+  <div
+    role="group"
+    style={
+      Object {
+        "outline": "none",
+      }
+    }
+    tabIndex="-1"
+  >
+    <div
+      className="css-suf238-Root ekm8v3h0"
+    >
+      <div
+        role="group"
+        style={
+          Object {
+            "outline": "none",
+          }
+        }
+        tabIndex="-1"
+      >
+        <pre>
+          one
+        </pre>
+      </div>
+    </div>
+  </div>
+</div>
+`;

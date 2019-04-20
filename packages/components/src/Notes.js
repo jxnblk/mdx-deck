@@ -1,25 +1,17 @@
-import React from 'react'
-import { withContext } from './context'
+import React, { useEffect } from 'react'
+import { useDeck } from './context'
 
-export const Notes = withContext(
-  class extends React.Component {
-    constructor(props) {
-      super(props)
-      const { context, children } = props
-      if (
-        !context ||
-        typeof context.index === 'undefined' ||
-        typeof context.register !== 'function'
-      ) {
-        return
-      }
-      context.register(context.index, { notes: children })
-    }
+export const Notes = props => {
+  const context = useDeck()
+  useEffect(() => {
+    if (!context || !context.register) return
+    if (typeof context.index === 'undefined') return
+    context.register(context.index, {
+      notes: props.children,
+    })
+  }, [])
 
-    render() {
-      return false
-    }
-  }
-)
+  return false
+}
 
 export default Notes

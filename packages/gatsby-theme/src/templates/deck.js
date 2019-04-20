@@ -5,8 +5,9 @@ import Layout from '../layouts/deck'
 
 export default props => {
   const { mdx } = props.data
-  const children = <MDXRenderer children={mdx.code.body} />
-  return <Layout {...props} children={children} />
+  const Component = props => <MDXRenderer {...props} children={mdx.code.body} />
+
+  return <Layout Component={Component} basepath={props.pageContext.basepath} />
 }
 
 export const query = graphql`
