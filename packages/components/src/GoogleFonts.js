@@ -5,7 +5,7 @@ import { Head } from './Head'
 const GoogleFonts = withTheme(({ theme }) => {
   if (!theme.googleFont) return false
   return (
-    <Head>
+    <Head portal>
       <link rel="stylesheet" href={theme.googleFont} />
     </Head>
   )
