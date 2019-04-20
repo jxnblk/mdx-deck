@@ -20,6 +20,7 @@ export const HeadProvider = ({ tags = [], children }) => {
 
 // get head for all slides
 export const UserHead = ({ mdx }) =>
+  !!mdx &&
   React.createElement(mdx, {
     components: {
       wrapper: props => {

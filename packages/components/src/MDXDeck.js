@@ -11,7 +11,6 @@ import Grid from './Grid'
 import Print from './Print'
 import GoogleFonts from './GoogleFonts'
 import Catch from './Catch'
-import QueryString from './QueryString'
 import Keyboard from './Keyboard'
 import Storage from './Storage'
 
@@ -59,6 +58,7 @@ export class MDXDeck extends React.Component {
 
   goto = i => {
     const { basepath } = this.props
+    const { search } = globalHistory.location
     const current = this.getIndex()
     const reverse = i < current
     navigate(basepath + '/' + i)
@@ -159,7 +159,6 @@ export class MDXDeck extends React.Component {
       <Provider {...this.props} {...this.state} mode={mode} index={index}>
         {style}
         <Catch>
-          <QueryString {...context} />
           <Keyboard {...this.props} {...context} />
           <Storage {...context} />
           <GoogleFonts />
