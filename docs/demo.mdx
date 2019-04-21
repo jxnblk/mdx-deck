@@ -1,6 +1,7 @@
 import { Head, Image, Notes, Appear } from '@mdx-deck/components'
 import { Invert, Split, SplitRight, FullScreenCode, Horizontal} from '@mdx-deck/layouts'
 import Counter from './Counter'
+import Latex from 'react-latex'
 
 import future from '@mdx-deck/themes/future'
 import aspect from '@mdx-deck/themes/aspect'
@@ -17,6 +18,7 @@ export const themes = [
   <meta name='twitter:title' content='mdx-deck' />
   <meta name='twitter:description' content='MDX-based presentation decks' />
   <meta name='twitter:image' content='https://jxnblk.com/mdx-deck/card.png' />
+  <script src='//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css' />
 </Head>
 
 # MDX Deck
@@ -197,6 +199,10 @@ Prop | Type | Description
 `width` | number, string, or array | sets element width
 `color` | string | sets foreground color
 `bg` | string | sets background color
+
+---
+
+<Latex>{`$(3\times 4) \div (5-3)$`}</Latex>
 
 ---
 

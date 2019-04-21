@@ -18,6 +18,7 @@
     "@mdx-deck/themes": "^2.3.1",
     "@rebass/emotion": "^3.0.0",
     "mdx-deck": "^2.3.1",
+    "react-latex": "^1.2.0",
     "rebass": "^3.0.1"
   },
   "devDependencies": {

@@ -18,6 +18,26 @@ export const HeadProvider = ({ tags = [], children }) => {
   return <HeadContext.Provider value={context}>{children}</HeadContext.Provider>
 }
 
+const Scripts = ({ scripts }) => {
+  useEffect(() => {
+    const tags = scripts
+      .map(script =>
+        document.head.appendChild(document.createElement('script'))
+      )
+      .map((tag, i) => {
+        tag.src = scripts[i]
+        return tag
+      })
+    return () => {
+      tags.forEach(tag => {
+        document.head.removeChild(tag)
+      })
+    }
+  }, [])
+
+  return false
+}
+
 // get head for all slides
 export const UserHead = ({ mdx }) =>
   !!mdx &&
@@ -31,7 +51,17 @@ export const UserHead = ({ mdx }) =>
         const head = React.Children.toArray(
           heads.reduce((acc, head) => [...acc, ...head.props.children], [])
         )
-        return createPortal(head, document.head)
+        const scripts = head
+          .filter(child => child.props.mdxType === 'script')
+          .map(child => child.props.src)
+        console.log('scripts', scripts)
+        return createPortal(
+          <>
+            {head}
+            <Scripts scripts={scripts} />
+          </>,
+          document.head
+        )
       },
     },
   })
