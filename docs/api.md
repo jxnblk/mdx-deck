@@ -2,6 +2,35 @@
 
 MDX Deck consists of several different packages. The core `mdx-deck` package includes the CLI, `@mdx-deck/components`,
 
+## Components
+
+See the [components docs](components.md) for details.
+
+- `MDXDeck`
+- `MDXDeckState`
+- `Head`
+- `Image`
+- `Notes`
+- `Steps`
+- `Appear`
+- `Slide`
+- `Zoom`
+- `Embed`
+
+## Layouts
+
+See the [layouts docs](layouts.md) for details.
+
+- `Invert`
+- `Split`
+- `SplitRight`
+- `FullScreenCode`
+- `Horizontal`
+
+## Themes
+
+See the [themes](themes.md) & [theming](theming.md) docs for details.
+
 ## Context
 
 MDX Deck uses a stateful React context for each slide.

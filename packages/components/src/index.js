@@ -7,10 +7,12 @@ export { Appear } from './Appear'
 export { withContext, useDeck } from './context'
 export { default as useSteps } from './useSteps'
 
-export { Provider } from './Provider'
 export { Slide } from './Slide'
 export { Zoom } from './Zoom'
 
 export { Embed } from './Embed'
-export { Ratio } from './Ratio'
+
+// private
 export { splitSlides } from './splitSlides'
+export { Ratio } from './Ratio'
+export { Provider } from './Provider'
