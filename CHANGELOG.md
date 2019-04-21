@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.3.1 2019-04-21
+
+- Add experimental support for fluid aspect ratios #342
+
 ## v2.3.0 2019-04-20
 
 - Refactor localStorage to use hooks #334
