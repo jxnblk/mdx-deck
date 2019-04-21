@@ -4,8 +4,7 @@
 Default
 
 ```mdx
-export { default as theme } from 'mdx-deck/themes
-'
+export { default as theme } from 'mdx-deck/themes'
 ```
 
 ---
@@ -14,8 +13,7 @@ export { default as theme } from 'mdx-deck/themes
 Big
 
 ```mdx
-export { big as theme } from 'mdx-deck/themes
-'
+export { big as theme } from 'mdx-deck/themes'
 ```
 
 ---
@@ -24,8 +22,7 @@ export { big as theme } from 'mdx-deck/themes
 Book
 
 ```mdx
-export { book as theme } from 'mdx-deck/themes
-'
+export { book as theme } from 'mdx-deck/themes'
 ```
 
 ---
@@ -34,8 +31,7 @@ export { book as theme } from 'mdx-deck/themes
 Code
 
 ```mdx
-export { code as theme } from 'mdx-deck/themes
-'
+export { code as theme } from 'mdx-deck/themes'
 ```
 
 ---
@@ -44,8 +40,7 @@ export { code as theme } from 'mdx-deck/themes
 Comic
 
 ```mdx
-export { comic as theme } from 'mdx-deck/themes
-'
+export { comic as theme } from 'mdx-deck/themes'
 ```
 
 ---
@@ -54,8 +49,7 @@ export { comic as theme } from 'mdx-deck/themes
 Condensed
 
 ```mdx
-export { condensed as theme } from 'mdx-deck/themes
-'
+export { condensed as theme } from 'mdx-deck/themes'
 ```
 
 ---
@@ -64,8 +58,7 @@ export { condensed as theme } from 'mdx-deck/themes
 Dark
 
 ```mdx
-export { dark as theme } from 'mdx-deck/themes
-'
+export { dark as theme } from 'mdx-deck/themes'
 ```
 
 ---
@@ -74,8 +67,7 @@ export { dark as theme } from 'mdx-deck/themes
 Future
 
 ```mdx
-export { future as theme } from 'mdx-deck/themes
-'
+export { future as theme } from 'mdx-deck/themes'
 ```
 
 ---
@@ -84,8 +76,7 @@ export { future as theme } from 'mdx-deck/themes
 Hack
 
 ```mdx
-export { hack as theme } from 'mdx-deck/themes
-'
+export { hack as theme } from 'mdx-deck/themes'
 ```
 
 ---
@@ -99,8 +90,7 @@ Lobster
 Notes
 
 ```mdx
-export { notes as theme } from 'mdx-deck/themes
-'
+export { notes as theme } from 'mdx-deck/themes'
 ```
 
 ---
@@ -114,8 +104,7 @@ Rye
 Script
 
 ```mdx
-export { script as theme } from 'mdx-deck/themes
-'
+export { script as theme } from 'mdx-deck/themes'
 ```
 
 ---
@@ -124,8 +113,7 @@ export { script as theme } from 'mdx-deck/themes
 Swiss
 
 ```mdx
-export { swiss as theme } from 'mdx-deck/themes
-'
+export { swiss as theme } from 'mdx-deck/themes'
 ```
 
 ---
@@ -134,8 +122,7 @@ export { swiss as theme } from 'mdx-deck/themes
 Yellow
 
 ```mdx
-export { yellow as theme } from 'mdx-deck/themes
-'
+export { yellow as theme } from 'mdx-deck/themes'
 ```
 
 ---
@@ -143,8 +130,7 @@ export { yellow as theme } from 'mdx-deck/themes
 Poppins
 
 ```mdx
-export { poppins as theme } from 'mdx-deck/themes
-'
+export { poppins as theme } from 'mdx-deck/themes'
 ```
 
 ---
@@ -152,8 +138,7 @@ export { poppins as theme } from 'mdx-deck/themes
 Syntax Highlighter
 
 ```mdx
-export { syntaxHighlighter as theme } from 'mdx-deck/themes
-'
+export { syntaxHighlighter as theme } from 'mdx-deck/themes'
 ```
 
 ---
@@ -161,6 +146,5 @@ export { syntaxHighlighter as theme } from 'mdx-deck/themes
 Syntax Highlighter Prism
 
 ```mdx
-export { syntaxHighlighterPrism as theme } from 'mdx-deck/themes
-'
+export { syntaxHighlighterPrism as theme } from 'mdx-deck/themes'
 ```
