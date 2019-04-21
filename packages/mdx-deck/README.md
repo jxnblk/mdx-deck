@@ -1,6 +1,6 @@
-# MDX Deck
-
 ![](https://s3.amazonaws.com/jxnblk/mdx-deck-2.gif)
+
+# MDX Deck <img src='docs/ace.png' width='24' height='24' />
 
 Award-winning [MDX][]-based presentation decks
 
