@@ -294,6 +294,7 @@ See more exporting options in the [Exporting Documentation](docs/exporting.md)
 - [Components](docs/components.md)
 - [Exporting](docs/exporting.md)
 - [Advanced Usage](docs/advanced.md)
+- [API](docs/api.md)
 
 ## Examples
 

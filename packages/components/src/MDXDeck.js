@@ -143,6 +143,7 @@ export const MDXDeck = props => {
     ...state,
     update: setState,
     register,
+    length: slides.length,
     modes,
     index,
     goto,
