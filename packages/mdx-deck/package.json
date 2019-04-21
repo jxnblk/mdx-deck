@@ -47,6 +47,7 @@
     "react": "^16.8.3",
     "react-dev-utils": "^8.0.0",
     "react-dom": "^16.8.3",
+    "read-pkg-up": "^5.0.0",
     "remark-emoji": "^2.0.2",
     "remark-unwrap-images": "^0.2.0",
     "rimraf": "^2.6.3",

@@ -4,6 +4,7 @@ const meow = require('meow')
 const findup = require('find-up')
 const open = require('react-dev-utils/openBrowser')
 const chalk = require('chalk')
+const readPkgUp = require('read-pkg-up')
 const pkg = require('./package.json')
 
 const config = require('pkg-conf').sync('mdx-deck')
@@ -81,6 +82,7 @@ const opts = Object.assign(
     host: 'localhost',
     port: 8080,
     outDir: 'dist',
+    pkg: readPkgUp.sync().pkg || {},
   },
   config,
   cli.flags

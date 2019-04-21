@@ -9,9 +9,12 @@ const chalk = require('chalk')
 const HTMLPlugin = require('@mdx-deck/webpack-html-plugin')
 const babel = require('../babel.config')
 
-const remarkPlugins = [require('remark-emoji'), require('remark-unwrap-images')]
+const defaultPlugins = [
+  require('remark-emoji'),
+  require('remark-unwrap-images'),
+]
 
-const rules = [
+const createRules = ({ remarkPlugins = [] }) => [
   {
     test: /\.jsx?$/,
     exclude: /node_modules/,
@@ -50,13 +53,10 @@ const rules = [
 const baseConfig = {
   stats: 'errors-only',
   mode: 'development',
-  module: {
-    rules,
-  },
+  module: {},
   resolve: {
     extensions: ['.js', '.jsx'],
     alias: {
-      // 'mdx-deck': path.resolve(__dirname, '..'),
       'webpack-hot-middleware/client': path.resolve(
         require.resolve('webpack-hot-middleware/client')
       ),
@@ -78,7 +78,20 @@ const baseConfig = {
   ],
 }
 
+const getRemarkPlugins = ({ pkg }) => {
+  const deps = Object.assign({}, pkg.devDependencies, pkg.dependencies)
+  const names = Object.keys(deps)
+  const plugins = names
+    .filter(name => /^remark-/.test(name))
+    .map(name => require(name))
+  return [...defaultPlugins, ...plugins]
+}
+
 const createConfig = (opts = {}) => {
+  baseConfig.module.rules = createRules({
+    remarkPlugins: getRemarkPlugins(opts),
+  })
+
   const config = merge.smart(baseConfig, opts.webpack)
   config.context = opts.dirname
 
