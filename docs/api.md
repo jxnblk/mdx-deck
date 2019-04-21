@@ -1,6 +1,7 @@
 # API
 
 MDX Deck consists of several different packages. The core `mdx-deck` package includes the CLI, `@mdx-deck/components`,
+`@mdx-deck/themes`, and `@mdx-deck/layouts`.
 
 ## Components
 
