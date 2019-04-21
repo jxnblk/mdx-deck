@@ -2,7 +2,6 @@ export default {
   aspectRatio: 9 / 16,
   css: {
     fontSize: '1em',
-    textAlign: 'center',
     '@media screen and (min-width:56em)': {
       fontSize: 'inherit',
     },

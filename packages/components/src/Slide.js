@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import { Context } from './context'
-import FluidFontSize from './FluidFontSize'
+import AspectRatioSlide from './AspectRatioSlide'
 
 const themed = (...tags) => props =>
   tags.map(tag => props.theme[tag] && { ['& ' + tag]: props.theme[tag] })
@@ -29,47 +29,7 @@ const themedCode = props => ({
   },
 })
 
-const getPadding = ratio =>
-  ratio > 1 ? (1 - ratio) * 100 + '%' : ratio * 100 + '%'
-
-const Root = styled.div({
-  width: '100vw',
-  height: '100vh',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-})
-
-const ratio = props =>
-  props.theme.aspectRatio
-    ? {
-        width: '100%',
-        height: 0,
-        margin: 'auto',
-        position: 'relative',
-        outline: '2px solid red',
-        backgroundColor: 'tomato',
-        paddingBottom: getPadding(props.theme.aspectRatio),
-      }
-    : {
-        width: '100vw',
-        height: '100vw',
-      }
-
-const Outer = styled('div')(ratio)
-
-const innerRatio = props =>
-  props.theme.aspectRatio
-    ? {
-        position: 'absolute',
-        top: 0,
-        right: 0,
-        bottom: 0,
-        left: 0,
-      }
-    : null
-
-const Inner = styled(FluidFontSize)(
+const Root = styled.div(
   props => ({
     fontFamily: props.theme.font,
     color: props.theme.colors.text,
@@ -79,8 +39,9 @@ const Inner = styled(FluidFontSize)(
     alignItems: 'center',
     justifyContent: 'center',
     overflow: 'hidden',
+    width: '100vw',
+    height: '100vh',
   }),
-  innerRatio,
   props => props.theme.css,
   props => props.theme.Slide,
   themedLinks,
@@ -115,9 +76,7 @@ export const Slide = ({ index, context, ...props }) => (
     }}
   >
     <Root>
-      <Outer {...props}>
-        <Inner {...props} />
-      </Outer>
+      <AspectRatioSlide {...props} />
     </Root>
   </Context.Provider>
 )
