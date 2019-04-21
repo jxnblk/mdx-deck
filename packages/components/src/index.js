@@ -13,4 +13,5 @@ export { Zoom } from './Zoom'
 
 export { Embed } from './Embed'
 export { Ratio } from './Ratio'
+export { AutoIncrement } from './AutoIncrement'
 export { splitSlides } from './splitSlides'

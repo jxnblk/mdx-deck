@@ -5,6 +5,7 @@ import { HeadProvider, UserHead } from './Head'
 import { MDXProvider } from '@mdx-js/react'
 import defaultTheme from '@mdx-deck/themes/base'
 import mdxComponents from './mdx-components'
+import { Context } from './context'
 
 const DefaultProvider = props => <>{props.children}</>
 
@@ -31,11 +32,13 @@ export const Provider = props => {
   return (
     <HeadProvider tags={headTags}>
       <UserHead mdx={mdx} />
-      <ThemeProvider theme={theme}>
-        <MDXProvider components={allComponents}>
-          <UserProvider {...props} />
-        </MDXProvider>
-      </ThemeProvider>
+      <Context.Provider value={props}>
+        <ThemeProvider theme={theme}>
+          <MDXProvider components={allComponents}>
+            <UserProvider {...props} />
+          </MDXProvider>
+        </ThemeProvider>
+      </Context.Provider>
     </HeadProvider>
   )
 }
