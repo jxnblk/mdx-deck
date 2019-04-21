@@ -2,7 +2,13 @@ import { Head, Image, Notes, Appear } from '@mdx-deck/components'
 import { Invert, Split, SplitRight, FullScreenCode, Horizontal} from '@mdx-deck/layouts'
 import Counter from './Counter'
 
-export { default as theme } from '@mdx-deck/themes/future'
+import future from '@mdx-deck/themes/future'
+import aspect from '@mdx-deck/themes/aspect-16-9'
+
+export const themes = [
+  future,
+  aspect,
+]
 
 <Head>
   <title>mdx-deck</title>
