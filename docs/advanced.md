@@ -111,14 +111,12 @@ module.exports = {
 
 **Careful**: When overwriting the loader for `mdx` files, make sure to include the default loader from `@mdx-deck/loader`.
 
-## Custom build setups
+## Custom Components
 
-The core MDX Deck components can also be used in any React application,
-such as [create-react-app][] or [next.js][].
+To build custom components that hook into internal MDX Deck state, you might want to use the following APIs:
 
-See the [`@mdx-deck/components`](../packages/components) package for more.
+- [useSteps](api.md#usesteps-hook)
+- [useDeck](api.md#usedeck-hook)
 
 [mdx]: https://mdxjs.com
 [mdxprovider]: https://github.com/mdx-js/mdx/blob/master/docs/getting-started/index.md#mdxprovider
-[create-react-app]: https://github.com/facebook/create-react-app
-[next.js]: https://github.com/zeit/next.js/
