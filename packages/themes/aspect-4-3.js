@@ -3,5 +3,5 @@ import aspect from './aspect'
 
 export default theme =>
   merge(theme, aspect(theme), {
-    aspectRatio: 9 / 16,
+    aspectRatio: 4 / 3,
   })

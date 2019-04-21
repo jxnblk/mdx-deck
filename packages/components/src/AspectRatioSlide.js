@@ -4,7 +4,7 @@ import styled from '@emotion/styled'
 import FluidFontSize from './FluidFontSize'
 
 const getPadding = ratio =>
-  ratio > 1 ? (1 - ratio) * 100 + '%' : ratio * 100 + '%'
+  ratio > 1 ? (1 / ratio) * 100 + '%' : ratio * 100 + '%'
 
 const paddingBottom = props => ({
   paddingBottom: getPadding(props.theme.aspectRatio),

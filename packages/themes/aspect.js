@@ -8,7 +8,7 @@ export default theme => {
   }
 
   return merge(theme, {
-    aspectRatio: 9 / 16,
+    aspectRatio: 16 / 9,
     css: {
       fontSize: '1em',
     },
