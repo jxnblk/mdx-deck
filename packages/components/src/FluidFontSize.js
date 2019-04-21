@@ -2,7 +2,7 @@
 import React, { useLayoutEffect, useRef, useState } from 'react'
 import ResizeObserver from 'resize-observer-polyfill'
 
-export const FluidFontSize = ({ base = 16, children }) => {
+export const FluidFontSize = ({ base = 16, children, className }) => {
   const div = useRef(null)
   const [fontSize, setFontSize] = useState(base)
 
@@ -22,7 +22,7 @@ export const FluidFontSize = ({ base = 16, children }) => {
   }, [base])
 
   return (
-    <div ref={div} style={{ fontSize }}>
+    <div ref={div} className={className} style={{ fontSize }}>
       {children}
     </div>
   )

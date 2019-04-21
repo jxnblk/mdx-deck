@@ -22,7 +22,9 @@ export default {
     '@media screen and (min-width:64em)': {
       fontSize: '3em',
     },
-    '& .Slide > div': {
+  },
+  Slide: {
+    '& > div': {
       minWidth: '80vw',
       minHeight: '60vh',
     },

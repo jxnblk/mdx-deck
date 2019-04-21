@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import { Context } from './context'
+import AspectRatioSlide from './AspectRatioSlide'
 
 const themed = (...tags) => props =>
   tags.map(tag => props.theme[tag] && { ['& ' + tag]: props.theme[tag] })
@@ -28,7 +29,7 @@ const themedCode = props => ({
   },
 })
 
-export const Root = styled.div(
+const Root = styled.div(
   props => ({
     fontFamily: props.theme.font,
     color: props.theme.colors.text,
@@ -74,7 +75,9 @@ export const Slide = ({ index, context, ...props }) => (
       ...context,
     }}
   >
-    <Root {...props} />
+    <Root>
+      <AspectRatioSlide {...props} />
+    </Root>
   </Context.Provider>
 )
 

@@ -44,24 +44,19 @@ const MDXLayout = props =>
   <section>
     {props.children}
   </section>
-export default \\"use strict\\";
+export default function MDXContent({
+  components,
+  ...props
+}) {
+  return <MDXLayout {...layoutProps} {...props} components={components} mdxType=\\"MDXLayout\\">
 
-var _core = require(\\"@emotion/core\\");
+    <h1>{\`Hello\`}</h1>
+    <hr></hr>
+    <h2>{\`Two\`}</h2>
+    <hr></hr>
+    <h2>{\`Three\`}</h2>
 
-function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
-
-function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
-
-function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
-
-function MDXContent(_ref) {
-  var components = _ref.components,
-      props = _objectWithoutProperties(_ref, [\\"components\\"]);
-
-  return (0, _core.jsx)(MDXLayout, _extends({}, layoutProps, props, {
-    components: components,
-    mdxType: \\"MDXLayout\\"
-  }), (0, _core.jsx)(\\"h1\\", null, \\"Hello\\"), (0, _core.jsx)(\\"hr\\", null), (0, _core.jsx)(\\"h2\\", null, \\"Two\\"), (0, _core.jsx)(\\"hr\\", null), (0, _core.jsx)(\\"h2\\", null, \\"Three\\"));
+    </MDXLayout>;
 }
 
 MDXContent.isMDXComponent = true;"
