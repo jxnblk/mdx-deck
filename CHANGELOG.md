@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.3.2 2019-04-21
+
+- Fixed issue when Head only had one element #345
+
 ## v2.3.1 2019-04-21
 
 - Add experimental support for fluid aspect ratios #342
