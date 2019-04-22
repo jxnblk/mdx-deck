@@ -29,7 +29,13 @@ export const UserHead = ({ mdx }) =>
           child => child.props.originalType === Head
         )
         const head = React.Children.toArray(
-          heads.reduce((acc, head) => [...acc, ...head.props.children], [])
+          heads.reduce(
+            (acc, head) => [
+              ...acc,
+              ...React.Children.toArray(head.props.children),
+            ],
+            []
+          )
         )
         return createPortal(head, document.head)
       },
