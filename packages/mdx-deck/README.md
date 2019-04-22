@@ -320,6 +320,7 @@ The following examples will open in CodeSandbox.
 - [Appear](https://codesandbox.io/s/github/jxnblk/mdx-deck/tree/master/examples/appear)
 - [Head](https://codesandbox.io/s/github/jxnblk/mdx-deck/tree/master/examples/head)
 - [Provider](https://codesandbox.io/s/github/jxnblk/mdx-deck/tree/master/examples/provider)
+- [Themes](https://codesandbox.io/s/github/jxnblk/mdx-deck/tree/master/examples/themes)
 
 ---
 

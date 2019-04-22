@@ -1,0 +1,23 @@
+import { ThemeName } from './theme'
+export { theme } from './theme'
+
+# Hello <ThemeName />!
+
+---
+
+This deck has a custom Provider component
+that lets you switch between all the different themes.
+
+---
+
+```jsx
+import React from 'react'
+
+export default ({ children }) => {
+  return (
+    <>
+      {children}
+    </>
+  )
+}
+```
