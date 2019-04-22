@@ -296,13 +296,30 @@ See more exporting options in the [Exporting Documentation](docs/exporting.md)
 - [Advanced Usage](docs/advanced.md)
 - [API](docs/api.md)
 
-## Examples
+## Real Examples
+
+See how others have used MDX Deck for their presentations.
 
 - [Design Systems & React][design-systems-react] by [Diana Mounter](https://mobile.twitter.com/broccolini)
 - [Bringing Brazil to the Cloud, Now][brazil-now] by [Guillermo Rauch](https://mobile.twitter.com/rauchg/)
 - [Simplify React][simplify-react] by [Kent C. Dodds](https://mobile.twitter.com/kentcdodds)
 - [I Got 99 Problems but GraphQL Ain't One][99-problems] by [Sara Vieira](https://mobile.twitter.com/NikkitaFTW)
 - [Stop de #divFest][stop-div-fest] by [Sara Vieira](https://mobile.twitter.com/NikkitaFTW)
+
+## Usage Examples
+
+The following examples will open in CodeSandbox.
+
+- [Basic Example](https://codesandbox.io/s/github/jxnblk/mdx-deck/tree/master/examples/basic)
+- [Multiple Decks](https://codesandbox.io/s/github/jxnblk/mdx-deck/tree/master/examples/multiple)
+- [Syntax Highlighting](https://codesandbox.io/s/github/jxnblk/mdx-deck/tree/master/examples/syntax-highlighting)
+- [Prism Syntax Highlighting](https://codesandbox.io/s/github/jxnblk/mdx-deck/tree/master/examples/prism)
+- [Aspect Ratio](https://codesandbox.io/s/github/jxnblk/mdx-deck/tree/master/examples/aspect-ratio)
+- [Layouts](https://codesandbox.io/s/github/jxnblk/mdx-deck/tree/master/examples/layouts)
+- [Images](https://codesandbox.io/s/github/jxnblk/mdx-deck/tree/master/examples/images)
+- [Appear](https://codesandbox.io/s/github/jxnblk/mdx-deck/tree/master/examples/appear)
+- [Head](https://codesandbox.io/s/github/jxnblk/mdx-deck/tree/master/examples/head)
+- [Provider](https://codesandbox.io/s/github/jxnblk/mdx-deck/tree/master/examples/provider)
 
 ---
 
