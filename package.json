@@ -1,9 +1,9 @@
 {
   "private": true,
-  "version": "2.0.0-0",
   "workspaces": [
     "packages/*",
     "templates/*",
+    "examples/*",
     "docs"
   ],
   "scripts": {
