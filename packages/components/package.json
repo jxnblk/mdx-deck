@@ -1,6 +1,6 @@
 {
   "name": "@mdx-deck/components",
-  "version": "2.3.1",
+  "version": "2.3.2",
   "main": "src/index.js",
   "author": "Brent Jackson <jxnblk@gmail.com>",
   "license": "MIT",
