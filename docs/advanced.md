@@ -50,8 +50,8 @@ which can be used to show custom page numbers or add other elements to the UI.
 The example below will display the current slide out of the total amount of slides.
 
 ```js
+// Example Provider.js
 import React from 'react'
-import { css } from '@emotion/core'
 
 function AtTheBottomCenter ({ children }) {
   const css = {
@@ -63,15 +63,15 @@ function AtTheBottomCenter ({ children }) {
     textAlign: 'center',
   }
 
-  return <div css={ css }>
-    { children }
+  return <div css={css}>
+    {children}
   </div>
 }
 
 export function Provider ({ children, ...props }) {
   return <>
-    { children }
-    <AtTheBottomCenter>{ props.index }/{ props.slides.length }</AtTheBottomCenter>
+    {children}
+    <AtTheBottomCenter>{props.index}/{props.slides.length}</AtTheBottomCenter>
   </>
 }
 ```
