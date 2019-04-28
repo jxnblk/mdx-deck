@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "@mdx-deck/basic-template",
+  "name": "understanding-jamstack-with-real-use-case",
   "version": "2.3.2",
   "scripts": {
     "start": "mdx-deck deck.mdx",
@@ -9,5 +9,11 @@
   },
   "devDependencies": {
     "mdx-deck": "^2.3.2"
-  }
+  },
+  "keywords": [
+    "gatsby",
+    "jamstacklagos",
+    "freecodecamp"
+  ],
+  "description": "Deck created with mdx-deck for JAMstack Lagos meetup"
 }
