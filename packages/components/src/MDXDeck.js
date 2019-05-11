@@ -130,7 +130,7 @@ export const MDXDeck = props => {
   const next = () => {
     const current = getIndex(props)
     const meta = getMeta(current)
-    if (meta.steps && state.step < meta.steps) {
+    if (meta.steps && state.step < meta.steps - 1) {
       setState({ step: state.step + 1 })
     } else {
       const n = current + 1
