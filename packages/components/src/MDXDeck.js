@@ -110,6 +110,7 @@ export const MDXDeck = props => {
     const { search } = globalHistory.location
     navigate(basepath + '/' + nextIndex + search)
     const meta = getMeta(nextIndex)
+    meta.notes = ''
     setState({
       step: reverse ? meta.steps || 0 : 0,
     })
@@ -119,6 +120,7 @@ export const MDXDeck = props => {
     const current = getIndex(props)
     const meta = getMeta(current)
     if (meta.steps && state.step > 0) {
+      meta.notes = ''
       setState({ step: state.step - 1 })
     } else {
       const p = current - 1
@@ -131,6 +133,7 @@ export const MDXDeck = props => {
     const current = getIndex(props)
     const meta = getMeta(current)
     if (meta.steps && state.step < meta.steps) {
+      meta.notes = ''
       setState({ step: state.step + 1 })
     } else {
       const n = current + 1
