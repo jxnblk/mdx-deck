@@ -111,7 +111,7 @@ export const MDXDeck = props => {
     navigate(basepath + '/' + nextIndex + search)
     const meta = getMeta(nextIndex)
     setState({
-      step: reverse ? meta.steps || 0 : 0,
+      step: reverse ? (meta.steps || 1) - 1 : 0,
     })
   }
 
