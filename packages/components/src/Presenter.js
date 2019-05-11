@@ -6,10 +6,13 @@ import Pre from './Pre'
 import Clock from './Clock'
 
 export const Presenter = props => {
-  const { slides, metadata, index } = props
-  const Current = slides[index]
-  const Next = slides[index + 1]
-  const { notes } = metadata[index] || {}
+  const { slides, metadata, index, step } = props
+  const { notes, steps } = metadata[index] || {}
+
+  const isLastStep = step + 1 >= (steps || 1)
+  const nextStep = isLastStep ? 0 : step + 1
+  const nextIndex = isLastStep ? index + 1 : index
+  const Next = slides[nextIndex]
 
   return (
     <div
@@ -48,7 +51,7 @@ export const Presenter = props => {
         >
           <Zoom zoom={1 / 4}>
             {Next && (
-              <Slide>
+              <Slide index={nextIndex} context={{ step: nextStep }}>
                 <Next />
               </Slide>
             )}
