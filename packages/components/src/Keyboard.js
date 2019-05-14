@@ -12,7 +12,7 @@ const keys = {
   pgDown: 34,
 }
 
-const inputElements = ['INPUT', 'TEXTAREA', 'A', 'BUTTON']
+const inputElements = ['INPUT', 'TEXTAREA']
 
 const toggleMode = key => state => ({
   mode: state.mode === key ? 'normal' : key,
