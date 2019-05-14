@@ -101,4 +101,20 @@ export default props => {
 }
 ```
 
+## `useTheme` Hook
+
+The `useTheme` hook returns the current [theme](theming.md).
+
+```jsx
+// example
+import React from 'react'
+import { useTheme } from '@mdx-deck/components'
+
+export default props => {
+  const theme = useTheme()
+
+  return <h2 style={{ border: `1px solid ${theme.colors.text}` }}>Hello</h2>
+}
+```
+
 [provider component]: advanced.md#custom-provider-component
