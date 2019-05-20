@@ -125,6 +125,7 @@ The following keys are available for theming:
 - `Slide`: CSS to apply to the wrapping Slide component
 - `components`: object of MDX components to render markdown
 - `Provider`: component for wrapping the entire app
+- `Presenter`: component for wrapping the presenter mode
 - `googleFont`: CSS HREF for adding a Google Font `<link>` tag
 
 ## Advanced Usage
