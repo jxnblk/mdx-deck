@@ -70,7 +70,7 @@ const defaultTemplate = ({
 <html>
   <head>
     <meta charset='utf-8'>
-    <meta name='viewport' content='width=device-width,initial-scale=1'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'/>
     <style>*{box-sizing:border-box}body{margin:0;font-family:system-ui,sans-serif}</style>
     <meta name='generator' content='mdx-deck'>
     <link rel="manifest" href="/manifest.json">
@@ -78,6 +78,12 @@ const defaultTemplate = ({
     ${head}${links}
   </head>
   <body>
+    <script>
+    function preventScrollBehavior(e) {
+        e.preventDefault();
+    };
+    document.addEventListener("touchmove", preventScrollBehavior, { passive: false });
+    </script>
     <div id=root>${body}</div>
     ${scripts}
   </body>

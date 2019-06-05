@@ -1,38 +1,37 @@
-import React from "react";
-import Zoom from "@mdx-deck/components/src/Zoom";
-import Pre from "@mdx-deck/components/src/Pre";
+import React from 'react'
+import Zoom from '@mdx-deck/components/src/Zoom'
 
 import styled from '@emotion/styled'
 
 const Button = styled.button(() => ({
-  color: "black",
-  backgroundColor: "white",
-  height:'3rem',
-  margin: '0 0.2rem',
+  color: 'black',
+  backgroundColor: 'white',
+  width: '100%',
+  height: '3rem',
 }))
 
 export const Mobile = props => {
-  const { slides, metadata, index, previous, next } = props;
+  const { previous, next } = props
 
   return (
     <div
       style={{
-        color: "white",
-        backgroundColor: "black",
-        display: "flex",
-        userSelect: "none",
+        color: 'white',
+        backgroundColor: '#111111',
+        display: 'flex',
+        userSelect: 'none',
         flexDirection: 'column',
-        justifyContent: 'center',
-        padding:'1rem',
-        height: "100vh"
+        alignItems: 'center',
+        height: '100vh',
       }}
     >
-          <Button onClick={previous}>Previous</Button>
-          <Pre>{index} of {slides.length - 1}</Pre>
-          <Zoom zoom={0.75}>{props.children}</Zoom>
-          <Button onClick={next}>Next</Button>
+      <Button onClick={previous}>Previous</Button>
+      <div style={{ flex: 'auto' }}>
+        <Zoom zoom={0.9}>{props.children}</Zoom>
+      </div>
+      <Button onClick={next}>Next</Button>
     </div>
-  );
-};
+  )
+}
 
-export default Mobile;
+export default Mobile

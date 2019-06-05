@@ -2,7 +2,7 @@
   "name": "mdx-deck",
   "short_name": "mdx-deck",
   "theme_color": "black",
-  "background_color": "#white",
+  "background_color": "white",
   "display": "standalone",
   "Scope": "/",
   "start_url": "/?mode=mobile",
