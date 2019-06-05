@@ -36,7 +36,7 @@ module.exports = async (opts = {}) => {
 
   return new Promise(resolve => {
     const server = http.createServer(app)
-    const wss = new WebSocket.Server({ server });
+    const wss = new WebSocket.Server({ server,path:"/__socket" });
     wss.on('connection', (ws) => {
       ws.on('message', (data) => {
         try{
