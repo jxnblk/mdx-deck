@@ -8,6 +8,7 @@ import merge from 'lodash.merge'
 import Provider from './Provider'
 import Slide from './Slide'
 import Presenter from './Presenter'
+import Mobile from './Mobile'
 import Overview from './Overview'
 import Grid from './Grid'
 import Print from './Print'
@@ -24,12 +25,14 @@ const PRESENTER = 'presenter'
 const OVERVIEW = 'overview'
 const GRID = 'grid'
 const PRINT = 'print'
+const MOBILE = 'mobile'
 const modes = {
   NORMAL,
   PRESENTER,
   OVERVIEW,
   GRID,
   PRINT,
+  MOBILE
 }
 
 const BaseWrapper = props => <>{props.children}</>
@@ -53,7 +56,9 @@ const getWrapper = mode => {
     case OVERVIEW:
       return Overview
     case GRID:
-      return Grid
+      return Grid 
+    case MOBILE:
+      return Mobile
     default:
       return BaseWrapper
       break
