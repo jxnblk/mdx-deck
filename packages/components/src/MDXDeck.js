@@ -15,6 +15,7 @@ import GoogleFonts from './GoogleFonts'
 import Catch from './Catch'
 import Keyboard from './Keyboard'
 import Storage from './Storage'
+import Socket from './Socket'
 import QueryString from './QueryString'
 import Style from './Style'
 
@@ -160,6 +161,7 @@ export const MDXDeck = props => {
         <Style {...context} />
         <Keyboard {...props} {...context} />
         <Storage {...context} />
+        <Socket {...context} />
         <QueryString {...context} />
         <GoogleFonts />
         <Wrapper {...props} {...context}>
