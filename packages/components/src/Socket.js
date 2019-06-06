@@ -2,16 +2,22 @@ import { useEffect } from 'react'
 
 const STORAGE_INDEX = 'mdx-slide'
 const STORAGE_STEP = 'mdx-step'
-const url = window.location.origin
-  .replace('https:', 'wss:')
-  .replace('http:', 'ws:')
-const socket = new WebSocket(`${url}/__socket`)
-socket.addEventListener('open', function() {
-  console.log('ws:connected !!')
-})
-socket.addEventListener('error', function(event) {
-  console.log('ws:error !!', event)
-})
+function createWS() {
+  if (typeof window === 'object') {
+    const url = window.location.origin
+      .replace('https:', 'wss:')
+      .replace('http:', 'ws:')
+    const socket = new WebSocket(`${url}/__socket`)
+    socket.addEventListener('open', function() {
+      console.log('ws:connected !!')
+    })
+    socket.addEventListener('error', function(event) {
+      console.log('ws:error !!', event)
+    })
+    return socket
+  }
+}
+const socket = createWS()
 function sendMessage(message) {
   if (socket.readyState === WebSocket.OPEN) {
     socket.send(JSON.stringify(message))
