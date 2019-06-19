@@ -7,6 +7,7 @@ export { Steps } from './Steps'
 export { Appear } from './Appear'
 export { withContext, useDeck } from './context'
 export { default as useSteps } from './useSteps'
+export { default as useTheme } from './useTheme'
 
 export { Slide } from './Slide'
 export { Zoom } from './Zoom'
