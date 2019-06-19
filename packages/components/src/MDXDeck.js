@@ -4,6 +4,7 @@ import { Router, globalHistory, navigate } from '@reach/router'
 import { Global } from '@emotion/core'
 import { Swipeable } from 'react-swipeable'
 import merge from 'lodash.merge'
+import defaultTheme from '@mdx-deck/themes/base'
 
 import Provider from './Provider'
 import Slide from './Slide'
@@ -45,25 +46,16 @@ const getIndex = ({ basepath }) => {
   return index
 }
 
+const mergeThemes = themes =>
+  themes.reduce(
+    (acc, theme) =>
+      typeof theme === 'function' ? theme(acc) : merge(acc, theme),
+    {}
+  )
+
 const mergeState = (state, next) =>
   merge({}, state, typeof next === 'function' ? next(state) : next)
 const useState = init => useReducer(mergeState, init)
-
-const getWrapper = mode => {
-  switch (mode) {
-    case PRESENTER:
-      return Presenter
-    case OVERVIEW:
-      return Overview
-    case GRID:
-      return Grid 
-    case MOBILE:
-      return Mobile
-    default:
-      return BaseWrapper
-      break
-  }
-}
 
 export const MDXDeckContext = React.createContext()
 
@@ -89,13 +81,30 @@ export const MDXDeckState = ({ children }) => {
 }
 
 export const MDXDeck = props => {
-  const { slides, basepath } = props
+  const { slides, basepath, theme: baseTheme, themes = [] } = props
   const { state, setState } = useDeckState(MDXDeckContext)
+  const theme = mergeThemes([defaultTheme, baseTheme, ...themes])
 
   const index = getIndex(props)
 
   const getMeta = i => {
     return state.metadata[i] || {}
+  }
+
+  const getWrapper = mode => {
+    switch (mode) {
+      case PRESENTER:
+        return theme.Presenter || Presenter
+      case OVERVIEW:
+        return Overview
+      case GRID:
+        return Grid
+      case MOBILE:
+       return Mobile
+      default:
+        return BaseWrapper
+        break
+    }
   }
 
   const register = (index, meta) => {
@@ -161,7 +170,7 @@ export const MDXDeck = props => {
   const Wrapper = getWrapper(state.mode)
 
   return (
-    <Provider {...props} {...context}>
+    <Provider {...props} {...context} theme={theme}>
       <Catch>
         <Style {...context} />
         <Keyboard {...props} {...context} />

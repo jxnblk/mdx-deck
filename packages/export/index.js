@@ -2,6 +2,7 @@ const path = require('path')
 const puppeteer = require('puppeteer')
 const mkdirp = require('mkdirp')
 const dev = require('mdx-deck/lib/dev')
+const findup = require('find-up')
 
 module.exports = async opts => {
   const { type, outDir, outFile, port, width, height, sandbox } = opts
@@ -9,6 +10,13 @@ module.exports = async opts => {
   const args = []
   if (!sandbox) {
     args.push('--no-sandbox', '--disable-setuid-sandbox')
+  }
+
+  if (opts.webpack) {
+    opts.webpack = require(path.resolve(opts.webpack))
+  } else {
+    const webpackConfig = findup.sync('webpack.config.js', { cwd: opts.dirname })
+    if (webpackConfig) opts.webpack = require(webpackConfig)
   }
 
   const server = await dev(opts)

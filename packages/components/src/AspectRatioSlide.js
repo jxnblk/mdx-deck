@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
-import { ThemeContext } from '@emotion/core'
 import styled from '@emotion/styled'
 import FluidFontSize from './FluidFontSize'
+import useTheme from './useTheme'
 
 const getPadding = ratio =>
   ratio > 1 ? (1 / ratio) * 100 + '%' : ratio * 100 + '%'
@@ -36,7 +36,7 @@ const Inner = styled.div(
 )
 
 export default props => {
-  const theme = useContext(ThemeContext)
+  const theme = useTheme()
   if (!theme.aspectRatio) {
     return <>{props.children}</>
   }
