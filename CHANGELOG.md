@@ -1,5 +1,11 @@
 # Changelog
 
+## v2.4.0 2019-06-19
+
+- Add `useTheme` hook to API #359
+- Makes presenter mode themeable #366
+- Add support for `--webpack` flag #369
+
 ## v2.3.2 2019-04-21
 
 - Fixed issue when Head only had one element #345
