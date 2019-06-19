@@ -1,4 +1,5 @@
 export { MDXDeck, MDXDeckState } from './MDXDeck'
+export { default as Clock } from './Clock'
 export { Head } from './Head'
 export { Image } from './Image'
 export { Notes } from './Notes'
