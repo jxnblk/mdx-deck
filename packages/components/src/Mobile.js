@@ -1,5 +1,5 @@
 import React from 'react'
-import Zoom from '@mdx-deck/components/src/Zoom'
+import Zoom from './Zoom'
 
 import styled from '@emotion/styled'
 
