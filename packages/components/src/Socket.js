@@ -34,10 +34,10 @@ function useSocketMessage({ goto, update, index, step }) {
         if (data.type === 'broadcast') {
           const value = data.payload.value - 0
           if (data.payload.type === STORAGE_INDEX && value !== index) {
-            localStorage.setItem(STORAGE_INDEX, value)
+            //localStorage.setItem(STORAGE_INDEX, value)
             goto(value)
           } else if (data.payload.type === STORAGE_STEP && value !== step) {
-            localStorage.setItem(STORAGE_STEP, value)
+            //localStorage.setItem(STORAGE_STEP, value)
             update({ step: value })
           }
         }
