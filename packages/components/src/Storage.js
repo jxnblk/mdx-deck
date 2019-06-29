@@ -1,7 +1,5 @@
 import { useEffect, useState } from 'react'
-
-const STORAGE_INDEX = 'mdx-slide'
-const STORAGE_STEP = 'mdx-step'
+import { STORAGE_INDEX, STORAGE_STEP } from './constants'
 
 export const useLocalStorage = (handler, args = []) => {
   const [focused, setFocused] = useState(false)

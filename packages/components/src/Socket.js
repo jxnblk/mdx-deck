@@ -1,7 +1,6 @@
 import { useEffect } from 'react'
+import { STORAGE_INDEX, STORAGE_STEP } from './constants'
 
-const STORAGE_INDEX = 'mdx-slide'
-const STORAGE_STEP = 'mdx-step'
 function createWS() {
   if (typeof window === 'object') {
     const url = window.location.origin

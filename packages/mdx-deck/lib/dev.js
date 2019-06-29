@@ -21,7 +21,6 @@ module.exports = async (opts = {}) => {
 
   app.use(history())
   app.use(serveStatic(opts.dirname))
-  app.use(serveStatic(`${__dirname}/static`))
   app.use(
     devMiddleware(compiler, {
       stats: 'errors-only',

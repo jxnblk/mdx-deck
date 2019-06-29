@@ -73,17 +73,9 @@ const defaultTemplate = ({
     <meta name='viewport' content='width=device-width,initial-scale=1'>
     <style>*{box-sizing:border-box}body{margin:0;font-family:system-ui,sans-serif}</style>
     <meta name='generator' content='mdx-deck'>
-    <link rel="manifest" href="/manifest.json">
-    <script async="true" src="https://cdn.jsdelivr.net/npm/pwacompat@2.0.9/pwacompat.min.js" integrity="sha384-VcI6S+HIsE80FVM1jgbd6WDFhzKYA0PecD/LcIyMQpT4fMJdijBh0I7Iblaacawc" crossorigin="anonymous"></script>
     ${head}${links}
   </head>
   <body>
-    <script>
-    function preventScrollBehavior(e) {
-        e.preventDefault();
-    };
-    document.addEventListener("touchmove", preventScrollBehavior, { passive: false });
-    </script>
     <div id=root>${body}</div>
     ${scripts}
   </body>

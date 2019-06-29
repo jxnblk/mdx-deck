@@ -5,11 +5,11 @@ import ResizeObserver from 'resize-observer-polyfill'
 export const FluidFontSize = ({ base = 16, children, className }) => {
   const div = useRef(null)
   const [fontSize, setFontSize] = useState(base)
-  const isMountedRed = useRef(false)
+  const isMountedRef = useRef(false)
   useEffect(function() {
-    isMountedRed.current = true
+    isMountedRef.current = true
     return function() {
-      isMountedRed.current = false
+      isMountedRef.current = false
     }
   }, [])
   useLayoutEffect(() => {
@@ -19,7 +19,7 @@ export const FluidFontSize = ({ base = 16, children, className }) => {
         const { width } = entry.contentRect
         const ratio = width / 320
         const next = Math.floor(ratio * base)
-        isMountedRed.current && setFontSize(next)
+        isMountedRef.current && setFontSize(next)
       })
     })
     observer.observe(div.current)

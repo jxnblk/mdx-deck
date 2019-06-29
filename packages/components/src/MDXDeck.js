@@ -1,7 +1,6 @@
-import React, { useContext, useReducer, useMemo } from 'react'
+import React, { useContext, useReducer } from 'react'
 import PropTypes from 'prop-types'
 import { Router, globalHistory, navigate } from '@reach/router'
-import { Global } from '@emotion/core'
 import { Swipeable } from 'react-swipeable'
 import merge from 'lodash.merge'
 import defaultTheme from '@mdx-deck/themes/base'
@@ -9,7 +8,6 @@ import defaultTheme from '@mdx-deck/themes/base'
 import Provider from './Provider'
 import Slide from './Slide'
 import Presenter from './Presenter'
-import Mobile from './Mobile'
 import Overview from './Overview'
 import Grid from './Grid'
 import Print from './Print'
@@ -26,14 +24,12 @@ const PRESENTER = 'presenter'
 const OVERVIEW = 'overview'
 const GRID = 'grid'
 const PRINT = 'print'
-const MOBILE = 'mobile'
 const modes = {
   NORMAL,
   PRESENTER,
   OVERVIEW,
   GRID,
   PRINT,
-  MOBILE
 }
 
 const BaseWrapper = props => <>{props.children}</>
@@ -99,8 +95,6 @@ export const MDXDeck = props => {
         return Overview
       case GRID:
         return Grid
-      case MOBILE:
-       return Mobile
       default:
         return BaseWrapper
         break
