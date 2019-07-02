@@ -16,7 +16,9 @@ function createWS() {
     return socket
   }
 }
+
 const socket = createWS()
+
 function sendMessage(message) {
   if (socket.readyState === WebSocket.OPEN) {
     socket.send(JSON.stringify(message))
