@@ -13,6 +13,8 @@ const paddingBottom = props => ({
 const Outer = styled('div')(
   {
     width: '100%',
+    maxWidth: '100%',
+    minWidth: 0,
     height: 0,
     margin: 'auto',
     position: 'relative',

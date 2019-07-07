@@ -48,6 +48,9 @@ const wrapper = props => {
     ...themes,
     {
       aspectRatio: ratio,
+      Slide: {
+        height: 'auto',
+      },
     },
   ])
   const Content = slides[props.slide - 1] || Placeholder
