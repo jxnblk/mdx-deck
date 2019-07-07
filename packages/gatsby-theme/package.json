@@ -31,6 +31,6 @@
     "lodash.get": "^4.4.2",
     "mkdirp": "^0.5.1",
     "remark-emoji": "^2.0.2",
-    "remark-unwrap-images": "^0.2.0"
+    "remark-unwrap-images": "^1.0.0"
   }
 }
