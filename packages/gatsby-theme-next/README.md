@@ -10,3 +10,4 @@ Prototype for MDX Deck v3
 - [ ] theme-ui
 - [ ] mode state
 - [x] router
+- [ ] react helmet
