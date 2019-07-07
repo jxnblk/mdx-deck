@@ -1,7 +1,6 @@
-import React, { useContext, useReducer, useMemo } from 'react'
+import React, { useContext, useReducer } from 'react'
 import PropTypes from 'prop-types'
 import { Router, globalHistory, navigate } from '@reach/router'
-import { Global } from '@emotion/core'
 import { Swipeable } from 'react-swipeable'
 import merge from 'lodash.merge'
 import defaultTheme from '@mdx-deck/themes/base'
@@ -97,7 +96,6 @@ export const MDXDeck = props => {
         return Grid
       default:
         return BaseWrapper
-        break
     }
   }
 

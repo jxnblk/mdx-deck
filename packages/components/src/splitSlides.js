@@ -1,6 +1,7 @@
 import React from 'react'
 
 export const splitSlides = props => {
+  console.log('splitSlides', props)
   const { theme, themes } = props
   const arr = React.Children.toArray(props.children)
   const splits = []

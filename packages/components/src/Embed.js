@@ -21,41 +21,61 @@ import { jsx } from '@emotion/core'
 import Provider from './Provider'
 import Slide from './Slide'
 import GoogleFonts from './GoogleFonts'
-import Ratio from './Ratio'
 import splitSlides from './splitSlides'
+
+// fix for regression in gatsby-theme
+import merge from 'lodash.merge'
+import defaultTheme from '@mdx-deck/themes/base'
 
 const Placeholder = ({ index }) => (
   <pre style={{ fontSize: 16 }}>not found: slide {index}</pre>
 )
 
+// fix for regression in gatsby-theme
+const mergeThemes = themes =>
+  themes.reduce(
+    (acc, theme) =>
+      typeof theme === 'function' ? theme(acc) : merge(acc, theme),
+    {}
+  )
+
 const wrapper = props => {
-  const { slides, theme, themes, ratio, zoom } = splitSlides(props)
+  const { slides, theme: baseTheme, themes, ratio, zoom } = splitSlides(props)
+  // fix for regression in gatsby-theme
+  const theme = mergeThemes([
+    defaultTheme,
+    baseTheme,
+    ...themes,
+    {
+      aspectRatio: ratio,
+    },
+  ])
   const Content = slides[props.slide - 1] || Placeholder
 
   return (
-    <Provider theme={theme} themes={themes}>
+    <Provider theme={theme}>
       <GoogleFonts />
-      <Ratio ratio={ratio}>
-        <Slide
-          style={{
-            position: 'absolute',
-            top: 0,
-            bottom: 0,
-            width: 100 / zoom + '%',
-            height: 100 / zoom + '%',
-            transformOrigin: '0 0',
-            transform: `scale(${zoom})`,
-          }}
-        >
-          <Content index={props.slide - 1} />
-        </Slide>
-      </Ratio>
+      <Slide zoom={zoom}>
+        <Content index={props.slide - 1} />
+      </Slide>
     </Provider>
   )
 }
 
-export const Embed = ({ src: Deck, slide = 1, ratio = 9 / 16, zoom = 1 }) => (
-  <Deck components={{ wrapper }} slide={slide} ratio={ratio} zoom={zoom} />
+export const Embed = ({
+  src: Deck,
+  slide = 1,
+  ratio = 16 / 9,
+  zoom = 1,
+  ...props
+}) => (
+  <Deck
+    {...props}
+    components={{ wrapper }}
+    slide={slide}
+    ratio={ratio}
+    zoom={zoom}
+  />
 )
 
 export default Embed

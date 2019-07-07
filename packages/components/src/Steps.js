@@ -1,5 +1,3 @@
-import React from 'react'
-import { useDeck } from './context'
 import useSteps from './useSteps'
 
 export const Steps = props => {
