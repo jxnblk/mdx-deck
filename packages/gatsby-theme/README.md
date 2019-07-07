@@ -11,7 +11,7 @@ _Note:_ This theme **requires MDX v1** and will not work with previous versions 
 ```js
 // gatsby-config.js
 module.exports = {
-  __experimentalThemes: ['@mdx-deck/gatsby-theme'],
+  plugins: ['@mdx-deck/gatsby-theme'],
 }
 ```
 
@@ -50,7 +50,7 @@ The following options can be passed to the gatsby theme.
 ```js
 // gatsby-config.js
 module.exports = {
-  __experimentalThemes: [
+  plugins: [
     {
       resolve: '@mdx-deck/gatsby-theme',
       options: {

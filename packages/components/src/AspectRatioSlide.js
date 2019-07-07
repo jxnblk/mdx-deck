@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import styled from '@emotion/styled'
 import FluidFontSize from './FluidFontSize'
 import useTheme from './useTheme'

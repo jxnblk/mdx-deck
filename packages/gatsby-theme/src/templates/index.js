@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import MDXRenderer from 'gatsby-mdx/mdx-renderer'
+import { MDXRenderer } from 'gatsby-plugin-mdx'
 import get from 'lodash.get'
 import Layout from '../layouts/index'
 
@@ -15,8 +15,8 @@ export default props => {
       ...node,
       slug: node.fields.deck,
       title: getTitle(node),
-      children: <MDXRenderer children={node.code.body} />,
-      Component: props => <MDXRenderer {...props} children={node.code.body} />,
+      children: <MDXRenderer children={node.body} />,
+      Component: props => <MDXRenderer {...props} children={node.body} />,
     }))
     .filter(node => node.parent.sourceInstanceName === 'decks')
   return <Layout {...props} decks={decks} />
@@ -31,9 +31,7 @@ export const query = graphql`
           fields {
             deck
           }
-          code {
-            body
-          }
+          body
           headings {
             depth
             value
