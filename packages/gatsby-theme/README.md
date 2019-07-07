@@ -15,7 +15,9 @@ module.exports = {
 }
 ```
 
-Add MDX Decks to the `src/decks/` directory.
+Add MDX Decks to the `src/decks/` directory. The filename will be used for the route of that deck.
+
+**/src/decks/hello.mdx**
 
 ```mdx
 # Hello!
@@ -28,6 +30,8 @@ Add MDX Decks to the `src/decks/` directory.
 ## Using Layouts
 
 Slide layout components must be rendered inline, _not_ using the default export syntax.
+
+**/src/decks/hello.mdx**
 
 ```mdx
 import Layout from './my-layout'

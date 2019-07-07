@@ -19,7 +19,7 @@ const themeConfig = (opts = {}) => {
         },
       },
       mdx && {
-        resolve: 'gatsby-mdx',
+        resolve: 'gatsby-plugin-mdx',
         options: {
           extensions: ['.mdx', '.md'],
           remarkPlugins,
