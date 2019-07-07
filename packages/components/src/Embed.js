@@ -49,6 +49,7 @@ const wrapper = props => {
     {
       aspectRatio: ratio,
       Slide: {
+        maxWidth: '100%',
         height: 'auto',
       },
     },

@@ -36,7 +36,6 @@ const Root = styled.div(
     backgroundColor: props.theme.colors.background,
     width: '100vw',
     height: '100vh',
-    maxWidth: '100%',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
