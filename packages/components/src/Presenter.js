@@ -7,7 +7,6 @@ import Clock from './Clock'
 
 export const Presenter = props => {
   const { slides, metadata, index } = props
-  const Current = slides[index]
   const Next = slides[index + 1]
   const { notes } = metadata[index] || {}
 
@@ -19,23 +18,20 @@ export const Presenter = props => {
         display: 'flex',
         flexDirection: 'column',
         height: '100vh',
-      }}
-    >
+      }}>
       <div
         style={{
           marginTop: 'auto',
           marginBottom: 'auto',
           display: 'flex',
-        }}
-      >
+        }}>
         <div
           style={{
             width: 500 / 8 + '%',
             minWidth: 0,
             marginLeft: 'auto',
             marginRight: 'auto',
-          }}
-        >
+          }}>
           <Zoom zoom={5 / 8}>{props.children}</Zoom>
         </div>
         <div
@@ -44,8 +40,7 @@ export const Presenter = props => {
             minWidth: 0,
             marginLeft: 'auto',
             marginRight: 'auto',
-          }}
-        >
+          }}>
           <Zoom zoom={1 / 4}>
             {Next && (
               <Slide>
@@ -61,8 +56,7 @@ export const Presenter = props => {
           display: 'flex',
           alignItems: 'center',
           padding: 16,
-        }}
-      >
+        }}>
         <Pre>
           {index} of {slides.length - 1}
         </Pre>
@@ -73,8 +67,7 @@ export const Presenter = props => {
           href={globalHistory.location.origin + globalHistory.location.pathname}
           style={{
             color: 'inherit',
-          }}
-        >
+          }}>
           Open New Window
         </a>
         <div style={{ margin: 'auto' }} />
