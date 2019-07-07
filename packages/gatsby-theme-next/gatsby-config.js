@@ -1,7 +1,7 @@
 const IS_LOCAL = process.cwd() === __dirname
 
 const config = (opts = {}) => {
-  const { mdx = true, path: source = 'src/decks', name = '' } = opts
+  const { mdx = true, contentPath: name = 'content/decks' } = opts
 
   return {
     plugins: [
@@ -9,7 +9,7 @@ const config = (opts = {}) => {
         resolve: 'gatsby-source-filesystem',
         options: {
           name,
-          path: path.resolve(source),
+          path: name,
         },
       },
       mdx && 'gatsby-plugin-mdx',
