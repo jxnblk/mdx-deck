@@ -43,6 +43,12 @@ const mdxResolverPassthrough = fieldName => async (
   return result
 }
 
+const resolveTitle = async (...args) => {
+  const headings = await mdxResolverPassthrough('headings')(...args)
+  const [first = {}] = headings
+  return first.value || 'Untitled'
+}
+
 exports.sourceNodes = ({ actions, schema }) => {
   const { createTypes } = actions
   createTypes(
@@ -52,6 +58,10 @@ exports.sourceNodes = ({ actions, schema }) => {
         id: { type: `ID!` },
         slug: {
           type: `String!`,
+        },
+        title: {
+          type: `String!`,
+          resolve: resolveTitle,
         },
         body: {
           type: `String!`,
