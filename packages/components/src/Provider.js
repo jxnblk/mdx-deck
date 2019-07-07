@@ -7,7 +7,7 @@ import mdxComponents from './mdx-components'
 const DefaultProvider = props => <>{props.children}</>
 
 export const Provider = props => {
-  const { headTags, theme = {}, mdx } = props
+  const { headTags, theme, mdx } = props
   const {
     Provider: UserProvider = DefaultProvider,
     components: themeComponents = {},
