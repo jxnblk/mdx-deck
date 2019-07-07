@@ -1,12 +1,27 @@
 import React from 'react'
+import { Router } from '@reach/router'
 
-export default ({ slides = [], ...props }) => {
+const Route = ({ style }) => <div style={style} />
+
+const Slide = ({ slide, ...props }) => (
+  <div
+    style={{
+      outline: '2px solid cyan',
+    }}>
+    {slide}
+  </div>
+)
+
+export default ({ slides = [], pageContext: { slug }, ...props }) => {
   return (
     <div>
       <pre>DECK {slides.length} slides</pre>
-      {slides.map((slide, i) => (
-        <div key={i}>{slide}</div>
-      ))}
+      <Router basepath={slug}>
+        <Slide path="/" slide={slides[0]} />
+        {slides.map((slide, i) => (
+          <Slide key={i} path={i + '/*'} slide={slide} />
+        ))}
+      </Router>
     </div>
   )
 }

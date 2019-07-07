@@ -98,9 +98,11 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   decks.forEach(({ node }, index) => {
     const { slug } = node
+    const matchPath = path.join(slug, '*')
 
     createPage({
       path: slug,
+      matchPath,
       component: DeckTemplate,
       context: {
         ...node,

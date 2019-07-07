@@ -9,4 +9,4 @@ Prototype for MDX Deck v3
 - [ ] slide styles
 - [ ] theme-ui
 - [ ] mode state
-- [ ] router
+- [x] router
