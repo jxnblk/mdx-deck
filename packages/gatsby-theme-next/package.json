@@ -1,0 +1,19 @@
+{
+  "name": "@mdx-deck/gatsby-theme-next",
+  "version": "3.0.0-0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "gatsby": "^2.13.6",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "dependencies": {
+    "@mdx-deck/components": "^2.4.0",
+    "@mdx-deck/themes": "^2.4.0",
+    "@mdx-js/mdx": "^1.0.21",
+    "@mdx-js/react": "^1.0.21",
+    "debug": "^4.1.1",
+    "mkdirp": "^0.5.1"
+  }
+}

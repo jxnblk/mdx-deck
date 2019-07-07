@@ -1,25 +1,22 @@
 const fs = require('fs')
 const path = require('path')
 const { createFilePath } = require('gatsby-source-filesystem')
-const Debug = require('debug')
 const mkdirp = require('mkdirp')
+const Debug = require('debug')
 
 const debug = Debug('@mdx-deck/gatsby-theme')
 
 exports.onPreBootstrap = ({ store }, opts = {}) => {
   const { path: source = 'src/decks' } = opts
-
   const isDir = fs.statSync(source).isDirectory()
   const dirname = isDir ? source : path.dirname(source)
   const { program } = store.getState()
   const dir = path.join(program.directory, dirname)
-
-  debug(`Initializing ${dir} directory`)
   mkdirp.sync(dir)
 }
 
 exports.onCreateNode = ({ node, actions, getNode }, opts = {}) => {
-  const { name = 'decks' } = opts
+  const { name = '' } = opts
   if (node.internal.type !== 'Mdx') return
 
   const value = path.join('/', name, createFilePath({ node, getNode }))
@@ -30,10 +27,8 @@ exports.onCreateNode = ({ node, actions, getNode }, opts = {}) => {
   })
 }
 
-const stripSlash = str => str.replace(/\/$/, '')
-
 exports.createPages = async ({ graphql, actions }, opts = {}) => {
-  const { name = 'decks' } = opts
+  const { name = '' } = opts
 
   const result = await graphql(`
     {
