@@ -13,6 +13,7 @@ const config = (opts = {}) => {
         },
       },
       mdx && 'gatsby-plugin-mdx',
+      'gatsby-plugin-react-helmet',
     ].filter(Boolean),
   }
 }

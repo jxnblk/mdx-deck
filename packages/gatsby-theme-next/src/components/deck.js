@@ -1,5 +1,6 @@
 import React from 'react'
 import { Router, globalHistory } from '@reach/router'
+import { Helmet } from 'react-helmet'
 import get from 'lodash.get'
 import useKeyboard from '../hooks/use-keyboard'
 import useStorage from '../hooks/use-storage'
@@ -37,9 +38,11 @@ export default ({ slides = [], pageContext: { slug }, ...props }) => {
     steps: get(outer, `metadata.${index}.steps`),
     notes: get(outer, `metadata.${index}.notes`),
   }
+  const [head] = slides.heads
 
   return (
     <Context.Provider value={context}>
+      {false && head && <Helmet {...head.props} />}
       <Keyboard />
       <Storage />
       <Router basepath={slug}>

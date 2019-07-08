@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { navigate } from '@reach/router'
 import useDeck from './use-deck'
 

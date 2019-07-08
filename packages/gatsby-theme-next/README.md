@@ -5,9 +5,19 @@ Prototype for MDX Deck v3
 
 ## To do
 
-- [ ] slide state
+- [x] slide state
+- [x] router
+- [x] steps
+- [x] storage
+- [x] notes state
+- [x] next/previous keyboard
+- [ ] page up/down keys
+- [ ] mode-switch keys
+- [ ] mode state
+- [ ] mode components
 - [ ] slide styles
 - [ ] theme-ui
-- [ ] mode state
-- [x] router
-- [ ] react helmet
+- [ ] react helmet ??? how can this even work??
+  - [ ] custom Head component
+  - [ ] remove Head in slides parser
+- [ ] export theme/themes API

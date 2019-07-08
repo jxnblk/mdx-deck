@@ -6049,6 +6049,11 @@ execa@^2.0.1:
     signal-exit "^3.0.2"
     strip-final-newline "^2.0.0"
 
+exenv@^1.2.1:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/exenv/-/exenv-1.2.2.tgz#2ae78e85d9894158670b03d47bec1f03bd91bb9d"
+  integrity sha1-KueOhdmJQVhnCwPUe+wfA72Ru50=
+
 exit@^0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/exit/-/exit-0.1.2.tgz#0632638f8d877cc82107d30a0fff1a17cba1cd0c"
@@ -6768,6 +6773,13 @@ gatsby-plugin-page-creator@^2.1.2:
     glob "^7.1.1"
     lodash "^4.17.10"
     micromatch "^3.1.10"
+
+gatsby-plugin-react-helmet@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-react-helmet/-/gatsby-plugin-react-helmet-3.1.0.tgz#5cc5271334fce7522207f751a24af97bd7eebaf5"
+  integrity sha512-QJefYCTvu+WRgnckNipnfvNVUR8+1TsXN+/AZPWJ9OyFUWmgYJO/PyDpIzEEYekDnDMb7gKFFj+UuJ8bSGvj2g==
+  dependencies:
+    "@babel/runtime" "^7.0.0"
 
 gatsby-react-router-scroll@^2.1.1:
   version "2.1.1"
@@ -12083,7 +12095,7 @@ promzard@^0.3.0:
   dependencies:
     read "1"
 
-prop-types@^15.5.10, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
+prop-types@^15.5.10, prop-types@^15.5.4, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
@@ -12392,6 +12404,21 @@ react-error-overlay@^5.1.6:
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-5.1.6.tgz#0cd73407c5d141f9638ae1e0c63e7b2bf7e9929d"
   integrity sha512-X1Y+0jR47ImDVr54Ab6V9eGk0Hnu7fVWGeHQSOXHf/C2pF9c6uy3gef8QUeuUiWlNb0i08InPSE5a/KJzNzw1Q==
 
+react-fast-compare@^2.0.2:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/react-fast-compare/-/react-fast-compare-2.0.4.tgz#e84b4d455b0fec113e0402c329352715196f81f9"
+  integrity sha512-suNP+J1VU1MWFKcyt7RtjiSWUjvidmQSlqu+eHslq+342xCbGTYmC0mEhPCOHxlW0CywylOC1u2DFAT+bv4dBw==
+
+react-helmet@^5.2.1:
+  version "5.2.1"
+  resolved "https://registry.yarnpkg.com/react-helmet/-/react-helmet-5.2.1.tgz#16a7192fdd09951f8e0fe22ffccbf9bb3e591ffa"
+  integrity sha512-CnwD822LU8NDBnjCpZ4ySh8L6HYyngViTZLfBBb3NjtrpN8m49clH8hidHouq20I51Y6TpCTISCBbqiY5GamwA==
+  dependencies:
+    object-assign "^4.1.1"
+    prop-types "^15.5.4"
+    react-fast-compare "^2.0.2"
+    react-side-effect "^1.1.0"
+
 react-hot-loader@^4.8.4:
   version "4.12.5"
   resolved "https://registry.yarnpkg.com/react-hot-loader/-/react-hot-loader-4.12.5.tgz#ebe5b6a68190b14fce42151fff03d1ad43634e9b"
@@ -12425,6 +12452,14 @@ react-reconciler@^0.20.0:
     object-assign "^4.1.1"
     prop-types "^15.6.2"
     scheduler "^0.13.6"
+
+react-side-effect@^1.1.0:
+  version "1.1.5"
+  resolved "https://registry.yarnpkg.com/react-side-effect/-/react-side-effect-1.1.5.tgz#f26059e50ed9c626d91d661b9f3c8bb38cd0ff2d"
+  integrity sha512-Z2ZJE4p/jIfvUpiUMRydEVpQRf2f8GMHczT6qLcARmX7QRb28JDBTpnM2g/i5y/p7ZDEXYGHWg0RbhikE+hJRw==
+  dependencies:
+    exenv "^1.2.1"
+    shallowequal "^1.0.1"
 
 react-swipeable@^5.0.1:
   version "5.3.0"
@@ -13411,7 +13446,7 @@ shallow-compare@^1.2.2:
   resolved "https://registry.yarnpkg.com/shallow-compare/-/shallow-compare-1.2.2.tgz#fa4794627bf455a47c4f56881d8a6132d581ffdb"
   integrity sha512-LUMFi+RppPlrHzbqmFnINTrazo0lPNwhcgzuAXVVcfy/mqPDrQmHAyz5bvV0gDAuRFrk804V0HpQ6u9sZ0tBeg==
 
-shallowequal@^1.0.2:
+shallowequal@^1.0.1, shallowequal@^1.0.2:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/shallowequal/-/shallowequal-1.1.0.tgz#188d521de95b9087404fd4dcb68b13df0ae4e7f8"
   integrity sha512-y0m1JoUZSlPAjXVtPPW70aZWfIL/dSP7AFkRnniLCrK/8MDKog3TySTBmckD+RObVxH0v4Tox67+F14PdED2oQ==
