@@ -3,11 +3,12 @@ import { jsx } from 'theme-ui'
 import Context from '../context'
 import useDeck from '../hooks/use-deck'
 
-export const Slide = ({ slide, index, ...props }) => {
+export const Slide = ({ slide, index, preview, ...props }) => {
   const outer = useDeck()
   const context = {
     ...outer,
     index,
+    preview,
   }
   return (
     <Context.Provider value={context}>

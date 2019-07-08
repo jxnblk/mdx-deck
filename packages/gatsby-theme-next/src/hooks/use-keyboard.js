@@ -2,6 +2,7 @@
 import { useEffect } from 'react'
 import { navigate } from '@reach/router'
 import useDeck from './use-deck'
+import { modes } from '../constants'
 
 const keys = {
   right: 39,
@@ -10,8 +11,9 @@ const keys = {
   p: 80,
   o: 79,
   g: 71,
-  pgUp: 33,
-  pgDown: 34,
+  esc: 27,
+  pageUp: 33,
+  pageDown: 34,
 }
 
 const nextSlide = ({ slug, length, index, setState }) => {
@@ -40,6 +42,15 @@ const previous = context => {
   previousSlide(context)
 }
 
+const toggleMode = next => state =>
+  state.mode === next
+    ? {
+        mode: modes.normal,
+      }
+    : {
+        mode: next,
+      }
+
 export const useKeyboard = () => {
   const context = useDeck()
 
@@ -52,15 +63,35 @@ export const useKeyboard = () => {
           case keys.space:
             previous(context)
             break
+          case keys.p:
+            context.setState(toggleMode(modes.print))
+            break
+        }
+      } else if (altKey) {
+        switch (e.keyCode) {
+          case keys.p:
+            context.setState(toggleMode(modes.presenter))
+            break
+          case keys.o:
+            context.setState(toggleMode(modes.overview))
+            break
+          case keys.g:
+            context.setState(toggleMode(modes.grid))
+            break
         }
       } else {
         switch (e.keyCode) {
           case keys.right:
+          case keys.pageDown:
           case keys.space:
             next(context)
             break
           case keys.left:
+          case keys.pageUp:
             previous(context)
+            break
+          case keys.esc:
+            context.setState({ mode: modes.normal })
             break
         }
       }

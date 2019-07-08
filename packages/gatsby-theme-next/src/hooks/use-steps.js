@@ -9,5 +9,6 @@ export default length => {
       steps: length,
     })
   }, [])
+  if (context.preview) return length
   return context.step
 }

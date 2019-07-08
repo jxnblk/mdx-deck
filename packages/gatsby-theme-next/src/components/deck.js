@@ -9,6 +9,9 @@ import useDeck from '../hooks/use-deck'
 import Context from '../context'
 import Wrapper from './wrapper'
 import Slide from './slide'
+import { modes } from '../constants'
+
+import Presenter from './presenter'
 
 const Keyboard = () => {
   useKeyboard()
@@ -42,6 +45,13 @@ export default ({ slides = [], pageContext: { slug }, ...props }) => {
   }
   const [head] = slides.heads
 
+  let Mode = ({ children }) => <React.Fragment children={children} />
+  switch (context.mode) {
+    case modes.presenter:
+      Mode = Presenter
+      break
+  }
+
   return (
     <Context.Provider value={context}>
       {false && head && <Helmet {...head.props} />}
@@ -49,19 +59,20 @@ export default ({ slides = [], pageContext: { slug }, ...props }) => {
       <Keyboard />
       <Storage />
       <Wrapper>
-        <Router
-          basepath={slug}
-          style={{
-            height: '100%',
-          }}>
-          <Slide index={0} path="/" slide={slides[0]} />
-          {slides.map((slide, i) => (
-            <Slide key={i} index={i} path={i + '/*'} slide={slide} />
-          ))}
-        </Router>
+        <Mode slides={slides}>
+          <Router
+            basepath={slug}
+            style={{
+              height: '100%',
+            }}>
+            <Slide index={0} path="/" slide={slides[0]} />
+            {slides.map((slide, i) => (
+              <Slide key={i} index={i} path={i + '/*'} slide={slide} />
+            ))}
+          </Router>
+        </Mode>
       </Wrapper>
-
-      {context.notes && <pre>{context.notes}</pre>}
+      {false && context.notes && <pre>{context.notes}</pre>}
     </Context.Provider>
   )
 }

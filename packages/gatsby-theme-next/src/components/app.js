@@ -2,7 +2,10 @@ import React, { useReducer } from 'react'
 import merge from 'lodash.merge'
 import Context from '../context'
 
-const reducer = (state, next) => merge({}, state, next)
+const reducer = (state, next) =>
+  typeof next === 'function'
+    ? merge({}, state, next(state))
+    : merge({}, state, next)
 
 export default props => {
   const [state, setState] = useReducer(reducer, {

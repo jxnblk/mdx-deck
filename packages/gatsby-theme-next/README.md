@@ -11,16 +11,19 @@ Prototype for MDX Deck v3
 - [x] storage
 - [x] notes state
 - [x] next/previous keyboard
-- [ ] page up/down keys
-- [ ] mode-switch keys
-- [ ] mode state
+- [x] page up/down keys
+- [x] mode-switch keys
+- [x] mode state
 - [ ] mode components
   - [ ] Presenter
   - [ ] Overview
   - [ ] Grid
-- [ ] slide styles
-- [ ] theme-ui
+  - [ ] Print
+- [-] slide styles
+- [-] theme-ui
+- [ ] port default themes over
+- [ ] add legacy theme transformer
+- [ ] export theme/themes API
 - [ ] react helmet ??? how can this even work??
   - [ ] custom Head component
   - [ ] remove Head in slides parser
-- [ ] export theme/themes API
