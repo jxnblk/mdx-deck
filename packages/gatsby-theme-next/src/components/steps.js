@@ -12,12 +12,7 @@ export const Steps = props => {
     })
   )
 
-  return (
-    <>
-      <pre>{step}</pre>
-      {styled}
-    </>
-  )
+  return <>{styled}</>
 }
 
 export default Steps

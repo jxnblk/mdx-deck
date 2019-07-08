@@ -1,5 +1,6 @@
+/* eslint-disable */
 import { useEffect } from 'react'
-import { globalHistory, navigate } from '@reach/router'
+import { navigate } from '@reach/router'
 import useDeck from './use-deck'
 
 const keys = {

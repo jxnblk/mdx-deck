@@ -1,13 +1,19 @@
-import React, { useEffect, useReducer } from 'react'
+import React from 'react'
 import { Router, globalHistory } from '@reach/router'
 import get from 'lodash.get'
 import useKeyboard from '../hooks/use-keyboard'
+import useStorage from '../hooks/use-storage'
 import useDeck from '../hooks/use-deck'
 import Context from '../context'
 import Slide from './slide'
 
 const Keyboard = () => {
   useKeyboard()
+  return false
+}
+
+const Storage = () => {
+  useStorage()
   return false
 }
 
@@ -35,6 +41,7 @@ export default ({ slides = [], pageContext: { slug }, ...props }) => {
   return (
     <Context.Provider value={context}>
       <Keyboard />
+      <Storage />
       <Router basepath={slug}>
         <Slide index={0} path="/" slide={slides[0]} />
         {slides.map((slide, i) => (

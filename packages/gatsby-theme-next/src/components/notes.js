@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import useDeck from '../hooks/use-deck'
 
 export const Notes = props => {
