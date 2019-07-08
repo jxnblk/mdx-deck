@@ -1,16 +1,36 @@
 import React, { useEffect, useReducer } from 'react'
 import { Router, globalHistory, navigate } from '@reach/router'
+import merge from 'lodash.merge'
+import get from 'lodash.get'
+import useKeyboard from '../hooks/use-keyboard'
+import useDeck from '../hooks/use-deck'
+import Context from '../context'
 
-const Slide = ({ slide, ...props }) => (
-  <div
-    style={{
-      outline: '2px solid cyan',
-    }}>
-    {slide}
-  </div>
-)
+const Slide = ({ slide, index, ...props }) => {
+  const outer = useDeck()
+  const context = {
+    ...outer,
+    index,
+  }
+  return (
+    <Context.Provider value={context}>
+      <div
+        style={{
+          padding: 32,
+          outline: '2px solid cyan',
+        }}>
+        {slide}
+      </div>
+    </Context.Provider>
+  )
+}
 
-const reducer = (state, next) => ({ ...state, ...next })
+const Keyboard = () => {
+  useKeyboard()
+  return false
+}
+
+const reducer = (state, next) => merge({}, state, next)
 
 const getIndex = () => {
   const { pathname } = globalHistory.location
@@ -20,54 +40,31 @@ const getIndex = () => {
   return index
 }
 
-const next = ({ slug, length }) => {
-  const i = getIndex()
-  const n = i + 1
-  if (n >= length) return
-  navigate([slug, n].join('/'))
-}
-
-const previous = ({ slug }) => {
-  const i = getIndex()
-  const n = i - 1
-  if (n < 0) return
-  navigate([slug, n].join('/'))
-}
-
 export default ({ slides = [], pageContext: { slug }, ...props }) => {
-  const [state, setState] = useReducer(reducer, {
-    mode: 'normal',
-  })
-  const { length } = slides
+  const outer = useDeck()
+  const index = getIndex()
 
-  useEffect(() => {
-    const handleKeyDown = e => {
-      switch (e.key) {
-        case 'ArrowRight':
-          next({ slug, length })
-          break
-        case 'ArrowLeft':
-          previous({ slug })
-          break
-        default:
-          break
-      }
-    }
-    window.addEventListener('keydown', handleKeyDown)
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown)
-    }
-  }, [])
+  const context = {
+    ...outer,
+    slug,
+    length: slides.length,
+    index,
+    steps: get(outer, `metadata.${index}.steps`),
+  }
 
   return (
-    <div>
-      <pre>DECK {slides.length} slides</pre>
-      <Router basepath={slug}>
-        <Slide path="/" slide={slides[0]} />
-        {slides.map((slide, i) => (
-          <Slide key={i} path={i + '/*'} slide={slide} />
-        ))}
-      </Router>
-    </div>
+    <Context.Provider value={context}>
+      <Keyboard />
+      <div>
+        <pre>DECK {slides.length} slides</pre>
+        <Router basepath={slug}>
+          <Slide index={0} path="/" slide={slides[0]} />
+          {slides.map((slide, i) => (
+            <Slide key={i} index={i} path={i + '/*'} slide={slide} />
+          ))}
+        </Router>
+        <pre children={JSON.stringify(context, null, 2)} />
+      </div>
+    </Context.Provider>
   )
 }

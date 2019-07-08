@@ -20,6 +20,8 @@
     "@mdx-js/react": "^1.0.21",
     "@reach/router": "^1.2.1",
     "debug": "^4.1.1",
+    "lodash.get": "^4.4.2",
+    "lodash.merge": "^4.6.1",
     "mkdirp": "^0.5.1"
   }
 }

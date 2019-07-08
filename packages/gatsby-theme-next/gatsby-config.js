@@ -1,7 +1,7 @@
 const IS_LOCAL = process.cwd() === __dirname
 
 const config = (opts = {}) => {
-  const { mdx = true, contentPath: name = 'content/decks' } = opts
+  const { mdx = true, contentPath: name = 'decks' } = opts
 
   return {
     plugins: [
