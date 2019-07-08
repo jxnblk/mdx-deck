@@ -21,6 +21,8 @@ export const Slide = ({ slide, index, preview, ...props }) => {
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
+          color: 'text',
+          bg: 'background',
           variant: 'styles.Slide',
         }}>
         {slide}

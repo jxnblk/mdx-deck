@@ -1,7 +1,7 @@
 export default {
   colors: {
-    text: '#000',
-    background: '#fff',
+    text: '#eff',
+    background: '#444',
     primary: 'blue',
     secondary: 'rebeccapurple',
     muted: 'lightgray',
@@ -26,13 +26,12 @@ export default {
       fontFamily: 'heading',
       lineHeight: 'heading',
       fontWeight: 'heading',
+      my: 3,
     },
   },
   styles: {
     Slide: {
       fontFamily: 'body',
-      color: 'text',
-      bg: 'background',
       fontSize: [4, 5, 6],
     },
     h1: {
@@ -52,6 +51,12 @@ export default {
     },
     h6: {
       variant: 'text.heading',
+    },
+    ul: {
+      m: 0,
+    },
+    ol: {
+      m: 0,
     },
   },
 }

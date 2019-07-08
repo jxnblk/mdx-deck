@@ -9,7 +9,6 @@ export const Zoom = ({
   <div
     {...props}
     sx={{
-      outline: '1px solid tomato',
       width: '100%',
       position: 'relative',
       height: ratio ? 0 : '100%',
