@@ -15,6 +15,9 @@ Prototype for MDX Deck v3
 - [ ] mode-switch keys
 - [ ] mode state
 - [ ] mode components
+  - [ ] Presenter
+  - [ ] Overview
+  - [ ] Grid
 - [ ] slide styles
 - [ ] theme-ui
 - [ ] react helmet ??? how can this even work??

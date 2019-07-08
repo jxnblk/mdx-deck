@@ -1,11 +1,13 @@
 import React from 'react'
 import { Router, globalHistory } from '@reach/router'
+import { Global } from '@emotion/core'
 import { Helmet } from 'react-helmet'
 import get from 'lodash.get'
 import useKeyboard from '../hooks/use-keyboard'
 import useStorage from '../hooks/use-storage'
 import useDeck from '../hooks/use-deck'
 import Context from '../context'
+import Wrapper from './wrapper'
 import Slide from './slide'
 
 const Keyboard = () => {
@@ -43,14 +45,21 @@ export default ({ slides = [], pageContext: { slug }, ...props }) => {
   return (
     <Context.Provider value={context}>
       {false && head && <Helmet {...head.props} />}
+      <Global styles={{ body: { margin: 0 } }} />
       <Keyboard />
       <Storage />
-      <Router basepath={slug}>
-        <Slide index={0} path="/" slide={slides[0]} />
-        {slides.map((slide, i) => (
-          <Slide key={i} index={i} path={i + '/*'} slide={slide} />
-        ))}
-      </Router>
+      <Wrapper>
+        <Router
+          basepath={slug}
+          style={{
+            height: '100%',
+          }}>
+          <Slide index={0} path="/" slide={slides[0]} />
+          {slides.map((slide, i) => (
+            <Slide key={i} index={i} path={i + '/*'} slide={slide} />
+          ))}
+        </Router>
+      </Wrapper>
 
       {context.notes && <pre>{context.notes}</pre>}
     </Context.Provider>

@@ -14,16 +14,17 @@
     "react-dom": "^16.8.6"
   },
   "dependencies": {
-    "@mdx-deck/components": "^2.4.0",
-    "@mdx-deck/themes": "^2.4.0",
+    "@emotion/core": "^10.0.14",
     "@mdx-js/mdx": "^1.0.21",
     "@mdx-js/react": "^1.0.21",
     "@reach/router": "^1.2.1",
     "debug": "^4.1.1",
     "gatsby-plugin-react-helmet": "^3.1.0",
+    "gatsby-plugin-theme-ui": "^0.2.6",
     "lodash.get": "^4.4.2",
     "lodash.merge": "^4.6.1",
     "mkdirp": "^0.5.1",
-    "react-helmet": "^5.2.1"
+    "react-helmet": "^5.2.1",
+    "theme-ui": "^0.2.10"
   }
 }
