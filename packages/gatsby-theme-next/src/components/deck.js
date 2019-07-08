@@ -1,36 +1,15 @@
 import React, { useEffect, useReducer } from 'react'
-import { Router, globalHistory, navigate } from '@reach/router'
-import merge from 'lodash.merge'
+import { Router, globalHistory } from '@reach/router'
 import get from 'lodash.get'
 import useKeyboard from '../hooks/use-keyboard'
 import useDeck from '../hooks/use-deck'
 import Context from '../context'
-
-const Slide = ({ slide, index, ...props }) => {
-  const outer = useDeck()
-  const context = {
-    ...outer,
-    index,
-  }
-  return (
-    <Context.Provider value={context}>
-      <div
-        style={{
-          padding: 32,
-          outline: '2px solid cyan',
-        }}>
-        {slide}
-      </div>
-    </Context.Provider>
-  )
-}
+import Slide from './slide'
 
 const Keyboard = () => {
   useKeyboard()
   return false
 }
-
-const reducer = (state, next) => merge({}, state, next)
 
 const getIndex = () => {
   const { pathname } = globalHistory.location
@@ -50,21 +29,20 @@ export default ({ slides = [], pageContext: { slug }, ...props }) => {
     length: slides.length,
     index,
     steps: get(outer, `metadata.${index}.steps`),
+    notes: get(outer, `metadata.${index}.notes`),
   }
 
   return (
     <Context.Provider value={context}>
       <Keyboard />
-      <div>
-        <pre>DECK {slides.length} slides</pre>
-        <Router basepath={slug}>
-          <Slide index={0} path="/" slide={slides[0]} />
-          {slides.map((slide, i) => (
-            <Slide key={i} index={i} path={i + '/*'} slide={slide} />
-          ))}
-        </Router>
-        <pre children={JSON.stringify(context, null, 2)} />
-      </div>
+      <Router basepath={slug}>
+        <Slide index={0} path="/" slide={slides[0]} />
+        {slides.map((slide, i) => (
+          <Slide key={i} index={i} path={i + '/*'} slide={slide} />
+        ))}
+      </Router>
+
+      {context.notes && <pre>{context.notes}</pre>}
     </Context.Provider>
   )
 }
