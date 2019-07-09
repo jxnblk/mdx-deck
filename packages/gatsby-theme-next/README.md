@@ -32,7 +32,7 @@ Prototype for MDX Deck v3
 - [x] Embed component
 - [x] Print styles
 - [-] slide styles
-- [ ] default theme
+- [x] default theme
 
 CLI
 

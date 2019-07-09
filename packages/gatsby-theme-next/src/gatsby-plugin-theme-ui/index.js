@@ -1,11 +1,10 @@
 export default {
   colors: {
     text: '#000',
-    background: '#eee',
-    primary: 'blue',
-    secondary: 'rebeccapurple',
-    muted: 'lightgray',
-    highlight: 'hotpink',
+    background: '#fff',
+    primary: '#07c',
+    secondary: '#80c',
+    muted: '#f6f6ff',
   },
   fonts: {
     body: 'system-ui, sans-serif',
@@ -22,19 +21,17 @@ export default {
     heading: 700,
     bold: 700,
   },
-  // variants
   text: {
     heading: {
       fontFamily: 'heading',
       lineHeight: 'heading',
       fontWeight: 'heading',
-      my: 3,
     },
   },
   styles: {
     Slide: {
       fontFamily: 'body',
-      fontSize: [4, 5, 6],
+      fontSize: [2, 4, 5, 6],
     },
     h1: {
       variant: 'text.heading',

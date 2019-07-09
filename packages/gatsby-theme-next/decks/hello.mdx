@@ -43,6 +43,20 @@ Hello, my secret notes...
 
 ---
 
+```jsx
+import React from 'react'
+import { Embed } from 'mdx-deck'
+import Hello from './hello.mdx'
+
+export default props =>
+  <Embed
+    src={Hello}
+    slide={2}
+  />
+```
+
+---
+
 More steps
 
 <Appear>
