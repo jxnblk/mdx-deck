@@ -31,8 +31,8 @@ Prototype for MDX Deck v3
 - [x] swipe handlers
 - [x] Embed component
 - [x] Print styles
-- [-] slide styles
 - [x] default theme
+- [x] slide styles
 
 CLI
 
