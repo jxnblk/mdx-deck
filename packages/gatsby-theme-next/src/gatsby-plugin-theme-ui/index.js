@@ -11,7 +11,7 @@ export default {
     body: 'system-ui, sans-serif',
     heading: 'system-ui, sans-serif',
     monospace: '"Roboto Mono", Menlo, monospace',
-    ui: 'serif, system-ui, sans-serif',
+    ui: 'system-ui, sans-serif',
   },
   lineHeights: {
     body: 1.5,

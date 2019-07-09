@@ -21,30 +21,38 @@ Prototype for MDX Deck v3
   - [x] Print
 - [x] add legacy theme transformer
 - [x] export theme/themes API
-- [-] slide styles
-- [-] theme-ui
+- [x] theme-ui
 - [x] react helmet
   - [x] custom Head component
   - [x] remove Head in slides parser
   - [x] Use deck title in default head
 - [x] single deck mode
+- [x] Index page
+- [x] swipe handlers
+- [-] slide styles
+- [ ] default theme
+- [ ] Embed component
 - [ ] Print styles
+
+CLI
+
 - [ ] mdx-deck CLI
   - [ ] develop
   - [ ] build
   - [ ] eject
   - [ ] single or multiple decks
-- [ ] swipe handlers
-- [ ] Embed component
-- [x] Index page
+
+Other Packages
+
 - [ ] port default themes over
 - [ ] update layouts for theme-ui
 - [ ] update create-deck
 - [ ] shim for @mdx-deck/components
 - [ ] export PDF (general Gatsby usage?)
 
-Additional
+Additional things for consideration
 
+- [ ] Aspect Ratio/scale mode
 - [ ] custom remark plugins
 - [ ] Slide/route transitions
 - [ ] Open issue for static slide rendering (mdxs)

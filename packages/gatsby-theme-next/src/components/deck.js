@@ -93,7 +93,14 @@ export default ({
       </Helmet>
       <Context.Provider value={context}>
         <ThemeProvider {...legacyTheme}>
-          <Global styles={{ body: { margin: 0 } }} />
+          <Global
+            styles={{
+              body: {
+                margin: 0,
+                overflow: context.mode === modes.normal ? 'hidden' : null,
+              },
+            }}
+          />
           <Keyboard />
           <Storage />
           <Wrapper>
