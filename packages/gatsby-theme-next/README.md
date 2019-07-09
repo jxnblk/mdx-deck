@@ -14,11 +14,12 @@ Prototype for MDX Deck v3
 - [x] page up/down keys
 - [x] mode-switch keys
 - [x] mode state
-- [ ] mode components
+- [x] mode components
   - [x] Presenter
   - [x] Overview
   - [x] Grid
-  - [ ] Print
+  - [x] Print
+- [ ] Print styles
 - [x] add legacy theme transformer
 - [x] export theme/themes API
 - [-] slide styles
