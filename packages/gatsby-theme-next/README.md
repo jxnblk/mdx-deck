@@ -37,3 +37,4 @@ Prototype for MDX Deck v3
 - [ ] update create-deck
 - [ ] shim for @mdx-deck/components
 - [ ] export (general Gatsby usage?)
+- [ ] swipe handlers

@@ -31,7 +31,7 @@ const Storage = () => {
 const Print = ({ slides }) => (
   <React.Fragment>
     {slides.map((slide, i) => (
-      <Slide key={i} slide={slide} />
+      <Slide key={i} slide={slide} preview />
     ))}
   </React.Fragment>
 )
