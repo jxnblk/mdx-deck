@@ -3,7 +3,6 @@ import { jsx } from 'theme-ui'
 import { navigate } from '@reach/router'
 import useDeck from '../hooks/use-deck'
 import Zoom from './zoom'
-import Slide from './slide'
 import SlideList from './slide-list'
 
 export default ({ slides, children }) => {

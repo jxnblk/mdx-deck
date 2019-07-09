@@ -28,7 +28,7 @@ Prototype for MDX Deck v3
 - [ ] react helmet ??? how can this even work??
   - [ ] custom Head component
   - [ ] remove Head in slides parser
-- [ ] single deck mode
+- [x] single deck mode
 - [ ] update layouts for theme-ui
 - [ ] mdx-deck CLI
   - [ ] develop
@@ -39,3 +39,10 @@ Prototype for MDX Deck v3
 - [ ] shim for @mdx-deck/components
 - [ ] export (general Gatsby usage?)
 - [ ] swipe handlers
+- [ ] Embed component
+- [ ] Index page with thumbs
+  - [ ] or don't create an index
+
+Additional
+
+- [ ] custom remark plugins

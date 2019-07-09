@@ -80,6 +80,8 @@ export default ({
     case modes.grid:
       Mode = Grid
       break
+    default:
+      break
   }
 
   return (

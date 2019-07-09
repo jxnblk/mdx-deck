@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import hhmmss from 'hhmmss'
 import useDeck from '../hooks/use-deck'
 
@@ -35,7 +35,7 @@ export const Timer = props => {
   }
 
   return (
-    <>
+    <React.Fragment>
       <button
         onClick={reset}
         disabled={!seconds}
@@ -54,7 +54,7 @@ export const Timer = props => {
         {timer ? 'Stop' : 'Start'}
       </button>{' '}
       {hhmmss(seconds)}
-    </>
+    </React.Fragment>
   )
 }
 

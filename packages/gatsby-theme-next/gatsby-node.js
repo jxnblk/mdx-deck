@@ -46,7 +46,7 @@ const mdxResolverPassthrough = fieldName => async (
 const resolveTitle = async (...args) => {
   const headings = await mdxResolverPassthrough('headings')(...args)
   const [first = {}] = headings
-  return first.value || 'Untitled'
+  return first.value || ''
 }
 
 exports.sourceNodes = ({ actions, schema }) => {
@@ -83,6 +83,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           node {
             id
             slug
+            title
           }
         }
       }

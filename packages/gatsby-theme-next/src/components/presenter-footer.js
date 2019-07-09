@@ -11,7 +11,7 @@ export default props => {
   const { index, length } = context
 
   return (
-    <>
+    <React.Fragment>
       <div>
         {index} / {length - 1}
       </div>
@@ -42,6 +42,6 @@ export default props => {
       <div>
         <Clock />
       </div>
-    </>
+    </React.Fragment>
   )
 }
