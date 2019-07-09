@@ -30,9 +30,9 @@ Prototype for MDX Deck v3
 - [x] Index page
 - [x] swipe handlers
 - [x] Embed component
+- [x] Print styles
 - [-] slide styles
 - [ ] default theme
-- [ ] Print styles
 
 CLI
 

@@ -31,7 +31,7 @@ export default props => {
       {...props}
       sx={{
         width: '100vw',
-        height,
+        height: mode !== modes.print ? height : '100vh',
         variant: 'styles.root',
         '*': {
           boxSizing: 'border-box',

@@ -3,6 +3,7 @@ import { jsx } from 'theme-ui'
 import Context from '../context'
 import useDeck from '../hooks/use-deck'
 import useSwipe from '../hooks/use-swipe'
+import { modes } from '../constants'
 
 export const Slide = ({ slide, index, preview, ...props }) => {
   const outer = useDeck()
@@ -20,7 +21,7 @@ export const Slide = ({ slide, index, preview, ...props }) => {
         sx={{
           boxSizing: 'border-box',
           width: '100%',
-          height: '100%',
+          height: context.mode === modes.print ? '100vh' : '100%',
           padding: 32,
           display: 'flex',
           flexDirection: 'column',
