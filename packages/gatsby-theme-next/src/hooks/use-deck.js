@@ -1,4 +1,5 @@
 import { useContext } from 'react'
 import DeckContext from '../context'
 
-export default () => useContext(DeckContext)
+export const useDeck = () => useContext(DeckContext)
+export default useDeck
