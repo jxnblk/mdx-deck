@@ -3,6 +3,7 @@ import { jsx } from 'theme-ui'
 import Zoom from './zoom'
 import Slide from './slide'
 import useDeck from '../hooks/use-deck'
+import Footer from './presenter-footer'
 
 export const Presenter = ({ slides, children }) => {
   const context = useDeck()
@@ -15,7 +16,9 @@ export const Presenter = ({ slides, children }) => {
         flexDirection: 'column',
         justifyContent: 'space-between',
         height: '100vh',
-        fontFamily: 'system-ui, sans-serif',
+        fontFamily: 'ui',
+        color: 'white',
+        bg: 'black',
       }}>
       <div
         sx={{
@@ -47,8 +50,11 @@ export const Presenter = ({ slides, children }) => {
           p: 3,
           display: 'flex',
           alignItems: 'center',
+          fontSize: 1,
+          fontWeight: 'bold',
+          fontVariantNumeric: 'tabular-nums',
         }}>
-        footer
+        <Footer />
       </div>
     </div>
   )

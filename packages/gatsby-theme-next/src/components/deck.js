@@ -1,8 +1,10 @@
 import React from 'react'
 import { Router, globalHistory } from '@reach/router'
 import { Global } from '@emotion/core'
+import { ThemeProvider } from 'theme-ui'
 import { Helmet } from 'react-helmet'
 import get from 'lodash.get'
+import merge from 'lodash.merge'
 import useKeyboard from '../hooks/use-keyboard'
 import useStorage from '../hooks/use-storage'
 import useDeck from '../hooks/use-deck'
@@ -10,6 +12,7 @@ import Context from '../context'
 import Wrapper from './wrapper'
 import Slide from './slide'
 import { modes } from '../constants'
+import convertLegacyTheme from '../convert-legacy-theme'
 
 import Presenter from './presenter'
 
@@ -31,7 +34,13 @@ const getIndex = () => {
   return index
 }
 
-export default ({ slides = [], pageContext: { slug }, ...props }) => {
+export default ({
+  slides = [],
+  pageContext: { slug },
+  theme,
+  themes = [],
+  ...props
+}) => {
   const outer = useDeck()
   const index = getIndex()
 
@@ -45,6 +54,11 @@ export default ({ slides = [], pageContext: { slug }, ...props }) => {
   }
   const [head] = slides.heads
 
+  const legacyTheme =
+    !!theme || themes.length
+      ? convertLegacyTheme(merge({}, theme, ...themes))
+      : { theme: {} }
+
   let Mode = ({ children }) => <React.Fragment children={children} />
   switch (context.mode) {
     case modes.presenter:
@@ -54,25 +68,26 @@ export default ({ slides = [], pageContext: { slug }, ...props }) => {
 
   return (
     <Context.Provider value={context}>
-      {false && head && <Helmet {...head.props} />}
-      <Global styles={{ body: { margin: 0 } }} />
-      <Keyboard />
-      <Storage />
-      <Wrapper>
-        <Mode slides={slides}>
-          <Router
-            basepath={slug}
-            style={{
-              height: '100%',
-            }}>
-            <Slide index={0} path="/" slide={slides[0]} />
-            {slides.map((slide, i) => (
-              <Slide key={i} index={i} path={i + '/*'} slide={slide} />
-            ))}
-          </Router>
-        </Mode>
-      </Wrapper>
-      {false && context.notes && <pre>{context.notes}</pre>}
+      <ThemeProvider {...legacyTheme}>
+        {false && head && <Helmet {...head.props} />}
+        <Global styles={{ body: { margin: 0 } }} />
+        <Keyboard />
+        <Storage />
+        <Wrapper>
+          <Mode slides={slides}>
+            <Router
+              basepath={slug}
+              style={{
+                height: '100%',
+              }}>
+              <Slide index={0} path="/" slide={slides[0]} />
+              {slides.map((slide, i) => (
+                <Slide key={i} index={i} path={i + '/*'} slide={slide} />
+              ))}
+            </Router>
+          </Mode>
+        </Wrapper>
+      </ThemeProvider>
     </Context.Provider>
   )
 }

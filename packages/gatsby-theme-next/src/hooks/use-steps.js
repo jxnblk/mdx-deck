@@ -5,10 +5,8 @@ export default length => {
   const context = useDeck()
   useEffect(() => {
     if (typeof context.register !== 'function') return
-    context.register(context.index, {
-      steps: length,
-    })
+    context.register(context.index, 'steps', length)
   }, [])
-  if (context.preview) return length
+  // if (context.preview) return length
   return context.step
 }

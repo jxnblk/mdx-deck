@@ -14,10 +14,13 @@ export default props => {
     metadata: {},
   })
 
-  const register = (index, data) => {
+  const register = (index, key, value) => {
+    if (state.metadata[index] && state.metadata[index][key]) return
     setState({
       metadata: {
-        [index]: data,
+        [index]: {
+          [key]: value,
+        },
       },
     })
   }

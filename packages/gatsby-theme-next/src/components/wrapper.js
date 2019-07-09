@@ -7,6 +7,7 @@ export default props => (
     sx={{
       width: '100vw',
       height: '100vh',
+      variant: 'styles.root',
       '*': {
         boxSizing: 'border-box',
       },

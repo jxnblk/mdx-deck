@@ -1,7 +1,7 @@
 export default {
   colors: {
-    text: '#eff',
-    background: '#444',
+    text: '#000',
+    background: '#eee',
     primary: 'blue',
     secondary: 'rebeccapurple',
     muted: 'lightgray',
@@ -10,6 +10,8 @@ export default {
   fonts: {
     body: 'system-ui, sans-serif',
     heading: 'system-ui, sans-serif',
+    monospace: 'Menlo, monospace',
+    ui: 'system-ui, sans-serif',
   },
   lineHeights: {
     body: 1.5,
