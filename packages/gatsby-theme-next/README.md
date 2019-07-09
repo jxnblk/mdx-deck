@@ -27,3 +27,13 @@ Prototype for MDX Deck v3
 - [ ] react helmet ??? how can this even work??
   - [ ] custom Head component
   - [ ] remove Head in slides parser
+- [ ] single deck mode
+- [ ] update layouts for theme-ui
+- [ ] mdx-deck CLI
+  - [ ] develop
+  - [ ] build
+  - [ ] eject
+  - [ ] single or multiple decks
+- [ ] update create-deck
+- [ ] shim for @mdx-deck/components
+- [ ] export (general Gatsby usage?)

@@ -68,6 +68,7 @@ export const useKeyboard = () => {
             break
           case keys.p:
             context.setState(toggleMode(modes.print))
+            navigate(`${context.slug}/print`)
             break
         }
       } else if (altKey) {

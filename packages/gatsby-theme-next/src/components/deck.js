@@ -28,6 +28,14 @@ const Storage = () => {
   return false
 }
 
+const Print = ({ slides }) => (
+  <React.Fragment>
+    {slides.map((slide, i) => (
+      <Slide key={i} slide={slide} />
+    ))}
+  </React.Fragment>
+)
+
 const getIndex = () => {
   const { pathname } = globalHistory.location
   const paths = pathname.split('/')
@@ -92,6 +100,7 @@ export default ({
               {slides.map((slide, i) => (
                 <Slide key={i} index={i} path={i + '/*'} slide={slide} />
               ))}
+              <Print path="/print" slides={slides} />
             </Router>
           </Mode>
         </Wrapper>
