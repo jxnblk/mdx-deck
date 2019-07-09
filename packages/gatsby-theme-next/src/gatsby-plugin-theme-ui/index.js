@@ -31,7 +31,7 @@ export default {
   styles: {
     Slide: {
       fontFamily: 'body',
-      fontSize: [2, 4, 5, 6],
+      fontSize: [3, 4, 5, 6],
     },
     h1: {
       variant: 'text.heading',
