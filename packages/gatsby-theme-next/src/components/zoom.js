@@ -1,11 +1,7 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
 
-export const Zoom = ({
-  ratio, // = 16/9,
-  zoom = 1,
-  ...props
-}) => (
+export const Zoom = ({ ratio, zoom = 1, ...props }) => (
   <div
     sx={{
       width: '100%',

@@ -1,7 +1,7 @@
 import React from 'react'
 import useSteps from '../hooks/use-steps'
 
-export const Steps = props => {
+export const Appear = props => {
   const children = React.Children.toArray(props.children)
   const step = useSteps(children.length)
   const styled = children.map((child, i) =>
@@ -15,4 +15,4 @@ export const Steps = props => {
   return <>{styled}</>
 }
 
-export default Steps
+export default Appear

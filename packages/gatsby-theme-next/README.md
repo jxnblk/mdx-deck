@@ -28,6 +28,7 @@ Prototype for MDX Deck v3
 - [ ] react helmet ??? how can this even work??
   - [ ] custom Head component
   - [ ] remove Head in slides parser
+  - [ ] Use deck title in default head
 - [x] single deck mode
 - [ ] update layouts for theme-ui
 - [ ] mdx-deck CLI
@@ -46,3 +47,11 @@ Prototype for MDX Deck v3
 Additional
 
 - [ ] custom remark plugins
+- [ ] Slide/route transitions
+- [ ] Open issue for static slide rendering (mdxs)
+- [ ] Allow custom gatsby-config.js in CLI? (otherwise eject)
+
+Fixes
+#103 (slide title)
+#326 (layout components)
+#338 (add documentation)
