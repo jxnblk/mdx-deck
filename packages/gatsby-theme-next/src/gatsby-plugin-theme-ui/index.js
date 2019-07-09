@@ -10,8 +10,8 @@ export default {
   fonts: {
     body: 'system-ui, sans-serif',
     heading: 'system-ui, sans-serif',
-    monospace: 'Menlo, monospace',
-    ui: 'system-ui, sans-serif',
+    monospace: '"Roboto Mono", Menlo, monospace',
+    ui: 'serif, system-ui, sans-serif',
   },
   lineHeights: {
     body: 1.5,
@@ -59,6 +59,15 @@ export default {
     },
     ol: {
       m: 0,
+    },
+    inlineCode: {
+      fontFamily: 'monospace',
+    },
+    code: {
+      fontFamily: 'monospace',
+    },
+    pre: {
+      fontFamily: 'monospace',
     },
   },
 }

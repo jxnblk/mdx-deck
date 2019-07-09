@@ -46,7 +46,7 @@ const getIndex = () => {
 
 export default ({
   slides = [],
-  pageContext: { slug },
+  pageContext: { title, slug },
   theme,
   themes = [],
   ...props
@@ -62,7 +62,8 @@ export default ({
     steps: get(outer, `metadata.${index}.steps`),
     notes: get(outer, `metadata.${index}.notes`),
   }
-  const [head] = slides.heads
+
+  const head = slides.head.children
 
   const legacyTheme =
     !!theme || themes.length
@@ -85,28 +86,33 @@ export default ({
   }
 
   return (
-    <Context.Provider value={context}>
-      <ThemeProvider {...legacyTheme}>
-        {false && head && <Helmet {...head.props} />}
-        <Global styles={{ body: { margin: 0 } }} />
-        <Keyboard />
-        <Storage />
-        <Wrapper>
-          <Mode slides={slides}>
-            <Router
-              basepath={slug}
-              style={{
-                height: '100%',
-              }}>
-              <Slide index={0} path="/" slide={slides[0]} />
-              {slides.map((slide, i) => (
-                <Slide key={i} index={i} path={i + '/*'} slide={slide} />
-              ))}
-              <Print path="/print" slides={slides} />
-            </Router>
-          </Mode>
-        </Wrapper>
-      </ThemeProvider>
-    </Context.Provider>
+    <>
+      <Helmet>
+        <title>{title}</title>
+        {head}
+      </Helmet>
+      <Context.Provider value={context}>
+        <ThemeProvider {...legacyTheme}>
+          <Global styles={{ body: { margin: 0 } }} />
+          <Keyboard />
+          <Storage />
+          <Wrapper>
+            <Mode slides={slides}>
+              <Router
+                basepath={slug}
+                style={{
+                  height: '100%',
+                }}>
+                <Slide index={0} path="/" slide={slides[0]} />
+                {slides.map((slide, i) => (
+                  <Slide key={i} index={i} path={i + '/*'} slide={slide} />
+                ))}
+                <Print path="/print" slides={slides} />
+              </Router>
+            </Mode>
+          </Wrapper>
+        </ThemeProvider>
+      </Context.Provider>
+    </>
   )
 }

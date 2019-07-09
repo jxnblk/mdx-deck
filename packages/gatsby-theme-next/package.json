@@ -26,7 +26,7 @@
     "lodash.get": "^4.4.2",
     "lodash.merge": "^4.6.1",
     "mkdirp": "^0.5.1",
-    "react-helmet": "^5.2.1",
+    "react-helmet": "^6.0.0-beta",
     "theme-ui": "^0.2.10"
   }
 }
