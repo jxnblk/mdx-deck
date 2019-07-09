@@ -4,6 +4,7 @@ import { jsx } from 'theme-ui'
 export const Zoom = ({ ratio, zoom = 1, ...props }) => (
   <div
     sx={{
+      boxSizing: 'border-box',
       width: '100%',
       position: 'relative',
       height: ratio ? 0 : '100%',
@@ -12,6 +13,7 @@ export const Zoom = ({ ratio, zoom = 1, ...props }) => (
     <div
       {...props}
       sx={{
+        boxSizing: 'border-box',
         position: 'absolute',
         top: 0,
         right: 0,

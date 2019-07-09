@@ -5,16 +5,23 @@ export default props => {
   const splits = []
   const slides = []
   slides.head = {
+    props: {},
     children: [],
   }
   arr.forEach((child, i) => {
-    if (child.props.originalType.mdxDeckHead) {
-      slides.head.children.push(child.props.children)
-      // todo: html props
-      // slides.heads.push(child)
+    const {
+      originalType,
+      mdxType,
+      parentName,
+      children,
+      ...childProps
+    } = child.props
+    if (originalType.mdxDeckHead) {
+      slides.head.children.push(children)
+      Object.assign(slides.head.props, childProps)
       arr.splice(i, 1)
     }
-    if (child.props.mdxType === 'hr') splits.push(i)
+    if (mdxType === 'hr') splits.push(i)
   })
   let previousSplit = 0
   splits.forEach(i => {

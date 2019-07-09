@@ -18,6 +18,7 @@ export const Slide = ({ slide, index, preview, ...props }) => {
       <div
         {...(!preview ? swipeProps : {})}
         sx={{
+          boxSizing: 'border-box',
           width: '100%',
           height: '100%',
           padding: 32,

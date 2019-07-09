@@ -29,9 +29,9 @@ Prototype for MDX Deck v3
 - [x] single deck mode
 - [x] Index page
 - [x] swipe handlers
+- [x] Embed component
 - [-] slide styles
 - [ ] default theme
-- [ ] Embed component
 - [ ] Print styles
 
 CLI
