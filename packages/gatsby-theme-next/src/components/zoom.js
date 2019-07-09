@@ -7,7 +7,6 @@ export const Zoom = ({
   ...props
 }) => (
   <div
-    {...props}
     sx={{
       width: '100%',
       position: 'relative',

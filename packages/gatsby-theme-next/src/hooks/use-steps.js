@@ -7,6 +7,6 @@ export default length => {
     if (typeof context.register !== 'function') return
     context.register(context.index, 'steps', length)
   }, [])
-  // if (context.preview) return length
+  if (context.preview) return length
   return context.step
 }

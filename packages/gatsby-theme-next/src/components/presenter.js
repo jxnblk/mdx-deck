@@ -31,7 +31,7 @@ export const Presenter = ({ slides, children }) => {
             width: '75%',
             p: 3,
           }}>
-          <Zoom>{children}</Zoom>
+          <Zoom zoom={3 / 4}>{children}</Zoom>
         </div>
         <div
           sx={{

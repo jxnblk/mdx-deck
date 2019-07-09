@@ -15,6 +15,8 @@ import { modes } from '../constants'
 import convertLegacyTheme from '../convert-legacy-theme'
 
 import Presenter from './presenter'
+import Overview from './overview'
+import Grid from './grid'
 
 const Keyboard = () => {
   useKeyboard()
@@ -63,6 +65,12 @@ export default ({
   switch (context.mode) {
     case modes.presenter:
       Mode = Presenter
+      break
+    case modes.overview:
+      Mode = Overview
+      break
+    case modes.grid:
+      Mode = Grid
       break
   }
 
