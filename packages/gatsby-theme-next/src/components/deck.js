@@ -52,10 +52,26 @@ const getIndex = () => {
   return index
 }
 
+const GoogleFont = ({ theme }) => {
+  if (!theme.googleFont) return false
+  return (
+    <Helmet>
+      <link rel="stylesheet" href={theme.googleFont} />
+    </Helmet>
+  )
+}
+
+const mergeThemes = (...themes) =>
+  themes.reduce(
+    (acc, theme) =>
+      typeof theme === 'function' ? theme(acc) : merge(acc, theme),
+    {}
+  )
+
 export default ({
   slides = [],
   pageContext: { title, slug },
-  theme,
+  theme = {},
   themes = [],
   ...props
 }) => {
@@ -73,10 +89,8 @@ export default ({
 
   const head = slides.head.children
 
-  const legacyTheme =
-    !!theme || themes.length
-      ? convertLegacyTheme(merge({}, theme, ...themes))
-      : { theme: {} }
+  const mergedTheme = mergeThemes(theme, ...themes)
+  const themeProviderProps = convertLegacyTheme(mergedTheme)
 
   let Mode = ({ children }) => <React.Fragment children={children} />
   switch (context.mode) {
@@ -99,8 +113,9 @@ export default ({
         <title>{title}</title>
         {head}
       </Helmet>
+      <GoogleFont theme={mergedTheme} />
       <Context.Provider value={context}>
-        <ThemeProvider {...legacyTheme}>
+        <ThemeProvider {...themeProviderProps}>
           <Global
             styles={{
               body: {

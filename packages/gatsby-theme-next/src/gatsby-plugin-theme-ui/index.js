@@ -8,7 +8,7 @@ export default {
   },
   fonts: {
     body: 'system-ui, sans-serif',
-    heading: 'system-ui, sans-serif',
+    heading: 'inherit',
     monospace: '"Roboto Mono", Menlo, monospace',
     ui: 'system-ui, sans-serif',
   },
@@ -65,6 +65,32 @@ export default {
     },
     pre: {
       fontFamily: 'monospace',
+    },
+    img: {
+      maxWidth: '100%',
+      height: 'auto',
+      objectFit: 'cover',
+    },
+    table: {
+      width: '100%',
+      borderCollapse: 'separate',
+      borderSpacing: 0,
+    },
+    th: {
+      textAlign: 'left',
+      paddingRight: '.5em',
+      paddingTop: '.25em',
+      paddingBottom: '.25em',
+      borderBottom: '1px solid',
+      verticalAlign: 'top',
+    },
+    td: {
+      textAlign: 'left',
+      paddingRight: '.5em',
+      paddingTop: '.25em',
+      paddingBottom: '.25em',
+      borderBottom: '1px solid',
+      verticalAlign: 'top',
     },
   },
 }

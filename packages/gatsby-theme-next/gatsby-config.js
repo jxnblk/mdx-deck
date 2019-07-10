@@ -14,6 +14,8 @@ const config = (opts = {}) => {
       },
       mdx && 'gatsby-plugin-mdx',
       'gatsby-plugin-react-helmet',
+      'gatsby-plugin-emotion',
+      'gatsby-plugin-catch-links',
       'gatsby-plugin-theme-ui',
     ].filter(Boolean),
   }
