@@ -1,6 +1,6 @@
 {
-  "name": "@mdx-deck/gatsby-theme-next",
-  "version": "3.0.0-0",
+  "name": "gatsby-theme-mdx-deck",
+  "version": "0.0.0",
   "main": "index.js",
   "license": "MIT",
   "scripts": {

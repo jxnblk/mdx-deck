@@ -1,17 +1,17 @@
 
-# @mdx-deck/gatsby-theme-next
+# gatsby-theme-mdx-deck
 
 Add MDX Deck presentations to any Gatsby site
 
 ```sh
-npm i @mdx-deck/gatsby-theme
+npm i gatsby-theme-mdx-deck
 ```
 
 ```js
 // gatsby-config.js
 module.exports = {
   plugins: [
-    '@mdx-deck/gatsby-theme',
+    'gatsby-theme-mdx-deck',
   ]
 }
 ```
@@ -59,7 +59,7 @@ The Gatsby theme accepts the following options.
 module.exports = {
   plugins: [
     {
-      resolve: '@mdx-deck/gatsby-theme',
+      resolve: 'gatsby-theme-mdx-deck',
       options: {
         // enable or disable gatsby-plugin-mdx
         mdx: false,
