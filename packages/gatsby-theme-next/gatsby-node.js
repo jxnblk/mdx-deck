@@ -17,8 +17,9 @@ const DecksTemplate = require.resolve(`./src/templates/decks`)
 exports.onPreBootstrap = ({ store }, opts = {}) => {
   const { program } = store.getState()
 
-  basePath = opts.basePath || `/`
-  contentPath = opts.contentPath || `decks`
+  // backwards-compatible options
+  basePath = opts.basePath || opts.name`/`
+  contentPath = opts.contentPath || opts.path || `decks`
 
   const dirname = path.join(program.directory, contentPath)
   mkdirp.sync(dirname)

@@ -1,64 +1,76 @@
 
 # @mdx-deck/gatsby-theme-next
 
-Prototype for MDX Deck v3
+Add MDX Deck presentations to any Gatsby site
 
-## To do
+```sh
+npm i @mdx-deck/gatsby-theme
+```
 
-- [x] slide state
-- [x] router
-- [x] steps
-- [x] storage
-- [x] notes state
-- [x] next/previous keyboard
-- [x] page up/down keys
-- [x] mode-switch keys
-- [x] mode state
-- [x] mode components
-  - [x] Presenter
-  - [x] Overview
-  - [x] Grid
-  - [x] Print
-- [x] add legacy theme transformer
-- [x] export theme/themes API
-- [x] theme-ui
-- [x] react helmet
-  - [x] custom Head component
-  - [x] remove Head in slides parser
-  - [x] Use deck title in default head
-- [x] single deck mode
-- [x] Index page
-- [x] swipe handlers
-- [x] Embed component
-- [x] Print styles
-- [x] default theme
-- [x] slide styles
+```js
+// gatsby-config.js
+module.exports = {
+  plugins: [
+    '@mdx-deck/gatsby-theme',
+  ]
+}
+```
 
-CLI
+Add one or more MDX presentation files to the `decks/` directory.
+The filenames will be used for creating routes to each deck.
 
-- [ ] mdx-deck CLI
-  - [ ] develop
-  - [ ] build
-  - [ ] eject
-  - [ ] single or multiple decks
+Example `decks/hello.mdx`
 
-Other Packages
+```mdx
+# Hello!
 
-- [ ] port default themes over
-- [ ] update layouts for theme-ui
-- [ ] update create-deck
-- [ ] shim for @mdx-deck/components
-- [ ] export PDF (general Gatsby usage?)
+---
 
-Additional things for consideration
+## Beep boop
+```
 
-- [ ] Aspect Ratio/scale mode
-- [ ] custom remark plugins
-- [ ] Slide/route transitions
-- [ ] Open issue for static slide rendering (mdxs)
-- [ ] Allow custom gatsby-config.js in CLI? (otherwise eject)
+## Layouts
 
-Fixes
-#103 (slide title)
-#326 (layout components)
-#338 (add documentation)
+Individual slides can be wrapped with layout components,
+which work similarly to slide templates found in other presentation software.
+
+Example `decks/hello.mdx`
+
+```mdx
+import Layout from './my-layout'
+
+<Layout>
+
+# Hello
+
+</Layout>
+
+---
+
+## Beep boop
+```
+
+## Configuration Options
+
+The Gatsby theme accepts the following options.
+
+```js
+// gatsby-config.js
+module.exports = {
+  plugins: [
+    {
+      resolve: '@mdx-deck/gatsby-theme',
+      options: {
+        // enable or disable gatsby-plugin-mdx
+        mdx: false,
+        // source directory
+        contentPath: 'decks',
+        // base path for routes generate by this theme
+        basePath: ''
+      }
+    }
+  ]
+}
+```
+
+MIT License
