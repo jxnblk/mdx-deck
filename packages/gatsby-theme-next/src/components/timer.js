@@ -8,8 +8,6 @@ let ticker
 
 export const Timer = props => {
   const { setState, timer = false, seconds = 0 } = useDeck()
-  // const [seconds, setSeconds] = useState(0)
-  // const [on, setTimer] = useState(false)
 
   useEffect(() => {
     const tick = () => {
