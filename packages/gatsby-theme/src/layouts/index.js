@@ -2,8 +2,6 @@ import React from 'react'
 import { navigate } from 'gatsby'
 import { Embed } from '@mdx-deck/components'
 import Root from './root'
-import Header from './header'
-import Footer from './footer'
 
 const Thumb = props => (
   <div
@@ -30,7 +28,6 @@ const Thumb = props => (
 
 export default props => (
   <Root>
-    <Header {...props} />
     <ul
       css={{
         listStyle: 'none',
@@ -57,6 +54,5 @@ export default props => (
         </li>
       ))}
     </ul>
-    <Footer {...props} />
   </Root>
 )

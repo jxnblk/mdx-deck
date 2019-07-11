@@ -97,7 +97,6 @@ export const MDXDeck = props => {
         return Grid
       default:
         return BaseWrapper
-        break
     }
   }
 

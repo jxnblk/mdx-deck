@@ -305,6 +305,7 @@ See how others have used MDX Deck for their presentations.
 - [Simplify React][simplify-react] by [Kent C. Dodds](https://mobile.twitter.com/kentcdodds)
 - [I Got 99 Problems but GraphQL Ain't One][99-problems] by [Sara Vieira](https://mobile.twitter.com/NikkitaFTW)
 - [Stop de #divFest][stop-div-fest] by [Sara Vieira](https://mobile.twitter.com/NikkitaFTW)
+- [MDX, authors and richer JAMstack content][mdx-talk] by [Josh Dzielak](https://mobile.twitter.com/dzello)
 
 ## Usage Examples
 
@@ -343,3 +344,4 @@ The following examples will open in CodeSandbox.
 [simplify-react]: https://simply-react.netlify.com/#0
 [99-problems]: https://99-problems-graphql-aint-one.now.sh/#0
 [stop-div-fest]: https://stop-div-fest.now.sh/
+[mdx-talk]: https://mdx-talk.developermode.com/

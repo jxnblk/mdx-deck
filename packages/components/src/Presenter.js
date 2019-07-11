@@ -7,7 +7,6 @@ import Clock from './Clock'
 
 export const Presenter = props => {
   const { slides, metadata, index } = props
-  const Current = slides[index]
   const Next = slides[index + 1]
   const { notes } = metadata[index] || {}
 

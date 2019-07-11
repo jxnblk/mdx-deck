@@ -11,11 +11,13 @@ _Note:_ This theme **requires MDX v1** and will not work with previous versions 
 ```js
 // gatsby-config.js
 module.exports = {
-  __experimentalThemes: ['@mdx-deck/gatsby-theme'],
+  plugins: ['@mdx-deck/gatsby-theme'],
 }
 ```
 
-Add MDX Decks to the `src/decks/` directory.
+Add MDX Decks to the `src/decks/` directory. The filename will be used for the route of that deck.
+
+**/src/decks/hello.mdx**
 
 ```mdx
 # Hello!
@@ -28,6 +30,8 @@ Add MDX Decks to the `src/decks/` directory.
 ## Using Layouts
 
 Slide layout components must be rendered inline, _not_ using the default export syntax.
+
+**/src/decks/hello.mdx**
 
 ```mdx
 import Layout from './my-layout'
@@ -46,7 +50,7 @@ The following options can be passed to the gatsby theme.
 ```js
 // gatsby-config.js
 module.exports = {
-  __experimentalThemes: [
+  plugins: [
     {
       resolve: '@mdx-deck/gatsby-theme',
       options: {
