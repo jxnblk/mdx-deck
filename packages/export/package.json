@@ -1,19 +1,15 @@
 {
-  "name": "@mdx-deck/export",
+  "name": "website-pdf",
   "version": "2.5.0",
-  "main": "index.js",
   "author": "Brent Jackson <jxnblk@gmail.com>",
   "license": "MIT",
   "bin": {
-    "mdx-deck-export": "./cli.js"
+    "website-pdf": "./cli.js"
   },
   "scripts": {
-    "pdf": "./cli.js pdf ../../docs/demo.mdx -d ../../docs/dist",
-    "png": "./cli.js png ../../docs/demo.mdx -d ../../docs/dist"
+    "test": "./cli.js http://localhost:8000/print -o ../../docs/dist"
   },
   "dependencies": {
-    "execa": "^2.0.3",
-    "mdx-deck": "^2.5.0",
     "meow": "^5.0.0",
     "mkdirp": "^0.5.1",
     "puppeteer": "^1.13.0"

@@ -176,3 +176,11 @@ exports.onCreateNode = ({ node, actions, getNode, createNodeId }) => {
     createParentChildLink({ parent: fileNode, child: node })
   }
 }
+
+exports.onCreateDevServer = ({ app }) => {
+  console.log('onCreateDevServer')
+  if (typeof process.send !== 'function') return
+  process.send({
+    mdxDeck: true,
+  })
+}

@@ -9,7 +9,7 @@
   "scripts": {
     "start": "yarn workspace @mdx-deck/docs start",
     "build": "yarn workspace @mdx-deck/docs build",
-    "export": "yarn workspace @mdx-deck/export pdf",
+    "export": "./packages/export/cli.js http://localhost:8000/print -o docs/public/deck.pdf",
     "test": "jest"
   },
   "devDependencies": {

@@ -1,27 +1,19 @@
-# MDX Deck Export CLI
+# website-pdf
+
+Save a URL as a PDF
 
 ```sh
-npm i -D @mdx-deck/export
+npm i -D website-pdf
 ```
 
-Export as PDF
-
 ```sh
-mdx-deck-export pdf deck.mdx
-```
-
-Export as PNG
-
-```sh
-mdx-deck-export png deck.mdx
+website-pdf http://example.com -o example.pdf
 ```
 
 ## Options
 
 ```
--d --out-dir    Output directory
--f --out-file   Output filename
--p --port       Server port
+-o --out-file   Output filename
 -w --width      Width in pixels
 -h --height     Height in pixels
 --no-sandbox    Disable puppeteer sandbox
