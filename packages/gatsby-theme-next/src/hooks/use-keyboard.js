@@ -26,6 +26,8 @@ const toggleMode = next => state =>
         mode: next,
       }
 
+const inputElements = ['input', 'select', 'textarea', 'a', 'button']
+
 export const useKeyboard = () => {
   const context = useDeck()
 
@@ -33,6 +35,11 @@ export const useKeyboard = () => {
     const handleKeyDown = e => {
       const { metaKey, ctrlKey, shiftKey, altKey } = e
       if (metaKey || ctrlKey) return
+
+      // ignore custom keyboard shortcuts when elements are focused
+      const el = document.activeElement.tagName.toLowerCase()
+      if (inputElements.includes(el)) return
+
       if (shiftKey) {
         switch (e.keyCode) {
           case keys.space:

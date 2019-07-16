@@ -1,5 +1,6 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
+import React from 'react'
 import Zoom from './zoom'
 import Slide from './slide'
 import useDeck from '../hooks/use-deck'
@@ -8,6 +9,7 @@ import Footer from './presenter-footer'
 export const Presenter = ({ slides, children }) => {
   const context = useDeck()
   const next = slides[context.index + 1]
+  const notes = context.notes ? React.Children.toArray(context.notes) : false
 
   return (
     <div
@@ -41,7 +43,14 @@ export const Presenter = ({ slides, children }) => {
           <Zoom ratio={4 / 3} zoom={1 / 4}>
             <Slide slide={next} preview />
           </Zoom>
-          <div>{context.notes}</div>
+          {notes && (
+            <div
+              sx={{
+                my: 3,
+              }}>
+              {notes}
+            </div>
+          )}
         </div>
       </div>
       <div

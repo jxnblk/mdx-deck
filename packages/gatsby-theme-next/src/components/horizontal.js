@@ -12,6 +12,7 @@ export const Horizontal = ({ ...props }) => {
         display: 'flex',
         alignItems: 'center',
         height: '100%',
+        textAlign: 'center',
       }}>
       {children.map((child, i) => (
         <div key={child.key} sx={{ width: 100 / children.length + '%' }}>
