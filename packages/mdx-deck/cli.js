@@ -91,17 +91,12 @@ switch (cmd) {
     break
   case 'eject':
     log('ejecting Gatsby site')
-    const eject = require('./eject')
-    eject({
+    require('./eject')({
       cwd: process.cwd(),
       filename: path.resolve(filename),
+    }).catch(err => {
+      log.error(err)
     })
-      .then(() => {
-        log('done')
-      })
-      .catch(err => {
-        log.error(err)
-      })
     break
   case 'dev':
   default:
