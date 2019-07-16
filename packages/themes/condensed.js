@@ -1,25 +1,34 @@
-import theme from './base'
-
 const blue = '#0af'
 
 export default {
-  ...theme,
-  font: '"Roboto Condensed", system-ui, sans-serif',
   googleFont: 'https://fonts.googleapis.com/css?family=Roboto+Condensed',
-  monospace: '"Roboto Mono", monospace',
+  fonts: {
+    body: '"Roboto Condensed", system-ui, sans-serif',
+    monospace: '"Roboto Mono", monospace',
+  },
   colors: {
     text: '#fff',
     background: '#000',
-    link: blue,
+    primary: blue,
     pre: blue,
-    preBackground: '#111',
-    code: blue,
+    darkgray: '#111',
   },
-  heading: {
-    textTransform: 'uppercase',
-    fontWeight: 600,
+  fontWeights: {
+    heading: 600,
+    bold: 600,
   },
-  quote: {
-    fontWeight: 600,
+  text: {
+    heading: {
+      textTransform: 'uppercase',
+    },
+  },
+  styles: {
+    pre: {
+      color: 'primary',
+      bg: 'darkgray',
+    },
+    code: {
+      color: 'primary',
+    },
   },
 }

@@ -92,5 +92,8 @@ export default {
       borderBottom: '1px solid',
       verticalAlign: 'top',
     },
+    blockquote: {
+      fontWeight: 'bold',
+    },
   },
 }

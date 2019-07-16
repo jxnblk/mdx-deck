@@ -88,7 +88,7 @@ export default ({
 
   const head = slides.head.children
 
-  const mergedTheme = mergeThemes(theme, ...themes)
+  const { components, ...mergedTheme } = mergeThemes(theme, ...themes)
 
   let Mode = ({ children }) => <React.Fragment children={children} />
 
@@ -114,7 +114,7 @@ export default ({
       </Helmet>
       <GoogleFont theme={mergedTheme} />
       <Context.Provider value={context}>
-        <ThemeProvider theme={mergedTheme}>
+        <ThemeProvider components={components} theme={mergedTheme}>
           <Global
             styles={{
               body: {
