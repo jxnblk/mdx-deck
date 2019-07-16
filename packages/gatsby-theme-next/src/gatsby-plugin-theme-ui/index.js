@@ -51,6 +51,9 @@ export default {
     h6: {
       variant: 'text.heading',
     },
+    a: {
+      color: 'primary',
+    },
     ul: {
       m: 0,
     },
@@ -65,6 +68,7 @@ export default {
     },
     pre: {
       fontFamily: 'monospace',
+      p: 3,
     },
     img: {
       maxWidth: '100%',
@@ -91,6 +95,9 @@ export default {
       paddingBottom: '.25em',
       borderBottom: '1px solid',
       verticalAlign: 'top',
+    },
+    blockquote: {
+      fontWeight: 'bold',
     },
   },
 }

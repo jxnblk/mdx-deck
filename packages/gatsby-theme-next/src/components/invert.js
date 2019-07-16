@@ -13,6 +13,9 @@ export const Invert = ({ ...props }) => (
       height: '100%',
       color: 'background',
       bg: 'text',
+      a: {
+        color: 'inherit',
+      },
     }}
   />
 )

@@ -9,6 +9,25 @@ import {
   Split,
   SplitRight,
 } from '..'
+// hack for gatsby-plugin-mdx caching bug
+import {
+  dark,
+  future,
+  condensed,
+  yellow,
+  swiss,
+  poppins,
+  book,
+  script,
+  comic,
+  notes,
+  lobster,
+  hack,
+  rye,
+  big,
+  aspect,
+  aspect43,
+} from '@mdx-deck/themes'
 
 export default {
   Appear,
@@ -20,4 +39,21 @@ export default {
   Invert,
   Split,
   SplitRight,
+  // hack for gatsby-plugin-mdx caching bug
+  dark,
+  future,
+  condensed,
+  yellow,
+  swiss,
+  poppins,
+  book,
+  script,
+  comic,
+  notes,
+  lobster,
+  hack,
+  rye,
+  big,
+  aspect,
+  aspect43,
 }
