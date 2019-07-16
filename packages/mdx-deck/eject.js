@@ -2,8 +2,7 @@ const path = require('path')
 const fs = require('fs-extra')
 const initit = require('initit')
 
-// TODO: update after v3 is in master
-const template = 'jxnblk/mdx-deck/templates/basic'
+const template = 'jxnblk/mdx-deck/packages/starter'
 
 module.exports = async ({ cwd, filename }) => {
   await initit({
