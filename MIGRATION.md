@@ -1,5 +1,13 @@
 # Migration
 
+## Updating to MDX Deck v3
+
+TK
+
+- Layout components
+- `@mdx-deck` subpackages
+- Theming
+
 ## Updating to MDX Deck v2
 
 With a few exceptions, decks created with v1 should be compatible with v2. The following is a list of steps to ensure your slide deck will work with v2.
