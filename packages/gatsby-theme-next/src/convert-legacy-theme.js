@@ -1,6 +1,6 @@
 import merge from 'lodash.merge'
 
-export const convertLegactyTheme = (legacyTheme = {}) => {
+export const convertLegacyTheme = (legacyTheme = {}) => {
   const {
     components,
     colors = {},
@@ -72,3 +72,5 @@ export const convertLegactyTheme = (legacyTheme = {}) => {
     theme,
   }
 }
+
+export default convertLegacyTheme
