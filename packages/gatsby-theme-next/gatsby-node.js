@@ -20,6 +20,7 @@ exports.onPreBootstrap = ({ store }, opts = {}) => {
   basePath = opts.basePath || `/`
   contentPath = opts.contentPath || `decks`
 
+  if (opts.cli) return
   const dirname = path.join(program.directory, contentPath)
   mkdirp.sync(dirname)
 

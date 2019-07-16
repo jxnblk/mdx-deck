@@ -1,12 +1,9 @@
 #!/usr/bin/env node
 const path = require('path')
 const meow = require('meow')
-const findup = require('find-up')
-const open = require('react-dev-utils/openBrowser')
+const execa = require('execa')
 const chalk = require('chalk')
 const pkg = require('./package.json')
-
-const config = require('pkg-conf').sync('mdx-deck')
 
 const log = (...args) => {
   console.log(chalk.green('[mdx-deck]'), ...args)
@@ -28,9 +25,6 @@ const cli = meow(
       -h --host     Dev server host
       -p --port     Dev server port
       --no-open     Prevent from opening in default browser
-      --webpack     Path to webpack config file
-      -d --out-dir  Output directory for exporting
-      --no-html     Disable static HTML rendering for build
 
 `,
   {
@@ -39,91 +33,69 @@ const cli = meow(
       port: {
         type: 'string',
         alias: 'p',
+        default: '8000',
       },
       host: {
         type: 'string',
         alias: 'h',
+        default: 'localhost',
       },
       open: {
         type: 'boolean',
         alias: 'o',
         default: true,
       },
-      outDir: {
-        type: 'string',
-        alias: 'd',
-      },
-      webpack: {
-        type: 'string',
-      },
-      html: {
-        type: 'boolean',
-        default: true,
-      },
-      basepath: {
-        type: 'string',
-      },
     },
   }
 )
 
 const [cmd, file] = cli.input
-const doc = file || cmd
+const filename = file || cmd
 
-if (!doc) cli.showHelp(0)
+if (!filename) cli.showHelp(0)
 
-const opts = Object.assign(
-  {
-    dirname: path.dirname(path.resolve(doc)),
-    globals: {
-      FILENAME: JSON.stringify(path.resolve(doc)),
-    },
-    host: 'localhost',
-    port: 8080,
-    outDir: 'dist',
-  },
-  config,
-  cli.flags
-)
+const userdir = process.cwd()
+process.env.__DIRNAME__ = userdir
+process.env.__SRC__ = path.resolve(filename)
 
-opts.outDir = path.resolve(opts.outDir)
-if (opts.webpack) {
-  opts.webpack = require(path.resolve(opts.webpack))
-} else {
-  const webpackConfig = findup.sync('webpack.config.js', { cwd: opts.dirname })
-  if (webpackConfig) opts.webpack = require(webpackConfig)
+const opts = Object.assign({}, cli.flags)
+
+if (opts.outDir) {
+  log.error('the --out-dir flag has been deprecated')
+  log('Decks are now built to the `public/` directory')
 }
 
 let dev
 
+const gatsby = async (...args) => {
+  await execa('gatsby', ['clean'], {
+    cwd: __dirname,
+    stdio: 'inherit',
+    preferLocal: true,
+  })
+  return execa('gatsby', args.filter(Boolean), {
+    cwd: __dirname,
+    stdio: 'inherit',
+    preferLocal: true,
+  })
+}
+
 switch (cmd) {
   case 'build':
-    log('building')
-    const build = require('./lib/build')
-    build(opts)
-      .then(res => {
-        log('done')
-        process.exit(0)
-      })
-      .catch(err => {
-        log.error(err)
-        process.exit(1)
-      })
+    gatsby('build')
+    break
+  case 'eject':
+    log('TODO: eject')
     break
   case 'dev':
   default:
-    log('starting dev server')
-    dev = require('./lib/dev')
-    dev(opts)
-      .then(server => {
-        const { address, port } = server.address()
-        const url = `http://localhost:${port}`
-        if (opts.open) open(url)
-        log('listening on', chalk.green(url))
-      })
-      .catch(err => {
-        log.error(err)
-        process.exit(1)
-      })
+    gatsby(
+      'develop',
+      '--host',
+      opts.host,
+      '--port',
+      opts.port,
+      opts.open && '--open'
+    )
     break
 }

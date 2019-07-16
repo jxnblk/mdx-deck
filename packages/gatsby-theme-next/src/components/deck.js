@@ -12,7 +12,7 @@ import Context from '../context'
 import Wrapper from './wrapper'
 import Slide from './slide'
 import { modes } from '../constants'
-import convertLegacyTheme from '../convert-legacy-theme'
+// import convertLegacyTheme from '../convert-legacy-theme'
 
 import Presenter from './presenter'
 import Overview from './overview'
@@ -90,9 +90,10 @@ export default ({
   const head = slides.head.children
 
   const mergedTheme = mergeThemes(theme, ...themes)
-  const themeProviderProps = convertLegacyTheme(mergedTheme)
+  // const themeProviderProps = convertLegacyTheme(mergedTheme)
 
   let Mode = ({ children }) => <React.Fragment children={children} />
+
   switch (context.mode) {
     case modes.presenter:
       Mode = Presenter
@@ -115,7 +116,7 @@ export default ({
       </Helmet>
       <GoogleFont theme={mergedTheme} />
       <Context.Provider value={context}>
-        <ThemeProvider {...themeProviderProps}>
+        <ThemeProvider theme={mergedTheme}>
           <Global
             styles={{
               body: {
