@@ -54,15 +54,18 @@ const filename = file || cmd
 
 if (!filename) cli.showHelp(0)
 
-const userdir = process.cwd()
-process.env.__DIRNAME__ = userdir
 process.env.__SRC__ = path.resolve(filename)
 
 const opts = Object.assign({}, cli.flags)
 
+// deprecation warnings
 if (opts.outDir) {
   log.error('the --out-dir flag has been deprecated')
   log('Decks are now built to the `public/` directory')
+}
+if (opts.webpack) {
+  log.error('the --webpack flag has been deprecated')
+  log('Use the Gatsby theme directly to customize webpack configuration')
 }
 
 let dev

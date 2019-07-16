@@ -1,6 +1,4 @@
 const src = process.env.__SRC__
-const dirname = process.env.__DIRNAME__
-const chalk = require('chalk')
 
 module.exports = {
   plugins: [
