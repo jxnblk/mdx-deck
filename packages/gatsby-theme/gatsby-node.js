@@ -3,7 +3,6 @@ const path = require('path')
 const { createFilePath } = require('gatsby-source-filesystem')
 const Debug = require('debug')
 const mkdirp = require('mkdirp')
-const pkg = require('./package.json')
 
 const debug = Debug('@mdx-deck/gatsby-theme')
 
