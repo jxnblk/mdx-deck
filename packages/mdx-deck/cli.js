@@ -20,6 +20,8 @@ const cli = meow(
 
     $ ${chalk.green('mdx-deck build deck.mdx')}
 
+    $ ${chalk.green('mdx-deck eject deck.mdx')}
+
   ${chalk.gray('Options')}
 
       -h --host     Dev server host
@@ -88,7 +90,18 @@ switch (cmd) {
     gatsby('build')
     break
   case 'eject':
-    log('TODO: eject')
+    log('ejecting Gatsby site')
+    const eject = require('./eject')
+    eject({
+      cwd: process.cwd(),
+      filename: path.resolve(filename),
+    })
+      .then(() => {
+        log('done')
+      })
+      .catch(err => {
+        log.error(err)
+      })
     break
   case 'dev':
   default:

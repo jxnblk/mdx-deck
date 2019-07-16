@@ -9,7 +9,6 @@
   "scripts": {
     "start": "./cli.js hello.mdx",
     "build": "./cli.js build hello.mdx",
-    "eject": "./cli.js eject hello.mdx",
     "help": "./cli.js"
   },
   "keywords": [],
@@ -20,9 +19,11 @@
     "@mdx-deck/themes": "*",
     "chalk": "^2.4.2",
     "execa": "^2.0.3",
+    "fs-extra": "^8.1.0",
     "gatsby": "^2.13.24",
     "gatsby-plugin-compile-es6-packages": "^2.0.0",
     "gatsby-theme-mdx-deck": "*",
+    "initit": "^1.0.0-2",
     "meow": "^5.0.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
