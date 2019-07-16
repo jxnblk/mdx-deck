@@ -1,5 +1,7 @@
-import { Head, Image, Notes, Appear } from '@mdx-deck/components'
-import { Invert, Split, SplitRight, FullScreenCode, Horizontal} from '@mdx-deck/layouts'
+import {
+  Head, Image, Notes, Appear,
+  Invert, Split, SplitRight, FullScreenCode, Horizontal
+} from 'mdx-deck'
 import Counter from './Counter'
 
 import future from '@mdx-deck/themes/future'
@@ -33,15 +35,10 @@ MDX-based presentation decks
 [MDX]: https://github.com/mdx-js/mdx
 
 ---
-import { Box } from '@rebass/emotion'
 
-<Box
-  fontSize={[ 6, 7 ]}
-  p={4}
-  color='navy'
-  bg='magenta'>
-  Import React components
-</Box>
+### Import and Use React Components
+
+<Counter />
 
 ---
 
@@ -119,12 +116,6 @@ class extends React.Component {
 <Notes>
 Testing object fit
 </Notes>
-
----
-
-### Real React Components
-
-<Counter />
 
 ---
 

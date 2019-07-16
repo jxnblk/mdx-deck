@@ -8,17 +8,11 @@
   ],
   "scripts": {
     "start": "yarn workspace @mdx-deck/docs start",
-    "analyze-bundle": "yarn workspace @mdx-deck/docs start --webpack bundle-analyzer.config.js",
     "build": "yarn workspace @mdx-deck/docs build",
-    "start-theme": "yarn workspace @mdx-deck/gatsby-theme start",
-    "build-theme": "yarn workspace @mdx-deck/gatsby-theme build",
     "export": "yarn workspace @mdx-deck/export pdf",
     "test": "jest"
   },
   "devDependencies": {
-    "@babel/core": "^7.3.4",
-    "@babel/preset-env": "^7.3.4",
-    "@babel/preset-react": "^7.0.0",
     "husky": "^3.0.0",
     "jest": "^24.3.1",
     "lerna": "^3.13.1",
@@ -46,8 +40,5 @@
       "prettier --write",
       "git add"
     ]
-  },
-  "dependencies": {
-    "@mdx-js/mdx": "^1.0.1"
   }
 }

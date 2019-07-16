@@ -6,6 +6,7 @@ export const Image = ({
   height = '100vh',
   size = 'cover',
   src,
+  css,
   ...props
 }) => (
   <div
@@ -18,6 +19,7 @@ export const Image = ({
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat',
     }}
+    css={css}
   />
 )
 

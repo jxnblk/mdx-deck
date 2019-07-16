@@ -1,5 +1,7 @@
 const IS_LOCAL = process.cwd() === __dirname
 
+const remarkPlugins = [require('remark-unwrap-images'), require('remark-emoji')]
+
 const config = (opts = {}) => {
   const { mdx = true, contentPath: name = 'decks' } = opts
 
@@ -12,7 +14,12 @@ const config = (opts = {}) => {
           path: name,
         },
       },
-      mdx && 'gatsby-plugin-mdx',
+      mdx && {
+        resolve: 'gatsby-plugin-mdx',
+        options: {
+          remarkPlugins,
+        },
+      },
       'gatsby-plugin-react-helmet',
       'gatsby-plugin-emotion',
       'gatsby-plugin-catch-links',
