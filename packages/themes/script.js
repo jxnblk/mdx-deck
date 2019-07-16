@@ -17,5 +17,8 @@ export default {
       fontSize: ['1.5em', null, '4em'],
       textAlign: 'center',
     },
+    pre: {
+      textAlign: 'left',
+    },
   },
 }

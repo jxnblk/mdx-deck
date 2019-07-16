@@ -4,7 +4,7 @@ export default {
   googleFont:
     'https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700|Roboto+Mono',
   fonts: {
-    font: '"Roboto Condensed", system-ui, sans-serif',
+    body: '"Roboto Condensed", system-ui, sans-serif',
     monospace: '"Roboto Mono", monospace',
   },
   colors: {
@@ -17,13 +17,15 @@ export default {
       textTransform: 'uppercase',
     },
   },
-  pre: {
-    textAlign: 'left',
-    color: 'background',
-    bg: 'text',
-  },
-  code: {
-    color: 'background',
-    bg: 'text',
+  styles: {
+    pre: {
+      textAlign: 'left',
+      color: 'background',
+      bg: 'text',
+    },
+    code: {
+      color: 'background',
+      bg: 'text',
+    },
   },
 }

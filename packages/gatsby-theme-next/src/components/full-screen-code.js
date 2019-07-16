@@ -8,7 +8,8 @@ export const FullScreenCode = ({ ...props }) => (
       width: '100%',
       height: '100%',
       pre: {
-        margin: 0,
+        // hack for prism styles
+        margin: '0 !important',
         width: '100%',
         height: '100%',
         overflow: 'auto',

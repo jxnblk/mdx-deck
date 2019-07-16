@@ -3,13 +3,24 @@ import {
   Invert, Split, SplitRight, FullScreenCode, Horizontal
 } from 'mdx-deck'
 import Counter from './Counter'
-
-import future from '@mdx-deck/themes/future'
-import aspect from '@mdx-deck/themes/aspect'
+import {
+  dark,
+  yellow,
+  swiss,
+  poppins,
+  book,
+  script,
+  comic,
+  notes,
+  code,
+  lobster,
+  hack,
+  rye,
+  big,
+} from '@mdx-deck/themes'
 
 export const themes = [
-  future,
-  aspect,
+  yellow,
 ]
 
 <Head>
@@ -109,7 +120,7 @@ class extends React.Component {
 ---
 
 <Image
-  src='https://source.unsplash.com/random/768x2048'
+  src='https://source.unsplash.com/random/768x2048?new_york'
   size='contain'
 />
 
@@ -119,13 +130,13 @@ Testing object fit
 
 ---
 
-<Image src='https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=2048&q=20' />
+<Image src='https://images.unsplash.com/photo-1462331940025-496dfbfc7564?new_york&w=2048&q=20' />
 
 ---
 
 <Split>
 
-![](https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=2048&q=20)
+![](https://images.unsplash.com/photo-1462331940025-496dfbfc7564?new_york&w=2048&q=20)
 
 ## Split Layout
 
@@ -135,7 +146,7 @@ Testing object fit
 
 <SplitRight>
 
-![](https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=2048&q=20)
+![](https://images.unsplash.com/photo-1462331940025-496dfbfc7564?new_york&w=2048&q=20)
 
 ## Split Layout
 
@@ -177,7 +188,7 @@ Testing object fit
 
 ---
 
-![](https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=2048&h=1024&q=20&fit=crop)
+![](https://images.unsplash.com/photo-1462331940025-496dfbfc7564?new_york&w=2048&h=1024&q=20&fit=crop)
 
 Inline image
 

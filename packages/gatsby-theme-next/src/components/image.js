@@ -2,8 +2,8 @@
 import { jsx } from 'theme-ui'
 
 export const Image = ({
-  width = '100vw',
-  height = '100vh',
+  width = '100%',
+  height = '100%',
   size = 'cover',
   src,
   css,
