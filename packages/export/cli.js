@@ -35,7 +35,7 @@ const cli = meow(
       port: {
         type: 'string',
         alias: 'p',
-        default: 8080,
+        default: '8000',
       },
       width: {
         type: 'string',

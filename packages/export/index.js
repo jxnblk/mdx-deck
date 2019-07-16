@@ -1,25 +1,24 @@
 const path = require('path')
 const puppeteer = require('puppeteer')
+const execa = require('execa')
 const mkdirp = require('mkdirp')
-const dev = require('mdx-deck/lib/dev')
-const findup = require('find-up')
 
 module.exports = async opts => {
-  const { type, outDir, outFile, port, width, height, sandbox } = opts
+  const { input, type, outDir, outFile, port, width, height, sandbox } = opts
 
   const args = []
   if (!sandbox) {
     args.push('--no-sandbox', '--disable-setuid-sandbox')
   }
 
-  if (opts.webpack) {
-    opts.webpack = require(path.resolve(opts.webpack))
-  } else {
-    const webpackConfig = findup.sync('webpack.config.js', { cwd: opts.dirname })
-    if (webpackConfig) opts.webpack = require(webpackConfig)
-  }
+  const server = execa('mdx-deck', [input, '--no-open', '--port', port], {
+    stdio: 'inherit',
+    preferLocal: true,
+  })
 
-  const server = await dev(opts)
+  server.on('message', msg => {
+    console.log('server', msg)
+  })
 
   const browser = await puppeteer.launch({ args })
   const page = await browser.newPage()
@@ -29,6 +28,7 @@ module.exports = async opts => {
   )
   mkdirp.sync(outDir)
 
+  /*
   switch (type) {
     case 'pdf':
       const url = `http://localhost:${port}/print`
@@ -42,6 +42,7 @@ module.exports = async opts => {
         scale: 1,
         printBackground: true,
       })
+      loading = false
       break
     case 'png':
       await page.setViewport({ width, height })
@@ -58,11 +59,17 @@ module.exports = async opts => {
           height,
         },
       })
+      loading = false
       break
   }
 
   await browser.close()
-  await server.close()
+  */
+  // await server.close()
+
+  return new Promise((resolve, reject) => {
+    ///
+  })
 
   return filename
 }

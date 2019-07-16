@@ -12,6 +12,7 @@
     "png": "./cli.js png ../../docs/demo.mdx -d ../../docs/dist"
   },
   "dependencies": {
+    "execa": "^2.0.3",
     "mdx-deck": "^2.5.0",
     "meow": "^5.0.0",
     "mkdirp": "^0.5.1",

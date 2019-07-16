@@ -3,6 +3,7 @@ const path = require('path')
 const meow = require('meow')
 const execa = require('execa')
 const chalk = require('chalk')
+const fs = require('fs-extra')
 const pkg = require('./package.json')
 
 const log = (...args) => {
@@ -87,7 +88,12 @@ const gatsby = async (...args) => {
 
 switch (cmd) {
   case 'build':
-    gatsby('build')
+    gatsby('build').then(() => {
+      const public = path.join(__dirname, 'public')
+      const dist = path.join(process.cwd(), 'public')
+      if (public === dist) return
+      fs.copySync(public, dist)
+    })
     break
   case 'eject':
     log('ejecting Gatsby site')
