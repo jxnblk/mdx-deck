@@ -14,7 +14,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-compile-es6-packages',
       options: {
-        modules: ['mdx-deck'],
+        modules: ['mdx-deck', '@mdx-deck/themes'],
       },
     },
   ],

@@ -17,6 +17,7 @@
   "license": "MIT",
   "repository": "github:jxnblk/mdx-deck",
   "dependencies": {
+    "@mdx-deck/themes": "*",
     "chalk": "^2.4.2",
     "execa": "^2.0.3",
     "gatsby": "^2.13.24",

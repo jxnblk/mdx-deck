@@ -13,6 +13,7 @@
     "@emotion/core": "^10.0.7",
     "@emotion/styled": "^10.0.7",
     "@mdx-deck/themes": "^2.5.0",
-    "mdx-deck": "^2.5.0"
+    "mdx-deck": "^2.5.0",
+    "styled-system": "^5.0.15"
   }
 }
