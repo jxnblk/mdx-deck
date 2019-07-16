@@ -2,7 +2,7 @@
 
 ## Updating to MDX Deck v3
 
-- The `export default` syntax for slide layouts is no longer supported. Replace this syntax with the layout component wrapped around the slide component instead.
+- The `export default` syntax for slide layouts is no longer supported. Replace this syntax with the layout component wrapped around the slide content instead.
 - The following packages have been deprecated. Import components directly from the `mdx-deck` package instead.
   - `@mdx-deck/components`
   - `@mdx-deck/layouts`
