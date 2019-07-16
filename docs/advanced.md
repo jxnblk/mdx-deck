@@ -121,28 +121,6 @@ Then, point the MDX Deck CLI comment in your `package.json` to the `deck.js` fil
 }
 ```
 
-## Custom webpack config
-
-Webpack configuration files named `webpack.config.js` will automatically be merged with the built-in configuration,
-using [webpack-merge](https://github.com/survivejs/webpack-merge).
-To use a custom filename, pass the file path to the `--webpack` flag.
-
-```js
-// webpack.config.js example
-module.exports = {
-  module: {
-    rules: [
-      {
-        test: /\.svg$/,
-        use: [{ loader: 'babel-loader' }, { loader: 'react-svg-loader' }],
-      },
-    ],
-  },
-}
-```
-
-**Careful**: When overwriting the loader for `mdx` files, make sure to include the default loader from `@mdx-deck/loader`.
-
 ## Custom Components
 
 To build custom components that hook into internal MDX Deck state, you might want to use the following APIs:

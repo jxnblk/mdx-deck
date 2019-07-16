@@ -14,10 +14,6 @@ Award-winning [MDX][]-based presentation decks
 [downloads]: https://flat.badgen.net/npm/dm/mdx-deck
 [npm]: https://npmjs.com/package/mdx-deck
 
-```sh
-npm i -D mdx-deck
-```
-
 - :memo: Write presentations in markdown
 - :atom_symbol: Import and use [React components](#imports)
 - :nail_care: Customizable [themes](#theming) and components
@@ -28,6 +24,10 @@ npm i -D mdx-deck
 [View demo](https://mdx-deck.jxnblk.com)
 
 ## Getting Started
+
+```sh
+npm i -D mdx-deck
+```
 
 Create an [MDX][] file and separate each slide with `---`.
 
@@ -88,14 +88,14 @@ npm start
 
 ## Using MDX
 
-MDX can use Markdown syntax and render React components with JSX.
+MDX uses Markdown syntax and can render React components inline with JSX.
 
 ### Imports
 
 To import components, use ES import syntax separated with empty lines between any markdown or JSX syntax.
 
 ```mdx
-import { Box } from 'grid-styled'
+import { Box } from 'rebass'
 
 <Box color="tomato">Hello</Box>
 ```
@@ -104,65 +104,25 @@ Read more about MDX syntax in the [MDX Docs][mdx].
 
 ## Theming
 
-MDX Deck uses [emotion][] for styling, making practically any part of the presentation themeable.
-
-### Built-in Themes
-
 <div>
   <img src='docs/images/future.png' width='256' />
   <img src='docs/images/comic.png' width='256' />
   <img src='docs/images/yellow.png' width='256' />
 </div>
 
-MDX Deck includes several built-in themes to change the look and feel of the presentation.
-Export `theme` from your MDX file to enable a theme.
+MDX Deck uses [Theme UI][] and [Emotion][] for styling, making practically any part of the presentation themeable.
+It also includes several built-in themes to change the look and feel of the presentation.
+See the list of available [Themes](docs/themes.md),
+or read more about theming in the [Theming](docs/theming.md) docs.
 
-```mdx
-export { dark as theme } from 'mdx-deck/themes'
+## Components
 
-# Dark Theme
-```
+MDX Deck includes built-in components to help with creating presentations, including a background `Image` component, an `Appear` component that allows stepping through parts of a single slide, and a `Notes` component for adding speaker notes.
+Read more in the [Components](docs/components.md) docs.
 
-MDX uses [exports](https://github.com/mdx-js/mdx#exports) as a way for files to communicate with their parent components.
-For a list of available themes see the [Themes Docs](docs/themes.md).
+## Add-ons & Libraries
 
-### Custom Themes
-
-A custom theme can be provided by exporting `theme` from the MDX file.
-
-```mdx
-export { default as theme } from './theme'
-
-# Hello
-```
-
-The theme should be an object with fields for fonts, colors, and CSS for individual components.
-
-```js
-// example theme.js
-export default {
-  // add a custom font
-  font: 'Roboto, sans-serif',
-  // custom colors
-  colors: {
-    text: '#f0f',
-    background: 'black',
-    link: '#0ff',
-  },
-}
-```
-
-Read more about theming in the [Theming docs](docs/theming.md)
-
-### Components
-
-MDX Deck includes built-in components to help with creating presentations, including a full screen Image component, the Appear component that allows stepping through parts of a single slide, and the Notes component for adding speaker notes.
-
-Read more in the [components docs](docs/components.md).
-
-### Libraries
-
-These third-party libraries are great for use with MDX Deck.
+These third-party libraries are built for use with MDX Deck.
 
 - [CodeSurfer][]: React component for scrolling, zooming and highlighting code.
 - [mdx-code][]: Runnable code playgrounds for MDX Deck.
@@ -174,7 +134,7 @@ _Note: please check with version compatibility when using these libraries._
 [mdx-code]: https://github.com/pranaygp/mdx-code
 [mdx-deck-live-code]: https://github.com/JReinhold/mdx-deck-live-code
 
-### Layouts
+## Layouts
 
 Each slide can include a custom layout around its content.
 This can be used as a substitute for slide templates found in other presentation apps and libraries.
@@ -210,56 +170,27 @@ import Layout from './Layout'
 ```
 
 The layout component will wrap the MDX elements within that slide,
-which means you can use a nested ThemeProvider or target elements with CSS-in-JS.
+which means you can add layout styles, use a nested ThemeProvider, or style elements with CSS-in-JS.
 
-### Built-in Layouts
+## Built-in Layouts
 
-MDX Deck includes some built-in layouts for inverting theme colors and changing the layout of a slide.
-Read more about [built-in layouts](docs/components.md#layouts).
+MDX Deck includes a few [built-in layouts](docs/layouts.md) for inverting theme colors and changing the layout of a slide.
 
 ## Presenter Mode
 
-MDX Deck includes a built-in _Presenter Mode_, with a preview of the next slide and a timer.
+MDX Deck includes a built-in [_Presenter Mode_](docs/presenting.md), with a preview of the next slide and a timer.
 
 ![presenter mode screenshot](docs/images/presenter-mode.png)
-
-To use presenter mode:
-
-1. Open your presentation and press `Option + P` to enter _Presenter Mode_
-2. Click on the link in the bottom to open the presentation in another tab
-3. Move the other window to the screen for the audience to see
-4. Control the presentation from your window using the left and right arrow keys – the other window should stay in sync
-5. Be sure to move your cursor so that it doesn't drive anyone in the audience crazy
-
-### Speaker Notes
-
-Notes that only show in presenter mode can be added to any slide.
-Speaker notes can be added using the `<Notes />` component.
-
-```mdx
-import { Notes } from 'mdx-deck'
-
-# Slide Content
-
-<Notes>Only visible in presenter mode</Notes>
-```
-
-## Overview Mode
-
-![Overview Mode](docs/images/overview-mode.png)
-
-When editing a slide deck, toggle overview mode with `Option + O`.
-This shows a list of all slides on the left and a preview of the current slide on the right.
 
 ## Keyboard Shortcuts
 
 | Key         | Description                                  |
 | ----------- | -------------------------------------------- |
-| Left Arrow  | Go to previous slide (or step in [Appear][]) |
-| Right Arrow | Go to next slide (or step in [Appear][])     |
-| Space       | Go to next slide (or step in [Appear][])     |
+| Left Arrow, Page Up, Shift + Space  | Go to previous slide (or step in [Appear][]) |
+| Right Arrow, Page Down, Space | Go to next slide (or step in [Appear][])     |
 | Option + P  | Toggle [Presenter Mode](#presenter-mode)     |
 | Option + O  | Toggle [Overview Mode](#overview-mode)       |
+| Option + G  | Toggle Grid Mode
 
 [appear]: docs/components.md#appear
 
@@ -281,9 +212,6 @@ See more exporting options in the [Exporting Documentation](docs/exporting.md)
 -p --port     Dev server port
 -h --host     Host the dev server listens to
 --no-open     Prevent from opening in default browser
--d --out-dir  Output directory for exporting
---webpack     Path to custom webpack config file
---no-html     Disable static HTML rendering
 ```
 
 ## Docs
@@ -292,6 +220,7 @@ See more exporting options in the [Exporting Documentation](docs/exporting.md)
 - [Built-in Themes](docs/themes.md)
 - [Layouts](docs/layouts.md)
 - [Components](docs/components.md)
+- [Presenting](docs/presenting.md)
 - [Exporting](docs/exporting.md)
 - [Advanced Usage](docs/advanced.md)
 - [API](docs/api.md)
@@ -336,6 +265,7 @@ The following examples will open in CodeSandbox.
 [mdx]: https://mdxjs.com/
 [spectacle]: https://github.com/FormidableLabs/spectacle
 [emotion]: https://emotion.sh
+[theme ui]: https://theme-ui.com
 
 <!-- examples -->
 

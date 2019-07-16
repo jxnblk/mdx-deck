@@ -1,54 +1,30 @@
 # API
 
-MDX Deck consists of several different packages. The core `mdx-deck` package includes the CLI, `@mdx-deck/components`,
-`@mdx-deck/themes`, and `@mdx-deck/layouts`.
+The core `mdx-deck` package is a wrapper around the Gatsby CLI with the `gatsby-theme-mdx-deck` package.
 
 ## Components
 
-See the [components docs](components.md) for details.
+- `Head`: Adds elements to the document `<head>`
+- `Image`: A fullscreen background image layout component
+- `Notes`: Adds speaker notes to a slide
+- `Appear`: Steps through child elements one-by-one
+- `Embed`: Embed MDX Deck slides in other React applications
 
-- `MDXDeck`
-- `MDXDeckState`
-- `Head`
-- `Image`
-- `Notes`
-- `Steps`
-- `Appear`
-- `Slide`
-- `Zoom`
-- `Embed`
+See the [components docs](components.md) for more info.
 
 ## Layouts
 
-See the [layouts docs](layouts.md) for details.
+- `Invert`: Inverts the foreground and background colors of the slide
+- `Split`: Renders the first element on the left and other elements to the right
+- `SplitRight`: Renders the first element on the right and other elements to the left
+- `Horizontal`: Renders all child elements side-by-side
+- `FullScreenCode`: Renders a single child code block fullscreen
 
-- `Invert`
-- `Split`
-- `SplitRight`
-- `FullScreenCode`
-- `Horizontal`
+See the [layouts docs](layouts.md) for more info.
 
-## Themes
+## Hooks
 
-See the [themes](themes.md) & [theming](theming.md) docs for details.
-
-## Context
-
-MDX Deck uses a stateful React context for each slide.
-Use the context APIs with caution as they are less stable than the end-user MDX Deck API.
-
-- `metadata` (object) object for storing slide metadata such as speaker notes and step count
-- `step` (number) the current step index
-- `mode` (string) the current application mode
-- `modes` (object) object of application modes
-- `update` (function) updates application state
-- `register` (function) registers slide metadata
-- `index` (number) the current slide index
-- `goto` (function) function to navigate to a specific slide
-- `previous` (function) navigate to the previous slide or step
-- `next` (function) navigate to the next slide or step
-
-## `useSteps` Hook
+### `useSteps`
 
 The `useSteps` hook can be used to register custom components that rely on steps, similar to the Appear component.
 It takes one argument for the total length of steps and returns the current step state.
@@ -56,7 +32,7 @@ It takes one argument for the total length of steps and returns the current step
 ```jsx
 // example
 import React from 'react'
-import { useSteps } from '@mdx-deck/components'
+import { useSteps } from 'mdx-deck'
 
 export default props => {
   const length = 4
@@ -70,13 +46,23 @@ export default props => {
 }
 ```
 
-## `useDeck` Hook
+## `useDeck`
 
-The `useDeck` component can be used to hook into MDX Deck state.
-It returns the [app context](#context) and can be used in a custom [Provider component][] or other custom components.
+The `useDeck` returns the MDX Deck state.
+This includes the following:
+
+- `setState`
+- `mode`
+- `index`
+- `length`
+- `step`
+- `metadata`
+- `steps`
+- `notes`
+- `slug`
 
 ```jsx
-// example custom Provider
+// example
 import React from 'react'
 import { useDeck } from '@mdx-deck/components'
 
@@ -86,14 +72,7 @@ export default props => {
   return (
     <div>
       {props.children}
-      <div
-        css={{
-          position: 'fixed',
-          right: 0,
-          bottom: 0,
-          margin: 16,
-        }}
-      >
+      <div>
         Slide {state.index + 1}/{state.length}
       </div>
     </div>
@@ -101,20 +80,3 @@ export default props => {
 }
 ```
 
-## `useTheme` Hook
-
-The `useTheme` hook returns the current [theme](theming.md).
-
-```jsx
-// example
-import React from 'react'
-import { useTheme } from '@mdx-deck/components'
-
-export default props => {
-  const theme = useTheme()
-
-  return <h2 style={{ border: `1px solid ${theme.colors.text}` }}>Hello</h2>
-}
-```
-
-[provider component]: advanced.md#custom-provider-component
