@@ -4,7 +4,7 @@ MDX Deck uses [Theme UI][] and [Emotion][] for styling, making practically any p
 
 ## Built-in Themes
 
-mdx-deck includes several built-in themes to change the look and feel of the presentation.
+MDX Deck includes several built-in themes to change the look and feel of the presentation.
 Export `theme` from your MDX file to enable a theme.
 
 ```mdx
@@ -29,7 +29,7 @@ export const theme = myTheme
 # Hello
 ```
 
-The theme is based on [Theme UI][] and supports customizing typography, color, layout, and other element styles.
+Themes are based on [Theme UI][] and support customizing typography, color, layout, and other element styles.
 
 ```js
 // Example theme.js
@@ -49,7 +49,7 @@ export default {
 ## Composing Themes
 
 Multiple themes can be composed together,
-allowing you to create separete themes for typography, color, and components, and mix and match them as needed.
+allowing you to create separate themes for typography, color, and components, and mix and match them as needed.
 
 To compose multiple themes together, export a `themes` array instead of a single theme.
 
@@ -64,19 +64,17 @@ export const themes = [syntaxHighlighter, customTheme]
 
 Note that themes are deeply merged together and the last theme specified will override fields from themes before it.
 
-### Google Fonts
+## Google Fonts
 
 Themes can specify a `googleFont` field to automatically add a `<link>` tag to the document head.
 Alternatively, use the `<Head />` component to add a custom `<link>` tag.
 
-### Syntax Highlighting
+## Syntax Highlighting
 
 By default fenced code blocks do not include any syntax highlighting.
 Themes can provide a set of custom MDX components, including a replacement for the default `code` component that can add syntax highlighting with libraries like [react-syntax-highlighter][].
 
 MDX Deck includes two themes for adding syntax highlighting with [react-syntax-highlighter][]: `highlight` and `prism`.
-
-Since MDX supports using React components inline, you can also import a syntax highlighting component directly, if you prefer.
 
 ```mdx
 import { prism } from 'mdx-deck/themes'
@@ -84,7 +82,17 @@ import { prism } from 'mdx-deck/themes'
 export const themes = [ prism ]
 ```
 
-### Styling Elements
+Since MDX supports using React components inline, you can also import a syntax highlighting component directly, if you prefer.
+
+```mdx
+import Highlighter from 'react-syntax-highlighter'
+
+<Highligher language='javascript'>
+{`export const hello = 'hi'`}
+</Highligher>
+```
+
+## Styling Elements
 
 Add a `theme.styles` object to style specific markdown elements.
 
@@ -116,7 +124,7 @@ export default {
 - `styles.Slide`: styles for the wrapping Slide component
 - `components`: object of MDX components
 - `Provider`: component for wrapping the entire presentation
-- `googleFont`: URL for adding a Google Font `<link>` tag
+- `googleFont`: Stylesheet URL for adding a Google Font
 
 [emotion]: https://emotion.sh
 [theme ui]: https://theme-ui.com
