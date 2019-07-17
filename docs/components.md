@@ -1,10 +1,10 @@
 # Components
 
-MDX Deck includes a few built-in components to help with creating presentations.
+MDX Deck includes components to help with creating presentations.
 
 ## Head
 
-Use the `<Head />` component to set content in the document head.
+Use the `Head` component to set content in the document head.
 
 ```mdx
 // example for twitter cards
@@ -22,7 +22,7 @@ import { Head } from 'mdx-deck'
 
 ## Image
 
-Use the `<Image />` component to render a fullscreen image (using the CSS `background-image` property).
+Use the `Image` component to render a fullscreen image with the CSS `background-image` property.
 
 ```mdx
 import { Image } from 'mdx-deck'
@@ -40,14 +40,14 @@ import { Image } from 'mdx-deck'
 </Image>
 ```
 
-### Props
+**Props**
 
 - `src` (string) image URL
 - `size` (string) CSS background-size
 
 ## Appear
 
-Use the `<Appear />` component to make child elements appear one at a time within a single slide.
+Use the `Appear` component to make child elements appear one at a time within a single slide.
 Use the left and right arrow keys to step through each element.
 
 ```mdx
@@ -63,11 +63,11 @@ import { Appear } from 'mdx-deck'
 </ul>
 ```
 
-Internally, the `<Appear />` component uses the `useSteps` hook, which can be used to build custom components with similar behavior.
+Internally, the `Appear` component uses the `useSteps` hook, which can be used to build custom components with similar behavior.
 
 ## Notes
 
-Speaker notes that only show in presenter mode can be added to any slide with the Notes component.
+Speaker notes that only show in presenter mode can be added to any slide with the `Notes` component.
 
 ```mdx
 import { Notes } from 'mdx-deck'

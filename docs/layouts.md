@@ -41,7 +41,7 @@ which means you can use a nested ThemeProvider or target elements with CSS-in-JS
 
 ## Built-in Layouts
 
-mdx-deck includes a few built-in layouts for common slide variations.
+MDX Deck includes a few built-in layouts for common slide variations.
 
 ### Invert
 
@@ -99,7 +99,7 @@ Similar to the Split components, but renders all children side-by-side
 
 ### FullScreenCode
 
-Render fenced code blocks fullscreen.
+Renders code blocks fullscreen.
 
 ````mdx
 import { FullScreenCode } from 'mdx-deck/layouts'

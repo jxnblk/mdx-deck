@@ -9,7 +9,7 @@ The core `mdx-deck` package is a wrapper around the Gatsby CLI with the `gatsby-
 - `Appear`: Steps through child elements one-by-one
 - `Embed`: Embed MDX Deck slides in other React applications
 
-See the [components docs](components.md) for more info.
+See [Components](components.md) for more info.
 
 ## Layouts
 
@@ -20,14 +20,15 @@ See the [components docs](components.md) for more info.
 - `Horizontal`: Renders all child elements side-by-side
 - `FullScreenCode`: Renders a single child code block fullscreen
 
-See the [layouts docs](layouts.md) for more info.
+See [Layouts](layouts.md) for more info.
 
 ## Hooks
 
 ### `useSteps`
 
-The `useSteps` hook can be used to register custom components that rely on steps, similar to the Appear component.
-It takes one argument for the total length of steps and returns the current step state.
+The `useSteps` hook can be used to register custom components that rely on multiple "steps" within a single slide,
+similar to the Appear component.
+The hook takes one argument for the total `length` of steps and returns the current `step` state.
 
 ```jsx
 // example
