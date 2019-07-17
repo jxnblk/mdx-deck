@@ -20,6 +20,7 @@ Award-winning [MDX][]-based presentation decks
 - :zero: Zero-config CLI
 - :tipping_hand_woman: [Presenter mode](#presenter-mode)
 - :notebook: [Speaker notes](#speaker-notes)
+- :fire: Available as a Gatsby theme
 
 [View demo](https://mdx-deck.jxnblk.com)
 
@@ -222,6 +223,7 @@ See more exporting options in the [Exporting Documentation](docs/exporting.md)
 - [Components](docs/components.md)
 - [Presenting](docs/presenting.md)
 - [Exporting](docs/exporting.md)
+- [Usage with Gatsby](docs/gatsby.md)
 - [Advanced Usage](docs/advanced.md)
 - [API](docs/api.md)
 
