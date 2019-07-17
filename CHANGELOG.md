@@ -1,5 +1,14 @@
 # Changelog
 
+## v2.5.1 2019-07-16
+
+- Fix loader #357
+
+## v2.5.0 2019-07-07
+
+- Update Gatsby theme to official API #389 #387 #385
+- Update docs #382
+
 ## v2.4.0 2019-06-19
 
 - Add `useTheme` hook to API #359
