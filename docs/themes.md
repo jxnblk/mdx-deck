@@ -4,13 +4,11 @@
 npm i @mdx-deck/themes
 ```
 
-![](images/default.png)
-Default
+![Default theme](images/default.png)
 
 ---
 
-![](images/big.png)
-Big
+![Big theme](images/big.png)
 
 ```js
 import { big } from '@mdx-deck/themes'
@@ -18,8 +16,7 @@ import { big } from '@mdx-deck/themes'
 
 ---
 
-![](images/book.png)
-Book
+![Book theme](images/book.png)
 
 ```js
 import { book } from '@mdx-deck/themes'
@@ -27,8 +24,7 @@ import { book } from '@mdx-deck/themes'
 
 ---
 
-![](images/code.png)
-Code
+![Code theme](images/code.png)
 
 ```js
 import { code } from '@mdx-deck/themes'
@@ -36,8 +32,7 @@ import { code } from '@mdx-deck/themes'
 
 ---
 
-![](images/comic.png)
-Comic
+![Comic theme](images/comic.png)
 
 ```js
 import { comic } from '@mdx-deck/themes'
@@ -45,8 +40,7 @@ import { comic } from '@mdx-deck/themes'
 
 ---
 
-![](images/condensed.png)
-Condensed
+![Condensed theme](images/condensed.png)
 
 ```js
 import { condensed } from '@mdx-deck/themes'
@@ -54,8 +48,7 @@ import { condensed } from '@mdx-deck/themes'
 
 ---
 
-![](images/dark.png)
-Dark
+![Dark theme](images/dark.png)
 
 ```js
 import { dark } from '@mdx-deck/themes'
@@ -63,8 +56,7 @@ import { dark } from '@mdx-deck/themes'
 
 ---
 
-![](images/future.png)
-Future
+![Future theme](images/future.png)
 
 ```js
 import { future } from '@mdx-deck/themes'
@@ -72,8 +64,7 @@ import { future } from '@mdx-deck/themes'
 
 ---
 
-![](images/hack.png)
-Hack
+![Hack theme](images/hack.png)
 
 ```js
 import { hack } from '@mdx-deck/themes'
@@ -81,13 +72,7 @@ import { hack } from '@mdx-deck/themes'
 
 ---
 
-<!--
-![](images/lobster.png)
-Lobster
--->
-
-![](images/notes.png)
-Notes
+![Notes theme](images/notes.png)
 
 ```js
 import { notes } from '@mdx-deck/themes'
@@ -95,13 +80,7 @@ import { notes } from '@mdx-deck/themes'
 
 ---
 
-<!--
-![](images/rye.png)
-Rye
--->
-
-![](images/script.png)
-Script
+![Script theme](images/script.png)
 
 ```js
 import { script } from '@mdx-deck/themes'
@@ -109,8 +88,7 @@ import { script } from '@mdx-deck/themes'
 
 ---
 
-![](images/swiss.png)
-Swiss
+![Swiss theme](images/swiss.png)
 
 ```js
 import { swiss } from '@mdx-deck/themes'
@@ -118,8 +96,7 @@ import { swiss } from '@mdx-deck/themes'
 
 ---
 
-![](images/yellow.png)
-Yellow
+![Yellow theme](images/yellow.png)
 
 ```js
 import { yellow } from '@mdx-deck/themes'
@@ -135,18 +112,10 @@ import { poppins } from '@mdx-deck/themes'
 
 ---
 
-Syntax Highlighter
+Syntax Highlighting
 
 ```js
 import { highlight } from '@mdx-deck/themes'
-```
-
----
-
-Syntax Highlighter Prism
-
-```js
 import { prism } from '@mdx-deck/themes'
 ```
-
 
