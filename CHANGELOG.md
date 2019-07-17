@@ -1,5 +1,22 @@
 # Changelog
 
+## v3.0.0 2019-07-16
+
+- Refactored to leverage Gatsby
+- Rewritten CLI based on Gatsby
+- Updated Gatsby theme to allow for component shadowing
+- Gatsby theme has been renamed to `gatsby-theme-mdx-deck`
+- Now uses [Theme UI](https:/theme-ui.com) for theming
+- Improved touchscreen and mobile views
+- Deprecated:
+  - `@mdx-deck/components`
+  - `@mdx-deck/layouts`
+  - `@mdx-deck/loader`
+  - `@mdx-deck/mdx-plugin`
+  - `@mdx-deck/webpack-html-plugin`
+
+See the [Migration](MIGRATION.md) docs for more
+
 ## v2.5.1 2019-07-16
 
 - Fix loader #357
