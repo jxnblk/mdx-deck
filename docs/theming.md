@@ -87,9 +87,9 @@ Since MDX supports using React components inline, you can also import a syntax h
 ```mdx
 import Highlighter from 'react-syntax-highlighter'
 
-<Highligher language='javascript'>
+<Highlighter language='javascript'>
 {`export const hello = 'hi'`}
-</Highligher>
+</Highlighter>
 ```
 
 ## Styling Elements
