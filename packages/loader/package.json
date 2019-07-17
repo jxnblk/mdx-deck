@@ -1,6 +1,6 @@
 {
   "name": "@mdx-deck/loader",
-  "version": "2.5.0",
+  "version": "2.5.1",
   "main": "index.js",
   "author": "Brent Jackson <jxnblk@gmail.com>",
   "license": "MIT",
