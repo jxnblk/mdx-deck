@@ -16,9 +16,15 @@ export { default as notes } from './notes'
 export { default as code } from './code'
 export { default as lobster } from './lobster'
 
-// components
-export { default as syntaxHighlighter } from './syntax-highlighter'
-export { default as syntaxHighlighterPrism } from './syntax-highlighter-prism'
+// syntax highlighting
+export {
+  default as highlight,
+  default as syntaxHighlighter,
+} from './syntax-highlighter'
+export {
+  default as prism,
+  default as syntaxHighlighterPrism,
+} from './syntax-highlighter-prism'
 
 // experimental
 export { default as hack } from './hack'

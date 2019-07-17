@@ -1,6 +1,6 @@
 # Theming
 
-mdx-deck uses [emotion][] for styling, making practically any part of the presentation themeable.
+MDX Deck uses [Theme UI][] and [Emotion][] for styling, making practically any part of the presentation themeable.
 
 ## Built-in Themes
 
@@ -8,45 +8,50 @@ mdx-deck includes several built-in themes to change the look and feel of the pre
 Export `theme` from your MDX file to enable a theme.
 
 ```mdx
-export { dark as theme } from 'mdx-deck/themes'
+import { themes } from 'mdx-deck'
+
+export const theme = themes.dark
 
 # Dark Theme
 ```
 
-View the [List of Themes](themes.md).
+View the [Themes](themes.md) docs to see all available themes.
 
 ## Custom Themes
 
 A custom theme can be provided by exporting `theme` from the MDX file.
 
 ```mdx
-export { default as theme } from './theme'
+import myTheme from './theme'
+
+export const theme = myTheme
 
 # Hello
 ```
 
-The theme should be an object with fields for fonts, colors, and CSS for individual components.
+The theme is based on [Theme UI][] and supports customizing typography, color, layout, and other element styles.
 
 ```js
 // Example theme.js
 export default {
-  // add a custom font
-  font: 'Roboto, sans-serif',
-  // custom colors
+  fonts: {
+    body: 'Roboto, sans-serif',
+    monospace: '"Roboto Mono", monospace',
+  },
   colors: {
-    text: '#f0f',
+    text: 'white',
     background: 'black',
+    primary: 'blue',
   },
 }
 ```
 
 ## Composing Themes
 
-Multiple themes can be used together.
-For example, this allows the use of a syntax highlighting theme,
-along with a color theme, and a separate typography theme.
+Multiple themes can be composed together,
+allowing you to create separete themes for typography, color, and components, and mix and match them as needed.
 
-To compose themes together export a `themes` array instead of a single theme.
+To compose multiple themes together, export a `themes` array instead of a single theme.
 
 ```mdx
 import { syntaxHighlighter } from 'mdx-deck/themes'
@@ -57,7 +62,7 @@ export const themes = [syntaxHighlighter, customTheme]
 # Cool. :sunglasses:
 ```
 
-Please note that themes are deep merged together and the last theme specified will override fields from themes before it.
+Note that themes are deeply merged together and the last theme specified will override fields from themes before it.
 
 ### Google Fonts
 
@@ -69,69 +74,51 @@ Alternatively, use the `<Head />` component to add a custom `<link>` tag.
 By default fenced code blocks do not include any syntax highlighting.
 Themes can provide a set of custom MDX components, including a replacement for the default `code` component that can add syntax highlighting with libraries like [react-syntax-highlighter][].
 
-MDX Deck includes two themes for adding syntax highlighting with [react-syntax-highlighter][]: `syntaxHighlighter` and `syntaxHighlighterPrism`.
+MDX Deck includes two themes for adding syntax highlighting with [react-syntax-highlighter][]: `highlight` and `prism`.
 
 Since MDX supports using React components inline, you can also import a syntax highlighting component directly, if you prefer.
 
+```mdx
+import { prism } from 'mdx-deck/themes'
+
+export const themes = [ prism ]
+```
+
 ### Styling Elements
 
-Each element can be styled with a theme.
-Add a style object (or string) to the theme to target specific elements.
+Add a `theme.styles` object to style specific markdown elements.
 
 ```js
 // example theme
 export default {
-  h1: {
-    textTransform: 'uppercase',
-    letterSpacing: '0.1em',
-  },
-  blockquote: {
-    fontStyle: 'italic',
-  },
+  styles: {
+    h1: {
+      textTransform: 'uppercase',
+      letterSpacing: '0.1em',
+    },
+    blockquote: {
+      fontStyle: 'italic',
+    },
+  }
 }
 ```
 
-See the [reference](#reference) below for a full list of element keys.
-
 ## Reference
 
-The following keys are available for theming:
-
-- `font`: base font family
-- `monospace`: font family for `<pre>` and `<code>`
 - `colors`: object of colors used for MDX components
   - `text`: root foreground color
   - `background`: root background color
-  - `code`: text color for `<pre>` and `<code>`
-  - `codeBackground`: background color for `<pre>` and `<code>`
-- `css`: root CSS object
-- `heading`: CSS for all headings
-- `h1`: CSS for `<h1>`
-- `h2`: CSS for `<h2>`
-- `h3`: CSS for `<h3>`
-- `h4`: CSS for `<h4>`
-- `h5`: CSS for `<h5>`
-- `h6`: CSS for `<h6>`
-- `p`: CSS for `<p>`
-- `a`: CSS for `<a>`
-- `ul`: CSS for `<ul>`
-- `ol`: CSS for `<ol>`
-- `li`: CSS for `<li>`
-- `img`: CSS for `<img>`
-- `blockquote`: CSS for `<blockquote>`
-- `table`: CSS for `<table>`
-- `pre`: CSS for `<pre>`
-- `code`: CSS for `<code>`
-- `Slide`: CSS to apply to the wrapping Slide component
-- `components`: object of MDX components to render markdown
-- `Provider`: component for wrapping the entire app
-- `Presenter`: component for wrapping the presenter mode
-- `googleFont`: CSS HREF for adding a Google Font `<link>` tag
-
-## Advanced Usage
-
-For more advanced customizations see the [Advanced Usage](advanced.md) docs.
+  - `primary`: primary color
+- `fonts.body`: base font family
+- `fonts.heading`: heading font family
+- `fonts.monospace`: font family for `<pre>` and `<code>`
+- `text.heading`: styles for all headings
+- `styles.Slide`: styles for the wrapping Slide component
+- `components`: object of MDX components
+- `Provider`: component for wrapping the entire presentation
+- `googleFont`: URL for adding a Google Font `<link>` tag
 
 [emotion]: https://emotion.sh
+[theme ui]: https://theme-ui.com
 [mdx]: https://github.com/mdx-js/mdx
 [react-syntax-highlighter]: https://github.com/conorhastings/react-syntax-highlighter
