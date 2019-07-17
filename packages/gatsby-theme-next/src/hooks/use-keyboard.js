@@ -85,7 +85,6 @@ export const useKeyboard = () => {
     return () => {
       window.removeEventListener('keydown', handleKeyDown)
     }
-    // }, [ context.slug, context.length, context.index, context.steps, context.step])
   }, [context])
 }
 
