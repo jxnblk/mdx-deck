@@ -2,8 +2,7 @@ const { getOptions } = require('loader-utils')
 const mdx = require('@mdx-js/mdx')
 const mdxPlugin = require('@mdx-deck/mdx-plugin')
 
-module.exports = async function(src) {
-  const callback = this.async()
+module.exports = function(src) {
   const options = getOptions(this) || {}
   options.remarkPlugins = [
     ...options.remarkPlugins,
@@ -11,11 +10,8 @@ module.exports = async function(src) {
   ]
   options.remarkPlugins.push(mdxPlugin)
 
-  const result = mdx.sync(src, options)
-
-  const code = `/** @jsx mdx */
-  import { mdx } from '@mdx-js/react'
-  ${result}`
-
-  return callback(null, code)
+  const code = mdx.sync(src, options)
+  return `/** @jsx mdx */
+    import { mdx } from '@mdx-js/react'
+    ${code}`
 }
