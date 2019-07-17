@@ -43,4 +43,9 @@ This is my presentation
 
 After running `gatsby develop`, this presentation should be viewable at `http://localhost:8000/hello` .
 
+## Component Shadowing
+
+Because MDX Deck is built as a Gatsby theme, you can leverage the component shadowing API to override any part of the interface
+and create child themes based on MDX Deck that provide custom behavior.
+
 See the [gatsby-theme-mdx-deck](../packages/gatsby-theme) docs for more documentation and options.
