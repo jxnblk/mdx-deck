@@ -5,7 +5,6 @@ The core `mdx-deck` package is a wrapper around the Gatsby CLI with the `gatsby-
 ## Components
 
 - `Head`: Adds elements to the document `<head>`
-- `Image`: A fullscreen background image layout component
 - `Notes`: Adds speaker notes to a slide
 - `Appear`: Steps through child elements one-by-one
 - `Embed`: Embed MDX Deck slides in other React applications
@@ -14,6 +13,7 @@ See the [components docs](components.md) for more info.
 
 ## Layouts
 
+- `Image`: A fullscreen background image layout component
 - `Invert`: Inverts the foreground and background colors of the slide
 - `Split`: Renders the first element on the left and other elements to the right
 - `SplitRight`: Renders the first element on the right and other elements to the left
@@ -48,8 +48,7 @@ export default props => {
 
 ## `useDeck`
 
-The `useDeck` returns the MDX Deck state.
-This includes the following:
+The `useDeck` hook returns the MDX Deck state, including:
 
 - `setState`
 - `mode`

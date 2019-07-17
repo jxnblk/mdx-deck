@@ -28,3 +28,6 @@ export { default as big } from './big'
 // fixed aspect ratio
 export { default as aspect } from './aspect'
 export { default as aspect43 } from './aspect-4-3'
+
+// providers
+export { default as dots } from './dots'

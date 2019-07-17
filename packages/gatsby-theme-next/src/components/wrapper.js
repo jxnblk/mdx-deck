@@ -1,12 +1,15 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
-import { useState, useEffect } from 'react'
+import React, { Fragment, useState, useEffect } from 'react'
 import useDeck from '../hooks/use-deck'
 import { modes } from '../constants'
 
+const DefaultProvider = props =>
+  React.createElement(Fragment, null, props.children)
+
 export default props => {
   const [height, setHeight] = useState('100vh')
-  const { mode } = useDeck()
+  const { mode, theme } = useDeck()
 
   useEffect(() => {
     // handle mobile safari height
@@ -26,17 +29,21 @@ export default props => {
     }
   }, [mode])
 
+  const { Provider = DefaultProvider } = theme
+
   return (
-    <div
-      {...props}
-      sx={{
-        width: '100vw',
-        height: mode !== modes.print ? height : '100vh',
-        variant: 'styles.root',
-        '*': {
-          boxSizing: 'border-box',
-        },
-      }}
-    />
+    <Provider>
+      <div
+        {...props}
+        sx={{
+          width: '100vw',
+          height: mode !== modes.print ? height : '100vh',
+          variant: 'styles.root',
+          '*': {
+            boxSizing: 'border-box',
+          },
+        }}
+      />
+    </Provider>
   )
 }

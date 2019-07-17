@@ -1,5 +1,6 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
+import React, { Fragment } from 'react'
 import Context from '../context'
 import useDeck from '../hooks/use-deck'
 import useSwipe from '../hooks/use-swipe'

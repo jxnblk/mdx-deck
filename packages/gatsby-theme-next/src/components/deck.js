@@ -77,6 +77,10 @@ export default ({
   const outer = useDeck()
   const index = getIndex()
 
+  const head = slides.head.children
+
+  const { components, ...mergedTheme } = mergeThemes(theme, ...themes)
+
   const context = {
     ...outer,
     slug,
@@ -84,11 +88,8 @@ export default ({
     index,
     steps: get(outer, `metadata.${index}.steps`),
     notes: get(outer, `metadata.${index}.notes`),
+    theme: mergedTheme,
   }
-
-  const head = slides.head.children
-
-  const { components, ...mergedTheme } = mergeThemes(theme, ...themes)
 
   let Mode = ({ children }) => <React.Fragment children={children} />
 

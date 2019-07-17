@@ -1,23 +1,5 @@
 # Advanced Usage
 
-## Custom MDX components
-
-MDX Deck includes default components for MDX, but to provide custom components to the [MDXProvider][], add a `components` object to the `theme`.
-
-```js
-// example theme
-import Heading from './Heading'
-
-export default {
-  components: {
-    h1: Heading,
-  },
-}
-```
-
-See the [MDX][] docs for more or take a look
-at the [default set of components](../packages/components/src/mdx-components.js) as a reference.
-
 ## Custom Provider component
 
 A custom Provider component is useful for adding custom context providers in React or adding persistent UI elements to the entire deck.

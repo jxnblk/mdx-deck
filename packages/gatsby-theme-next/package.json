@@ -40,6 +40,6 @@
     "react-swipeable": "^5.3.0",
     "remark-emoji": "^2.0.2",
     "remark-unwrap-images": "^1.0.0",
-    "theme-ui": "^0.2.10"
+    "theme-ui": "^0.2.14"
   }
 }
