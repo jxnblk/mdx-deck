@@ -2,7 +2,7 @@
 
 # MDX Deck <img src='docs/ace.png' width='24' height='24' />
 
-Award-winning [MDX][]-based presentation decks
+Award-winning React [MDX][]-based presentation decks
 
 [![Build Status][badge]][travis]
 [![Version][]][npm]
@@ -68,24 +68,6 @@ Start the dev server:
 ```sh
 npm start
 ```
-
-## Videos & Articles
-
-- [Egghead Tutorial][egghead] by [Andrew Del Prete](https://github.com/andrewdelprete).
-- [mdx-deck: slide decks powered by markdown and react][kcd-medium] by [Kent C. Dodds][]
-- [Make Fast & Beautiful Presentations with MDX-Deck][hw-video] by [Harry Wolff][] ([Demo][hw-demo])
-- [What is MDX][kcd-video] by [Kent C. Dodds][]
-- [Build a Custom Provider Component for MDX-Deck][ks-egghead] by [Kyle Shevlin][]
-
-[egghead]: https://egghead.io/lessons/react-build-a-slide-deck-with-mdx-deck-using-markdown-react
-[kent c. dodds]: https://mobile.twitter.com/kentcdodds
-[kcd-video]: http://youtu.be/d2sQiI5NFAM?a
-[kcd-medium]: https://blog.kentcdodds.com/mdx-deck-slide-decks-powered-by-markdown-and-react-bfc6d6af20da
-[hw-video]: https://www.youtube.com/watch?v=LvP2EqCiQMg&feature=youtu.be
-[hw-demo]: https://github.com/hswolff/mdx-deck-demo
-[harry wolff]: https://mobile.twitter.com/hswolff
-[ks-egghead]: https://egghead.io/lessons/javascript-build-a-custom-provider-component-for-mdx-deck
-[kyle shevlin]: https://twitter.com/kyleshevlin
 
 ## Using MDX
 
@@ -194,6 +176,24 @@ Use [_Presenter Mode_](docs/presenting.md) when on stage to show a preview of th
 | Option + G  | Toggle Grid Mode
 
 [appear]: docs/components.md#appear
+
+## Videos & Articles
+
+- [Egghead Tutorial][egghead] by [Andrew Del Prete](https://github.com/andrewdelprete).
+- [mdx-deck: slide decks powered by markdown and react][kcd-medium] by [Kent C. Dodds][]
+- [Make Fast & Beautiful Presentations with MDX-Deck][hw-video] by [Harry Wolff][] ([Demo][hw-demo])
+- [What is MDX][kcd-video] by [Kent C. Dodds][]
+- [Build a Custom Provider Component for MDX-Deck][ks-egghead] by [Kyle Shevlin][]
+
+[egghead]: https://egghead.io/lessons/react-build-a-slide-deck-with-mdx-deck-using-markdown-react
+[kent c. dodds]: https://mobile.twitter.com/kentcdodds
+[kcd-video]: http://youtu.be/d2sQiI5NFAM?a
+[kcd-medium]: https://blog.kentcdodds.com/mdx-deck-slide-decks-powered-by-markdown-and-react-bfc6d6af20da
+[hw-video]: https://www.youtube.com/watch?v=LvP2EqCiQMg&feature=youtu.be
+[hw-demo]: https://github.com/hswolff/mdx-deck-demo
+[harry wolff]: https://mobile.twitter.com/hswolff
+[ks-egghead]: https://egghead.io/lessons/javascript-build-a-custom-provider-component-for-mdx-deck
+[kyle shevlin]: https://twitter.com/kyleshevlin
 
 ## Docs
 
