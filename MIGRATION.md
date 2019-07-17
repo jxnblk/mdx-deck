@@ -18,6 +18,7 @@
   - `--out-dir` - decks are now built in the `public/` directory
   - `--no-html` - individual slides are rendered client side, but the first slide is always rendered as static HTML using Gatsby
 - Custom `Presenter` components can no longer be added to a theme. Use the component shadowing API with the Gatsby theme instead.
+- Multiple MDX files can no longer be combined into a single presentation
 
 [theme ui]: https://theme-ui.com
 
