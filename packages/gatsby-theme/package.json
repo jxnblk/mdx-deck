@@ -41,5 +41,6 @@
     "remark-emoji": "^2.0.2",
     "remark-unwrap-images": "^1.0.0",
     "theme-ui": "^0.2.14"
-  }
+  },
+  "gitHead": "36497d5571f1f354261b9f72f1f67e23c07bc22e"
 }

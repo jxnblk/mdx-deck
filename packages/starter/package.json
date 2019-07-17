@@ -1,4 +1,5 @@
 {
+  "private": true,
   "name": "@mdx-deck/gatsby-starter",
   "version": "3.0.0",
   "main": "index.js",
@@ -13,5 +14,6 @@
     "gatsby-theme-mdx-deck": "^3.0.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
-  }
+  },
+  "gitHead": "36497d5571f1f354261b9f72f1f67e23c07bc22e"
 }
