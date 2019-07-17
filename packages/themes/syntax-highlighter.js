@@ -4,7 +4,7 @@ import SyntaxHighlighter from 'react-syntax-highlighter'
 export const getLanguage = className => {
   const match = /language-(\w*)/.exec(className || 'language-javascript')
   let lang = 'javascript'
-  if (match.length > 1) {
+  if (match && match.length > 1) {
     lang = match[1]
   }
   return lang

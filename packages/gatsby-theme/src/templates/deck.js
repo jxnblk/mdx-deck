@@ -1,20 +1,34 @@
 import React from 'react'
-import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { graphql } from 'gatsby'
-import Layout from '../layouts/deck'
+import { MDXRenderer } from 'gatsby-plugin-mdx'
+import Deck from '../components/deck'
+import splitSlides from '../split-slides'
 
-export default props => {
-  const { mdx } = props.data
-  const Component = props => <MDXRenderer {...props} children={mdx.body} />
-
-  return <Layout Component={Component} basepath={props.pageContext.basepath} />
-}
-
-export const query = graphql`
+export const pageQuery = graphql`
   query($id: String!) {
-    mdx(id: { eq: $id }) {
+    deck: deck(id: { eq: $id }) {
       id
       body
     }
   }
 `
+
+const wrapper = props => {
+  const slides = splitSlides(props)
+  return <Deck {...props} slides={slides} />
+}
+
+const components = {
+  wrapper,
+}
+
+export default ({
+  data: {
+    deck: { id, body },
+  },
+  ...props
+}) => {
+  const Component = props => <MDXRenderer {...props} children={body} />
+
+  return <Component {...props} components={components} />
+}

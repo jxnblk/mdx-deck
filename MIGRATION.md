@@ -1,5 +1,27 @@
 # Migration
 
+## Updating to MDX Deck v3
+
+- The `export default` syntax for slide layouts is no longer supported. Replace this syntax with the layout component wrapped around the slide content instead.
+- The following packages have been deprecated. Import components directly from the `mdx-deck` package instead.
+  - `@mdx-deck/components`
+  - `@mdx-deck/layouts`
+  - `@mdx-deck/mdx-plugin`
+  - `@mdx-deck/loader`
+  - `@mdx-deck/webpack-html-plugin`
+- The Gatsby theme package as been renamed: `gatsby-theme-mdx-deck`
+- Theming now uses [Theme UI][], and the theme format has changed.
+  - See the [theming docs](/docs/theming.md) for information on creating custom themes.
+  - **Or** use the `convertLegacyTheme` utility to shim themes written in the v2 format
+- The standalone CLI has been rewritten with Gatsby, and the following CLI flags are no longer supported:
+  - `--webpack` - use the Gatsby theme directly to customize webpack features
+  - `--out-dir` - decks are now built in the `public/` directory
+  - `--no-html` - individual slides are rendered client side, but the first slide is always rendered as static HTML using Gatsby
+- Custom `Presenter` components can no longer be added to a theme. Use the component shadowing API with the Gatsby theme instead.
+- Multiple MDX files can no longer be combined into a single presentation
+
+[theme ui]: https://theme-ui.com
+
 ## Updating to MDX Deck v2
 
 With a few exceptions, decks created with v1 should be compatible with v2. The following is a list of steps to ensure your slide deck will work with v2.

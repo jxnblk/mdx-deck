@@ -1,23 +1,24 @@
-import theme from './base'
-
 const cream = '#fe9'
 const black = '#320'
 
 export default {
-  ...theme,
-  font: '"Yellowtail", cursive',
-  monospace: '"Roboto Mono", Menlo, monospace',
   googleFont: 'https://fonts.googleapis.com/css?family=Yellowtail|Roboto+Mono',
+  fonts: {
+    body: '"Yellowtail", cursive',
+    monospace: '"Roboto Mono", Menlo, monospace',
+  },
   colors: {
     text: black,
     background: cream,
-    link: black,
+    primary: black,
   },
-  css: {
-    fontSize: '1.5em',
-    textAlign: 'center',
-    '@media screen and (min-width:64em)': {
-      fontSize: '4em',
+  styles: {
+    root: {
+      fontSize: ['1.5em', null, '4em'],
+      textAlign: 'center',
+    },
+    pre: {
+      textAlign: 'left',
     },
   },
 }

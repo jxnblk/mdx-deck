@@ -1,0 +1,17 @@
+{
+  "name": "website-pdf",
+  "version": "2.5.0",
+  "author": "Brent Jackson <jxnblk@gmail.com>",
+  "license": "MIT",
+  "bin": {
+    "website-pdf": "./cli.js"
+  },
+  "scripts": {
+    "test": "./cli.js http://localhost:8000/print -o ../../docs/dist"
+  },
+  "dependencies": {
+    "meow": "^5.0.0",
+    "mkdirp": "^0.5.1",
+    "puppeteer": "^1.13.0"
+  }
+}

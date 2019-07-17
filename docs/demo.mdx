@@ -1,14 +1,11 @@
-import { Head, Image, Notes, Appear } from '@mdx-deck/components'
-import { Invert, Split, SplitRight, FullScreenCode, Horizontal} from '@mdx-deck/layouts'
+import {
+  Head, Image, Notes, Appear,
+  Invert, Split, SplitRight, FullScreenCode, Horizontal
+} from 'mdx-deck'
 import Counter from './Counter'
+import { future } from '@mdx-deck/themes'
 
-import future from '@mdx-deck/themes/future'
-import aspect from '@mdx-deck/themes/aspect'
-
-export const themes = [
-  future,
-  aspect,
-]
+export const themes = [ future ]
 
 <Head>
   <title>mdx-deck</title>
@@ -33,15 +30,10 @@ MDX-based presentation decks
 [MDX]: https://github.com/mdx-js/mdx
 
 ---
-import { Box } from '@rebass/emotion'
 
-<Box
-  fontSize={[ 6, 7 ]}
-  p={4}
-  color='navy'
-  bg='magenta'>
-  Import React components
-</Box>
+### Import and Use React Components
+
+<Counter />
 
 ---
 
@@ -112,7 +104,7 @@ class extends React.Component {
 ---
 
 <Image
-  src='https://source.unsplash.com/random/768x2048'
+  src='https://source.unsplash.com/random/768x2048?new_york'
   size='contain'
 />
 
@@ -122,19 +114,13 @@ Testing object fit
 
 ---
 
-### Real React Components
-
-<Counter />
-
----
-
-<Image src='https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=2048&q=20' />
+<Image src='https://images.unsplash.com/photo-1462331940025-496dfbfc7564?new_york&w=2048&q=20' />
 
 ---
 
 <Split>
 
-![](https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=2048&q=20)
+![](https://images.unsplash.com/photo-1462331940025-496dfbfc7564?new_york&w=2048&q=20)
 
 ## Split Layout
 
@@ -144,7 +130,7 @@ Testing object fit
 
 <SplitRight>
 
-![](https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=2048&q=20)
+![](https://images.unsplash.com/photo-1462331940025-496dfbfc7564?new_york&w=2048&q=20)
 
 ## Split Layout
 
@@ -186,7 +172,7 @@ Testing object fit
 
 ---
 
-![](https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=2048&h=1024&q=20&fit=crop)
+![](https://images.unsplash.com/photo-1462331940025-496dfbfc7564?new_york&w=2048&h=1024&q=20&fit=crop)
 
 Inline image
 
