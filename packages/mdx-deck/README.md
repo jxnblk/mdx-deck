@@ -121,9 +121,9 @@ or read more about theming in the [Theming](docs/theming.md) docs.
 MDX Deck includes built-in components to help with creating presentations, including a background `Image` component, an `Appear` component that allows stepping through parts of a single slide, and a `Notes` component for adding speaker notes.
 Read more in the [Components](docs/components.md) docs.
 
-## Add-ons & Libraries
+## Third-Party Components
 
-These third-party libraries are built for use with MDX Deck.
+These optional libraries are intended for use with MDX Deck.
 
 - [CodeSurfer][]: React component for scrolling, zooming and highlighting code.
 - [mdx-code][]: Runnable code playgrounds for MDX Deck.
@@ -137,8 +137,8 @@ _Note: please check with version compatibility when using these libraries._
 
 ## Layouts
 
-Each slide can include a custom layout around its content.
-This can be used as a substitute for slide templates found in other presentation apps and libraries.
+Each slide can include a custom layout around its content,
+which can be used as a *template* for visually differentiating slides.
 
 ```js
 // example Layout.js
@@ -179,7 +179,7 @@ MDX Deck includes a few [built-in layouts](docs/layouts.md) for inverting theme 
 
 ## Presenter Mode
 
-MDX Deck includes a built-in [_Presenter Mode_](docs/presenting.md), with a preview of the next slide and a timer.
+Use [_Presenter Mode_](docs/presenting.md) when on stage to show a preview of the next slide, a timer, and speaker notes.
 
 ![presenter mode screenshot](docs/images/presenter-mode.png)
 
@@ -195,26 +195,6 @@ MDX Deck includes a built-in [_Presenter Mode_](docs/presenting.md), with a prev
 
 [appear]: docs/components.md#appear
 
-## Exporting
-
-Add a `build` script to your `package.json` to export a presentation as HTML with a JS bundle.
-
-```json
-"scripts": {
-  "build": "mdx-deck build deck.mdx"
-}
-```
-
-See more exporting options in the [Exporting Documentation](docs/exporting.md)
-
-## CLI Options
-
-```
--p --port     Dev server port
--h --host     Host the dev server listens to
---no-open     Prevent from opening in default browser
-```
-
 ## Docs
 
 - [Theming](docs/theming.md)
@@ -227,7 +207,7 @@ See more exporting options in the [Exporting Documentation](docs/exporting.md)
 - [Advanced Usage](docs/advanced.md)
 - [API](docs/api.md)
 
-## Real Examples
+## Real-World Examples
 
 See how others have used MDX Deck for their presentations.
 
@@ -259,12 +239,15 @@ The following examples will open in CodeSandbox.
 ### Related
 
 - [MDX][]
-- [emotion][]
+- [Gatsby][]
+- [Theme UI][]
+- [Emotion][]
 - [Spectacle][]
 
 [MIT License](LICENSE.md)
 
 [mdx]: https://mdxjs.com/
+[gatsby]: https://gatsbyjs.org
 [spectacle]: https://github.com/FormidableLabs/spectacle
 [emotion]: https://emotion.sh
 [theme ui]: https://theme-ui.com

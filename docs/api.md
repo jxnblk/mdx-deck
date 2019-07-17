@@ -80,3 +80,10 @@ export default props => {
 }
 ```
 
+## CLI Options
+
+```
+-p --port     Dev server port
+-h --host     Host the dev server listens to
+--no-open     Prevent from opening in default browser
+```
