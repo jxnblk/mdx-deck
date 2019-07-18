@@ -24,6 +24,12 @@ const config = (opts = {}) => {
       'gatsby-plugin-emotion',
       'gatsby-plugin-catch-links',
       'gatsby-plugin-theme-ui',
+      {
+        resolve: 'gatsby-plugin-compile-es6-packages',
+        options: {
+          modules: ['@mdx-deck/themes'],
+        },
+      },
     ].filter(Boolean),
   }
 }
