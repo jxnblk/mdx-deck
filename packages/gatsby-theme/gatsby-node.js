@@ -108,7 +108,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       component: DeckTemplate,
       context: {
         ...deck.node,
-        slug: '',
+        slug: basePath,
       },
     })
     return
