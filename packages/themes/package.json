@@ -5,6 +5,7 @@
   "author": "Brent Jackson <jxnblk@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "gatsby-theme-mdx-deck": "^3.0.1",
     "lodash.merge": "^4.6.1",
     "react-syntax-highlighter": "^11.0.2"
   },
