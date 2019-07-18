@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
-import { useDeck } from 'mdx-deck'
+import { useDeck } from 'gatsby-theme-mdx-deck'
 import { Link } from 'gatsby'
 
 const Provider = props => {
