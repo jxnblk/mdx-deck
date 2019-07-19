@@ -1,0 +1,12 @@
+{
+  "name": "local-images",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "mdx-deck src"
+  },
+  "dependencies": {
+    "mdx-deck": "^3.0.7"
+  }
+}
