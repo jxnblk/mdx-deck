@@ -1,13 +1,13 @@
 {
   "private": true,
   "name": "@mdx-deck/basic-example",
-  "version": "3.0.1",
+  "version": "3.0.6",
   "scripts": {
     "start": "mdx-deck deck.mdx",
     "build": "mdx-deck build deck.mdx",
     "help": "mdx-deck"
   },
   "devDependencies": {
-    "mdx-deck": "^3.0.1"
+    "mdx-deck": "^3.0.6"
   }
 }
