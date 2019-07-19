@@ -101,14 +101,15 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   // single deck mode
   if (decks.length === 1) {
     const [deck] = decks
-    const matchPath = path.join(basePath, '*')
+    const matchPath = [basePath, '*'].join('/')
+    const slug = basePath === '/' ? '' : basePath
     createPage({
       path: basePath,
       matchPath,
       component: DeckTemplate,
       context: {
         ...deck.node,
-        slug: basePath,
+        slug,
       },
     })
     return
@@ -116,7 +117,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   decks.forEach(({ node }, index) => {
     const { slug } = node
-    const matchPath = path.join(slug, '*')
+    const matchPath = [slug, '*'].join('/')
 
     createPage({
       path: slug,
