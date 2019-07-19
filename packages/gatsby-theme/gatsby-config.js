@@ -1,9 +1,19 @@
 const IS_LOCAL = process.cwd() === __dirname
 
+const fs = require('fs')
+const path = require('path')
 const remarkPlugins = [require('remark-unwrap-images'), require('remark-emoji')]
 
 const config = (opts = {}) => {
   const { mdx = true, contentPath: name = 'decks' } = opts
+
+  /*
+  const filepath = path.isAbsolute(name) ? name : path.resolve(name)
+  const isDirectory = fs.statSync(filepath).isDirectory()
+  const assetPath = isDirectory
+    ? filepath // path.join(filepath, 'static')
+    : path.dirname(filepath) // path.join(path.dirname(filepath), 'static')
+  */
 
   return {
     plugins: [

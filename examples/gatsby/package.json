@@ -1,0 +1,18 @@
+{
+  "private": true,
+  "name": "@mdx-deck/gatsby-example",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "gatsby develop",
+    "clean": "gatsby clean",
+    "build": "gatsby build"
+  },
+  "dependencies": {
+    "gatsby": "^2.13.31",
+    "gatsby-theme-mdx-deck": "*",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  }
+}
