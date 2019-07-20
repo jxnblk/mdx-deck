@@ -217,6 +217,7 @@ See how others have used MDX Deck for their presentations.
 - [I Got 99 Problems but GraphQL Ain't One][99-problems] by [Sara Vieira](https://mobile.twitter.com/NikkitaFTW)
 - [Stop de #divFest][stop-div-fest] by [Sara Vieira](https://mobile.twitter.com/NikkitaFTW)
 - [MDX, authors and richer JAMstack content][mdx-talk] by [Josh Dzielak](https://mobile.twitter.com/dzello)
+- [Components as Data: A Cross Platform GraphQL Powered Component API][components-as-data] by [Luke Herrington](https://mobile.twitter.com/lukeherrington)
 
 ## Usage Examples
 
@@ -260,3 +261,4 @@ The following examples will open in CodeSandbox.
 [99-problems]: https://99-problems-graphql-aint-one.now.sh/#0
 [stop-div-fest]: https://stop-div-fest.now.sh/
 [mdx-talk]: https://mdx-talk.developermode.com/
+[components-as-data]: https://componentsasdata.lukeherrington.com
