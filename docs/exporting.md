@@ -13,13 +13,23 @@ add a `build` script to your `package.json` file.
 
 ## PDF
 
+The MDX server must be running during PDF export, add a `start` script to your `package.json` file.
+
+```json
+  "scripts": {
+    "start": "mdx-deck deck.mdx"
+  }
+```
+
 To export a deck as PDF, use the [`website-pdf`](https://www.npmjs.com/package/website-pdf) CLI.
-Start the MDX Deck dev server,
-then run the following command to create a PDF:
+
+Run the following command to create a PDF:
 
 ```sh
-npx website-pdf http://localhost:8000/print -o deck.pdf
+npx website-pdf http://localhost:<PORT>/print -o deck.pdf
 ```
+
+Note: `<PORT>` is the same port your MDX server is running on.
 
 ## PNG
 
