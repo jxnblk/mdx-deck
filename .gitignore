@@ -6,3 +6,4 @@ package-lock.json
 public
 .cache
 cypress/videos
+.idea
