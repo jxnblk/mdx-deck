@@ -1,105 +1,187 @@
-const fs = require('fs')
-const path = require('path')
-const { createFilePath } = require('gatsby-source-filesystem')
-const Debug = require('debug')
-const mkdirp = require('mkdirp')
+// based on gatsby-theme-blog
+const fs = require(`fs`)
+const path = require(`path`)
+const mkdirp = require(`mkdirp`)
+const crypto = require(`crypto`)
+const Debug = require(`debug`)
 const pkg = require('./package.json')
 
-const debug = Debug('@mdx-deck/gatsby-theme')
+const debug = Debug(pkg.name)
+
+let basePath
+let contentPath
+
+const DeckTemplate = require.resolve(`./src/templates/deck`)
+const DecksTemplate = require.resolve(`./src/templates/decks`)
 
 exports.onPreBootstrap = ({ store }, opts = {}) => {
-  const { path: source = 'src/decks' } = opts
-
-  const isDir = fs.statSync(source).isDirectory()
-  const dirname = isDir ? source : path.dirname(source)
   const { program } = store.getState()
-  const dir = path.join(program.directory, dirname)
 
-  debug(`Initializing ${dir} directory`)
-  mkdirp.sync(dir)
+  basePath = opts.basePath || `/`
+  contentPath = opts.contentPath || `decks`
+
+  if (opts.cli) return
+  const dirname = path.join(program.directory, contentPath)
+  mkdirp.sync(dirname)
+
+  debug(`Initializing ${dirname} directory`)
 }
 
-exports.onCreateNode = ({ node, actions, getNode }, opts = {}) => {
-  const { name = 'decks' } = opts
-  if (node.internal.type !== 'Mdx') return
-
-  const value = path.join('/', name, createFilePath({ node, getNode }))
-  actions.createNodeField({
-    name: 'deck',
-    node,
-    value,
+const mdxResolverPassthrough = fieldName => async (
+  source,
+  args,
+  context,
+  info
+) => {
+  const type = info.schema.getType(`Mdx`)
+  const mdxNode = context.nodeModel.getNodeById({
+    id: source.parent,
   })
+  const resolver = type.getFields()[fieldName].resolve
+  const result = await resolver(mdxNode, args, context, {
+    fieldName,
+  })
+  return result
 }
 
-const stripSlash = str => str.replace(/\/$/, '')
+const resolveTitle = async (...args) => {
+  const headings = await mdxResolverPassthrough('headings')(...args)
+  const [first = {}] = headings
+  return first.value || ''
+}
 
-exports.createPages = async ({ graphql, actions }, opts = {}) => {
-  const { name = 'decks' } = opts
+exports.sourceNodes = ({ actions, schema }) => {
+  const { createTypes } = actions
+  createTypes(
+    schema.buildObjectType({
+      name: `Deck`,
+      fields: {
+        id: { type: `ID!` },
+        slug: {
+          type: `String!`,
+        },
+        title: {
+          type: `String!`,
+          resolve: resolveTitle,
+        },
+        body: {
+          type: `String!`,
+          resolve: mdxResolverPassthrough(`body`),
+        },
+      },
+      interfaces: [`Node`],
+    })
+  )
+}
+
+exports.createPages = async ({ graphql, actions, reporter }) => {
+  const { createPage } = actions
 
   const result = await graphql(`
     {
-      allMdx {
+      allDeck {
         edges {
           node {
             id
-            fields {
-              deck
-            }
-            parent {
-              ... on File {
-                name
-                sourceInstanceName
-              }
-            }
+            slug
+            title
           }
         }
       }
     }
   `)
+
   if (result.errors) {
-    debug(result.errors)
-    return
+    reporter.panic(result.errors)
   }
 
-  const decks = result.data.allMdx.edges
-    .filter(edge => {
-      return edge.node.parent.sourceInstanceName === name
-    })
-    .map(edge => edge.node)
+  const { allDeck } = result.data
+  const decks = allDeck.edges
 
   // single deck mode
   if (decks.length === 1) {
     const [deck] = decks
-    const pathname = path.join('/', name)
-    const matchPath = path.join(pathname, '*')
-    actions.createPage({
-      path: pathname,
+    const matchPath = [basePath, '*'].join('/')
+    const slug = basePath === '/' ? '' : basePath
+    createPage({
+      path: basePath,
       matchPath,
-      component: require.resolve('./src/templates/deck.js'),
+      component: DeckTemplate,
       context: {
-        id: deck.id,
-        basepath: stripSlash(pathname),
+        ...deck.node,
+        slug,
       },
     })
     return
   }
 
-  // index page
-  actions.createPage({
-    path: path.join('/', name),
-    component: require.resolve('./src/templates/index.js'),
+  decks.forEach(({ node }, index) => {
+    const { slug } = node
+    const matchPath = [slug, '*'].join('/')
+
+    createPage({
+      path: slug,
+      matchPath,
+      component: DeckTemplate,
+      context: node,
+    })
+    createPage({
+      path: slug + '/print',
+      component: DeckTemplate,
+      context: node,
+    })
   })
 
-  decks.forEach(deck => {
-    const matchPath = path.join(deck.fields.deck, '*')
-    actions.createPage({
-      path: deck.fields.deck,
-      matchPath: path.join(deck.fields.deck, '*'),
-      component: require.resolve('./src/templates/deck.js'),
-      context: {
-        id: deck.id,
-        basepath: stripSlash(deck.fields.deck),
+  // index page
+  createPage({
+    path: basePath,
+    component: DecksTemplate,
+    context: {
+      decks,
+    },
+  })
+}
+
+exports.onCreateNode = ({ node, actions, getNode, createNodeId }) => {
+  const { createNode, createParentChildLink } = actions
+
+  const toPath = node => {
+    const { dir } = path.parse(node.relativePath)
+    return path.join(basePath, dir, node.name)
+  }
+
+  if (node.internal.type !== `Mdx`) return
+
+  const fileNode = getNode(node.parent)
+  const source = fileNode.sourceInstanceName
+
+  if (node.internal.type === `Mdx` && source === contentPath) {
+    const slug = toPath(fileNode)
+
+    createNode({
+      slug,
+      // Required fields.
+      id: createNodeId(`${node.id} >>> Deck`),
+      parent: node.id,
+      children: [],
+      internal: {
+        type: `Deck`,
+        contentDigest: crypto
+          .createHash(`md5`)
+          .update(JSON.stringify({ slug }))
+          .digest(`hex`),
+        content: JSON.stringify({ slug }),
+        description: `Slide Decks`,
       },
     })
+    createParentChildLink({ parent: fileNode, child: node })
+  }
+}
+
+exports.onCreateDevServer = ({ app }) => {
+  console.log('onCreateDevServer')
+  if (typeof process.send !== 'function') return
+  process.send({
+    mdxDeck: true,
   })
 }

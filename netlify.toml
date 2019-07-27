@@ -1,3 +1,3 @@
 [build]
   command = "npm i yarn@latest && yarn && yarn build"
-  publish = "docs/dist"
+  publish = "docs/public"

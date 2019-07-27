@@ -1,3 +1,4 @@
-export * from '@mdx-deck/components'
-export * as themes from '@mdx-deck/themes'
-export * as Layouts from '@mdx-deck/layouts'
+import * as themes from '@mdx-deck/themes'
+
+export * from 'gatsby-theme-mdx-deck'
+export { themes }

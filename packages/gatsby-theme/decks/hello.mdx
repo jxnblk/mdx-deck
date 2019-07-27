@@ -1,0 +1,69 @@
+import { Head, Appear, Notes } from '../src'
+
+<Head>
+  <link
+    rel='stylesheet'
+    href='https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap'
+  />
+</Head>
+
+# Hello
+
+---
+
+`@mdx-deck/gatsby-theme-next`
+
+<Notes>
+
+Hi
+Hello, my secret notes...
+
+</Notes>
+
+---
+
+## Beep
+
+---
+
+## Appear:
+
+<ul>
+  <Appear>
+    <li>One</li>
+    <li>Two</li>
+    <li>Three</li>
+  </Appear>
+</ul>
+
+---
+
+## Hi
+
+---
+
+```jsx
+import React from 'react'
+import { Embed } from 'gatsby-theme-mdx-deck'
+import Hello from './hello.mdx'
+
+export default props =>
+  <Embed
+    src={Hello}
+    slide={2}
+  />
+```
+
+---
+
+More steps
+
+<Appear>
+  <div>beep</div>
+  <div>boop</div>
+</Appear>
+
+---
+
+## The End
+

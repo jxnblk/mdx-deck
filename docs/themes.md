@@ -1,128 +1,105 @@
 # Themes
 
-![](images/default.png)
-Default
+```sh
+npm i @mdx-deck/themes
+```
+
+![Default theme](images/default.png)
+
+---
+
+![Big theme](images/big.png)
 
 ```js
-export { default as theme } from '@mdx-deck/themes'
+import { big } from '@mdx-deck/themes'
 ```
 
 ---
 
-![](images/big.png)
-Big
+![Book theme](images/book.png)
 
 ```js
-export { big as theme } from '@mdx-deck/themes'
+import { book } from '@mdx-deck/themes'
 ```
 
 ---
 
-![](images/book.png)
-Book
+![Code theme](images/code.png)
 
 ```js
-export { book as theme } from '@mdx-deck/themes'
+import { code } from '@mdx-deck/themes'
 ```
 
 ---
 
-![](images/code.png)
-Code
+![Comic theme](images/comic.png)
 
 ```js
-export { code as theme } from '@mdx-deck/themes'
+import { comic } from '@mdx-deck/themes'
 ```
 
 ---
 
-![](images/comic.png)
-Comic
+![Condensed theme](images/condensed.png)
 
 ```js
-export { comic as theme } from '@mdx-deck/themes'
+import { condensed } from '@mdx-deck/themes'
 ```
 
 ---
 
-![](images/condensed.png)
-Condensed
+![Dark theme](images/dark.png)
 
 ```js
-export { condensed as theme } from '@mdx-deck/themes'
+import { dark } from '@mdx-deck/themes'
 ```
 
 ---
 
-![](images/dark.png)
-Dark
+![Future theme](images/future.png)
 
 ```js
-export { dark as theme } from '@mdx-deck/themes'
+import { future } from '@mdx-deck/themes'
 ```
 
 ---
 
-![](images/future.png)
-Future
+![Hack theme](images/hack.png)
 
 ```js
-export { future as theme } from '@mdx-deck/themes'
+import { hack } from '@mdx-deck/themes'
 ```
 
 ---
 
-![](images/hack.png)
-Hack
+![Notes theme](images/notes.png)
 
 ```js
-export { hack as theme } from '@mdx-deck/themes'
+import { notes } from '@mdx-deck/themes'
 ```
 
 ---
 
-<!--
-![](images/lobster.png)
-Lobster
--->
-
-![](images/notes.png)
-Notes
+![Script theme](images/script.png)
 
 ```js
-export { notes as theme } from '@mdx-deck/themes'
+import { script } from '@mdx-deck/themes'
 ```
 
 ---
 
-<!--
-![](images/rye.png)
-Rye
--->
-
-![](images/script.png)
-Script
+![Swiss theme](images/swiss.png)
 
 ```js
-export { script as theme } from '@mdx-deck/themes'
+import { swiss } from '@mdx-deck/themes'
 ```
 
 ---
 
-![](images/swiss.png)
-Swiss
+![Yellow theme](images/yellow.png)
 
 ```js
-export { swiss as theme } from '@mdx-deck/themes'
-```
-
----
-
-![](images/yellow.png)
-Yellow
-
-```js
-export { yellow as theme } from '@mdx-deck/themes'
+import { yellow } from '@mdx-deck/themes'
 ```
 
 ---
@@ -130,37 +107,15 @@ export { yellow as theme } from '@mdx-deck/themes'
 Poppins
 
 ```js
-export { poppins as theme } from '@mdx-deck/themes'
+import { poppins } from '@mdx-deck/themes'
 ```
 
 ---
 
-Syntax Highlighter
+Syntax Highlighting
 
 ```js
-export { syntaxHighlighter as theme } from '@mdx-deck/themes'
+import { highlight } from '@mdx-deck/themes'
+import { prism } from '@mdx-deck/themes'
 ```
 
----
-
-Syntax Highlighter Prism
-
-```js
-export { syntaxHighlighterPrism as theme } from '@mdx-deck/themes'
-```
-
----
-
-Aspect 16:9
-
-```js
-export { aspect as theme } from '@mdx-deck/themes'
-```
-
----
-
-Aspect 4:3
-
-```js
-export { aspect43 as theme } from '@mdx-deck/themes'
-```

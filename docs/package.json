@@ -1,26 +1,19 @@
 {
   "private": true,
   "name": "@mdx-deck/docs",
-  "version": "2.5.0",
+  "version": "3.0.7",
   "main": "index.js",
   "author": "Brent Jackson <jxnblk@gmail.com>",
   "license": "MIT",
   "scripts": {
     "start": "mdx-deck demo.mdx",
-    "build": "mdx-deck build demo.mdx",
-    "now-build": "yarn build"
+    "build": "mdx-deck build demo.mdx"
   },
   "dependencies": {
     "@emotion/core": "^10.0.7",
     "@emotion/styled": "^10.0.7",
-    "@mdx-deck/components": "^2.5.0",
-    "@mdx-deck/layouts": "^2.5.0",
-    "@mdx-deck/themes": "^2.5.0",
-    "@rebass/emotion": "^3.0.0",
-    "mdx-deck": "^2.5.0",
-    "rebass": "^3.0.1"
-  },
-  "devDependencies": {
-    "webpack-bundle-analyzer": "^3.3.2"
+    "@mdx-deck/themes": "^3.0.6",
+    "mdx-deck": "^3.0.7",
+    "styled-system": "^5.0.15"
   }
 }

@@ -1,68 +1,75 @@
-# @mdx-deck/gatsby-theme
 
-**WIP** A Gatsby theme for adding MDX Decks to your Gatsby site
+# gatsby-theme-mdx-deck
+
+Add MDX Deck presentations to any Gatsby site
 
 ```sh
-npm i @mdx-deck/gatsby-theme
+npm i gatsby-theme-mdx-deck
 ```
-
-_Note:_ This theme **requires MDX v1** and will not work with previous versions of MDX
 
 ```js
 // gatsby-config.js
 module.exports = {
-  plugins: ['@mdx-deck/gatsby-theme'],
+  plugins: [
+    'gatsby-theme-mdx-deck',
+  ]
 }
 ```
 
-Add MDX Decks to the `src/decks/` directory. The filename will be used for the route of that deck.
+Add one or more MDX presentation files to the `decks/` directory.
+The filenames will be used for creating routes to each deck.
 
-**/src/decks/hello.mdx**
+Example `decks/hello.mdx`
 
 ```mdx
 # Hello!
 
 ---
 
-## Beep
+## Beep boop
 ```
 
-## Using Layouts
+## Layouts
 
-Slide layout components must be rendered inline, _not_ using the default export syntax.
+Individual slides can be wrapped with layout components,
+which work similarly to slide templates found in other presentation software.
 
-**/src/decks/hello.mdx**
+Example `decks/hello.mdx`
 
 ```mdx
 import Layout from './my-layout'
 
 <Layout>
 
-# Hello Layout
+# Hello
 
 </Layout>
+
+---
+
+## Beep boop
 ```
 
-## Theme Config
+## Configuration Options
 
-The following options can be passed to the gatsby theme.
+The Gatsby theme accepts the following options.
 
 ```js
 // gatsby-config.js
 module.exports = {
   plugins: [
     {
-      resolve: '@mdx-deck/gatsby-theme',
+      resolve: 'gatsby-theme-mdx-deck',
       options: {
-        // disable gatsby-mdx plugin – use this when your site already uses gatsby-mdx
+        // enable or disable gatsby-plugin-mdx
         mdx: false,
-        // source directory for decks
-        path: 'src/presentations',
-        // name routes' basepath
-        name: 'presentations',
-      },
-    },
-  ],
+        // source directory
+        contentPath: 'decks',
+        // base path for routes generate by this theme
+        basePath: ''
+      }
+    }
+  ]
 }
 ```
 

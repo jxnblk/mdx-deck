@@ -1,7 +1,7 @@
 # Layouts
 
 Each slide can include a custom layout around its content.
-This can be used as a substitute for slide templates found in other presentation apps and libraries.
+This is a way to provide *templates* for certain slides.
 
 ```js
 // example Layout.js
@@ -41,6 +41,75 @@ which means you can use a nested ThemeProvider or target elements with CSS-in-JS
 
 ## Built-in Layouts
 
-mdx-deck includes a few built-in layouts for common slide variations.
+MDX Deck includes a few built-in layouts for common slide variations.
 
-See the [Components docs](components.md#layouts) for more.
+### Invert
+
+Inverts the foreground and background colors from the theme.
+
+```mdx
+import { Invert } from 'mdx-deck/layouts'
+
+# Normal
+
+---
+
+<Invert>
+
+# Inverted
+
+</Invert>
+```
+
+### Split
+
+Creates a horizontal layout with the first child on the left and all other children on the right.
+
+```mdx
+import { Split } from 'mdx-deck/layouts'
+
+<Split>
+
+![](kitten.png)
+
+## Meow
+
+</Split>
+```
+
+### SplitRight
+
+Same as the Split component, but renders the first child on the right.
+
+```mdx
+import { SplitRight } from 'mdx-deck/layouts'
+
+<SplitRight>
+
+![](kitten.png)
+
+## Meow
+
+</SplitRight>
+```
+
+### Horizontal
+
+Similar to the Split components, but renders all children side-by-side
+
+### FullScreenCode
+
+Renders code blocks fullscreen.
+
+````mdx
+import { FullScreenCode } from 'mdx-deck/layouts'
+
+<FullScreenCode>
+
+```jsx
+<Button>Beep</Button>
+```
+
+</FullScreenCode>
+````
+

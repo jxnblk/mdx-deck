@@ -1,18 +1,19 @@
-import base from './base'
-
 const white = '#ffeec1'
 
 export default {
-  ...base,
-  font: '"Rye", serif',
-  monospace: '"Roboto Mono", monospace',
   googleFont: 'https://fonts.googleapis.com/css?family=Rye|Roboto+Mono',
+  fonts: {
+    body: '"Rye", serif',
+    monospace: '"Roboto Mono", monospace',
+  },
   colors: {
     text: white,
     background: 'black',
-    link: white,
+    primary: white,
   },
-  h1: {
-    textTransform: 'uppercase',
+  styles: {
+    h1: {
+      textTransform: 'uppercase',
+    },
   },
 }
