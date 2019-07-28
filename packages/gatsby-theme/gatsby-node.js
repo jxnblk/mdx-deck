@@ -105,7 +105,6 @@ exports.createPages = async ({ graphql, actions, reporter, pathPrefix }) => {
     const matchPath = [base, '*'].join('/')
 
     const slug = [pathPrefix, base].filter(Boolean).join('')
-    console.log({ pathPrefix, base, slug, matchPath })
 
     createPage({
       path: basePath,
@@ -113,15 +112,15 @@ exports.createPages = async ({ graphql, actions, reporter, pathPrefix }) => {
       component: DeckTemplate,
       context: {
         ...deck.node,
-        slug: base,
+        slug,
       },
     })
     return
   }
 
   decks.forEach(({ node }, index) => {
-    const slug = [pathPrefix, node.slug].filter(Boolean).join('/')
     const matchPath = [node.slug, '*'].join('/')
+    const slug = [pathPrefix, node.slug].filter(Boolean).join('')
 
     createPage({
       path: node.slug,

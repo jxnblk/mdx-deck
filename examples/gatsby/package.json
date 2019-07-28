@@ -5,6 +5,7 @@
   "license": "MIT",
   "scripts": {
     "start": "gatsby develop",
+    "clean": "gatsby clean",
     "build": "gatsby build --prefix-paths",
     "serve": "gatsby serve --prefix-paths",
     "gh-pages": "npx gh-pages -d public"
