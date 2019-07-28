@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "@mdx-deck/docs",
-  "version": "3.0.8-alpha.1",
+  "version": "3.0.8-alpha.2",
   "main": "index.js",
   "author": "Brent Jackson <jxnblk@gmail.com>",
   "license": "MIT",
@@ -12,8 +12,8 @@
   "dependencies": {
     "@emotion/core": "^10.0.7",
     "@emotion/styled": "^10.0.7",
-    "@mdx-deck/themes": "^3.0.6",
-    "mdx-deck": "^3.0.8-alpha.1",
+    "@mdx-deck/themes": "^3.0.8-alpha.2",
+    "mdx-deck": "^3.0.8-alpha.2",
     "styled-system": "^5.0.15"
   }
 }
