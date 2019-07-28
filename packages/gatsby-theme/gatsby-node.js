@@ -115,6 +115,14 @@ exports.createPages = async ({ graphql, actions, reporter, pathPrefix }) => {
         slug,
       },
     })
+    createPage({
+      path: basePath + '/print',
+      component: DeckTemplate,
+      context: {
+        ...deck.node,
+        slug,
+      },
+    })
     return
   }
 
@@ -134,7 +142,10 @@ exports.createPages = async ({ graphql, actions, reporter, pathPrefix }) => {
     createPage({
       path: slug + '/print',
       component: DeckTemplate,
-      context: node,
+      context: {
+        ...node,
+        slug,
+      },
     })
   })
 
