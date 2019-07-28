@@ -1,4 +1,5 @@
 {
+  "private": true,
   "name": "@mdx-deck/gatsby-example",
   "version": "3.0.8-alpha.1",
   "main": "index.js",
