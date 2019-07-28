@@ -1,6 +1,6 @@
 {
   "name": "mdx-deck",
-  "version": "3.0.7",
+  "version": "3.0.8-alpha.0",
   "description": "MDX-based presentation decks",
   "bin": {
     "mdx-deck": "./cli.js"
@@ -22,7 +22,7 @@
     "fs-extra": "^8.1.0",
     "gatsby": "^2.13.24",
     "gatsby-plugin-compile-es6-packages": "^2.0.0",
-    "gatsby-theme-mdx-deck": "^3.0.7",
+    "gatsby-theme-mdx-deck": "^3.0.8-alpha.0",
     "initit": "^1.0.0-2",
     "meow": "^5.0.0",
     "react": "^16.8.6",
