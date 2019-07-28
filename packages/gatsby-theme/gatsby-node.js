@@ -101,16 +101,19 @@ exports.createPages = async ({ graphql, actions, reporter, pathPrefix }) => {
   // single deck mode
   if (decks.length === 1) {
     const [deck] = decks
-    const matchPath = [basePath, '*'].join('/')
     const base = basePath === '/' ? '' : basePath
-    const slug = [pathPrefix, base].filter(Boolean).join('/')
+    const matchPath = [base, '*'].join('/')
+
+    const slug = [pathPrefix, base].filter(Boolean).join('')
+    console.log({ pathPrefix, base, slug, matchPath })
+
     createPage({
       path: basePath,
       matchPath,
       component: DeckTemplate,
       context: {
         ...deck.node,
-        slug,
+        slug: base,
       },
     })
     return
