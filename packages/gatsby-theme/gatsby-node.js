@@ -74,7 +74,7 @@ exports.sourceNodes = ({ actions, schema }) => {
   )
 }
 
-exports.createPages = async ({ graphql, actions, reporter }) => {
+exports.createPages = async ({ graphql, actions, reporter, pathPrefix }) => {
   const { createPage } = actions
 
   const result = await graphql(`
@@ -102,7 +102,8 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   if (decks.length === 1) {
     const [deck] = decks
     const matchPath = [basePath, '*'].join('/')
-    const slug = basePath === '/' ? '' : basePath
+    const base = basePath === '/' ? '' : basePath
+    const slug = [pathPrefix, base].filter(Boolean).join('/')
     createPage({
       path: basePath,
       matchPath,
@@ -116,14 +117,17 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   }
 
   decks.forEach(({ node }, index) => {
-    const { slug } = node
-    const matchPath = [slug, '*'].join('/')
+    const slug = [pathPrefix, node.slug].filter(Boolean).join('/')
+    const matchPath = [node.slug, '*'].join('/')
 
     createPage({
-      path: slug,
+      path: node.slug,
       matchPath,
       component: DeckTemplate,
-      context: node,
+      context: {
+        ...node,
+        slug,
+      },
     })
     createPage({
       path: slug + '/print',
@@ -179,7 +183,6 @@ exports.onCreateNode = ({ node, actions, getNode, createNodeId }) => {
 }
 
 exports.onCreateDevServer = ({ app }) => {
-  console.log('onCreateDevServer')
   if (typeof process.send !== 'function') return
   process.send({
     mdxDeck: true,
