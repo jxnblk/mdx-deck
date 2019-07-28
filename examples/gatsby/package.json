@@ -1,6 +1,6 @@
 {
   "name": "@mdx-deck/gatsby-example",
-  "version": "1.0.0",
+  "version": "3.0.8-alpha.1",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
@@ -13,7 +13,7 @@
   "dependencies": {
     "gatsby": "*",
     "gatsby-plugin-catch-links": "^2.1.2",
-    "gatsby-theme-mdx-deck": "3.0.8-alpha.0",
+    "gatsby-theme-mdx-deck": "^3.0.8-alpha.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   }
