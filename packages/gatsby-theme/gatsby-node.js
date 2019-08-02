@@ -159,7 +159,13 @@ exports.createPages = async ({ graphql, actions, reporter, pathPrefix }) => {
   })
 }
 
-exports.onCreateNode = ({ node, actions, getNode, createNodeId }) => {
+exports.onCreateNode = async ({
+  node,
+  actions,
+  getNode,
+  createNodeId,
+  loadNodeContent,
+}) => {
   const { createNode, createParentChildLink } = actions
 
   const toPath = node => {
@@ -172,27 +178,32 @@ exports.onCreateNode = ({ node, actions, getNode, createNodeId }) => {
   const fileNode = getNode(node.parent)
   const source = fileNode.sourceInstanceName
 
-  if (node.internal.type === `Mdx` && source === contentPath) {
-    const slug = toPath(fileNode)
+  if (source !== contentPath) return
 
-    createNode({
-      slug,
-      // Required fields.
-      id: createNodeId(`${node.id} >>> Deck`),
-      parent: node.id,
-      children: [],
-      internal: {
-        type: `Deck`,
-        contentDigest: crypto
-          .createHash(`md5`)
-          .update(JSON.stringify({ slug }))
-          .digest(`hex`),
-        content: JSON.stringify({ slug }),
-        description: `Slide Decks`,
-      },
-    })
-    createParentChildLink({ parent: fileNode, child: node })
-  }
+  // todo: slide nodes
+  // https://www.christopherbiscardi.com/post/creating-mdx-nodes-from-raw-strings
+  const content = await loadNodeContent(node)
+  console.log({ content })
+
+  const slug = toPath(fileNode)
+
+  createNode({
+    slug,
+    // Required fields.
+    id: createNodeId(`${node.id} >>> Deck`),
+    parent: node.id,
+    children: [],
+    internal: {
+      type: `Deck`,
+      contentDigest: crypto
+        .createHash(`md5`)
+        .update(JSON.stringify({ slug }))
+        .digest(`hex`),
+      content: JSON.stringify({ slug }),
+      description: `Slide Decks`,
+    },
+  })
+  createParentChildLink({ parent: fileNode, child: node })
 }
 
 exports.onCreateDevServer = ({ app }) => {
