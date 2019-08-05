@@ -254,7 +254,6 @@ The following examples will open in CodeSandbox.
 [theme ui]: https://theme-ui.com
 
 <!-- examples -->
-
 [design-systems-react]: https://github-ds.now.sh/#0
 [brazil-now]: https://braziljs.now.sh
 [simplify-react]: https://simply-react.netlify.com/#0
@@ -262,3 +261,4 @@ The following examples will open in CodeSandbox.
 [stop-div-fest]: https://stop-div-fest.now.sh/
 [mdx-talk]: https://mdx-talk.developermode.com/
 [components-as-data]: https://componentsasdata.lukeherrington.com
+

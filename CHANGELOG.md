@@ -1,5 +1,9 @@
 # Changelog
 
+## v3.0.8 2019-07-28
+
+- Add support for Gatsby `pathPrefix` option
+
 ## v3.0.0 2019-07-16
 
 - Refactored to leverage Gatsby

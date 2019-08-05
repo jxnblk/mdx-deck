@@ -1,13 +1,13 @@
 {
   "private": true,
   "name": "@mdx-deck/syntax-highlighting-example",
-  "version": "3.0.7",
+  "version": "3.0.8",
   "scripts": {
     "start": "mdx-deck deck.mdx",
     "build": "mdx-deck build deck.mdx",
     "help": "mdx-deck"
   },
   "devDependencies": {
-    "mdx-deck": "^3.0.7"
+    "mdx-deck": "^3.0.8"
   }
 }
