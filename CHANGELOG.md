@@ -1,5 +1,9 @@
 # Changelog
 
+## v3.0.9 2019-08-05
+
+- Fix for remounting component #428
+
 ## v3.0.8 2019-07-28
 
 - Add support for Gatsby `pathPrefix` option
