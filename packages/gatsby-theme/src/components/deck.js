@@ -67,6 +67,8 @@ const mergeThemes = (...themes) =>
     {}
   )
 
+const DefaultMode = ({ children }) => <React.Fragment children={children} />
+
 export default ({
   slides = [],
   pageContext: { title, slug },
@@ -91,7 +93,7 @@ export default ({
     theme: mergedTheme,
   }
 
-  let Mode = ({ children }) => <React.Fragment children={children} />
+  let Mode = DefaultMode
 
   switch (context.mode) {
     case modes.presenter:
