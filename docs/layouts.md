@@ -48,7 +48,7 @@ MDX Deck includes a few built-in layouts for common slide variations.
 Inverts the foreground and background colors from the theme.
 
 ```mdx
-import { Invert } from 'mdx-deck/layouts'
+import { Invert } from 'mdx-deck'
 
 # Normal
 
@@ -66,7 +66,7 @@ import { Invert } from 'mdx-deck/layouts'
 Creates a horizontal layout with the first child on the left and all other children on the right.
 
 ```mdx
-import { Split } from 'mdx-deck/layouts'
+import { Split } from 'mdx-deck'
 
 <Split>
 
@@ -82,7 +82,7 @@ import { Split } from 'mdx-deck/layouts'
 Same as the Split component, but renders the first child on the right.
 
 ```mdx
-import { SplitRight } from 'mdx-deck/layouts'
+import { SplitRight } from 'mdx-deck'
 
 <SplitRight>
 
@@ -102,7 +102,7 @@ Similar to the Split components, but renders all children side-by-side
 Renders code blocks fullscreen.
 
 ````mdx
-import { FullScreenCode } from 'mdx-deck/layouts'
+import { FullScreenCode } from 'mdx-deck'
 
 <FullScreenCode>
 
