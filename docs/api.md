@@ -64,7 +64,7 @@ The `useDeck` hook returns the MDX Deck state, including:
 ```jsx
 // example
 import React from 'react'
-import { useDeck } from '@mdx-deck/components'
+import { useDeck } from 'mdx-deck'
 
 export default props => {
   const state = useDeck()
