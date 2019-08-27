@@ -18,7 +18,7 @@ Start the MDX Deck dev server,
 then run the following command to create a PDF:
 
 ```sh
-npx website-pdf http://localhost:8000/print -o deck.pdf
+npx website-pdf http://localhost:8000//print -o deck.pdf
 ```
 
 ## PNG
