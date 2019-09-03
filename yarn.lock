@@ -6803,9 +6803,9 @@ gatsby-plugin-react-helmet@^3.1.0:
     "@babel/runtime" "^7.0.0"
 
 gatsby-plugin-theme-ui@^0.2.6:
-  version "0.2.34"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-theme-ui/-/gatsby-plugin-theme-ui-0.2.34.tgz#bbc5af48849ff4be88cd9ef6b66439768da80966"
-  integrity sha512-y9QrtMEhalB1mJ7E0y8UW9sffrTJ4W/dj0631k0LfUxEeKs2gA3VJf4yuJ+MOu4RloE9XDC04csM6zOy0tz7kA==
+  version "0.2.38"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-theme-ui/-/gatsby-plugin-theme-ui-0.2.38.tgz#519afdd63ffe4cf3824f1150a933f2ff57b549b3"
+  integrity sha512-4HUf5EoYQAuxrSyLRVyrYNzqOVnj4hNuPorQk55l8kvTR1MdL3URaoQmsES895cb6+mNOb4/ODb66tFCOdwjwQ==
 
 gatsby-react-router-scroll@^2.1.6:
   version "2.1.6"
