@@ -163,8 +163,8 @@ exports.onCreateNode = ({ node, actions, getNode, createNodeId }) => {
   const { createNode, createParentChildLink } = actions
 
   const toPath = node => {
-    const { dir } = path.parse(node.relativePath)
-    return path.join(basePath, dir, node.name)
+    const { dir } = path.posix.parse(node.relativePath)
+    return path.posix.join(basePath, dir, node.name)
   }
 
   if (node.internal.type !== `Mdx`) return
