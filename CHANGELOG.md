@@ -1,5 +1,10 @@
 # Changelog
 
+## v3.0.10 2019-09-05
+
+- Add remark-import-code #457
+- Fix pathname in windows #465
+
 ## v3.0.9 2019-08-05
 
 - Fix for remounting component #428
