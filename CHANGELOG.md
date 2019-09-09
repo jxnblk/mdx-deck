@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Add support for up and down keys #467
+
 ## v3.0.10 2019-09-05
 
 - Add remark-import-code #457
