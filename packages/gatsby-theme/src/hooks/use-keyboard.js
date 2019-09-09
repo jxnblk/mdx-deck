@@ -8,6 +8,8 @@ import { previous, next } from '../navigate'
 const keys = {
   right: 39,
   left: 37,
+  up: 38,
+  down: 40,
   space: 32,
   p: 80,
   o: 79,
@@ -65,11 +67,13 @@ export const useKeyboard = () => {
       } else {
         switch (e.keyCode) {
           case keys.right:
+          case keys.down:
           case keys.pageDown:
           case keys.space:
             next(context)
             break
           case keys.left:
+          case keys.up:
           case keys.pageUp:
             previous(context)
             break
