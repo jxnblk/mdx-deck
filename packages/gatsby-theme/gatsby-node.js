@@ -116,7 +116,7 @@ exports.createPages = async ({ graphql, actions, reporter, pathPrefix }) => {
       },
     })
     createPage({
-      path: basePath + '/print',
+      path: base + '/print',
       component: DeckTemplate,
       context: {
         ...deck.node,
