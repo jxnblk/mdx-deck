@@ -2,7 +2,10 @@
 
 ## Unreleased
 
+## v3.0.11 2019-09-10
+
 - Add support for up and down keys #467
+- Fix for double slash in print route #473
 
 ## v3.0.10 2019-09-05
 
