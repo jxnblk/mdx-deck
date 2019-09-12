@@ -20,7 +20,7 @@
     "chalk": "^2.4.2",
     "execa": "^2.0.3",
     "fs-extra": "^8.1.0",
-    "gatsby": "^2.13.24",
+    "gatsby": "~2.14.7",
     "gatsby-plugin-compile-es6-packages": "^2.0.0",
     "gatsby-theme-mdx-deck": "^3.0.11",
     "initit": "^1.0.0-2",
