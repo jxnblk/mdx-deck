@@ -2,6 +2,14 @@
 
 ## Unreleased
 
+## v3.0.13 2019-09-23
+
+- Adjust Gatsby content digest
+
+## v3.0.12 2019-09-23
+
+- Update dependencies
+
 ## v3.0.11 2019-09-10
 
 - Add support for up and down keys #467
