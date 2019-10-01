@@ -13,6 +13,7 @@ const keys = {
   space: 32,
   p: 80,
   o: 79,
+  f: 70,
   g: 71,
   esc: 27,
   pageUp: 33,
@@ -62,6 +63,16 @@ export const useKeyboard = () => {
             break
           case keys.g:
             context.setState(toggleMode(modes.grid))
+            break
+          case keys.f:
+            const element = e.target
+
+            element.requestFullscreen =
+              element.requestFullscreen ||
+              element.mozRequestFullScreen ||
+              element.webkitRequestFullScreen
+
+            element.requestFullscreen()
             break
         }
       } else {

@@ -6,6 +6,7 @@
 3. Move the new tab to its own window in the screen or projector that the audience sees
 4. Control the presentation from the original window
 5. Be sure to hide your mouse cursor so that it's not visible to the audience
+6. You can press `Opt + F` on the new tab to go fullscreen
 
 ## Speaker Notes
 
