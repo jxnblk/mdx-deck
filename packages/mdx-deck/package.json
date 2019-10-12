@@ -23,7 +23,6 @@
     "gatsby": "^2.13.24",
     "gatsby-plugin-compile-es6-packages": "^2.0.0",
     "gatsby-theme-mdx-deck": "^3.0.13",
-    "initit": "^1.0.0-2",
     "meow": "^5.0.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
