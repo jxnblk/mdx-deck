@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react'
 import { ThemeProvider } from 'emotion-theming'
 import { MDXProvider } from '@mdx-js/react'
-import * as themes from '@mdx-deck/themes'
+import * as themes from 'mdx-deck/themes'
 
 const names = Object.keys(themes)
 
@@ -35,16 +35,14 @@ const Provider = props => {
           right: 0,
           bottom: 0,
           margin: 16,
-        }}
-      >
+        }}>
         <label>
           Theme
           <select
             value={name}
             onChange={e => {
               setTheme(e.target.value)
-            }}
-          >
+            }}>
             {names.map(name => (
               <option key={name}>{name}</option>
             ))}
