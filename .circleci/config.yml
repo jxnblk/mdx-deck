@@ -8,7 +8,7 @@ jobs:
     docker:
       # specify the version you desire here
       # - image: circleci/node:10
-      - image: cypress/browsers:chrome69
+      - image: cypress/base:10
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
