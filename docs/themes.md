@@ -1,9 +1,5 @@
 # Themes
 
-```sh
-npm i mdx-deck/themes
-```
-
 ![Default theme](images/default.png)
 
 ---
