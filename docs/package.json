@@ -12,7 +12,6 @@
   "dependencies": {
     "@emotion/core": "^10.0.7",
     "@emotion/styled": "^10.0.7",
-    "@mdx-deck/themes": "^3.0.8",
     "mdx-deck": "^3.0.13",
     "styled-system": "^5.0.15"
   }
