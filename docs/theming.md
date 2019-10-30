@@ -126,6 +126,8 @@ export default {
 - `Provider`: component for wrapping the entire presentation
 - `googleFont`: Stylesheet URL for adding a Google Font
 
+For a more fully fledged example [look here](/packages/gatsby-theme/src/gatsby-plugin-theme-ui/index.js)
+
 [emotion]: https://emotion.sh
 [theme ui]: https://theme-ui.com
 [mdx]: https://github.com/mdx-js/mdx
