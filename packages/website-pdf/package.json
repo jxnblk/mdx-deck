@@ -12,7 +12,7 @@
   "dependencies": {
     "meow": "^5.0.0",
     "mkdirp": "^0.5.1",
-    "puppeteer": "^1.13.0"
+    "puppeteer": "^2.0.0"
   },
   "gitHead": "2e6e342cccc32569fd7e2ae2a0711dd91e58d59f"
 }
