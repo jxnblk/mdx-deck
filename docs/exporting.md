@@ -13,13 +13,15 @@ add a `build` script to your `package.json` file.
 
 ## PDF
 
-To export a deck as PDF, use the [`website-pdf`](https://www.npmjs.com/package/website-pdf) CLI.
-Start the MDX Deck dev server,
-then run the following command to create a PDF:
+To export a deck as PDF, start the dev server, visit http://localhost:8000/print and use your browser's print dialog to "Print to PDF".
+
+If your operating system doesn't support it, you can use [`website-pdf`](https://www.npmjs.com/package/website-pdf), for example:
 
 ```sh
 npx website-pdf http://localhost:8000/print -o deck.pdf
 ```
+
+Note that `npx website-pdf` downloads Chromium every time (over 100 MB) so consider installing `website-pdf` globally if you're running it repeatedly.
 
 ## PNG
 
