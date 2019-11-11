@@ -8,7 +8,7 @@
   "author": "Brent Jackson",
   "license": "MIT",
   "dependencies": {
-    "chalk": "^2.4.1",
+    "chalk": "^3.0.0",
     "initit": "^1.0.0-2",
     "meow": "^5.0.0"
   },
