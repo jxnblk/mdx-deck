@@ -17,7 +17,7 @@
   "repository": "github:jxnblk/mdx-deck",
   "dependencies": {
     "@mdx-deck/themes": "^3.0.8",
-    "chalk": "^2.4.2",
+    "chalk": "^3.0.0",
     "execa": "^3.2.0",
     "fs-extra": "^8.1.0",
     "gatsby": "^2.13.24",
