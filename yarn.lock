@@ -1082,17 +1082,10 @@
   resolved "https://registry.yarnpkg.com/@emotion/hash/-/hash-0.7.3.tgz#a166882c81c0c6040975dd30df24fae8549bd96f"
   integrity sha512-14ZVlsB9akwvydAdaEnVnvqu6J2P6ySv39hYyl/aoB6w/V+bXX0tay8cF6paqbgZsN2n5Xh15uF4pE+GvE+itw==
 
-"@emotion/is-prop-valid@0.8.5":
+"@emotion/is-prop-valid@0.8.5", "@emotion/is-prop-valid@^0.8.1":
   version "0.8.5"
   resolved "https://registry.yarnpkg.com/@emotion/is-prop-valid/-/is-prop-valid-0.8.5.tgz#2dda0791f0eafa12b7a0a5b39858405cc7bde983"
   integrity sha512-6ZODuZSFofbxSbcxwsFz+6ioPjb0ISJRRPLZ+WIbjcU2IMU0Io+RGQjjaTgOvNQl007KICBm7zXQaYQEC1r6Bg==
-  dependencies:
-    "@emotion/memoize" "0.7.3"
-
-"@emotion/is-prop-valid@^0.8.1":
-  version "0.8.3"
-  resolved "https://registry.yarnpkg.com/@emotion/is-prop-valid/-/is-prop-valid-0.8.3.tgz#cbe62ddbea08aa022cdf72da3971570a33190d29"
-  integrity sha512-We7VBiltAJ70KQA0dWkdPMXnYoizlxOXpvtjmu5/MBnExd+u0PGgV27WCYanmLAbCwAU30Le/xA0CQs/F/Otig==
   dependencies:
     "@emotion/memoize" "0.7.3"
 
@@ -15025,9 +15018,9 @@ text-table@0.2.0, text-table@^0.2.0:
   integrity sha1-f17oI66AUgfACvLfSoTsP8+lcLQ=
 
 theme-ui@^0.2.14:
-  version "0.2.46"
-  resolved "https://registry.yarnpkg.com/theme-ui/-/theme-ui-0.2.46.tgz#efaf5850e7047c3abe848b5bf37a9f53d6271d5d"
-  integrity sha512-/20TAjKBFTwrzm1U+N7+ucs7knim21di0liP/QUEl0DxbEzksPOKFX6ol+zjxHjPUoArg8UqS3bBcHvF0z0UnQ==
+  version "0.2.49"
+  resolved "https://registry.yarnpkg.com/theme-ui/-/theme-ui-0.2.49.tgz#3803952907e74e6835d40b063aed0d46c213e2d9"
+  integrity sha512-hgULYonGu8iY3delv/GrMx4L/3nAJyEu55gEAAK3GDKVEVf4VNng3lM9/tgx4kUizTFVEB5MN5y+1JTHHOQLXQ==
   dependencies:
     "@emotion/is-prop-valid" "^0.8.1"
     "@styled-system/css" "^5.0.16"
