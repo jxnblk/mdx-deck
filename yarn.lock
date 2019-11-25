@@ -7135,9 +7135,9 @@ gatsby-plugin-emotion@^4.1.0:
     "@emotion/babel-preset-css-prop" "^10.0.23"
 
 gatsby-plugin-mdx@^1.0.13:
-  version "1.0.56"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-mdx/-/gatsby-plugin-mdx-1.0.56.tgz#61e40b684cd76e57a28d447b8dc6db313e1f32d3"
-  integrity sha512-NK4aGE7D29tAE90wJc5UytyaAkw5WizaJ8j3CdM4qERm4DTEmjN9VpG+nztzaMLa+Wx5zPooalnPaDat2YfTMg==
+  version "1.0.57"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-mdx/-/gatsby-plugin-mdx-1.0.57.tgz#e32a5c05ba2210c571988c6d6a19e1e886769107"
+  integrity sha512-s4gucJ+nVg01hNLymHQsONKTmwFlur7sKh4t5+a1ydZtOsurpZKgpXSmUYUa1XigRHRR383HnNPOcTH+vhojHw==
   dependencies:
     "@babel/core" "^7.7.2"
     "@babel/generator" "^7.7.2"
@@ -7154,6 +7154,7 @@ gatsby-plugin-mdx@^1.0.13:
     escape-string-regexp "^1.0.5"
     eval "^0.1.4"
     fs-extra "^8.1.0"
+    gatsby-core-utils "^1.0.20"
     gray-matter "^4.0.2"
     json5 "^2.1.1"
     loader-utils "^1.2.3"
@@ -7166,7 +7167,6 @@ gatsby-plugin-mdx@^1.0.13:
     remark "^10.0.1"
     remark-retext "^3.1.3"
     retext-english "^3.0.4"
-    slash "^3.0.0"
     static-site-generator-webpack-plugin "^3.4.2"
     style-to-object "^0.3.0"
     underscore.string "^3.3.5"
