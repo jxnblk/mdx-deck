@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Update dependencies
+
 ## v3.0.13 2019-09-23
 
 - Adjust Gatsby content digest
