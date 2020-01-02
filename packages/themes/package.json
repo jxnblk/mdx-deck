@@ -6,7 +6,7 @@
   "license": "MIT",
   "dependencies": {
     "lodash.merge": "^4.6.1",
-    "react-syntax-highlighter": "^11.0.2"
+    "react-syntax-highlighter": "^12.2.1"
   },
   "gitHead": "2e6e342cccc32569fd7e2ae2a0711dd91e58d59f"
 }
