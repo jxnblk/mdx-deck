@@ -37,7 +37,7 @@ const Print = ({ slides }) => {
   return (
     <Context.Provider value={context}>
       {slides.map((slide, i) => (
-        <Slide key={i} slide={slide} preview />
+        <Slide key={i} slide={slide} preview index={i} />
       ))}
     </Context.Provider>
   )
