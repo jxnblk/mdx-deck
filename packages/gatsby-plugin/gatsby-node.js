@@ -41,20 +41,3 @@ exports.createPages = ({
     component: source,
   })
 }
-
-// does it need to filter by plugin?
-/*
-exports.onCreatePage = ({ page, actions }) => {
-  const basePage = Object.assign({}, page)
-  const matchPath = page.path + '*'
-  actions.deletePage(basePage)
-
-  actions.createPage({
-    ...page,
-    matchPath,
-    context: {
-      slug: page.path,
-    }
-  })
-}
-*/
