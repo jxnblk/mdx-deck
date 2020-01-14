@@ -21,8 +21,6 @@ const cli = meow(
 
     $ ${chalk.green('mdx-deck build deck.mdx')}
 
-    $ ${chalk.green('mdx-deck eject deck.mdx')}
-
   ${chalk.gray('Options')}
 
       -h --host     Dev server host
@@ -89,19 +87,10 @@ const gatsby = async (...args) => {
 switch (cmd) {
   case 'build':
     gatsby('build').then(() => {
-      const public = path.join(__dirname, 'public')
+      const publicDir = path.join(__dirname, 'public')
       const dist = path.join(process.cwd(), 'public')
-      if (public === dist) return
-      fs.copySync(public, dist)
-    })
-    break
-  case 'eject':
-    log('ejecting Gatsby site')
-    require('./eject')({
-      cwd: process.cwd(),
-      filename: path.resolve(filename),
-    }).catch(err => {
-      log.error(err)
+      if (publicDir === dist) return
+      fs.copySync(publicDir, dist)
     })
     break
   case 'dev':

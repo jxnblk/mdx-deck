@@ -7,7 +7,8 @@
     "docs"
   ],
   "scripts": {
-    "start": "yarn workspace @mdx-deck/docs start",
+    "__start": "yarn workspace @mdx-deck/docs start",
+    "start": "yarn workspace mdx-deck start",
     "build": "yarn workspace @mdx-deck/docs build",
     "export": "./packages/export/cli.js http://localhost:8000/print -o docs/public/deck.pdf",
     "cypress:open": "cypress open",

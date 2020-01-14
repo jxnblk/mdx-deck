@@ -1,0 +1,25 @@
+{
+  "name": "@mdx-deck/gatsby-plugin",
+  "version": "3.0.13",
+  "main": "index.js",
+  "author": "Brent Jackson",
+  "license": "MIT",
+  "repository": "github:jxnblk/mdx-deck",
+  "scripts": {
+    "start": "gatsby develop --open"
+  },
+  "peerDependencies": {
+    "gatsby": "^2.14.0",
+    "react": "^16.10.0",
+    "react-dom": "^16.10.0"
+  },
+  "dependencies": {
+    "@mdx-js/loader": "^1.5.3",
+    "@mdx-js/mdx": "^1.5.3",
+    "@mdx-js/react": "^1.5.3",
+    "gatsby-page-utils": "^0.0.37",
+    "gatsby-plugin-page-creator": "^2.1.37",
+    "gatsby-plugin-react-helmet": "^3.1.18",
+    "react-helmet": "^5.2.1"
+  }
+}

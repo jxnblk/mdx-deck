@@ -1,18 +1,21 @@
-const src = process.env.__SRC__
+const path = process.env.__SRC__
 
 module.exports = {
   plugins: [
     {
-      resolve: 'gatsby-theme-mdx-deck',
+      resolve: '@mdx-deck/gatsby-plugin',
       options: {
-        cli: true,
-        contentPath: src,
+        path,
       },
     },
     {
       resolve: 'gatsby-plugin-compile-es6-packages',
       options: {
-        modules: ['mdx-deck', '@mdx-deck/themes'],
+        modules: [
+          'mdx-deck',
+          '@mdx-deck/gatsby-plugin',
+          '@mdx-deck/themes'
+        ],
       },
     },
   ],
