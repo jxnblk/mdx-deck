@@ -1,9 +1,11 @@
 import React from 'react'
 import { MDXProvider } from '@mdx-js/react'
 import wrapper from './deck'
+import * as mdxComponents from './components'
 
 const components = {
   wrapper,
+  ...mdxComponents,
 }
 
 const Page = props =>

@@ -6,8 +6,6 @@ export default () => {
   const context = useDeck()
 
   React.useEffect(() => {
-    const dec = n => n > 0 ? n - 1 : n
-    const inc = n => n < context.slides.length - 1 ? n + 1 : n
     const handleKeyDown = e => {
       if (e.metaKey) return
       if (e.ctrlKey) return

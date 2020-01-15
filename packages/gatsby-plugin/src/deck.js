@@ -6,6 +6,17 @@ import { Context } from './context'
 import Keyboard from './keyboard'
 import modes from './modes'
 
+/**
+ * TODO
+ *  - [ ] local storage
+ *  - [ ] slide styles
+ *  - [ ] header/footer styles
+ *  - [ ] presenter mode
+ *  - [ ] overview mode
+ *  - [ ] themes
+ *  - [ ] print mode
+ */
+
 const getIndex = props => {
   if (!props.location) return 0
   const paths = props.location.pathname.split('/')
@@ -43,11 +54,11 @@ export default props => {
     lastIndex.current = index
   },[index])
 
-
   const context = {
     slides,
     slug,
     index,
+    length: slides.length,
     slide,
     mode,
     setMode,
@@ -56,12 +67,16 @@ export default props => {
     step,
     setStep,
     steps,
+    notes: slide.notes,
   }
+
   context.setSteps = l => {
     setSteps(l)
     if (direction < 0) setStep(l)
   }
+
   context.setIndex = setIndex(context)
+
   context.previous = () => {
     if (steps && step > 0) {
       setStep(n => n - 1)

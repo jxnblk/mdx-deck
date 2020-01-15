@@ -1,6 +1,10 @@
 const fs = require('fs')
 const path = require('path')
 const { createPath, validatePath } = require('gatsby-page-utils')
+const remarkPlugins = [
+  require('remark-images'),
+  require('remark-emoji'),
+]
 
 const isDir = p => fs.statSync(p).isDirectory()
 
@@ -18,7 +22,12 @@ exports.onCreateWebpackConfig = ({
           test: /\.mdx$/,
           use: [
             loaders.js(),
-            '@mdx-js/loader',
+            {
+              loader: '@mdx-js/loader',
+              options: {
+                remarkPlugins,
+              }
+            },
           ]
         }
       ]
