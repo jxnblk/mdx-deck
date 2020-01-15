@@ -3,11 +3,11 @@ import { useDeck } from './context'
 import modes from './modes'
 
 export default () => {
-  const state = useDeck()
+  const context = useDeck()
 
   React.useEffect(() => {
     const dec = n => n > 0 ? n - 1 : n
-    const inc = n => n < state.slides.length - 1 ? n + 1 : n
+    const inc = n => n < context.slides.length - 1 ? n + 1 : n
     const handleKeyDown = e => {
       if (e.metaKey) return
       if (e.ctrlKey) return
@@ -16,7 +16,7 @@ export default () => {
         switch (e.key) {
           case 'P':
           case 'p':
-            state.toggleMode(modes.presenter)
+            context.toggleMode(modes.presenter)
             break
           default:
             break
@@ -24,7 +24,7 @@ export default () => {
       } else if (e.shiftKey) {
         switch (e.key) {
           case ' ':
-            state.setIndex(dec)
+            context.previous()
             break
           default:
             break
@@ -33,10 +33,10 @@ export default () => {
         switch (e.key) {
           case 'ArrowRight':
           case ' ':
-            state.setIndex(inc)
+            context.next()
             break
           case 'ArrowLeft':
-            state.setIndex(dec)
+            context.previous()
             break
           case 'Escape':
             console.log('TODO escape')
@@ -53,7 +53,7 @@ export default () => {
     return () => {
       document.removeEventListener('keydown', handleKeyDown)
     }
-  }, [state])
+  }, [context])
 
   return false
 }

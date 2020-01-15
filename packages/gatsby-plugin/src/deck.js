@@ -19,15 +19,30 @@ const setIndex = ({ slug, index }) => fn => {
 }
 
 export default props => {
-  // console.log('MDXDeck', props)
   const slides = split(props)
   const index = getIndex(props)
   const { slug } = props.pageContext || {}
   const slide = slides[index]
+
   const [mode, setMode] = React.useState(modes.default)
   const toggleMode = next => setMode(current =>
     current === next ? modes.default : next
   )
+
+  const [step, setStep] = React.useState(0)
+  const [steps, setSteps] = React.useState(0)
+  const clearSteps = () => {
+    setStep(0)
+    setSteps(0)
+  }
+
+  const lastIndex = React.useRef()
+  const direction = index - lastIndex.current
+
+  React.useEffect(() => {
+    lastIndex.current = index
+  },[index])
+
 
   const context = {
     slides,
@@ -38,9 +53,34 @@ export default props => {
     setMode,
     toggleMode,
     location: props.location,
+    step,
+    setStep,
+    steps,
+  }
+  context.setSteps = l => {
+    setSteps(l)
+    if (direction < 0) setStep(l)
   }
   context.setIndex = setIndex(context)
-  console.log(slides)
+  context.previous = () => {
+    if (steps && step > 0) {
+      setStep(n => n - 1)
+    } else {
+      context.setIndex(n => n > 0 ? n - 1 : n)
+      if (!!steps) clearSteps()
+    }
+  }
+
+  context.next = () => {
+    if (steps && step < steps) {
+      setStep(n => n + 1)
+    } else {
+      context.setIndex(n => n < slides.length - 1 ? n + 1 : n)
+      if (steps) clearSteps()
+    }
+  }
+
+  // console.log({ step, steps, direction, context })
 
   return (
     <Context.Provider value={context}>

@@ -21,4 +21,6 @@ export {
   Head,
   Header,
   Footer,
+  Image,
+  Appear,
 } from './components'
