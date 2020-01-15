@@ -1,34 +1,71 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
-import { useDeck } from './context'
+import { Context, useDeck } from './context'
 import modes from './modes'
 import Header from './header'
 import Footer from './footer'
+import Slide from './slide'
 
-const Main = props =>
-  <div
-    sx={{
-      width: '100vw',
-      height: '100vh',
-      position: 'relative',
-      overflow: 'hidden',
-    }}>
-    {props.header && (
-      <Header>
-        {props.header}
-      </Header>
-    )}
-    {props.children}
-    {props.footer && (
-      <Footer>
-        {props.footer}
-      </Footer>
-    )}
-  </div>
+const Main = ({
+  width = '100vw',
+  height = '100vh',
+  ...props
+}) => {
+  const outer = useDeck()
+  const context = {
+    ...outer,
+    isMain: true,
+  }
+
+  return (
+    <Context.Provider value={context}>
+      <div
+        sx={{
+          width,
+          height,
+          position: 'relative',
+          overflow: 'hidden',
+        }}>
+        {props.header && (
+          <Header>
+            {props.header}
+          </Header>
+        )}
+        {props.children}
+        {props.footer && (
+          <Footer>
+            {props.footer}
+          </Footer>
+        )}
+      </div>
+    </Context.Provider>
+  )
+}
 
 
 const Presenter = props => {
-  return <pre>Presenter</pre>
+  const next = props.slides[props.index + 1]
+
+  return (
+    <div>
+      <Main
+        {...props}
+        width='50vw'
+        height='50vh'>
+        <Slide>
+          {props.slide}
+        </Slide>
+      </Main>
+      <div>
+        <Slide>
+          {next}
+        </Slide>
+      </div>
+      <div>
+        {props.notes}
+      </div>
+    </div>
+  )
 }
 
 const Overview = props => {
@@ -42,7 +79,6 @@ const Print = props => {
 
 export default props => {
   const context = useDeck()
-  console.log(context)
 
   switch (context.mode) {
     case modes.presenter:

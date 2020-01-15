@@ -14,7 +14,7 @@ import Slide from './slide'
  * TODO
  *  - [x] local storage
  *  - [x] slide styles
- *  - [ ] header/footer styles
+ *  - [x] header/footer styles
  *  - [ ] presenter mode
  *  - [ ] overview mode
  *  - [ ] themes

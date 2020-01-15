@@ -13,7 +13,6 @@ export default props =>
       overflow: 'hidden',
       position: 'relative',
       variant: 'styles.Slide',
-      outline: '4px solid cyan',
     }}>
     <div>
       {props.children}
