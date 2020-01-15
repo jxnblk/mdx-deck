@@ -1,19 +1,24 @@
 import React from 'react'
 import { navigate } from '@reach/router'
 import { Helmet } from 'react-helmet'
+import { ThemeProvider } from 'theme-ui'
 import split from './split-slides'
 import { Context } from './context'
 import Keyboard from './keyboard'
 import modes from './modes'
+import Storage from './storage'
+import Container from './container'
+import Slide from './slide'
 
 /**
  * TODO
- *  - [ ] local storage
- *  - [ ] slide styles
+ *  - [x] local storage
+ *  - [x] slide styles
  *  - [ ] header/footer styles
  *  - [ ] presenter mode
  *  - [ ] overview mode
  *  - [ ] themes
+ *  - [ ] base theme
  *  - [ ] print mode
  */
 
@@ -25,11 +30,12 @@ const getIndex = props => {
 }
 
 const setIndex = ({ slug, index }) => fn => {
-  const n = fn(index)
+  const n = typeof fn === 'function' ? fn(index) : fn
   navigate([slug, n].join(''))
 }
 
 export default props => {
+  console.log(props)
   const slides = split(props)
   const index = getIndex(props)
   const { slug } = props.pageContext || {}
@@ -68,6 +74,8 @@ export default props => {
     setStep,
     steps,
     notes: slide.notes,
+    header: slides.header,
+    footer: slides.footer,
   }
 
   context.setSteps = l => {
@@ -95,28 +103,20 @@ export default props => {
     }
   }
 
-  // console.log({ step, steps, direction, context })
-
   return (
     <Context.Provider value={context}>
       <Keyboard />
+      <Storage />
       <Helmet>
         {slides.head.children}
       </Helmet>
-      {slides.header}
-      <div
-        style={{
-          padding: 32,
-          backgroundColor: 'lightgray',
-        }}>
-        {slide}
-      </div>
-      {slides.footer}
-
-      <div>
-        {/** temp */}
-        {slide.notes}
-      </div>
+      <ThemeProvider theme={props.theme}>
+        <Container>
+          <Slide>
+            {slide}
+          </Slide>
+        </Container>
+      </ThemeProvider>
     </Context.Provider>
   )
 }

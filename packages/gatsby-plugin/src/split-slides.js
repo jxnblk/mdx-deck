@@ -19,19 +19,18 @@ export default props => {
       ...childProps
     } = child.props
 
-    if (originalType.isMDXComponent) {
-      // todo: figure out nested decks
-    }
+    // todo: figure out nested decks
+    // if (originalType.isMDXComponent) {}
 
     // get notes
-    if (originalType.__mdxDeck_notes) {
+    if (originalType.__mdxDeck_notes || mdxType === 'Notes') {
       notes[splits.length] = children
-    } else if (originalType.__mdxDeck_header) {
+    } else if (originalType.__mdxDeck_header || mdxType === 'Header') {
       slides.header = children
-    } else if (originalType.__mdxDeck_footer) {
+    } else if (originalType.__mdxDeck_footer || mdxType === 'Footer') {
       slides.footer = children
     // get head content
-    } else if (originalType.__mdxDeck_head) {
+    } else if (originalType.__mdxDeck_head || mdxType === 'Head') {
       slides.head.children.push(children)
       Object.assign(slides.head.props, childProps)
     }

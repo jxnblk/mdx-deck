@@ -2,7 +2,7 @@ import React from 'react'
 import { useDeck } from './context'
 import modes from './modes'
 
-export default () => {
+export const useKeyboard = () => {
   const context = useDeck()
 
   React.useEffect(() => {
@@ -14,7 +14,15 @@ export default () => {
         switch (e.key) {
           case 'P':
           case 'p':
-            context.toggleMode(modes.presenter)
+            if (e.shiftKey) {
+              context.toggleMode(modes.print)
+            } else {
+              context.toggleMode(modes.presenter)
+            }
+            break
+          case 'O':
+          case 'o':
+            context.toggleMode(modes.overview)
             break
           default:
             break
@@ -22,6 +30,7 @@ export default () => {
       } else if (e.shiftKey) {
         switch (e.key) {
           case ' ':
+            e.preventDefault()
             context.previous()
             break
           default:
@@ -31,13 +40,15 @@ export default () => {
         switch (e.key) {
           case 'ArrowRight':
           case ' ':
+            e.preventDefault()
             context.next()
             break
           case 'ArrowLeft':
+            e.preventDefault()
             context.previous()
             break
           case 'Escape':
-            console.log('TODO escape')
+            context.setMode(modes.default)
             break
           default:
             console.log(e.key)
@@ -52,6 +63,9 @@ export default () => {
       document.removeEventListener('keydown', handleKeyDown)
     }
   }, [context])
+}
 
+export default () => {
+  useKeyboard()
   return false
 }

@@ -21,6 +21,7 @@
     "gatsby-plugin-react-helmet": "^3.1.18",
     "react-helmet": "^5.2.1",
     "remark-emoji": "^2.0.2",
-    "remark-images": "^1.0.0"
+    "remark-images": "^1.0.0",
+    "theme-ui": "^0.3.0-alpha.4"
   }
 }
