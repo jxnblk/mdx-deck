@@ -1,20 +1,28 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
 
-export default props =>
+export default ({
+  zoom,
+  width = '100%',
+  height = '100%',
+  children,
+  ...props
+}) =>
   <div
+    {...props}
     sx={{
       boxSizing: 'border-box',
       display: 'flex',
-      width: '100%',
-      height: '100%',
       alignItems: 'center',
       justifyContent: 'center',
       overflow: 'hidden',
       position: 'relative',
       variant: 'styles.Slide',
+      width,
+      height,
+      zoom,
     }}>
     <div>
-      {props.children}
+      {children}
     </div>
   </div>

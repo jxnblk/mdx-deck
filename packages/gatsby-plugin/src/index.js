@@ -1,9 +1,7 @@
 import React from 'react'
 import { MDXProvider } from '@mdx-js/react'
-import { ThemeProvider } from 'theme-ui'
 import wrapper from './deck'
 import * as mdxComponents from './components'
-import theme from './theme'
 
 const components = {
   wrapper,

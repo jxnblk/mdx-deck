@@ -1,7 +1,7 @@
 import React from 'react'
 import { navigate } from '@reach/router'
 import { Helmet } from 'react-helmet'
-import { ThemeProvider } from 'theme-ui'
+import { ThemeProvider, merge } from 'theme-ui'
 import split from './split-slides'
 import { Context } from './context'
 import Keyboard from './keyboard'
@@ -9,17 +9,29 @@ import modes from './modes'
 import Storage from './storage'
 import Container from './container'
 import Slide from './slide'
+import baseTheme from './theme'
 
 /**
  * TODO
  *  - [x] local storage
  *  - [x] slide styles
  *  - [x] header/footer styles
- *  - [ ] presenter mode
- *  - [ ] overview mode
+ *  - [x] print mode
+ *  - [x] /print pathname
+ *  - [x] presenter mode
+ *  - [x] overview mode
+ *  - [ ] presenter styles
+ *  - [ ] overview styles
+ *  - [ ] timer/clock
+ *  - [ ] Image
+ *  - [ ] Invert
+ *  - [ ] FullScreenCode
+ *  - [ ] Split
+ *  - [ ] SplitRight
+ *  - [ ] Horizontal
  *  - [ ] themes
+ *  - [ ] merge themes
  *  - [ ] base theme
- *  - [ ] print mode
  */
 
 const getIndex = props => {
@@ -103,6 +115,14 @@ export default props => {
     }
   }
 
+  React.useEffect(() => {
+    if (props.location.pathname === '/print') {
+      setMode(modes.print)
+    }
+  }, [])
+
+  const theme = merge(baseTheme, props.theme)
+
   return (
     <Context.Provider value={context}>
       <Keyboard />
@@ -110,7 +130,7 @@ export default props => {
       <Helmet>
         {slides.head.children}
       </Helmet>
-      <ThemeProvider theme={props.theme}>
+      <ThemeProvider theme={theme}>
         <Container>
           <Slide>
             {slide}

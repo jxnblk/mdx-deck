@@ -1,5 +1,6 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
+import React from 'react'
 import { Context, useDeck } from './context'
 import modes from './modes'
 import Header from './header'
@@ -9,12 +10,13 @@ import Slide from './slide'
 const Main = ({
   width = '100vw',
   height = '100vh',
+  preview = false,
   ...props
 }) => {
   const outer = useDeck()
   const context = {
     ...outer,
-    isMain: true,
+    isMain: !preview,
   }
 
   return (
@@ -42,40 +44,111 @@ const Main = ({
   )
 }
 
-
 const Presenter = props => {
   const next = props.slides[props.index + 1]
 
   return (
-    <div>
-      <Main
-        {...props}
-        width='50vw'
-        height='50vh'>
-        <Slide>
-          {props.slide}
-        </Slide>
-      </Main>
-      <div>
-        <Slide>
+    <div
+      sx={{
+        display: 'flex',
+        height: '100vh',
+      }}>
+      <div
+        sx={{
+          width: '60%',
+          height: '100vh',
+        }}>
+        <Main
+          {...props}
+          width='100%'
+          height='100vh'>
+          <Slide>
+            {props.slide}
+          </Slide>
+        </Main>
+      </div>
+      <div
+        sx={{
+          width: '40%',
+          height: '100vh',
+          padding: 3,
+          overflowY: 'auto',
+          outline: '1px solid cyan',
+        }}>
+        <Slide
+          width='100%'
+          height='100vh'
+          zoom={1/2}
+          sx={{
+            outline: '1px solid tomato',
+          }}>
           {next}
         </Slide>
-      </div>
-      <div>
-        {props.notes}
+        <div>
+          {props.notes}
+        </div>
       </div>
     </div>
   )
 }
 
 const Overview = props => {
-  return <pre>Overview</pre>
+  return (
+    <div
+      sx={{
+        display: 'flex',
+        height: '100vh',
+      }}>
+      <div
+        sx={{
+          width: '25%',
+          height: '100vh',
+          overflowY: 'auto',
+          paddingRight: 3,
+          outline: '2px solid red',
+        }}>
+        {props.slides.map((slide, i) => (
+          <Slide key={i}
+            sx={{
+              outline: '2px solid cyan',
+            }}
+            width='100%'
+            height='25%'
+            zoom={1/4}>
+            {slide}
+          </Slide>
+        ))}
+      </div>
+      <div
+        sx={{
+          width: '75%',
+        }}>
+        <Main
+          {...props}
+          width='75vw'
+          height='100vh'>
+          <Slide zoom={3/4}>
+            {props.slide}
+          </Slide>
+        </Main>
+      </div>
+    </div>
+  )
 }
 
 const Print = props => {
-  return <pre>Print</pre>
+  return (
+    <React.Fragment>
+      {props.slides.map((slide, i) => (
+        <Main key={i} {...props} preview>
+          <Slide>
+            {slide}
+          </Slide>
+        </Main>
+      ))}
+    </React.Fragment>
+  )
 }
-
 
 export default props => {
   const context = useDeck()
