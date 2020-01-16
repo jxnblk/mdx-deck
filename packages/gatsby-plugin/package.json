@@ -16,12 +16,15 @@
   "dependencies": {
     "@mdx-js/loader": "^1.5.3",
     "@mdx-js/mdx": "^1.5.3",
-    "@mdx-js/react": "^1.5.3",
     "gatsby-page-utils": "^0.0.37",
     "gatsby-plugin-react-helmet": "^3.1.18",
     "react-helmet": "^5.2.1",
     "remark-emoji": "^2.0.2",
     "remark-images": "^1.0.0",
-    "theme-ui": "^0.3.0-alpha.4"
+    "theme-ui": "^0.3.0-alpha.6"
+  },
+  "devDependencies": {
+    "cypress": "^3.4.0",
+    "lerna": "^3.13.1"
   }
 }

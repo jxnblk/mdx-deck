@@ -13,6 +13,7 @@ export default ({
     sx={{
       boxSizing: 'border-box',
       display: 'flex',
+      flexDirection: 'column',
       alignItems: 'center',
       justifyContent: 'center',
       overflow: 'hidden',
@@ -22,7 +23,5 @@ export default ({
       height,
       zoom,
     }}>
-    <div>
-      {children}
-    </div>
+    {children}
   </div>

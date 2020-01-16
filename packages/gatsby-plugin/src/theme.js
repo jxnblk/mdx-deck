@@ -2,13 +2,15 @@
 export default {
   styles: {
     root: {
-      // todo: remove
-      margin: 0,
-      fontSize: '2em',
+      fontFamily: 'system-ui, sans-serif',
     },
     img: {
-      maxWidth: '100%',
-      height: 'auto',
+      width: '100vw',
+      height: '100vh',
+      objectFit: 'contain',
+    },
+    Slide: {
+      fontSize: '2em',
     },
   }
 }

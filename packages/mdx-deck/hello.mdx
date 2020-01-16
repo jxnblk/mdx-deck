@@ -16,11 +16,9 @@ export const theme = {
 </Head>
 
 <Header>
-  This should show at the top
 </Header>
 
 <Footer>
-  And this is the bottom
 </Footer>
 
 # Hello
@@ -53,7 +51,7 @@ These are top-secret speaker notes. Shhhh!
 
 ---
 
-<Image
+<div
   src='https://images.unsplash.com/photo-1485881374599-20e5ddb80d84?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9'
   size='cover'
   style={{
@@ -66,11 +64,19 @@ These are top-secret speaker notes. Shhhh!
 
   ## All aboard!
 
-</Image>
+</div>
 
 <Notes>
 Stand clear of the closing doors
 </Notes>
+
+---
+
+![](https://images.unsplash.com/photo-1485881374599-20e5ddb80d84?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9)
+
+---
+
+<Counter value={5} />
 
 ---
 
@@ -96,6 +102,16 @@ export default props =>
 This one is inverted
 
 </Invert>
+
+---
+
+<Color
+  color='black'
+  bg='magenta'>
+
+## Custom Colors
+
+</Color>
 
 ---
 

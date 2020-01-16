@@ -23,15 +23,18 @@ import baseTheme from './theme'
  *  - [ ] presenter styles
  *  - [ ] overview styles
  *  - [ ] timer/clock
- *  - [ ] Image
- *  - [ ] Invert
- *  - [ ] FullScreenCode
- *  - [ ] Split
- *  - [ ] SplitRight
- *  - [ ] Horizontal
+ *  - [ ] Ditch layouts?
+ *    - [x] Image
+ *    - [x] Invert
+ *    - [-] FullScreenCode
+ *    - [ ] Split
+ *    - [ ] SplitRight
+ *    - [ ] Horizontal
  *  - [ ] themes
  *  - [ ] merge themes
+ *  - [ ] theme.components
  *  - [ ] base theme
+ *  - [ ] test local images
  */
 
 const getIndex = props => {
@@ -41,13 +44,12 @@ const getIndex = props => {
   return n
 }
 
-const setIndex = ({ slug, index }) => fn => {
+const setIndex = ({ index }) => fn => {
   const n = typeof fn === 'function' ? fn(index) : fn
-  navigate([slug, n].join(''))
+  navigate('/' + n)
 }
 
 export default props => {
-  console.log(props)
   const slides = split(props)
   const index = getIndex(props)
   const { slug } = props.pageContext || {}
@@ -60,10 +62,6 @@ export default props => {
 
   const [step, setStep] = React.useState(0)
   const [steps, setSteps] = React.useState(0)
-  const clearSteps = () => {
-    setStep(0)
-    setSteps(0)
-  }
 
   const lastIndex = React.useRef()
   const direction = index - lastIndex.current
@@ -90,7 +88,14 @@ export default props => {
     footer: slides.footer,
   }
 
+  context.clearSteps = () => {
+    console.log('clearSteps')
+    setSteps(0)
+    setStep(0)
+  }
+
   context.setSteps = l => {
+    console.log('setSteps', l)
     setSteps(l)
     if (direction < 0) setStep(l)
   }
@@ -102,7 +107,7 @@ export default props => {
       setStep(n => n - 1)
     } else {
       context.setIndex(n => n > 0 ? n - 1 : n)
-      if (!!steps) clearSteps()
+      if (!!steps) context.clearSteps()
     }
   }
 
@@ -111,17 +116,26 @@ export default props => {
       setStep(n => n + 1)
     } else {
       context.setIndex(n => n < slides.length - 1 ? n + 1 : n)
-      if (steps) clearSteps()
+      if (!!steps) context.clearSteps()
     }
   }
 
+  React.useEffect(() => {
+    console.log('slide change')
+    // setStep(0)
+    // setSteps(0)
+  }, [index])
+
+  /*
   React.useEffect(() => {
     if (props.location.pathname === '/print') {
       setMode(modes.print)
     }
   }, [])
+  */
 
   const theme = merge(baseTheme, props.theme)
+  // console.log({ step, steps, context })
 
   return (
     <Context.Provider value={context}>

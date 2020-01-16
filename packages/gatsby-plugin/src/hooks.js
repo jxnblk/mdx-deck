@@ -4,11 +4,11 @@ import { useDeck } from './context'
 export const useSteps = (length) => {
   const context = useDeck()
   React.useEffect(() => {
-    if (!context.isMain) return
+    // if (!context.isMain) return
     context.setSteps(length)
-  }, [length, context.isMain])
+  }, [length])
 
-  if (!context.isMain) return length
+  // if (!context.isMain) return length
 
   return context.step
 }
