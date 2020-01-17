@@ -21,8 +21,6 @@ const cli = meow(
 
     $ ${chalk.green('mdx-deck build deck.mdx')}
 
-    $ ${chalk.green('mdx-deck eject deck.mdx')}
-
   ${chalk.gray('Options')}
 
       -h --host     Dev server host
@@ -31,7 +29,7 @@ const cli = meow(
 
 `,
   {
-    description: chalk.green('[mdx-deck] ') + chalk.gray(pkg.description),
+    description: chalk.green('@mdx-deck/lite ') + chalk.gray(pkg.description),
     flags: {
       port: {
         type: 'string',
@@ -61,16 +59,6 @@ process.env.__SRC__ = path.resolve(filename)
 
 const opts = Object.assign({}, cli.flags)
 
-// deprecation warnings
-if (opts.outDir) {
-  log.error('the --out-dir flag has been deprecated')
-  log('Decks are now built to the `public/` directory')
-}
-if (opts.webpack) {
-  log.error('the --webpack flag has been deprecated')
-  log('Use the Gatsby theme directly to customize webpack configuration')
-}
-
 let dev
 
 const gatsby = async (...args) => {
@@ -93,15 +81,6 @@ switch (cmd) {
       const dist = path.join(process.cwd(), 'public')
       if (public === dist) return
       fs.copySync(public, dist)
-    })
-    break
-  case 'eject':
-    log('ejecting Gatsby site')
-    require('./eject')({
-      cwd: process.cwd(),
-      filename: path.resolve(filename),
-    }).catch(err => {
-      log.error(err)
     })
     break
   case 'dev':

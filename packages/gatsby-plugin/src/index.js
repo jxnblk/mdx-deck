@@ -21,10 +21,5 @@ export const wrapPageElement = ({ element, props }) =>
 export {
   Notes,
   Head,
-  Header,
-  Footer,
-  Image,
-  Appear,
 } from './components'
 export { useDeck } from './context'
-export { useSteps } from './hooks'

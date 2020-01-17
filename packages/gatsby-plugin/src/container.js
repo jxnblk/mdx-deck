@@ -136,20 +136,6 @@ const Overview = props => {
   )
 }
 
-const Print = props => {
-  return (
-    <React.Fragment>
-      {props.slides.map((slide, i) => (
-        <Main key={i} {...props} preview>
-          <Slide>
-            {slide}
-          </Slide>
-        </Main>
-      ))}
-    </React.Fragment>
-  )
-}
-
 export default props => {
   const context = useDeck()
 
@@ -158,8 +144,6 @@ export default props => {
       return <Presenter {...props} {...context} />
     case modes.overview:
       return <Overview {...props} {...context} />
-    case modes.print:
-      return <Print {...props} {...context} />
     case modes.default:
     default:
       return <Main {...props} {...context} />

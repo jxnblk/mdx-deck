@@ -14,11 +14,7 @@ export const useKeyboard = () => {
         switch (e.key) {
           case 'P':
           case 'p':
-            if (e.shiftKey) {
-              context.toggleMode(modes.print)
-            } else {
-              context.toggleMode(modes.presenter)
-            }
+            context.toggleMode(modes.presenter)
             break
           case 'O':
           case 'o':
