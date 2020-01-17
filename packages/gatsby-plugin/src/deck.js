@@ -38,10 +38,18 @@ export default props => {
     current === next ? modes.default : next
   )
 
+  const lastIndex = React.useRef(0)
+  const direction = index - lastIndex.current
+
+  React.useEffect(() => {
+    lastIndex.current = index
+  }, [index])
+
   const context = {
     slides,
     slug,
     index,
+    direction,
     length: slides.length,
     slide,
     mode,
@@ -63,8 +71,8 @@ export default props => {
     context.setIndex(n => n < slides.length - 1 ? n + 1 : n)
   }
 
-  // const theme = merge(baseTheme, props.theme)
-  // console.log(context)
+  const theme = merge(baseTheme, props.theme || {})
+  console.log(context)
 
   return (
     <Context.Provider value={context}>
@@ -73,7 +81,7 @@ export default props => {
       <Helmet>
         {slides.head.children}
       </Helmet>
-      <ThemeProvider theme={baseTheme}>
+      <ThemeProvider theme={theme}>
         <Container>
           <Slide>
             {slide}
