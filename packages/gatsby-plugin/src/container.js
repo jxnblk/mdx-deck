@@ -115,40 +115,65 @@ const Presenter = props => {
 }
 
 const Overview = props => {
+  const context = useDeck()
+  const ref = React.useRef(null)
+
+  React.useEffect(() => {
+    if (!ref.current) return
+    if (typeof ref.current.scrollIntoViewIfNeeded !== 'function') return
+    ref.current.scrollIntoViewIfNeeded()
+  }, [ref.current])
+
   return (
     <div
       sx={{
         display: 'flex',
         height: '100vh',
+        bg: 'backdrop',
       }}>
       <div
         sx={{
           width: '25%',
           height: '100vh',
           overflowY: 'auto',
-          paddingRight: 3,
-          outline: '2px solid red',
+          p: 2,
         }}>
         {props.slides.map((slide, i) => (
-          <Slide key={i}
-            sx={{
-              outline: '2px solid cyan',
+          <div
+            key={i}
+            ref={i === props.index ? ref : null}
+            role='button'
+            title={`Go to slide ${i}`}
+            onClick={e => {
+              context.setIndex(i)
+              context.setStep(0)
+              context.setSteps(0)
             }}
-            width='100%'
-            height='25%'
-            zoom={1/4}>
-            {slide}
-          </Slide>
+            sx={{
+              p: 2,
+              height: '30%'
+            }}>
+            <Slide
+              sx={{
+                outline: props.index === i ? '2px solid cyan' : null,
+              }}
+              zoom={1/4}>
+              {slide}
+            </Slide>
+          </div>
         ))}
       </div>
       <div
         sx={{
           width: '75%',
+          py: 3,
+          pr: 3,
+          pl: 2,
         }}>
         <Main
           {...props}
-          width='75vw'
-          height='100vh'>
+          width='100%'
+          height='100%'>
           <Slide zoom={3/4}>
             {props.slide}
           </Slide>
