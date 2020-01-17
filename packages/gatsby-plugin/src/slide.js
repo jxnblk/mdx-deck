@@ -18,6 +18,8 @@ export default ({
       justifyContent: 'center',
       overflow: 'hidden',
       position: 'relative',
+      color: 'text',
+      bg: 'background',
       variant: 'styles.Slide',
       width,
       height,

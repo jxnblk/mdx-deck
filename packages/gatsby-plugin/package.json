@@ -18,6 +18,7 @@
     "@mdx-js/mdx": "^1.5.3",
     "gatsby-page-utils": "^0.0.37",
     "gatsby-plugin-react-helmet": "^3.1.18",
+    "hhmmss": "^1.0.0",
     "react-helmet": "^5.2.1",
     "remark-emoji": "^2.0.2",
     "remark-images": "^1.0.0",

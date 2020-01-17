@@ -3,6 +3,7 @@ export default {
   colors: {
     text: '#fff',
     background: '#000',
+    backdrop: '#111',
   },
   styles: {
     root: {

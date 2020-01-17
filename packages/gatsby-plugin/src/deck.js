@@ -10,16 +10,6 @@ import Container from './container'
 import Slide from './slide'
 import baseTheme from './theme'
 
-/**
- *  - [ ] presenter styles
- *  - [ ] overview styles
- *  - [ ] timer/clock
- *  - [ ] Ditch layouts?
- *  - [ ] themes
- *  - [ ] base theme
- *  - [ ] test local images
- */
-
 const getIndex = props => {
   if (!props.location) return 0
   const paths = props.location.pathname.split('/')
@@ -29,7 +19,8 @@ const getIndex = props => {
 
 export default props => {
   const slides = split(props)
-  const index = getIndex(props)
+  // const index = getIndex(props)
+  const [index, setIndex] = React.useState(getIndex(props))
   const { slug } = props.pageContext || {}
   const slide = slides[index]
 
@@ -45,6 +36,10 @@ export default props => {
     lastIndex.current = index
   }, [index])
 
+  // steps
+  const [step, setStep] = React.useState(0)
+  const [steps, setSteps] = React.useState(0)
+
   const context = {
     slides,
     slug,
@@ -56,23 +51,46 @@ export default props => {
     setMode,
     toggleMode,
     notes: slide.notes,
+    step,
+    setStep,
+    steps,
+    setSteps,
   }
-
+  /*
   context.setIndex = fn => {
     const n = typeof fn === 'function' ? fn(index) : fn
     props.navigate('/' + n)
   }
+  */
 
   context.previous = () => {
-    context.setIndex(n => n > 0 ? n - 1 : n)
+    if (steps && step > 0) {
+      setStep(n => n - 1)
+    } else {
+      setIndex(n => n > 0 ? n - 1 : n)
+      setStep(0)
+      setSteps(0)
+    }
   }
 
   context.next = () => {
-    context.setIndex(n => n < slides.length - 1 ? n + 1 : n)
+    if (step < steps) {
+      setStep(n => n + 1)
+    } else {
+      setIndex(n => n < slides.length - 1 ? n + 1 : n)
+      setStep(0)
+      setSteps(0)
+    }
   }
 
+  React.useEffect(() => {
+    props.navigate('/' + index, {
+      replace: true,
+    })
+  }, [index])
+
   const theme = merge(baseTheme, props.theme || {})
-  console.log(context)
+  // console.log(context)
 
   return (
     <Context.Provider value={context}>

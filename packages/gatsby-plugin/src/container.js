@@ -1,11 +1,13 @@
 /** @jsx jsx */
-import { jsx } from 'theme-ui'
+import { jsx, Box, Flex } from 'theme-ui'
 import React from 'react'
 import { Context, useDeck } from './context'
 import modes from './modes'
 import Header from './header'
 import Footer from './footer'
 import Slide from './slide'
+import Clock from './clock'
+import Timer from './timer'
 
 const Main = ({
   width = '100vw',
@@ -16,7 +18,7 @@ const Main = ({
   const outer = useDeck()
   const context = {
     ...outer,
-    isMain: !preview,
+    main: !preview,
   }
 
   return (
@@ -52,42 +54,62 @@ const Presenter = props => {
       sx={{
         display: 'flex',
         height: '100vh',
+        bg: 'backdrop',
       }}>
       <div
         sx={{
           width: '60%',
           height: '100vh',
+          padding: 3,
         }}>
         <Main
           {...props}
           width='100%'
-          height='100vh'>
+          height='100%'>
           <Slide>
             {props.slide}
           </Slide>
         </Main>
       </div>
-      <div
+      <Flex
         sx={{
+          flexDirection: 'column',
           width: '40%',
           height: '100vh',
-          padding: 3,
+          py: 3,
+          pr: 3,
           overflowY: 'auto',
-          outline: '1px solid cyan',
         }}>
         <Slide
           width='100%'
           height='100vh'
           zoom={1/2}
           sx={{
-            outline: '1px solid tomato',
           }}>
           {next}
         </Slide>
-        <div>
+        <div
+          sx={{
+            py: 3,
+            flex: '1 1 auto',
+          }}>
           {props.notes}
         </div>
-      </div>
+        <Flex
+          sx={{
+            fontFamily: '"Roboto Mono", Menlo, monospace',
+          }}>
+          <Box>
+            {props.index} / {props.slides.length - 1}
+          </Box>
+          <Box mx='auto' />
+          <Box>
+            <Timer />
+            {' '}
+            <Clock />
+          </Box>
+        </Flex>
+      </Flex>
     </div>
   )
 }
