@@ -12,7 +12,6 @@
 - **Deprecated:** `export const themes` has been removed - merge themes in a separate module if needed
 - **Deprecated:** Functional themes are no longer supported, merge themse in a separate module if needed
 - **Deprecated:** `theme.Provider` - use `Header` and `Footer` components instead
-- **Deprecated:** `theme.googleFont` - use `Head` component instead
 - **Deprecated:** Fixed aspect ratio has been removed
 - Bug fixes
 - Update dependencies

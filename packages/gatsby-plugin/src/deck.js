@@ -97,7 +97,6 @@ export default props => {
   }
 
   const theme = merge(baseTheme, props.theme || {})
-  console.log(theme)
 
   return (
     <Context.Provider value={context}>
@@ -105,6 +104,7 @@ export default props => {
       <Storage />
       <Helmet>
         {slides.head.children}
+        {theme.googleFont && <link rel='stylesheet' href={theme.googleFont} />}
       </Helmet>
       <ThemeProvider
         theme={theme}
