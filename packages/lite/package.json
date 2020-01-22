@@ -1,5 +1,5 @@
 {
-  "name": "@mdx-deck/lite",
+  "name": "mdx-deck",
   "version": "3.0.13",
   "description": "MDX-based presentation decks",
   "bin": {
