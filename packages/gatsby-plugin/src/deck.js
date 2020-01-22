@@ -12,8 +12,7 @@ import baseTheme from './theme'
 
 const getIndex = props => {
   if (!props.location) return 0
-  const paths = props.location.pathname.split('/')
-  const n = Number(paths[paths.length - 1]) || 0
+  const n = Number(props.location.hash.replace(/^#/, ''))
   return n
 }
 
@@ -28,6 +27,9 @@ export default props => {
     current === next ? modes.default : next
   )
 
+  const [step, setStep] = React.useState(0)
+  const [steps, setSteps] = React.useState(0)
+
   const lastIndex = React.useRef(0)
   const direction = index - lastIndex.current
 
@@ -35,8 +37,24 @@ export default props => {
     lastIndex.current = index
   }, [index])
 
-  const [step, setStep] = React.useState(0)
-  const [steps, setSteps] = React.useState(0)
+  React.useEffect(() => {
+    if (props.location.pathname === '/print') return
+    props.navigate('/#' + index, {
+      replace: true,
+    })
+  }, [index])
+
+  React.useEffect(() => {
+    if (props.location.pathname === '/print') {
+      setMode(modes.print)
+    }
+    if (!slide) {
+      props.navigate('/')
+      setIndex(0)
+    }
+  }, [])
+
+  if (!slide) return false
 
   const context = {
     slides,
@@ -78,20 +96,8 @@ export default props => {
     }
   }
 
-  React.useEffect(() => {
-    if (props.location.pathname === '/print') return
-    props.navigate('/' + index, {
-      replace: true,
-    })
-  }, [index])
-
-  React.useEffect(() => {
-    if (props.location.pathname === '/print') {
-      setMode(modes.print)
-    }
-  }, [])
-
   const theme = merge(baseTheme, props.theme || {})
+  console.log(theme)
 
   return (
     <Context.Provider value={context}>
@@ -100,7 +106,9 @@ export default props => {
       <Helmet>
         {slides.head.children}
       </Helmet>
-      <ThemeProvider theme={theme}>
+      <ThemeProvider
+        theme={theme}
+        components={theme.components}>
         <Container>
           <Slide>
             {slide}

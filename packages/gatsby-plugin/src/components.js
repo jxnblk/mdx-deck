@@ -44,16 +44,6 @@ export const Invert = props =>
     bg='text'
   />
 
-export const Counter = ({ length = 4 }) => {
-  const step = useSteps(length)
-
-  return (
-    <pre>
-      {step} / {length}
-    </pre>
-  )
-}
-
 export const StepList = props => {
   const list = React.Children.toArray(props.children)
     .find(child => /^(ul|ol)$/.test(child.props.originalType))
@@ -62,8 +52,6 @@ export const StepList = props => {
   const items = React.Children.toArray(list && list.props.children)
 
   const step = useSteps(items.length)
-
-  if (!list) return false
 
   const children = items.map((item, i) => React.cloneElement(item, {
     style: {
@@ -74,10 +62,7 @@ export const StepList = props => {
   return React.cloneElement(list, { children })
 }
 
-export const Appear = ({
-  target,
-  ...props
-}) => {
+export const Appear = props => {
   const children = React.Children.toArray(props.children)
   const step = useSteps(children.length)
   const styled = children.map((child, i) =>
@@ -88,6 +73,14 @@ export const Appear = ({
     })
   )
   return <React.Fragment>{styled}</React.Fragment>
+}
+
+export const Steps = props => {
+  const list = React.Children.toArray(props.children)
+    .find(child => /^(ul|ol)$/.test(child.props.originalType))
+
+  if (!list) return <Appear {...props} />
+  return <StepList {...props} />
 }
 
 export const Image = ({

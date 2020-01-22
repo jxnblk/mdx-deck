@@ -2,6 +2,20 @@ import React from 'react'
 import { useDeck } from './context'
 import modes from './modes'
 
+const keys = {
+  right: 39,
+  left: 37,
+  up: 38,
+  down: 40,
+  space: 32,
+  p: 80,
+  o: 79,
+  g: 71,
+  esc: 27,
+  pageUp: 33,
+  pageDown: 34,
+}
+
 export const useKeyboard = () => {
   const context = useDeck()
 
@@ -11,29 +25,26 @@ export const useKeyboard = () => {
       if (e.ctrlKey) return
 
       if (e.altKey) {
-        switch (e.key) {
-          case 'P':
-          case 'p':
+        switch (e.keyCode) {
+          case keys.p:
             if (e.shiftKey) {
               context.toggleMode(modes.print)
             } else {
               context.toggleMode(modes.presenter)
             }
             break
-          case 'O':
-          case 'o':
+          case keys.o:
             context.toggleMode(modes.overview)
             break
-          case 'G':
-          case 'g':
+          case keys.g:
             context.toggleMode(modes.grid)
             break
           default:
             break
         }
       } else if (e.shiftKey) {
-        switch (e.key) {
-          case ' ':
+        switch (e.keyCode) {
+          case keys.space:
             e.preventDefault()
             context.previous()
             break
@@ -41,21 +52,24 @@ export const useKeyboard = () => {
             break
         }
       } else {
-        switch (e.key) {
-          case 'ArrowRight':
-          case ' ':
+        switch (e.keyCode) {
+          case keys.right:
+          case keys.down:
+          case keys.pageDown:
+          case keys.space:
             e.preventDefault()
             context.next()
             break
-          case 'ArrowLeft':
+          case keys.left:
+          case keys.up:
+          case keys.pageUp:
             e.preventDefault()
             context.previous()
             break
-          case 'Escape':
+          case keys.esc:
             context.setMode(modes.default)
             break
           default:
-            console.log(e.key)
             break
         }
       }
