@@ -1,17 +1,6 @@
 
 # @mdx-deck/gatsby-plugin
 
-Lightweight alternative to core mdx-deck
+Plugin used internally by mdx-deck core package -- **not intended for standalone usage**
 
-- ~~No steps~~
-- No print mode
-- No export
-- No layouts
-
----
-
-- [x] presenter styles
-- [x] overview styles
-- [x] timer
-- [x] clock
-- [ ] local images
+See [`gatsby-theme-mdx-deck`](https://github.com/jxnblk/mdx-deck/tree/master/packages/gatsby-theme) for custom usage with Gatsby

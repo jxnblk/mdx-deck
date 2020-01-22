@@ -8,7 +8,7 @@ export const useSteps = length => {
     if (!context.main) return
     context.setSteps(length)
     if (context.direction < 0) context.setStep(length)
-  }, [length])
+  }, [length, context])
 
   if (!context.main) return length
   return context.step

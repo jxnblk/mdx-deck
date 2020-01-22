@@ -11,11 +11,18 @@ export default {
     },
     img: {
       width: '100vw',
+      maxWidth: '100%',
       height: '100vh',
       objectFit: 'contain',
     },
     Slide: {
       fontSize: '2em',
+    },
+    Header: {
+      px: 3,
+    },
+    Footer: {
+      px: 3,
     },
   }
 }

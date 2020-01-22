@@ -18,8 +18,4 @@ export const wrapPageElement = ({ element, props }) =>
     {element}
   </Page>
 
-export {
-  Notes,
-  Head,
-} from './components'
 export { useDeck } from './context'

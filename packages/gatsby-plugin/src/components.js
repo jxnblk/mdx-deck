@@ -58,8 +58,7 @@ export const StepList = props => {
   const list = React.Children.toArray(props.children)
     .find(child => /^(ul|ol)$/.test(child.props.originalType))
 
-  // if (!list) return <div>{props.children}</div>
-
+  // ensure this works
   const items = React.Children.toArray(list && list.props.children)
 
   const step = useSteps(items.length)
@@ -90,3 +89,102 @@ export const Appear = ({
   )
   return <React.Fragment>{styled}</React.Fragment>
 }
+
+export const Image = ({
+  src,
+  width = '100%',
+  height = '100%',
+  size = 'cover',
+  ...props
+}) =>
+  <div
+    {...props}
+    sx={{
+      width,
+      height,
+      backgroundSize: size,
+      backgroundImage: `url(${src})`,
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat',
+    }}
+  />
+
+export const Horizontal = ({
+  ...props
+}) => {
+  const children = React.Children.toArray(props.children)
+  console.log(children.length)
+  return (
+    <div
+      {...props}
+      sx={{
+        display: 'flex',
+        alignItems: 'center',
+        height: '100%',
+        textAlign: 'center',
+      }}>
+      {children.map((child, i) => (
+        <div
+          key={child.key}
+          sx={{
+            width: 100 / children.length + '%',
+            img: {
+              height: 'auto',
+            }
+          }}>
+          {child}
+        </div>
+      ))}
+    </div>
+  )
+}
+
+const Half = props => <div {...props} sx={{
+  width: '50%',
+  img: {
+    height: 'auto',
+  }
+}} />
+
+export const Split = ({ reverse, ...props }) => {
+  const [first, ...rest] = React.Children.toArray(props.children)
+  const children = reverse
+    ? [ <Half key='rest'>{rest}</Half>, <Half key='first'>{first}</Half> ]
+    : [ <Half key='first'>{first}</Half>, <Half key='rest'>{rest}</Half> ]
+
+  return (
+    <div
+      {...props}
+      sx={{
+        display: 'flex',
+        alignItems: 'center',
+        height: '100%',
+        textAlign: 'center',
+      }}>
+      {children}
+    </div>
+  )
+}
+
+export const SplitRight = props =>
+  <Split
+    {...props}
+    reverse={true}
+  />
+
+export const FullScreenCode = ({ ...props }) => (
+  <div
+    {...props}
+    sx={{
+      width: '100%',
+      height: '100%',
+      pre: {
+        // hack for prism styles
+        margin: '0 !important',
+        width: '100%',
+        height: '100%',
+        overflow: 'auto',
+      },
+    }}
+  />
+)

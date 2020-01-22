@@ -115,7 +115,6 @@ const Presenter = props => {
 }
 
 const Overview = props => {
-  const context = useDeck()
   const ref = React.useRef(null)
 
   React.useEffect(() => {
@@ -145,9 +144,9 @@ const Overview = props => {
             role='button'
             title={`Go to slide ${i}`}
             onClick={e => {
-              context.setIndex(i)
-              context.setStep(0)
-              context.setSteps(0)
+              props.setIndex(i)
+              props.setStep(0)
+              props.setSteps(0)
             }}
             sx={{
               p: 2,
@@ -183,6 +182,72 @@ const Overview = props => {
   )
 }
 
+const Grid = props => {
+  const ref = React.useRef(null)
+
+  React.useEffect(() => {
+    if (!ref.current) return
+    if (typeof ref.current.scrollIntoViewIfNeeded !== 'function') return
+    ref.current.scrollIntoViewIfNeeded()
+  }, [ref.current])
+
+  return (
+    <div
+      sx={{
+        minHeight: '100vh',
+        bg: 'backdrop',
+      }}>
+      <div
+        sx={{
+          display: 'flex',
+          alignItems: 'flex-start',
+          flexWrap: 'wrap',
+        }}>
+        {props.slides.map((slide, i) => (
+          <div
+            key={i}
+            ref={i === props.index ? ref : null}
+            role='button'
+            title={`Go to slide ${i}`}
+            onClick={e => {
+              props.setIndex(i)
+              props.setStep(0)
+              props.setSteps(0)
+              props.setMode(modes.default)
+            }}
+            sx={{
+              p: 2,
+              width: '25%',
+              height: '23vh',
+            }}>
+            <Slide
+              sx={{
+                outline: props.index === i ? '2px solid cyan' : null,
+              }}
+              zoom={1/4}>
+              {slide}
+            </Slide>
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
+
+const Print = props => {
+  return (
+    <React.Fragment>
+      {props.slides.map((slide, i) => (
+        <Main key={i} preview>
+          <Slide>
+            {slide}
+          </Slide>
+        </Main>
+      ))}
+    </React.Fragment>
+  )
+}
+
 export default props => {
   const context = useDeck()
 
@@ -191,6 +256,10 @@ export default props => {
       return <Presenter {...props} {...context} />
     case modes.overview:
       return <Overview {...props} {...context} />
+    case modes.grid:
+      return <Grid {...props} {...context} />
+    case modes.print:
+      return <Print {...props} {...context} />
     case modes.default:
     default:
       return <Main {...props} {...context} />

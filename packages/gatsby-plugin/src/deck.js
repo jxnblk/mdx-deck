@@ -50,6 +50,8 @@ export default props => {
     setMode,
     toggleMode,
     notes: slide.notes,
+    header: slides.header,
+    footer: slides.footer,
     step,
     setStep,
     steps,
@@ -77,10 +79,17 @@ export default props => {
   }
 
   React.useEffect(() => {
+    if (props.location.pathname === '/print') return
     props.navigate('/' + index, {
       replace: true,
     })
   }, [index])
+
+  React.useEffect(() => {
+    if (props.location.pathname === '/print') {
+      setMode(modes.print)
+    }
+  }, [])
 
   const theme = merge(baseTheme, props.theme || {})
 

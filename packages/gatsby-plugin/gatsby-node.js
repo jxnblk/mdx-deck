@@ -3,10 +3,9 @@ const path = require('path')
 const { createPath, validatePath } = require('gatsby-page-utils')
 const remarkPlugins = [
   require('remark-images'),
+  require('remark-unwrap-images'),
   require('remark-emoji'),
 ]
-
-const isDir = p => fs.statSync(p).isDirectory()
 
 exports.onCreateWebpackConfig = ({
   stage,

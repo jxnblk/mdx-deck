@@ -3,6 +3,7 @@ import { useDeck } from './context'
 
 const keys = {
   slide: 'mdx-deck-slide',
+  step: 'mdx-deck-step',
 }
 
 export const useStorage = () => {
@@ -15,8 +16,14 @@ export const useStorage = () => {
   const handleStorageChange = e => {
     const n = parseInt(e.newValue, 10)
     if (isNaN(n)) return
-    if (e.key !== keys.slide) return
-    context.setIndex(n)
+    switch (e.key) {
+      case keys.slide:
+        context.setIndex(n)
+        break
+      case keys.step:
+        context.setStep(n)
+        break
+    }
   }
 
   React.useEffect(() => {
