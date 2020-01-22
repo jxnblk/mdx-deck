@@ -10,8 +10,8 @@ Lightweight alternative to core mdx-deck
 
 ---
 
-- [ ] presenter styles
-- [ ] overview styles
-- [ ] timer
-- [ ] clock
+- [x] presenter styles
+- [x] overview styles
+- [x] timer
+- [x] clock
 - [ ] local images
