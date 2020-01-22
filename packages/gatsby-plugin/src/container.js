@@ -54,6 +54,7 @@ const Presenter = props => {
       sx={{
         display: 'flex',
         height: '100vh',
+        color: 'white',
         bg: 'backdrop',
       }}>
       <div
@@ -128,6 +129,7 @@ const Overview = props => {
       sx={{
         display: 'flex',
         height: '100vh',
+        color: 'white',
         bg: 'backdrop',
       }}>
       <div
@@ -195,6 +197,7 @@ const Grid = props => {
     <div
       sx={{
         minHeight: '100vh',
+        color: 'white',
         bg: 'backdrop',
       }}>
       <div
