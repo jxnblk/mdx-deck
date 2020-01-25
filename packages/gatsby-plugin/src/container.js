@@ -103,6 +103,17 @@ const Presenter = props => {
           <Box>
             {props.index} / {props.slides.length - 1}
           </Box>
+          <a
+            href='/'
+            target='_blank'
+            title='Open in new window'
+            sx={{
+              fontWeight: 'bold',
+              color: 'inherit',
+              textDecoration: 'none',
+            }}>
+            ↗︎
+          </a>
           <Box mx='auto' />
           <Box>
             <Timer />
