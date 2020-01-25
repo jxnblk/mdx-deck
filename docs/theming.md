@@ -48,21 +48,7 @@ export default {
 
 ## Composing Themes
 
-Multiple themes can be composed together,
-allowing you to create separate themes for typography, color, and components, and mix and match them as needed.
-
-To compose multiple themes together, export a `themes` array instead of a single theme.
-
-```mdx
-import { syntaxHighlighter } from 'mdx-deck/themes'
-import customTheme from './theme'
-
-export const themes = [syntaxHighlighter, customTheme]
-
-# Cool. :sunglasses:
-```
-
-Note that themes are deeply merged together and the last theme specified will override fields from themes before it.
+To compose multiple themes together, merge the objects together into a single theme and export that theme from your deck.
 
 ## Google Fonts
 
@@ -77,9 +63,11 @@ Themes can provide a set of custom MDX components, including a replacement for t
 MDX Deck includes two themes for adding syntax highlighting with [react-syntax-highlighter][]: `highlight` and `prism`.
 
 ```mdx
-import { prism } from 'mdx-deck/themes'
+import { themes } from 'mdx-deck'
 
-export const themes = [ prism ]
+export const theme = {
+  ...themes.prism
+}
 ```
 
 Since MDX supports using React components inline, you can also import a syntax highlighting component directly, if you prefer.
@@ -122,8 +110,9 @@ export default {
 - `fonts.monospace`: font family for `<pre>` and `<code>`
 - `text.heading`: styles for all headings
 - `styles.Slide`: styles for the wrapping Slide component
+- `styles.Header`: styles for the Header component
+- `styles.Footer`: styles for the Footer component
 - `components`: object of MDX components
-- `Provider`: component for wrapping the entire presentation
 - `googleFont`: Stylesheet URL for adding a Google Font
 
 [emotion]: https://emotion.sh

@@ -19,3 +19,5 @@ export const wrapPageElement = ({ element, props }) =>
   </Page>
 
 export { useDeck } from './context'
+export { useSteps } from './use-steps'
+export * from './components'

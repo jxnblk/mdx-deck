@@ -1,7 +1,7 @@
 
 # Usage with Gatsby
 
-The core MDX Deck application is built as a Gatsby theme.
+MDX Deck includes a Gatsby theme, which can be used in any existing Gatsby site.
 This means you can install MDX Deck as a theme within an existing Gatsby site to include presentations along with other content, such as a landing page or blog.
 The theme also supports adding multiple presentations to a single site.
 
