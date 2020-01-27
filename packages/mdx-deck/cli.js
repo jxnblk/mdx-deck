@@ -96,10 +96,23 @@ switch (cmd) {
     })
     break
   case 'eject':
-    log('ejecting Gatsby site')
+    log('ejecting from mdx-deck into Gatsby site')
+    log('this can take a few minutes...')
     require('./eject')({
       cwd: process.cwd(),
-      filename: path.resolve(filename),
+      file: path.resolve(filename)
+    }).then(() => {
+      log('ejected successfully')
+      log(`you can now run the following commands:`)
+      console.log('');
+      console.log(`  ${chalk.cyan('npm start')}`)
+      console.log(`    starts the Gatsby development server`)
+      console.log('')
+      console.log(`  ${chalk.cyan('npm run build')}`)
+      console.log(`    creates a build of the Gatsby project`)
+      console.log('')
+      console.log(`  ${chalk.cyan('npm run clean')}`)
+      console.log(`    wipes the locally built gatby assets and cache`)
     }).catch(err => {
       log.error(err)
     })
