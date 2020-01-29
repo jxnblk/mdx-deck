@@ -98,6 +98,7 @@ const Presenter = props => {
         </div>
         <Flex
           sx={{
+            alignItems: 'baseline',
             fontFamily: '"Roboto Mono", Menlo, monospace',
           }}>
           <Box>
@@ -108,11 +109,12 @@ const Presenter = props => {
             target='_blank'
             title='Open in new window'
             sx={{
+              ml: 3,
               fontWeight: 'bold',
               color: 'inherit',
               textDecoration: 'none',
             }}>
-            ↗︎
+            ⬈
           </a>
           <Box mx='auto' />
           <Box>

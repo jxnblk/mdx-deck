@@ -10,7 +10,7 @@
   "dependencies": {
     "chalk": "^3.0.0",
     "initit": "^1.0.0-2",
-    "meow": "^5.0.0"
+    "meow": "^6.0.0"
   },
   "gitHead": "2e6e342cccc32569fd7e2ae2a0711dd91e58d59f"
 }

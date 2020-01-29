@@ -43,9 +43,8 @@ const mdxResolverPassthrough = fieldName => async (
   return result
 }
 
-exports.sourceNodes = ({ actions, schema }) => {
-  const { createTypes } = actions
-  createTypes(
+exports.createSchemaCustomization = ({ actions, schema }) => {
+  actions.createTypes(
     schema.buildObjectType({
       name: `Deck`,
       fields: {

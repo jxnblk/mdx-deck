@@ -15,6 +15,7 @@
 - **Deprecated:** Fixed aspect ratio has been removed
 - Bug fixes
 - Update dependencies
+- **Deprecated:** `gatsby-theme-mdx-deck`: no longer resolves title from first heading
 
 
 ## v3.0.13 2019-09-23

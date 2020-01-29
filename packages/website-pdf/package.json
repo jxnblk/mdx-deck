@@ -10,8 +10,8 @@
     "test": "./cli.js http://localhost:8000/print -o ../../docs/dist"
   },
   "dependencies": {
-    "meow": "^5.0.0",
-    "mkdirp": "^0.5.1",
+    "meow": "^6.0.0",
+    "mkdirp": "^1.0.3",
     "puppeteer": "^2.0.0"
   },
   "gitHead": "2e6e342cccc32569fd7e2ae2a0711dd91e58d59f"

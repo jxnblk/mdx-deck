@@ -17,10 +17,10 @@
   },
   "devDependencies": {
     "cypress": "^3.4.0",
-    "husky": "^3.0.0",
+    "husky": "^4.2.1",
     "jest": "^24.3.1",
     "lerna": "^3.13.1",
-    "lint-staged": "^9.1.0",
+    "lint-staged": "^10.0.4",
     "prettier": "^1.16.4",
     "start-server-and-test": "^1.9.1"
   },
