@@ -120,7 +120,6 @@ export default ({
           <Global
             styles={{
               body: {
-                margin: 0,
                 overflow: context.mode === modes.normal ? 'hidden' : null,
               },
             }}

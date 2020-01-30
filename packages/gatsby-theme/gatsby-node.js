@@ -168,11 +168,12 @@ exports.onCreateNode = ({
   if (node.internal.type !== `Mdx` || source !== contentPath) return
 
   const slug = toPath(fileNode)
+  const id = createNodeId(`${node.id} >>> Deck`)
 
   createNode({
     slug,
     // Required fields.
-    id: createNodeId(`${node.id} >>> Deck`),
+    id,
     parent: node.id,
     children: [],
     internal: {
@@ -182,7 +183,7 @@ exports.onCreateNode = ({
       description: `Slide Decks`,
     },
   })
-  createParentChildLink({ parent: fileNode, child: node })
+  createParentChildLink({ parent: fileNode, child: getNode(id) })
 }
 
 exports.onCreateDevServer = ({ app }) => {
