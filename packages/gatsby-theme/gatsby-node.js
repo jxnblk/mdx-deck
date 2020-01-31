@@ -49,9 +49,8 @@ const resolveTitle = async (...args) => {
   return first.value || ''
 }
 
-exports.sourceNodes = ({ actions, schema }) => {
-  const { createTypes } = actions
-  createTypes(
+exports.createSchemaCustomization = ({ actions, schema }) => {
+  actions.createTypes(
     schema.buildObjectType({
       name: `Deck`,
       fields: {
@@ -60,7 +59,7 @@ exports.sourceNodes = ({ actions, schema }) => {
           type: `String!`,
         },
         title: {
-          type: `String!`,
+          type: 'String!',
           resolve: resolveTitle,
         },
         body: {
@@ -180,11 +179,12 @@ exports.onCreateNode = ({
   if (node.internal.type !== `Mdx` || source !== contentPath) return
 
   const slug = toPath(fileNode)
+  const id = createNodeId(`${node.id} >>> Deck`)
 
   createNode({
     slug,
     // Required fields.
-    id: createNodeId(`${node.id} >>> Deck`),
+    id,
     parent: node.id,
     children: [],
     internal: {
@@ -194,7 +194,7 @@ exports.onCreateNode = ({
       description: `Slide Decks`,
     },
   })
-  createParentChildLink({ parent: fileNode, child: node })
+  createParentChildLink({ parent: fileNode, child: getNode(id) })
 }
 
 exports.onCreateDevServer = ({ app }) => {
