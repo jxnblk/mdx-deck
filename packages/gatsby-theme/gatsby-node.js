@@ -43,6 +43,12 @@ const mdxResolverPassthrough = fieldName => async (
   return result
 }
 
+const resolveTitle = async (...args) => {
+  const headings = await mdxResolverPassthrough('headings')(...args)
+  const [first = {}] = headings
+  return first.value || ''
+}
+
 exports.createSchemaCustomization = ({ actions, schema }) => {
   actions.createTypes(
     schema.buildObjectType({
@@ -51,6 +57,10 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
         id: { type: `ID!` },
         slug: {
           type: `String!`,
+        },
+        title: {
+          type: 'String!',
+          resolve: resolveTitle,
         },
         body: {
           type: `String!`,
@@ -72,6 +82,7 @@ exports.createPages = async ({ graphql, actions, reporter, pathPrefix }) => {
           node {
             id
             slug
+            title
           }
         }
       }

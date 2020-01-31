@@ -71,7 +71,7 @@ const DefaultMode = ({ children }) => <React.Fragment children={children} />
 
 export default ({
   slides = [],
-  pageContext: { slug },
+  pageContext: { title, slug },
   theme = {},
   themes = [],
   ...props
@@ -112,6 +112,7 @@ export default ({
   return (
     <>
       <Helmet>
+        {title && <title>{title}</title>}
         {head}
       </Helmet>
       <GoogleFont theme={mergedTheme} />
