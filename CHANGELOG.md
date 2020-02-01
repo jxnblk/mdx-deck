@@ -2,7 +2,7 @@
 
 ## Unreleased
 
-## v4.0.0
+### v4.0.0
 
 - Refactored implementation for `mdx-deck` CLI
 - New `Header` and `Footer` components for adding persistent header and footer content
@@ -17,6 +17,10 @@
 - Update dependencies
 - **Deprecated:** `gatsby-theme-mdx-deck`: no longer resolves title from first heading
 
+## v3.1.0 2020-02-01
+
+- Update dependencies
+- Adjust schema customization in Gatsby theme
 
 ## v3.0.13 2019-09-23
 
