@@ -27,8 +27,15 @@
     "theme-ui": "^0.3.0-alpha.6"
   },
   "devDependencies": {
+    "@babel/core": "^7.8.4",
+    "@babel/preset-env": "^7.8.4",
+    "@babel/preset-react": "^7.8.3",
+    "@testing-library/react": "^9.4.0",
     "cypress": "^3.4.0",
-    "lerna": "^3.13.1"
+    "jest": "^25.1.0",
+    "jest-emotion": "^10.0.27",
+    "lerna": "^3.13.1",
+    "react-test-renderer": "^16.12.0"
   },
   "jest": {
     "testMatch": [
@@ -37,6 +44,9 @@
     "testPathIgnorePatterns": [
       "/node_modules/",
       "/fixtures/"
+    ],
+    "snapshotSerializers": [
+      "jest-emotion"
     ],
     "coverageReporters": [
       "lcov",

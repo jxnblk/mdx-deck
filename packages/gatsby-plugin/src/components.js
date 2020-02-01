@@ -106,7 +106,6 @@ export const Horizontal = ({
   ...props
 }) => {
   const children = React.Children.toArray(props.children)
-  console.log(children.length)
   return (
     <div
       {...props}
