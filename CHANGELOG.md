@@ -2,7 +2,10 @@
 
 ## Unreleased
 
+## v3.1.0 2020-02-01
+
 - Update dependencies
+- Adjust schema customization in Gatsby theme
 
 ## v3.0.13 2019-09-23
 
