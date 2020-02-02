@@ -18,11 +18,12 @@ const Comp = ({
   originalType,
   mdxType,
   ...props
-}) => <div {...props} />
+}) => React.createElement(originalType, props)
 
 const x = (tag, props, children) =>
   React.createElement(Comp, {
     key: __key++,
+    tag,
     originalType: tag,
     mdxType: tag,
     ...props
