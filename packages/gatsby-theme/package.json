@@ -1,6 +1,6 @@
 {
   "name": "gatsby-theme-mdx-deck",
-  "version": "4.0.0-alpha.0",
+  "version": "4.0.0-alpha.1",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "@emotion/core": "^10.0.14",
-    "@mdx-deck/themes": "^4.0.0-alpha.0",
+    "@mdx-deck/themes": "^4.0.0-alpha.1",
     "@mdx-js/mdx": "^1.0.21",
     "@mdx-js/react": "^1.0.21",
     "@reach/router": "^1.2.1",
@@ -44,5 +44,5 @@
     "remark-unwrap-images": "^1.0.0",
     "theme-ui": "^0.3.1"
   },
-  "gitHead": "2e6e342cccc32569fd7e2ae2a0711dd91e58d59f"
+  "gitHead": "13d00b47780424cc3b52d38ad6f19e99d007c06a"
 }

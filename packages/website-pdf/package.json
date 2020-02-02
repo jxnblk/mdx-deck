@@ -1,6 +1,6 @@
 {
   "name": "website-pdf",
-  "version": "4.0.0-alpha.0",
+  "version": "4.0.0-alpha.1",
   "author": "Brent Jackson <jxnblk@gmail.com>",
   "license": "MIT",
   "bin": {
@@ -14,5 +14,5 @@
     "mkdirp": "^1.0.3",
     "puppeteer": "^2.0.0"
   },
-  "gitHead": "2e6e342cccc32569fd7e2ae2a0711dd91e58d59f"
+  "gitHead": "13d00b47780424cc3b52d38ad6f19e99d007c06a"
 }
