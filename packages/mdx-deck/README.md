@@ -173,7 +173,8 @@ which will show a preview of the next slide, a timer, and speaker notes.
 
 ![presenter mode screenshot](docs/images/presenter-mode.png)
 
-The presentation can be opened in two separate windows at the same time and will stay in sync with each other.
+The presentation can be opened in two separate windows at the same time,
+and it will stay in sync with the other window.
 
 ## Keyboard Shortcuts
 
