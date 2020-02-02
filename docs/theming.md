@@ -109,6 +109,7 @@ export default {
 - `fonts.heading`: heading font family
 - `fonts.monospace`: font family for `<pre>` and `<code>`
 - `text.heading`: styles for all headings
+- `styles`: Theme UI styles for MDX elements
 - `styles.Slide`: styles for the wrapping Slide component
 - `styles.Header`: styles for the Header component
 - `styles.Footer`: styles for the Footer component
