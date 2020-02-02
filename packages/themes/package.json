@@ -1,6 +1,6 @@
 {
   "name": "@mdx-deck/themes",
-  "version": "3.1.0",
+  "version": "4.0.0-alpha.0",
   "main": "index.js",
   "author": "Brent Jackson <jxnblk@gmail.com>",
   "license": "MIT",
