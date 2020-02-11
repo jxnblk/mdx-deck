@@ -80,6 +80,73 @@ export default props => {
 }
 ```
 
+```jsx
+// detailed example for automatic slide transitions 
+import React, { useEffect, useState } from "react";
+import { useDeck } from "mdx-deck";
+import { navigate } from "@reach/router";
+
+const nextSlide = ({ slug, length, index, setState }) => {
+  const n = index + 1;
+  if (n >= length) return;
+  navigate([slug, n].join("/"));
+  setState({ step: 0 });
+};
+
+
+export default props => {
+  const state = useDeck();
+
+  const [inProp, setInProp] = useState(true);
+
+  const slide_duration = 20000; // ms
+
+  const fade_duration = 220; // ms
+
+  const fade_out_duration = 400; // ms
+
+  const defaultStyle = {
+    transition: `opacity ${fade_duration}ms ease-in-out`,
+    opacity: inProp ? 1 : 0
+  };
+
+  useEffect(() => {
+    // setInProp(true);
+
+    // Don't start timer on title slide
+    if (state.index == 0) {
+      return;
+    }
+
+    const fader = setTimeout(() => {
+      // Stop fader at the end
+      if (state.index < state.length - 1) {
+        setInProp(false);
+      }
+    }, (slide_duration - fade_duration - fade_out_duration));
+
+    const timer = setTimeout(() => {
+      // Stop timer at the end
+      if (state.index < state.length - 1) {
+        nextSlide(state);
+        setInProp(false);
+      }
+    }, slide_duration);
+  }, []);
+
+  return (
+    <div
+      style={{
+        ...defaultStyle
+      }}
+    >
+      {props.children}
+    </div>
+  );
+};
+```
+
+
 ## CLI Options
 
 ```
