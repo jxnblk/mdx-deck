@@ -13,6 +13,11 @@
     "react": "^16.10.0",
     "react-dom": "^16.10.0"
   },
+  "devDependencies": {
+    "gatsby": "^2.14.0",
+    "react": "^16.10.0",
+    "react-dom": "^16.10.0"
+  },
   "dependencies": {
     "@mdx-js/loader": "^1.5.3",
     "@mdx-js/mdx": "^1.5.3",

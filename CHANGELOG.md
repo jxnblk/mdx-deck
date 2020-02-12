@@ -10,7 +10,7 @@
 - **Deprecated:** Swipe gestures - to be replaced with new UI
 - **Deprecated:** Title is no longer inferred from first heading
 - **Deprecated:** `export const themes` has been removed - merge themes in a separate module if needed
-- **Deprecated:** Functional themes are no longer supported, merge themse in a separate module if needed
+- **Deprecated:** Functional themes are no longer supported, merge themes in a separate module if needed
 - **Deprecated:** `theme.Provider` - use `Header` and `Footer` components instead
 - **Deprecated:** Fixed aspect ratio has been removed
 - Bug fixes
