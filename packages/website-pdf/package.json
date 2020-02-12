@@ -1,6 +1,6 @@
 {
   "name": "website-pdf",
-  "version": "4.0.0-alpha.1",
+  "version": "4.0.0",
   "author": "Brent Jackson <jxnblk@gmail.com>",
   "license": "MIT",
   "bin": {

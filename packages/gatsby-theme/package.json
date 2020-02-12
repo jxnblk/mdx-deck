@@ -1,6 +1,6 @@
 {
   "name": "gatsby-theme-mdx-deck",
-  "version": "4.0.0-alpha.1",
+  "version": "4.0.0",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "@emotion/core": "^10.0.14",
-    "@mdx-deck/themes": "^4.0.0-alpha.1",
+    "@mdx-deck/themes": "^4.0.0",
     "@mdx-js/mdx": "^1.0.21",
     "@mdx-js/react": "^1.0.21",
     "@reach/router": "^1.2.1",
