@@ -4,12 +4,12 @@
 
 Award-winning React [MDX][]-based presentation decks
 
-[![Build Status][badge]][travis]
+[![Build Status][badge]][circleci]
 [![Version][]][npm]
 [![Downloads][]][npm]
 
-[badge]: https://flat.badgen.net/travis/jxnblk/mdx-deck
-[travis]: https://travis-ci.org/jxnblk/mdx-deck
+[badge]: https://flat.badgen.net/github/status/jxnblk/mdx-deck/master/ci/circleci
+[circleci]: https://circleci.com/gh/jxnblk/mdx-deck
 [version]: https://flat.badgen.net/npm/v/mdx-deck
 [downloads]: https://flat.badgen.net/npm/dm/mdx-deck
 [npm]: https://npmjs.com/package/mdx-deck
