@@ -20,9 +20,19 @@ Award-winning React [MDX][]-based presentation decks
 - :zero: Zero-config CLI
 - :tipping_hand_woman: [Presenter mode](#presenter-mode)
 - :notebook: [Speaker notes](#speaker-notes)
-- :fire: Available as a Gatsby theme
 
 [View demo](https://mdx-deck.jxnblk.com)
+
+- [Getting Started](#getting-started)
+- [Using MDX](#using-mdx)
+- [Theming](#theming)
+- [Components](#components)
+- [Layouts](#layouts)
+- [Presenter Mode](#presenter-mode)
+- [Keyboard Shortcuts](#keyboard-shortcuts)
+- [CLI Options](#cli-options)
+- [Videos & Articles](#videos-articles)
+- [Examples](#examples)
 
 ## Getting Started
 
@@ -33,29 +43,21 @@ npm i -D mdx-deck
 Create an [MDX][] file and separate each slide with `---`.
 
 ````mdx
-# This is the title of my deck
+
+# Hello
 
 ---
 
-# About Me
+## This is my deck
 
 ---
 
-```jsx
-<CodeSnippet />
-```
+## The End
 
----
-
-import Demo from './components/Demo'
-
-## <Demo />
-
-# The end
 ````
 
 Add a run script to your `package.json` with the MDX Deck CLI
-pointing to the `.mdx` file to start the dev server:
+pointing to the `.mdx` file to start the development server:
 
 ```json
 "scripts": {
@@ -63,11 +65,13 @@ pointing to the `.mdx` file to start the dev server:
 }
 ```
 
-Start the dev server:
+Start the development server:
 
 ```sh
 npm start
 ```
+
+Use the left and right arrow keys to navigate through the presentation.
 
 ## Using MDX
 
@@ -78,7 +82,7 @@ MDX uses Markdown syntax and can render React components inline with JSX.
 To import components, use ES import syntax separated with empty lines between any markdown or JSX syntax.
 
 ```mdx
-import { Box } from 'rebass'
+import { Box } from 'theme-ui'
 
 <Box color="tomato">Hello</Box>
 ```
@@ -95,15 +99,21 @@ Read more about MDX syntax in the [MDX Docs][mdx].
 
 MDX Deck uses [Theme UI][] and [Emotion][] for styling, making practically any part of the presentation themeable.
 It also includes several built-in themes to change the look and feel of the presentation.
-See the list of available [Themes](docs/themes.md),
-or read more about theming in the [Theming](docs/theming.md) docs.
+
+- See the list of available [Themes](docs/themes.md)
+- Read more about theming in the [Theming docs](docs/theming.md).
 
 ## Components
 
-MDX Deck includes built-in components to help with creating presentations, including a background `Image` component, an `Appear` component that allows stepping through parts of a single slide, and a `Notes` component for adding speaker notes.
+MDX Deck includes built-in components to help with creating presentations,
+a `Notes` component for adding speaker notes,
+a `Head` component for the document head,
+`Header` and `Footer` components for persistent header and footer content,
+and a `Steps` component for adding multiple intermediate steps in a single slide.
+
 Read more in the [Components](docs/components.md) docs.
 
-## Third-Party Components
+### Third-Party Components
 
 These optional libraries are intended for use with MDX Deck.
 
@@ -153,29 +163,38 @@ import Layout from './Layout'
 ```
 
 The layout component will wrap the MDX elements within that slide,
-which means you can add layout styles, use a nested ThemeProvider, or style elements with CSS-in-JS.
-
-## Built-in Layouts
-
-MDX Deck includes a few [built-in layouts](docs/layouts.md) for inverting theme colors and changing the layout of a slide.
+which means you can add custom layout styles
+or style child elements with CSS-in-JS.
 
 ## Presenter Mode
 
-Use [_Presenter Mode_](docs/presenting.md) when on stage to show a preview of the next slide, a timer, and speaker notes.
+Press `Option + P` to toggle *Presenter Mode*,
+which will show a preview of the next slide, a timer, and speaker notes.
 
 ![presenter mode screenshot](docs/images/presenter-mode.png)
+
+The presentation can be opened in two separate windows at the same time,
+and it will stay in sync with the other window.
 
 ## Keyboard Shortcuts
 
 | Key         | Description                                  |
 | ----------- | -------------------------------------------- |
-| Left Arrow, Page Up, Shift + Space  | Go to previous slide (or step in [Appear][]) |
-| Right Arrow, Page Down, Space | Go to next slide (or step in [Appear][])     |
+| Left Arrow, Page Up, Shift + Space  | Go to previous slide (or step in [Steps][]) |
+| Right Arrow, Page Down, Space | Go to next slide (or step in [Steps][])     |
 | Option + P  | Toggle [Presenter Mode](#presenter-mode)     |
-| Option + O  | Toggle [Overview Mode](#overview-mode)       |
+| Option + O  | Toggle Overview Mode
 | Option + G  | Toggle Grid Mode
 
-[appear]: docs/components.md#appear
+[steps]: docs/components.md#steps
+
+## CLI Options
+
+```
+-p --port     Dev server port
+-h --host     Host the dev server listens to
+--no-open     Prevent from opening in default browser
+```
 
 ## Videos & Articles
 
@@ -195,19 +214,8 @@ Use [_Presenter Mode_](docs/presenting.md) when on stage to show a preview of th
 [ks-egghead]: https://egghead.io/lessons/javascript-build-a-custom-provider-component-for-mdx-deck
 [kyle shevlin]: https://twitter.com/kyleshevlin
 
-## Docs
 
-- [Theming](docs/theming.md)
-- [Built-in Themes](docs/themes.md)
-- [Layouts](docs/layouts.md)
-- [Components](docs/components.md)
-- [Presenting](docs/presenting.md)
-- [Exporting](docs/exporting.md)
-- [Usage with Gatsby](docs/gatsby.md)
-- [Advanced Usage](docs/advanced.md)
-- [API](docs/api.md)
-
-## Real-World Examples
+## Examples
 
 See how others have used MDX Deck for their presentations.
 
@@ -219,21 +227,15 @@ See how others have used MDX Deck for their presentations.
 - [MDX, authors and richer JAMstack content][mdx-talk] by [Josh Dzielak](https://mobile.twitter.com/dzello)
 - [Components as Data: A Cross Platform GraphQL Powered Component API][components-as-data] by [Luke Herrington](https://mobile.twitter.com/lukeherrington)
 
-## Usage Examples
+### Usage Examples
 
 The following examples will open in CodeSandbox.
 
 - [Basic Example](https://codesandbox.io/s/github/jxnblk/mdx-deck/tree/master/examples/basic)
-- [Multiple Decks](https://codesandbox.io/s/github/jxnblk/mdx-deck/tree/master/examples/multiple)
 - [Syntax Highlighting](https://codesandbox.io/s/github/jxnblk/mdx-deck/tree/master/examples/syntax-highlighting)
-- [Prism Syntax Highlighting](https://codesandbox.io/s/github/jxnblk/mdx-deck/tree/master/examples/prism)
-- [Aspect Ratio](https://codesandbox.io/s/github/jxnblk/mdx-deck/tree/master/examples/aspect-ratio)
-- [Layouts](https://codesandbox.io/s/github/jxnblk/mdx-deck/tree/master/examples/layouts)
-- [Images](https://codesandbox.io/s/github/jxnblk/mdx-deck/tree/master/examples/images)
-- [Appear](https://codesandbox.io/s/github/jxnblk/mdx-deck/tree/master/examples/appear)
+- [Steps](https://codesandbox.io/s/github/jxnblk/mdx-deck/tree/master/examples/steps)
 - [Head](https://codesandbox.io/s/github/jxnblk/mdx-deck/tree/master/examples/head)
-- [Provider](https://codesandbox.io/s/github/jxnblk/mdx-deck/tree/master/examples/provider)
-- [Themes](https://codesandbox.io/s/github/jxnblk/mdx-deck/tree/master/examples/themes)
+- [Header & Footer](https://codesandbox.io/s/github/jxnblk/mdx-deck/tree/master/example/header-footer)
 
 ---
 

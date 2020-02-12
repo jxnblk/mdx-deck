@@ -3,10 +3,9 @@ const src = process.env.__SRC__
 module.exports = {
   plugins: [
     {
-      resolve: 'gatsby-theme-mdx-deck',
+      resolve: '@mdx-deck/gatsby-plugin',
       options: {
-        cli: true,
-        contentPath: src,
+        path: src,
       },
     },
     {

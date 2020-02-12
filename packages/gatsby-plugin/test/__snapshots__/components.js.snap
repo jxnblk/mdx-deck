@@ -1,0 +1,273 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Color renders 1`] = `
+.emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: tomato;
+}
+
+.emotion-0 a {
+  color: inherit;
+}
+
+<div
+  className="emotion-0"
+/>
+`;
+
+exports[`FullScreenCode renders 1`] = `
+.emotion-0 {
+  width: 100%;
+  height: 100%;
+}
+
+.emotion-0 pre {
+  margin: 0 !important;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+<div
+  className="emotion-0"
+>
+  Hi
+</div>
+`;
+
+exports[`Horizontal renders 1`] = `
+.emotion-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 100%;
+  text-align: center;
+}
+
+.emotion-0 {
+  width: 50%;
+}
+
+.emotion-0 img {
+  height: auto;
+}
+
+<div
+  className="emotion-2"
+>
+  <div
+    className="emotion-0"
+  >
+    <div>
+      A
+    </div>
+  </div>
+  <div
+    className="emotion-0"
+  >
+    <div>
+      B
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Image renders 1`] = `
+.emotion-0 {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-image: url(kittens.png);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+<div
+  className="emotion-0"
+/>
+`;
+
+exports[`Invert renders 1`] = `
+.emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  color: background;
+  background-color: text;
+}
+
+.emotion-0 a {
+  color: inherit;
+}
+
+<div
+  className="emotion-0"
+/>
+`;
+
+exports[`Split renders 1`] = `
+.emotion-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 100%;
+  text-align: center;
+}
+
+.emotion-0 {
+  width: 50%;
+}
+
+.emotion-0 img {
+  height: auto;
+}
+
+<div
+  className="emotion-2"
+>
+  <div
+    className="emotion-0"
+  >
+    <div>
+      A
+    </div>
+  </div>
+  <div
+    className="emotion-0"
+  >
+    <div>
+      B
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SplitRight renders 1`] = `
+.emotion-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 100%;
+  text-align: center;
+}
+
+.emotion-0 {
+  width: 50%;
+}
+
+.emotion-0 img {
+  height: auto;
+}
+
+<div
+  className="emotion-2"
+>
+  <div
+    className="emotion-0"
+  >
+    <div>
+      B
+    </div>
+  </div>
+  <div
+    className="emotion-0"
+  >
+    <div>
+      A
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Steps renders 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "visibility": "visible",
+      }
+    }
+  >
+    One
+  </div>,
+  <div
+    style={
+      Object {
+        "visibility": "visible",
+      }
+    }
+  >
+    Two
+  </div>,
+]
+`;
+
+exports[`Steps renders with list 1`] = `
+<ul
+  originalType="ul"
+>
+  <li
+    style={
+      Object {
+        "visibility": "visible",
+      }
+    }
+  >
+    One
+  </li>
+  <li
+    style={
+      Object {
+        "visibility": "visible",
+      }
+    }
+  >
+    Two
+  </li>
+</ul>
+`;

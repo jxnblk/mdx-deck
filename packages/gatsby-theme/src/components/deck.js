@@ -112,7 +112,7 @@ export default ({
   return (
     <>
       <Helmet>
-        <title>{title}</title>
+        {title && <title>{title}</title>}
         {head}
       </Helmet>
       <GoogleFont theme={mergedTheme} />
@@ -121,7 +121,6 @@ export default ({
           <Global
             styles={{
               body: {
-                margin: 0,
                 overflow: context.mode === modes.normal ? 'hidden' : null,
               },
             }}

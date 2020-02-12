@@ -13,26 +13,51 @@
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
     "test:dev": "start-server-and-test start http://localhost:8000 cypress:open",
-    "test": "start-server-and-test start http://localhost:8000 cypress:run"
+    "jest": "jest",
+    "test": "jest && start-server-and-test start http://localhost:8000 cypress:run"
   },
   "devDependencies": {
+    "@babel/core": "^7.8.4",
+    "@babel/preset-env": "^7.8.4",
+    "@babel/preset-react": "^7.8.3",
+    "@testing-library/react": "^9.4.0",
     "cypress": "^3.4.0",
-    "husky": "^3.0.0",
-    "jest": "^24.3.1",
+    "husky": "^4.2.1",
+    "jest": "^25.1.0",
+    "jest-emotion": "^10.0.27",
     "lerna": "^3.13.1",
-    "lint-staged": "^9.1.0",
+    "lint-staged": "^10.0.4",
     "prettier": "^1.16.4",
+    "react-test-renderer": "^16.12.0",
     "start-server-and-test": "^1.9.1"
   },
   "jest": {
-    "coverageReporters": [
-      "lcov",
-      "html"
+    "testMatch": [
+      "**/packages/**/test/*.js"
     ],
     "testPathIgnorePatterns": [
       "/node_modules/",
       "/.cache/",
       "/public/"
+    ],
+    "coverageReporters": [
+      "lcov",
+      "text",
+      "html"
+    ],
+    "collectCoverageFrom": [
+      "packages/**/src/**/*.js"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 80,
+        "functions": 80,
+        "lines": 80,
+        "statements": 80
+      }
+    },
+    "snapshotSerializers": [
+      "jest-emotion"
     ]
   },
   "husky": {

@@ -14,7 +14,6 @@ export default {
   },
   styles: {
     root: {
-      fontSize: ['1.5em', null, '4em'],
       textAlign: 'center',
     },
     pre: {

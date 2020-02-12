@@ -1,6 +1,20 @@
 # Migration
 
-## Updating to MDX Deck v3
+## Upgrading to MDX Deck v4
+
+For simple decks, upgrading to v4 should not require any major changes and should help resolve an issue when making changes to a file while the development server is running.
+
+- If you are using a custom `Provider` component, replace this component with the new `Header` and `Footer` components
+  - Note that some functionality previously available in the Provider component is no longer possible
+- Replace any instance of the `Appear` component with the new `Steps` component. This should be a 1:1 change.
+- The document title is no longer inferred from the first heading. Use the `Head` component with a `<title>` element instead.
+- Merging multiple themes using `export const themes` is no longer supported. Merge themes in a separate file, if necessary.
+- Functional themes are no longer supported.
+- Fixed aspect ratio is no longer supported.
+- Swipe gestures have been removed; these will be reintroduced in a later version.
+- If you are using `gatsby-theme-mdx-deck` directly, no major changes have been made to this package.
+
+## Upgrading to MDX Deck v3
 
 - The `export default` syntax for slide layouts is no longer supported. Replace this syntax with the layout component wrapped around the slide content instead.
 - The following packages have been deprecated. Import components directly from the `mdx-deck` package instead.
@@ -22,7 +36,7 @@
 
 [theme ui]: https://theme-ui.com
 
-## Updating to MDX Deck v2
+## Upgrading to MDX Deck v2
 
 With a few exceptions, decks created with v1 should be compatible with v2. The following is a list of steps to ensure your slide deck will work with v2.
 

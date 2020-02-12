@@ -106,12 +106,3 @@ Poppins
 import { poppins } from 'mdx-deck/themes'
 ```
 
----
-
-Syntax Highlighting
-
-```js
-import { highlight } from 'mdx-deck/themes'
-import { prism } from 'mdx-deck/themes'
-```
-

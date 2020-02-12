@@ -9,6 +9,7 @@ export const pageQuery = graphql`
     deck: deck(id: { eq: $id }) {
       id
       body
+      title
     }
   }
 `

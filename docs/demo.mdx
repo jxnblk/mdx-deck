@@ -1,14 +1,7 @@
-import {
-  Head, Image, Notes, Appear,
-  Invert, Split, SplitRight, FullScreenCode, Horizontal
-} from 'mdx-deck'
 import Counter from './Counter'
-import { future } from 'mdx-deck/themes'
-
-export const themes = [ future ]
 
 <Head>
-  <title>mdx-deck</title>
+  <title>MDX Deck</title>
   <meta name='twitter:card' content='summary_large_image' />
   <meta name='twitter:site' content='@jxnblk' />
   <meta name='twitter:title' content='mdx-deck' />
@@ -45,8 +38,16 @@ MDX-based presentation decks
 ## Getting Started
 
 1. `npm i -D mdx-deck`
-2. Write some markdown and JSX
+2. Write in markdown and JSX
 3. Present
+
+---
+
+## Features
+
+- Presenter Mode
+- Speaker Notes
+- Theming
 
 ---
 
@@ -90,23 +91,20 @@ class extends React.Component {
 
 ---
 
-### Appear
+### Steps Component
 
-<ul>
-  <Appear>
-    <li>One</li>
-    <li>Two</li>
-    <li>Three</li>
-    <li>Four</li>
-  </Appear>
-</ul>
+<Steps>
+
+- One
+- Two
+- Three
+- Four
+
+</Steps>
 
 ---
 
-<Image
-  src='https://source.unsplash.com/random/768x2048?new_york'
-  size='contain'
-/>
+<img src='https://source.unsplash.com/random/768x2048?new_york' />
 
 <Notes>
 Testing object fit
@@ -114,61 +112,7 @@ Testing object fit
 
 ---
 
-<Image src='https://images.unsplash.com/photo-1462331940025-496dfbfc7564?new_york&w=2048&q=20' />
-
----
-
-<Split>
-
-![](https://images.unsplash.com/photo-1462331940025-496dfbfc7564?new_york&w=2048&q=20)
-
-## Split Layout
-
-</Split>
-
----
-
-<SplitRight>
-
-![](https://images.unsplash.com/photo-1462331940025-496dfbfc7564?new_york&w=2048&q=20)
-
-## Split Layout
-
-(To the right)
-
-</SplitRight>
-
----
-
-<Horizontal>
-
-![](https://source.unsplash.com/random/1024x768')
-
-![](https://source.unsplash.com/random/1024x768')
-
-### Horizontal Layout
-
-</Horizontal>
-
----
-
-<Invert>
-
-# Invert Layout
-
-</Invert>
-
----
-
-<FullScreenCode>
-
-```
-<Button>
-  Beep
-</Button>
-```
-
-</FullScreenCode>
+<img src='https://images.unsplash.com/photo-1462331940025-496dfbfc7564?new_york&w=2048&q=20' />
 
 ---
 

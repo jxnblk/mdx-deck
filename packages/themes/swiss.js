@@ -14,7 +14,6 @@ export default {
   styles: {
     root: {
       textAlign: 'left',
-      fontSize: ['1.5em', null, '3em'],
     },
     Slide: {
       display: 'block',

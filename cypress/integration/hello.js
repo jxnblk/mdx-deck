@@ -11,11 +11,12 @@ context('MDX Deck', () => {
     cy.contains('MDX Deck')
   })
 
-  /* doesn't work
+  /* doesn't work?? */
   it('goes to the next slide', () => {
     cy.get('body')
-      .type('{rightarrow}')
+      .trigger('keydown', {
+        keyCode: 39,
+      })
       .contains('Presentation')
   })
-  */
 })

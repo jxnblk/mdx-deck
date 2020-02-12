@@ -2,6 +2,21 @@
 
 ## Unreleased
 
+### v4.0.0
+
+- Refactored implementation for `mdx-deck` CLI
+- New `Header` and `Footer` components for adding persistent header and footer content
+- **Deprecated:** CLI `eject` command
+- **Deprecated:** Swipe gestures - to be replaced with new UI
+- **Deprecated:** Title is no longer inferred from first heading
+- **Deprecated:** `export const themes` has been removed - merge themes in a separate module if needed
+- **Deprecated:** Functional themes are no longer supported, merge themes in a separate module if needed
+- **Deprecated:** `theme.Provider` - use `Header` and `Footer` components instead
+- **Deprecated:** Fixed aspect ratio has been removed
+- Bug fixes
+- Update dependencies
+- **Deprecated:** `gatsby-theme-mdx-deck`: no longer resolves title from first heading
+
 ## v3.1.0 2020-02-01
 
 - Update dependencies

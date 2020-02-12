@@ -31,7 +31,7 @@ export default ({ decks }) => {
                   textDecoration: 'underline',
                 },
               }}>
-              {d.title || d.slug}
+              {d.slug}
             </Link>
           </li>
         ))}
