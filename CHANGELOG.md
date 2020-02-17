@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Update colors on notes theme
+
 ### v4.0.0
 
 - Refactored implementation for `mdx-deck` CLI
