@@ -1,7 +1,7 @@
 import React, { useReducer } from 'react'
 import merge from 'lodash.merge'
 import Context from '../context'
-import { modes } from '../constants'
+import { modes, presenterModes } from '../constants'
 
 const reducer = (state, next) =>
   typeof next === 'function'
@@ -11,6 +11,7 @@ const reducer = (state, next) =>
 export default props => {
   const [state, setState] = useReducer(reducer, {
     mode: modes.normal,
+    presenterMode: presenterModes.normal,
     step: 0,
     metadata: {},
   })
