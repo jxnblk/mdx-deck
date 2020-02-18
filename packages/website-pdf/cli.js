@@ -26,12 +26,12 @@ const cli = meow(
       width: {
         type: 'string',
         alias: 'w',
-        default: 1280,
+        default: '1280',
       },
       height: {
         type: 'string',
         alias: 'h',
-        default: 960,
+        default: '960',
       },
       sandbox: {
         type: 'boolean',
