@@ -9,6 +9,7 @@ import { presenterModes } from '../constants'
 
 const NormalIcon = () => (
   <svg
+    data-testid="normalIcon"
     width="24"
     height="16"
     viewBox="0 0 24 16"
@@ -40,6 +41,7 @@ const NormalIcon = () => (
 
 const TallIcon = () => (
   <svg
+    data-testid="tallIcon"
     width="24"
     height="16"
     viewBox="0 0 24 16"
@@ -73,6 +75,7 @@ const TallIcon = () => (
 
 const NotesIcon = () => (
   <svg
+    data-testid="notesIcon"
     width="24"
     height="16"
     viewBox="0 0 24 16"
@@ -89,6 +92,7 @@ const NotesIcon = () => (
 
 const WideIcon = () => (
   <svg
+    data-testid="wideIcon"
     width="24"
     height="16"
     viewBox="0 0 24 16"
@@ -128,7 +132,7 @@ const icons = {
 const arrayPresenterModes = Object.values(presenterModes)
 const lengthPresenterModes = arrayPresenterModes.length
 
-const getNextItem = presenterMode => {
+export const getNextPresenterMode = presenterMode => {
   const index = arrayPresenterModes.findIndex(el => el === presenterMode)
   const nextIndex = (index + 1) % lengthPresenterModes
   return arrayPresenterModes[nextIndex]
@@ -140,7 +144,7 @@ export default props => {
 
   const onSwitchPresenterMode = () =>
     setState({
-      presenterMode: getNextItem(presenterMode),
+      presenterMode: getNextPresenterMode(presenterMode),
     })
 
   const IconComponent = icons[presenterMode]
