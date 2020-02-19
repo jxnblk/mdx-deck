@@ -73,13 +73,15 @@ const TallLayout = ({ next, notes, children }) => (
           height: '50%',
           paddingBottom: 3,
         }}>
-        {children}
+        <Zoom zoom={1 / 2}>{children}</Zoom>
       </div>
       <div
         sx={{
           height: '50%',
         }}>
-        <Slide slide={next} preview />
+        <Zoom zoom={1 / 2}>
+          <Slide slide={next} preview />
+        </Zoom>
       </div>
     </div>
     <div
@@ -158,13 +160,17 @@ const WideLayout = ({ next, notes, children }) => (
       sx={{
         display: 'flex',
         flexDirection: 'row',
-        height: '50%',
-        width: '100%',
         p: 3,
       }}>
-      <div sx={{ width: '50%', paddingRight: 3 }}>{children}</div>
+      <div sx={{ width: '50%', marginRight: 3 }}>
+        <Zoom ratio={18 / 6} zoom={1 / 4}>
+          {children}
+        </Zoom>
+      </div>
       <div sx={{ width: '50%' }}>
-        <Slide slide={next} preview />
+        <Zoom ratio={18 / 6} zoom={1 / 4}>
+          <Slide slide={next} preview />
+        </Zoom>
       </div>
     </div>
     <div
