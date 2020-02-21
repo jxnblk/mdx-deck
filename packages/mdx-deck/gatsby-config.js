@@ -1,4 +1,7 @@
+const path = require('path')
+
 const src = process.env.__SRC__
+const dirname = path.dirname(src)
 
 module.exports = {
   plugins: [
@@ -6,6 +9,18 @@ module.exports = {
       resolve: '@mdx-deck/gatsby-plugin',
       options: {
         path: src,
+        dirname,
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: dirname,
+        ignore: [
+          'node_modules',
+          'public',
+          '.cache',
+        ]
       },
     },
     {
