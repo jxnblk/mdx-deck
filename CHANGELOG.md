@@ -3,6 +3,7 @@
 ## Unreleased
 
 - Update colors on notes theme
+- Add support for static asset directory
 
 ### v4.0.0
 
