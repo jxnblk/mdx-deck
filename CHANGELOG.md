@@ -2,10 +2,12 @@
 
 ## Unreleased
 
+## v4.1.0
+
 - Update colors on notes theme
 - Add support for static asset directory
 
-### v4.0.0
+## v4.0.0
 
 - Refactored implementation for `mdx-deck` CLI
 - New `Header` and `Footer` components for adding persistent header and footer content
