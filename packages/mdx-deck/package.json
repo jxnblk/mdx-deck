@@ -1,6 +1,6 @@
 {
   "name": "mdx-deck",
-  "version": "4.0.0",
+  "version": "4.1.0",
   "description": "MDX-based presentation decks",
   "bin": {
     "mdx-deck": "./cli.js"
@@ -16,8 +16,8 @@
   "license": "MIT",
   "repository": "github:jxnblk/mdx-deck",
   "dependencies": {
-    "@mdx-deck/gatsby-plugin": "^4.0.0",
-    "@mdx-deck/themes": "^4.0.0",
+    "@mdx-deck/gatsby-plugin": "^4.1.0",
+    "@mdx-deck/themes": "^4.1.0",
     "chalk": "^3.0.0",
     "execa": "^4.0.0",
     "fs-extra": "^8.1.0",
