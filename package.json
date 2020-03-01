@@ -21,7 +21,7 @@
     "@babel/preset-env": "^7.8.4",
     "@babel/preset-react": "^7.8.3",
     "@testing-library/react": "^9.4.0",
-    "cypress": "^3.4.0",
+    "cypress": "^4.1.0",
     "husky": "^4.2.1",
     "jest": "^25.1.0",
     "jest-emotion": "^10.0.27",
