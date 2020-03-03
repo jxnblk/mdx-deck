@@ -235,7 +235,7 @@ The following examples will open in CodeSandbox.
 - [Syntax Highlighting](https://codesandbox.io/s/github/jxnblk/mdx-deck/tree/master/examples/syntax-highlighting)
 - [Steps](https://codesandbox.io/s/github/jxnblk/mdx-deck/tree/master/examples/steps)
 - [Head](https://codesandbox.io/s/github/jxnblk/mdx-deck/tree/master/examples/head)
-- [Header & Footer](https://codesandbox.io/s/github/jxnblk/mdx-deck/tree/master/example/header-footer)
+- [Header & Footer](https://codesandbox.io/s/github/jxnblk/mdx-deck/tree/master/examples/header-footer)
 
 ---
 
