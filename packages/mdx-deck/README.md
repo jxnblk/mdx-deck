@@ -226,6 +226,7 @@ See how others have used MDX Deck for their presentations.
 - [Stop de #divFest][stop-div-fest] by [Sara Vieira](https://mobile.twitter.com/NikkitaFTW)
 - [MDX, authors and richer JAMstack content][mdx-talk] by [Josh Dzielak](https://mobile.twitter.com/dzello)
 - [Components as Data: A Cross Platform GraphQL Powered Component API][components-as-data] by [Luke Herrington](https://mobile.twitter.com/lukeherrington)
+- [A short history of webdevs future 🔮][webdev-intro] by [Hendrik Wallbaum][https://github.com/hoverbaum]
 
 ### Usage Examples
 
@@ -263,4 +264,4 @@ The following examples will open in CodeSandbox.
 [stop-div-fest]: https://stop-div-fest.now.sh/
 [mdx-talk]: https://mdx-talk.developermode.com/
 [components-as-data]: https://componentsasdata.lukeherrington.com
-
+[webdev-intro]: https://webdev-intro.talks.hoverbaum.net/
