@@ -23,6 +23,7 @@
     "fs-extra": "^8.1.0",
     "gatsby": "^2.13.24",
     "gatsby-plugin-compile-es6-packages": "^2.0.0",
+    "gatsby-source-filesystem": "^2.1.48",
     "initit": "^1.0.0-2",
     "meow": "^6.0.0",
     "react": "^16.8.6",
