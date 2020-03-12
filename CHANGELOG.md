@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Add missing dependency
+
 ## v4.1.0
 
 - Update colors on notes theme

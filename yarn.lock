@@ -7234,6 +7234,15 @@ gatsby-core-utils@^1.0.27, gatsby-core-utils@^1.0.28:
     ci-info "2.0.0"
     node-object-hash "^2.0.0"
 
+gatsby-core-utils@^1.0.33:
+  version "1.0.33"
+  resolved "https://registry.yarnpkg.com/gatsby-core-utils/-/gatsby-core-utils-1.0.33.tgz#bd0d1ed0afed7f90c82c6da5b9ba13b727bcf1e9"
+  integrity sha512-eQkOQumfbMLdbKJN0E1dlnBjAKWAzexxuNdpL88yCIaqHGOMogGTmAmhG1Hs0sz9bMrNPxuIgEyDNQe3IDfJXw==
+  dependencies:
+    ci-info "2.0.0"
+    configstore "^5.0.0"
+    node-object-hash "^2.0.0"
+
 gatsby-graphiql-explorer@^0.2.32:
   version "0.2.32"
   resolved "https://registry.yarnpkg.com/gatsby-graphiql-explorer/-/gatsby-graphiql-explorer-0.2.32.tgz#0664d32e6ae81d42689967141acfa2783c1a3478"
@@ -7436,6 +7445,27 @@ gatsby-source-filesystem@^2.1.3:
     fs-extra "^8.1.0"
     gatsby-core-utils "^1.0.27"
     got "^7.1.0"
+    md5-file "^3.2.3"
+    mime "^2.4.4"
+    pretty-bytes "^5.3.0"
+    progress "^2.0.3"
+    read-chunk "^3.2.0"
+    valid-url "^1.0.9"
+    xstate "^4.7.2"
+
+gatsby-source-filesystem@^2.1.48:
+  version "2.1.54"
+  resolved "https://registry.yarnpkg.com/gatsby-source-filesystem/-/gatsby-source-filesystem-2.1.54.tgz#2dc2fea19b166826ebeb2d9ddcc61d0abbaeffc3"
+  integrity sha512-dSGckQYePVvkAwcY6DxJE9+NmtRZqNeTtMQySkLUJ+qA3EiaBizqumrdthwdgiHdIDrwjspL8HIcJ2BjnI4wbA==
+  dependencies:
+    "@babel/runtime" "^7.7.6"
+    better-queue "^3.8.10"
+    bluebird "^3.7.2"
+    chokidar "3.3.0"
+    file-type "^12.4.0"
+    fs-extra "^8.1.0"
+    gatsby-core-utils "^1.0.33"
+    got "^8.3.2"
     md5-file "^3.2.3"
     mime "^2.4.4"
     pretty-bytes "^5.3.0"
@@ -8050,7 +8080,7 @@ good-listener@^1.2.2:
   dependencies:
     delegate "^3.1.2"
 
-got@8.3.2:
+got@8.3.2, got@^8.3.2:
   version "8.3.2"
   resolved "https://registry.yarnpkg.com/got/-/got-8.3.2.tgz#1d23f64390e97f776cac52e5b936e5f514d2e937"
   integrity sha512-qjUJ5U/hawxosMryILofZCkm3C84PLJS/0grRIpjAwu+Lkxxj5cxeCU25BG0/3mDSpXKTyZr8oh8wIgLaH0QCw==
