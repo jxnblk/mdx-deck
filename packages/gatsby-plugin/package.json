@@ -1,6 +1,6 @@
 {
   "name": "@mdx-deck/gatsby-plugin",
-  "version": "4.1.0",
+  "version": "4.1.1",
   "main": "index.js",
   "author": "Brent Jackson",
   "license": "MIT",
