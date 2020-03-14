@@ -6,7 +6,7 @@
   "author": "Brent Jackson <jxnblk@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "mdx-deck demo.mdx",
+    "start": "mdx-deck bullets.mdx",
     "build": "mdx-deck build demo.mdx"
   },
   "dependencies": {
