@@ -14,6 +14,16 @@ This project is set up as a monorepo using Yarn Workspaces.
 2. Install dependencies with `yarn`
 3. Run `yarn start` to see the demo `docs/demo.mdx`
 
+### Develop with one-click online setup
+
+You can use Gitpod (a free online VS Code-like IDE) for the online one-click setup. With a single click it'll launch a workspace and automatically:
+
+- clone the mdx-deck repo.
+- install the dependencies.
+- run `yarn run start`.
+
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/from-referrer/)
+
 ### Watch mode
 
 To watch files for changes during development, run `npm run watch`
