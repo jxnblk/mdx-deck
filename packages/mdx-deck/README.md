@@ -199,7 +199,7 @@ and it will stay in sync with the other window.
 ## Videos & Articles
 
 - [Egghead Tutorial][egghead] by [Andrew Del Prete](https://github.com/andrewdelprete).
-- [mdx-deck: slide decks powered by markdown and react][kcd-medium] by [Kent C. Dodds][]
+- [mdx-deck: slide decks powered by markdown and react][kcd-blog] by [Kent C. Dodds][]
 - [Make Fast & Beautiful Presentations with MDX-Deck][hw-video] by [Harry Wolff][] ([Demo][hw-demo])
 - [What is MDX][kcd-video] by [Kent C. Dodds][]
 - [Build a Custom Provider Component for MDX-Deck][ks-egghead] by [Kyle Shevlin][]
@@ -207,7 +207,7 @@ and it will stay in sync with the other window.
 [egghead]: https://egghead.io/lessons/react-build-a-slide-deck-with-mdx-deck-using-markdown-react
 [kent c. dodds]: https://mobile.twitter.com/kentcdodds
 [kcd-video]: http://youtu.be/d2sQiI5NFAM?a
-[kcd-medium]: https://blog.kentcdodds.com/mdx-deck-slide-decks-powered-by-markdown-and-react-bfc6d6af20da
+[kcd-blog]: https://kentcdodds.com/blog/mdx-deck-slide-decks-powered-by-markdown-and-react
 [hw-video]: https://www.youtube.com/watch?v=LvP2EqCiQMg&feature=youtu.be
 [hw-demo]: https://github.com/hswolff/mdx-deck-demo
 [harry wolff]: https://mobile.twitter.com/hswolff
