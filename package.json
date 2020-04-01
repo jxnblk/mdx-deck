@@ -20,7 +20,7 @@
     "@babel/core": "^7.8.4",
     "@babel/preset-env": "^7.8.4",
     "@babel/preset-react": "^7.8.3",
-    "@testing-library/react": "^9.4.0",
+    "@testing-library/react": "^10.0.2",
     "cypress": "^3.4.0",
     "husky": "^4.2.1",
     "jest": "^25.1.0",
