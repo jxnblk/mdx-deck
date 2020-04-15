@@ -25,6 +25,7 @@ const cli = meow(
 
       -h --host     Dev server host
       -p --port     Dev server port
+      -u --url      Talk url prefix
       --no-open     Prevent from opening in default browser
 
 `,
@@ -41,6 +42,11 @@ const cli = meow(
         alias: 'h',
         default: 'localhost',
       },
+      url: {
+        type: 'string',
+        alias: 'u',
+        default: '/',
+      },
       open: {
         type: 'boolean',
         alias: 'o',
@@ -55,10 +61,10 @@ const filename = file || cmd
 
 if (!filename) cli.showHelp(0)
 
-process.env.__SRC__ = path.resolve(filename)
-
 const opts = Object.assign({}, cli.flags)
 
+process.env.__SRC__ = path.resolve(filename)
+process.env.__URL__ = opts.url
 let dev
 
 const gatsby = async (...args) => {

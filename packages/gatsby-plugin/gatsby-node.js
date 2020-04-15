@@ -41,27 +41,23 @@ exports.onCreateWebpackConfig = ({
               loader: '@mdx-js/loader',
               options: {
                 remarkPlugins,
-              }
+              },
             },
-          ]
-        }
-      ]
-    }
+          ],
+        },
+      ],
+    },
   })
 }
 
 exports.resolvableExtensions = () => ['.mdx']
 
-exports.createPages = ({
-  actions,
-}, {
-  path: source,
-} = {}) => {
+exports.createPages = ({ actions }, { path: source, url = '/' } = {}) => {
   if (!source) return
 
   actions.createPage({
-    path: '/',
-    matchPath: '/*',
+    path: url,
+    matchPath: url === '/' ? '/*' : `${url}/*`,
     component: source,
   })
 }
