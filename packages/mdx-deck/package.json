@@ -7,7 +7,7 @@
   },
   "main": "index.js",
   "scripts": {
-    "start": "./cli.js hello.mdx -u /test",
+    "start": "./cli.js hello.mdx",
     "build": "./cli.js build hello.mdx",
     "help": "./cli.js"
   },
