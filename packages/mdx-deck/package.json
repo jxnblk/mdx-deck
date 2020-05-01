@@ -18,7 +18,7 @@
   "dependencies": {
     "@mdx-deck/gatsby-plugin": "^4.1.1",
     "@mdx-deck/themes": "^4.1.0",
-    "chalk": "^3.0.0",
+    "chalk": "^4.0.0",
     "execa": "^4.0.0",
     "fs-extra": "^8.1.0",
     "gatsby": "^2.13.24",
