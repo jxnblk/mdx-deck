@@ -39,7 +39,7 @@ export default props => {
   React.useEffect(() => {
     if (props.location.pathname.includes('/print')) return
 
-    props.navigate(props.location.pathname + '/#' + index, {
+    props.navigate(props.location.pathname + '#' + index, {
       replace: true,
     })
   }, [index])

@@ -52,12 +52,12 @@ exports.onCreateWebpackConfig = ({
 
 exports.resolvableExtensions = () => ['.mdx']
 
-exports.createPages = ({ actions }, { path: source, url = '/' } = {}) => {
+exports.createPages = ({ actions }, { path: source, url = '' } = {}) => {
   if (!source) return
 
   actions.createPage({
-    path: url,
-    matchPath: url === '/' ? '/*' : `${url}/*`,
+    path: `/${url}`,
+    matchPath: `${url}/*`,
     component: source,
   })
 }
