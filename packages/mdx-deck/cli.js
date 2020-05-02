@@ -45,7 +45,7 @@ const cli = meow(
       url: {
         type: 'string',
         alias: 'u',
-        default: '/',
+        default: '',
       },
       open: {
         type: 'boolean',
