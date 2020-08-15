@@ -1,17 +1,17 @@
 import React, { useState, useContext } from 'react'
 import { ThemeProvider } from 'emotion-theming'
 import { MDXProvider } from '@mdx-js/react'
-import * as themes from 'mdx-deck/themes'
+import * as themes from '@mdx-deck/themes'
 
 const names = Object.keys(themes)
 
-const DefaultProvider = props => <>{props.children}</>
+const DefaultProvider = (props) => <>{props.children}</>
 
 const Context = React.createContext()
 
-const Provider = props => {
+const Provider = (props) => {
   const [name, setTheme] = useState(names[0])
-  const cycle = e => {
+  const cycle = (e) => {
     const i = (names.indexOf(name) + 1) % names.length
     setTheme(names[i])
   }
@@ -40,10 +40,10 @@ const Provider = props => {
           Theme
           <select
             value={name}
-            onChange={e => {
+            onChange={(e) => {
               setTheme(e.target.value)
             }}>
-            {names.map(name => (
+            {names.map((name) => (
               <option key={name}>{name}</option>
             ))}
           </select>
@@ -54,7 +54,7 @@ const Provider = props => {
   )
 }
 
-export const ThemeName = props => {
+export const ThemeName = (props) => {
   const context = useContext(Context)
 
   return <>{context}</>
