@@ -1,4 +1,3 @@
-
 # gatsby-theme-mdx-deck
 
 Add MDX Deck presentations to any Gatsby site
@@ -67,6 +66,8 @@ module.exports = {
         contentPath: 'decks',
         // base path for routes generate by this theme
         basePath: ''
+        // passed to the `gatsby-plugin-mdx` config
+        mdxOptions: {},
       }
     }
   ]
