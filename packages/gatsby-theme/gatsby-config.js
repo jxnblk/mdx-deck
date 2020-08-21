@@ -4,7 +4,11 @@ const remarkPlugins = [require('remark-unwrap-images'), require('remark-emoji')]
 const gatsbyRemarkPlugins = [`gatsby-remark-import-code`]
 
 const config = (opts = {}) => {
-  const { mdx = true, contentPath: name = 'decks' } = opts
+  const { 
+    mdx = true,
+    contentPath: name = 'decks',
+    mdxOptions = {},
+  } = opts
 
   return {
     plugins: [
@@ -18,8 +22,15 @@ const config = (opts = {}) => {
       mdx && {
         resolve: 'gatsby-plugin-mdx',
         options: {
-          gatsbyRemarkPlugins,
-          remarkPlugins,
+          ...mdxOptions,
+          gatsbyRemarkPlugins: [
+            ...gatsbyRemarkPlugins,
+            ...(mdxOptions.gatsbyRemarkPlugins || []),
+          ],
+          remarkPlugins: [
+            ...remarkPlugins,
+            ...(mdxOptions.remarkPlugins || []),
+          ],
         },
       },
       'gatsby-plugin-react-helmet',
