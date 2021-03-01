@@ -20,7 +20,7 @@
     "@mdx-deck/themes": "^4.1.0",
     "chalk": "^3.0.0",
     "execa": "^4.0.0",
-    "fs-extra": "^8.1.0",
+    "fs-extra": "^9.1.0",
     "gatsby": "^2.13.24",
     "gatsby-plugin-compile-es6-packages": "^2.0.0",
     "gatsby-source-filesystem": "^2.1.48",
