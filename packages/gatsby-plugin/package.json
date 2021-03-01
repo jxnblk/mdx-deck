@@ -21,7 +21,7 @@
   "dependencies": {
     "@mdx-js/loader": "^1.5.3",
     "@mdx-js/mdx": "^1.5.3",
-    "gatsby-page-utils": "^0.0.39",
+    "gatsby-page-utils": "^0.9.1",
     "gatsby-plugin-react-helmet": "^3.1.18",
     "hhmmss": "^1.0.0",
     "react-helmet": "^5.2.1",
