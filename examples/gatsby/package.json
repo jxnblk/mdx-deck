@@ -15,7 +15,7 @@
     "gatsby": "*",
     "gatsby-plugin-catch-links": "^2.1.2",
     "gatsby-theme-mdx-deck": "^4.1.0",
-    "react": "^16.8.6",
+    "react": "^17.0.2",
     "react-dom": "^16.8.6"
   }
 }
