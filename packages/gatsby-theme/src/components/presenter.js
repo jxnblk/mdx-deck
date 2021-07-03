@@ -47,6 +47,7 @@ export const Presenter = ({ slides, children }) => {
             <div
               sx={{
                 my: 3,
+                variant: 'styles.Notes'
               }}>
               {notes}
             </div>
