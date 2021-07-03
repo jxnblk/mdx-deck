@@ -38,8 +38,9 @@ export default props => {
   }, [index])
 
   React.useEffect(() => {
-    if (props.location.pathname === '/print') return
-    props.navigate('/#' + index, {
+    const pathname = props.location.pathname
+    if (pathname === '/print') return
+    props.navigate(`${pathname}#${index}`, {
       replace: true,
     })
   }, [index])
