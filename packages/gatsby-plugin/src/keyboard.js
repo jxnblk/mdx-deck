@@ -16,6 +16,8 @@ const keys = {
   pageDown: 34,
 }
 
+const inputElements = ['input', 'select', 'textarea', 'a', 'button']
+
 export const useKeyboard = () => {
   const context = useDeck()
 
@@ -23,6 +25,10 @@ export const useKeyboard = () => {
     const handleKeyDown = e => {
       if (e.metaKey) return
       if (e.ctrlKey) return
+      
+      // ignore custom keyboard shortcuts when elements are focused
+      const el = document.activeElement.tagName.toLowerCase()
+      if (inputElements.includes(el)) return
 
       if (e.altKey) {
         switch (e.keyCode) {
