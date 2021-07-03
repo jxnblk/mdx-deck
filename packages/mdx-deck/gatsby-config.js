@@ -1,6 +1,7 @@
 const path = require('path')
 
 const src = process.env.__SRC__
+const url = process.env.__URL__
 const dirname = path.dirname(src)
 
 module.exports = {
@@ -9,6 +10,7 @@ module.exports = {
       resolve: '@mdx-deck/gatsby-plugin',
       options: {
         path: src,
+        url,
         dirname,
       },
     },
@@ -16,11 +18,7 @@ module.exports = {
       resolve: 'gatsby-source-filesystem',
       options: {
         path: dirname,
-        ignore: [
-          'node_modules',
-          'public',
-          '.cache',
-        ]
+        ignore: ['node_modules', 'public', '.cache'],
       },
     },
     {
