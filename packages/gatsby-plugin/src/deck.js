@@ -23,9 +23,8 @@ export default props => {
   const slide = slides[index]
 
   const [mode, setMode] = React.useState(modes.default)
-  const toggleMode = next => setMode(current =>
-    current === next ? modes.default : next
-  )
+  const toggleMode = next =>
+    setMode(current => (current === next ? modes.default : next))
 
   const [step, setStep] = React.useState(0)
   const [steps, setSteps] = React.useState(0)
@@ -80,7 +79,7 @@ export default props => {
     if (steps && step > 0) {
       setStep(n => n - 1)
     } else {
-      setIndex(n => n > 0 ? n - 1 : n)
+      setIndex(n => (n > 0 ? n - 1 : n))
       setStep(0)
       setSteps(0)
     }
@@ -90,8 +89,8 @@ export default props => {
     if (step < steps) {
       setStep(n => n + 1)
     } else {
-      setIndex(n => n < slides.length - 1 ? n + 1 : n)
       setStep(0)
+      setIndex(n => (n < slides.length - 1 ? n + 1 : n))
       setSteps(0)
     }
   }
@@ -104,15 +103,11 @@ export default props => {
       <Storage />
       <Helmet>
         {slides.head.children}
-        {theme.googleFont && <link rel='stylesheet' href={theme.googleFont} />}
+        {theme.googleFont && <link rel="stylesheet" href={theme.googleFont} />}
       </Helmet>
-      <ThemeProvider
-        theme={theme}
-        components={theme.components}>
+      <ThemeProvider theme={theme} components={theme.components}>
         <Container>
-          <Slide>
-            {slide}
-          </Slide>
+          <Slide>{slide}</Slide>
         </Container>
       </ThemeProvider>
     </Context.Provider>
