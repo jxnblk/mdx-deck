@@ -1,3 +1,5 @@
+() 
+
 ![](https://s3.amazonaws.com/jxnblk/mdx-deck-2.gif)
 
 # MDX Deck <img src='docs/ace.png' width='24' height='24' />
@@ -7,12 +9,15 @@ Award-winning React [MDX][]-based presentation decks
 [![Build Status][badge]][circleci]
 [![Version][]][npm]
 [![Downloads][]][npm]
+[![Gitpod Ready-to-Code][gitpod]][workspace]
 
 [badge]: https://flat.badgen.net/github/status/jxnblk/mdx-deck/master/ci/circleci
 [circleci]: https://circleci.com/gh/jxnblk/mdx-deck
 [version]: https://flat.badgen.net/npm/v/mdx-deck
 [downloads]: https://flat.badgen.net/npm/dm/mdx-deck
 [npm]: https://npmjs.com/package/mdx-deck
+[gitpod]: https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod
+[workspace]: https://gitpod.io/#https://github.com/jxnblk/mdx-deck
 
 - :memo: Write presentations in markdown
 - :atom_symbol: Import and use [React components](#imports)
