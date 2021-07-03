@@ -1,0 +1,3 @@
+tasks:
+  - init: yarn install && yarn add mdx-deck && yarn run build
+    command: yarn run start
