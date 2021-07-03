@@ -2,6 +2,7 @@
   "name": "@mdx-deck/themes",
   "version": "4.1.0",
   "main": "index.js",
+  "sideEffects": false,
   "author": "Brent Jackson <jxnblk@gmail.com>",
   "license": "MIT",
   "dependencies": {
