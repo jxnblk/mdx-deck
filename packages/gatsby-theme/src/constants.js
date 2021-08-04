@@ -5,3 +5,10 @@ export const modes = {
   grid: 'GRID',
   print: 'PRINT',
 }
+
+export const presenterModes = {
+  normal: 'NORMAL',
+  tall: 'TALL',
+  wide: 'WIDE',
+  notes: 'NOTES',
+}
