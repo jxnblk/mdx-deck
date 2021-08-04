@@ -13,7 +13,7 @@ export const useStorage = () => {
   const handleFocus = () => setFocused(true)
   const handleBlur = () => setFocused(false)
 
-  const handleStorageChange = e => {
+  const handleStorageChange = (e) => {
     const n = parseInt(e.newValue, 10)
     if (isNaN(n)) return
     switch (e.key) {
@@ -46,6 +46,11 @@ export const useStorage = () => {
     if (!focused) return
     localStorage.setItem(keys.slide, context.index)
   }, [focused, context.index])
+
+  React.useEffect(() => {
+    if (!focused) return
+    localStorage.setItem(keys.step, context.step)
+  }, [focused, context.step])
 }
 
 export default () => {
