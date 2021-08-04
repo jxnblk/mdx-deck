@@ -79,7 +79,7 @@ MDX uses Markdown syntax and can render React components inline with JSX.
 
 ### Imports
 
-To import components, use ES import syntax separated with empty lines between any markdown or JSX syntax.
+To import components, use ES import syntax separated with empty lines between any markdown or JSX syntax and place it in the `.mdx` file with your content.
 
 ```mdx
 import { Box } from 'theme-ui'
