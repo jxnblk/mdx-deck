@@ -6,17 +6,17 @@ import { modes } from '../constants'
 import { previous, next } from '../navigate'
 
 const keys = {
-  right: 39,
-  left: 37,
-  up: 38,
-  down: 40,
-  space: 32,
-  p: 80,
-  o: 79,
-  g: 71,
-  esc: 27,
-  pageUp: 33,
-  pageDown: 34,
+  right: 'ArrowRight',
+  left: 'ArrowLeft',
+  up: 'ArrowUp',
+  down: 'ArrowDown',
+  space: 'Space',
+  p: 'KeyP',
+  o: 'KeyO',
+  g: 'KeyG',
+  esc: 'Escape',
+  pageUp: 'PageUp',
+  pageDown: 'PageDown',
 }
 
 const toggleMode = next => state =>
@@ -43,7 +43,7 @@ export const useKeyboard = () => {
       if (inputElements.includes(el)) return
 
       if (shiftKey) {
-        switch (e.keyCode) {
+        switch (e.code) {
           case keys.space:
             previous(context)
             break
@@ -53,7 +53,7 @@ export const useKeyboard = () => {
             break
         }
       } else if (altKey) {
-        switch (e.keyCode) {
+        switch (e.code) {
           case keys.p:
             context.setState(toggleMode(modes.presenter))
             break
@@ -65,7 +65,7 @@ export const useKeyboard = () => {
             break
         }
       } else {
-        switch (e.keyCode) {
+        switch (e.code) {
           case keys.right:
           case keys.down:
           case keys.pageDown:
