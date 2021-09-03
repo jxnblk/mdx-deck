@@ -3,17 +3,17 @@ import { useDeck } from './context'
 import modes from './modes'
 
 const keys = {
-  right: 39,
-  left: 37,
-  up: 38,
-  down: 40,
-  space: 32,
-  p: 80,
-  o: 79,
-  g: 71,
-  esc: 27,
-  pageUp: 33,
-  pageDown: 34,
+  right: 'ArrowRight',
+  left: 'ArrowLeft',
+  up: 'ArrowUp',
+  down: 'ArrowDown',
+  space: 'Space',
+  p: 'KeyP',
+  o: 'KeyO',
+  g: 'KeyG',
+  esc: 'Escape',
+  pageUp: 'PageUp',
+  pageDown: 'PageDown',
 }
 
 export const useKeyboard = () => {
@@ -24,8 +24,10 @@ export const useKeyboard = () => {
       if (e.metaKey) return
       if (e.ctrlKey) return
 
+      console.log(e)
+
       if (e.altKey) {
-        switch (e.keyCode) {
+        switch (e.code) {
           case keys.p:
             if (e.shiftKey) {
               context.toggleMode(modes.print)
@@ -43,7 +45,7 @@ export const useKeyboard = () => {
             break
         }
       } else if (e.shiftKey) {
-        switch (e.keyCode) {
+        switch (e.code) {
           case keys.space:
             e.preventDefault()
             context.previous()
@@ -52,7 +54,7 @@ export const useKeyboard = () => {
             break
         }
       } else {
-        switch (e.keyCode) {
+        switch (e.code) {
           case keys.right:
           case keys.down:
           case keys.pageDown:
