@@ -16,20 +16,6 @@ const keys = {
   pageDown: 'PageDown',
 }
 
-// const keys = {
-//   right: 39,
-//   left: 37,
-//   up: 38,
-//   down: 40,
-//   space: 32,
-//   p: 80,
-//   o: 79,
-//   g: 71,
-//   esc: 27,
-//   pageUp: 33,
-//   pageDown: 34,
-// }
-
 export const useKeyboard = () => {
   const context = useDeck()
 

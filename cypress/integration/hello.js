@@ -15,7 +15,7 @@ context('MDX Deck', () => {
   it('goes to the next slide', () => {
     cy.get('body')
       .trigger('keydown', {
-        keyCode: 39,
+        code: 'ArrowRight',
       })
       .contains('Presentation')
   })

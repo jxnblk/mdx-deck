@@ -85,7 +85,7 @@ test('goes back one slide with left arrow key', () => {
     />
   )
   fireEvent.keyDown(document.body, {
-    keyCode: 'ArrowLeft',
+    code: 'ArrowLeft',
   })
   const text = tree.getByText('One')
   expect(text).toBeTruthy()
