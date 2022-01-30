@@ -13,11 +13,40 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import { useDeck } from './context'
 import modes from './modes'
-import { useState } from 'react'
+import React, { useState, useRef } from 'react'
+
+const toolbarShowPeriod = 5 * 1000
 
 export default () => {
   const context = useDeck()
   const [showToolbar, setShowToolbar] = useState(false)
+  const closeToolbarTimeoutRef = useRef(null)
+  const toggleToolbar = () => {
+    if (closeToolbarTimeoutRef.current) {
+      clearTimeout(closeToolbarTimeoutRef.current)
+    }
+    closeToolbarTimeoutRef.current = setTimeout(() => {
+      setShowToolbar(false)
+    }, toolbarShowPeriod)
+    setShowToolbar(true)
+  }
+  React.useEffect(() => {
+    document.documentElement.addEventListener('mousedown', toggleToolbar)
+    document.documentElement.addEventListener('mousemove', toggleToolbar)
+    document.documentElement.addEventListener('touchend', toggleToolbar)
+    document.documentElement.addEventListener('touchmove', toggleToolbar)
+    document.documentElement.addEventListener('touchstart', toggleToolbar)
+    return () => {
+      if (closeToolbarTimeoutRef.current) {
+        clearTimeout(closeToolbarTimeoutRef.current)
+      }
+      document.documentElement.removeEventListener('mousedown', toggleToolbar)
+      document.documentElement.removeEventListener('mousemove', toggleToolbar)
+      document.documentElement.removeEventListener('touchend', toggleToolbar)
+      document.documentElement.removeEventListener('touchmove', toggleToolbar)
+      document.documentElement.removeEventListener('touchstart', toggleToolbar)
+    }
+  }, [context])
   return (
     <div
       sx={{
