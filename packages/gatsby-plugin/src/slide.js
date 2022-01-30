@@ -6,9 +6,11 @@ export default ({
   width = '100%',
   height = '100%',
   children,
+  innerRef,
   ...props
-}) =>
+}) => (
   <div
+    ref={innerRef}
     {...props}
     sx={{
       boxSizing: 'border-box',
@@ -27,3 +29,4 @@ export default ({
     }}>
     {children}
   </div>
+)
