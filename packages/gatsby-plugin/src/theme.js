@@ -4,6 +4,7 @@ export default {
     text: '#fff',
     background: '#000',
     backdrop: '#111',
+    primary: '#fff',
   },
   fonts: {
     body: 'system-ui, sans-serif',
@@ -69,5 +70,5 @@ export default {
     Footer: {
       px: 3,
     },
-  }
+  },
 }

@@ -4,11 +4,13 @@ import { ThemeProvider, merge } from 'theme-ui'
 import split from './split-slides'
 import { Context } from './context'
 import Keyboard from './keyboard'
+import { useSwipeWithCustomContext } from './use-swipe'
 import modes from './modes'
 import Storage from './storage'
 import Container from './container'
 import Slide from './slide'
 import baseTheme from './theme'
+import Control from './control'
 
 const getIndex = props => {
   if (!props.location) return 0
@@ -23,9 +25,8 @@ export default props => {
   const slide = slides[index]
 
   const [mode, setMode] = React.useState(modes.default)
-  const toggleMode = next => setMode(current =>
-    current === next ? modes.default : next
-  )
+  const toggleMode = next =>
+    setMode(current => (current === next ? modes.default : next))
 
   const [step, setStep] = React.useState(0)
   const [steps, setSteps] = React.useState(0)
@@ -54,8 +55,6 @@ export default props => {
     }
   }, [])
 
-  if (!slide) return false
-
   const context = {
     slides,
     slug,
@@ -80,7 +79,7 @@ export default props => {
     if (steps && step > 0) {
       setStep(n => n - 1)
     } else {
-      setIndex(n => n > 0 ? n - 1 : n)
+      setIndex(n => (n > 0 ? n - 1 : n))
       setStep(0)
       setSteps(0)
     }
@@ -90,7 +89,7 @@ export default props => {
     if (step < steps) {
       setStep(n => n + 1)
     } else {
-      setIndex(n => n < slides.length - 1 ? n + 1 : n)
+      setIndex(n => (n < slides.length - 1 ? n + 1 : n))
       setStep(0)
       setSteps(0)
     }
@@ -98,19 +97,22 @@ export default props => {
 
   const theme = merge(baseTheme, props.theme || {})
 
+  const { ref, ...swipeHandlers } = useSwipeWithCustomContext({ context })
+
+  if (!slide) return false
+
   return (
     <Context.Provider value={context}>
+      <Control />
       <Keyboard />
       <Storage />
       <Helmet>
         {slides.head.children}
-        {theme.googleFont && <link rel='stylesheet' href={theme.googleFont} />}
+        {theme.googleFont && <link rel="stylesheet" href={theme.googleFont} />}
       </Helmet>
-      <ThemeProvider
-        theme={theme}
-        components={theme.components}>
+      <ThemeProvider theme={theme} components={theme.components}>
         <Container>
-          <Slide>
+          <Slide innerRef={ref} {...swipeHandlers}>
             {slide}
           </Slide>
         </Container>
