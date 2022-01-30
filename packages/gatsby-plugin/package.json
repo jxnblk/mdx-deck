@@ -29,6 +29,7 @@
     "gatsby-plugin-react-helmet": "^3.1.18",
     "hhmmss": "^1.0.0",
     "react-helmet": "^5.2.1",
+    "react-swipeable": "^6.2.0",
     "remark-emoji": "^2.0.2",
     "remark-images": "^2.0.0",
     "remark-unwrap-images": "^2.0.0",
