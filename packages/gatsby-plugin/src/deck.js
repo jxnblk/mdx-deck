@@ -10,6 +10,7 @@ import Storage from './storage'
 import Container from './container'
 import Slide from './slide'
 import baseTheme from './theme'
+import Control from './control'
 
 const getIndex = props => {
   if (!props.location) return 0
@@ -102,6 +103,7 @@ export default props => {
 
   return (
     <Context.Provider value={context}>
+      <Control />
       <Keyboard />
       <Storage />
       <Helmet>

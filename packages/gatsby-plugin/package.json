@@ -14,11 +14,15 @@
     "react-dom": "^16.10.0"
   },
   "devDependencies": {
+    "@types/theme-ui": "^0.6.0",
     "gatsby": "^2.14.0",
     "react": "^16.10.0",
     "react-dom": "^16.10.0"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.36",
+    "@fortawesome/free-solid-svg-icons": "^5.15.4",
+    "@fortawesome/react-fontawesome": "^0.1.17",
     "@mdx-js/loader": "^1.5.3",
     "@mdx-js/mdx": "^1.5.3",
     "gatsby-page-utils": "^0.0.39",
