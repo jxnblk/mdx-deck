@@ -15,7 +15,7 @@ import { useDeck } from './context'
 import modes from './modes'
 import React, { useState, useRef } from 'react'
 
-const toolbarShowPeriod = 5 * 1000
+const toolbarShowPeriod = 2 * 1000
 
 export default () => {
   const context = useDeck()
