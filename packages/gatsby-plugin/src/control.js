@@ -50,27 +50,29 @@ export default () => {
   return (
     <div
       sx={{
-        position: 'absolute',
+        position:
+          context.mode === modes.grid || context.mode === modes.print
+            ? 'fixed'
+            : 'absolute',
         zIndex: 10,
         left: 0,
         bottom: 0,
         right: 0,
         variant: 'styles.Footer',
-        color: 'text',
-        margin: 'auto',
+        color: 'white',
         visibility: showToolbar ? 'visible' : 'hidden',
       }}>
       <Flex
         sx={{
-          borderRadius: 25,
-          backgroundColor: 'backdrop',
-          padding: 20,
+          borderRadius: 5,
+          backgroundColor: 'black',
+          padding: 1,
           opacity: '70%',
-          borderColor: 'text',
           flexDirection: 'row',
           justifyContent: 'center',
           alignItems: 'center',
-          margin: 'auto',
+          margin: '0 auto',
+          width: 'max-content',
         }}>
         <IconButton
           bg="transparent"
