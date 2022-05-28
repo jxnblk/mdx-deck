@@ -1,39 +1,28 @@
 import React from 'react'
-import {
-  render,
-  fireEvent,
-  cleanup
-} from '@testing-library/react'
+import { render, fireEvent, cleanup } from '@testing-library/react'
 import Deck from '../src/deck'
-import {
-  Steps,
-  Header,
-  Footer,
-} from '../src'
+import { Steps, Header, Footer } from '../src'
 
 afterEach(cleanup)
 
 let __key = 0
-const Comp = ({
-  originalType,
-  mdxType,
-  ...props
-}) => React.createElement(originalType, props)
+const Comp = ({ originalType, mdxType, ...props }) =>
+  React.createElement(originalType, props)
 
 const x = (tag, props, children) =>
-  React.createElement(Comp, {
-    key: __key++,
-    tag,
-    originalType: tag,
-    mdxType: tag,
-    ...props
-  }, children)
+  React.createElement(
+    Comp,
+    {
+      key: __key++,
+      tag,
+      originalType: tag,
+      mdxType: tag,
+      ...props,
+    },
+    children
+  )
 
-const mdx = [
-  x('div', null, 'One'),
-  x('hr', null),
-  x('div', null, 'Two'),
-]
+const mdx = [x('div', null, 'One'), x('hr', null), x('div', null, 'Two')]
 
 const deckProps = {
   children: mdx,
@@ -41,21 +30,17 @@ const deckProps = {
     hash: '',
     pathname: '/',
   },
-  navigate: jest.fn()
+  navigate: jest.fn(),
 }
 
 test('renders', () => {
-  const tree = render(
-    <Deck {...deckProps} />
-  )
+  const tree = render(<Deck {...deckProps} />)
   const text = tree.getByText('One')
   expect(text).toBeTruthy()
 })
 
 test('advances one slide with right arrow key', () => {
-  const tree =render (
-    <Deck {...deckProps} />
-  )
+  const tree = render(<Deck {...deckProps} />)
   fireEvent.keyDown(document.body, {
     keyCode: 39,
   })
@@ -64,9 +49,7 @@ test('advances one slide with right arrow key', () => {
 })
 
 test('advances one slide with down arrow key', () => {
-  const tree =render (
-    <Deck {...deckProps} />
-  )
+  const tree = render(<Deck {...deckProps} />)
   fireEvent.keyDown(document.body, {
     keyCode: 40,
   })
@@ -75,9 +58,7 @@ test('advances one slide with down arrow key', () => {
 })
 
 test('advances one slide with spacebar key', () => {
-  const tree =render (
-    <Deck {...deckProps} />
-  )
+  const tree = render(<Deck {...deckProps} />)
   fireEvent.keyDown(document.body, {
     keyCode: 32,
   })
@@ -86,9 +67,7 @@ test('advances one slide with spacebar key', () => {
 })
 
 test('advances one slide with page down key', () => {
-  const tree =render (
-    <Deck {...deckProps} />
-  )
+  const tree = render(<Deck {...deckProps} />)
   fireEvent.keyDown(document.body, {
     keyCode: 34,
   })
@@ -96,8 +75,15 @@ test('advances one slide with page down key', () => {
   expect(text).toBeTruthy()
 })
 
+test('advances one slide with mouse click', () => {
+  const tree = render(<Deck {...deckProps} />)
+  expect(tree.getByText('One')).toBeTruthy()
+  fireEvent.click(document.body)
+  expect(tree.getByText('Two')).toBeTruthy()
+})
+
 test('goes back one slide with left arrow key', () => {
-  const tree =render (
+  const tree = render(
     <Deck
       {...deckProps}
       location={{
@@ -113,7 +99,7 @@ test('goes back one slide with left arrow key', () => {
 })
 
 test('goes back one slide with up arrow key', () => {
-  const tree =render (
+  const tree = render(
     <Deck
       {...deckProps}
       location={{
@@ -129,7 +115,7 @@ test('goes back one slide with up arrow key', () => {
 })
 
 test('goes back one slide with page up key', () => {
-  const tree =render (
+  const tree = render(
     <Deck
       {...deckProps}
       location={{
@@ -145,7 +131,7 @@ test('goes back one slide with page up key', () => {
 })
 
 test('goes back one slide with shift + space bar', () => {
-  const tree =render (
+  const tree = render(
     <Deck
       {...deckProps}
       location={{
@@ -161,10 +147,38 @@ test('goes back one slide with shift + space bar', () => {
   expect(text).toBeTruthy()
 })
 
-test('ignores meta keys', () => {
-  const tree =render (
-    <Deck {...deckProps} />
+test('goes back one slide with right click', () => {
+  const tree = render(
+    <Deck
+      {...deckProps}
+      location={{
+        hash: '#1',
+      }}
+    />
   )
+  expect(tree.getByText('Two')).toBeTruthy()
+  fireEvent.contextMenu(document.body)
+  expect(tree.getByText('One')).toBeTruthy()
+})
+
+test('allow context menu when alt button is pressed while clicking right button', () => {
+  const tree = render(
+    <Deck
+      {...deckProps}
+      location={{
+        hash: '#1',
+      }}
+    />
+  )
+  expect(tree.getByText('Two')).toBeTruthy()
+  fireEvent.contextMenu(document.body, {
+    altKey: true,
+  })
+  expect(tree.getByText('Two')).toBeTruthy()
+})
+
+test('ignores meta keys', () => {
+  const tree = render(<Deck {...deckProps} />)
   fireEvent.keyDown(document.body, {
     metaKey: true,
     keyCode: 39,
@@ -174,9 +188,7 @@ test('ignores meta keys', () => {
 })
 
 test('ignores ctrl keys', () => {
-  const tree =render (
-    <Deck {...deckProps} />
-  )
+  const tree = render(<Deck {...deckProps} />)
   fireEvent.keyDown(document.body, {
     ctrlKey: true,
     keyCode: 39,
@@ -186,12 +198,12 @@ test('ignores ctrl keys', () => {
 })
 
 test('initializes print mode', () => {
-  const tree =render (
+  const tree = render(
     <Deck
       {...deckProps}
       location={{
         hash: '',
-        pathname: '/print'
+        pathname: '/print',
       }}
     />
   )
@@ -203,7 +215,9 @@ test('initializes print mode', () => {
 
 describe('steps', () => {
   const children = [
-    x('div', null,
+    x(
+      'div',
+      null,
       <Steps>
         <div>A</div>
         <div>B</div>
@@ -215,12 +229,7 @@ describe('steps', () => {
   ]
 
   test('increments step', () => {
-    const tree =render (
-      <Deck
-        {...deckProps}
-        children={children}
-      />
-    )
+    const tree = render(<Deck {...deckProps} children={children} />)
     fireEvent.keyDown(document.body, {
       keyCode: 39,
     })
@@ -231,12 +240,7 @@ describe('steps', () => {
   })
 
   test('decrements step', () => {
-    const tree =render (
-      <Deck
-        {...deckProps}
-        children={children}
-      />
-    )
+    const tree = render(<Deck {...deckProps} children={children} />)
     fireEvent.keyDown(document.body, { keyCode: 39 })
     fireEvent.keyDown(document.body, { keyCode: 39 })
     fireEvent.keyDown(document.body, { keyCode: 37 })
@@ -255,12 +259,7 @@ test('renders with Header and Footer', () => {
     x('hr', null),
     x('div', null, 'Two'),
   ]
-  const tree =render (
-    <Deck
-      {...deckProps}
-      children={children}
-    />
-  )
+  const tree = render(<Deck {...deckProps} children={children} />)
   const header = tree.getByText('Header')
   const footer = tree.getByText('Footer')
   expect(header).toBeTruthy()
