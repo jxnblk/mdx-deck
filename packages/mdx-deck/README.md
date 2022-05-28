@@ -176,6 +176,15 @@ which will show a preview of the next slide, a timer, and speaker notes.
 The presentation can be opened in two separate windows at the same time,
 and it will stay in sync with the other window.
 
+## Mouse Events
+
+| Key         | Description                                  |
+|-------------| -------------------------------------------- |
+| Right click | Go to previous slide (or step in [Steps][]) |
+| Left click  | Go to next slide (or step in [Steps][])     |
+
+In any case you need the default behaviour for right-click (show up the context menu) you can right-click while pressing `ALT` button.
+
 ## Keyboard Shortcuts
 
 | Key         | Description                                  |
